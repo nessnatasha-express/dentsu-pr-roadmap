@@ -248,6 +248,11 @@ p.sub{
 }
 .editor-btn:hover{border-color:var(--gold);}
 .editor-hint{font-size:11.5px; color:#9a9587;}
+.autosave-indicator{
+  font-size:11px; color:#2E7D4F; font-weight:600; opacity:0;
+  transition:opacity .3s ease; white-space:nowrap;
+}
+.autosave-indicator.show{opacity:1;}
 input.file-hidden{display:none;}
 
 .filter-bar{
@@ -344,15 +349,64 @@ input.file-hidden{display:none;}
   transform:translateY(12px); transition:transform .18s ease;
 }
 .card-modal-overlay.open .card-modal{transform:translateY(0);}
-.cm-header{padding:22px 24px 16px; border-bottom:1px solid var(--line);}
+.cm-header{padding:22px 24px 16px; border-bottom:1px solid var(--line); position:relative;}
 .cm-phase{font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--tan); margin-bottom:6px;}
-.cm-title{font-size:17px; font-weight:700; color:var(--navy); margin:0 0 10px; line-height:1.3;}
+.cm-title-input{
+  font-size:17px; font-weight:700; color:var(--navy); line-height:1.3;
+  border:none; border-bottom:2px solid transparent; outline:none; width:100%; background:none;
+  font-family:inherit; padding:2px 0; margin-bottom:10px; transition:border-color .15s;
+}
+.cm-title-input:focus{border-bottom-color:var(--gold);}
 .cm-chips{display:flex; gap:7px; flex-wrap:wrap; align-items:center;}
 .cm-body{padding:20px 24px;}
-.cm-section{margin-bottom:18px;}
+.cm-section{margin-bottom:20px;}
 .cm-section:last-child{margin-bottom:0;}
-.cm-label{font-size:10.5px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--tan); margin:0 0 6px;}
+.cm-label{font-size:10.5px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--tan); margin:0 0 8px; display:block;}
 .cm-text{font-size:13.5px; color:#3d4654; line-height:1.6; margin:0;}
+.cm-textarea{
+  width:100%; min-height:90px; border:1.5px solid var(--line); border-radius:10px;
+  padding:10px 12px; font-size:13px; color:var(--navy); font-family:inherit; line-height:1.6;
+  resize:vertical; outline:none; background:#fdfcf9; transition:border-color .15s;
+}
+.cm-textarea:focus{border-color:var(--gold);}
+.cm-field-row{display:flex; gap:8px; flex-wrap:wrap;}
+.cm-option-btn{
+  border:1.5px solid var(--line); background:var(--cream); color:#6b7280;
+  padding:7px 13px; border-radius:20px; font-size:12px; font-weight:700;
+  cursor:pointer; transition:all .14s ease; font-family:inherit;
+  display:inline-flex; align-items:center; gap:5px;
+}
+.cm-option-btn:hover{border-color:var(--navy); color:var(--navy);}
+.cm-option-btn.selected-must{background:#B23A3A; color:white; border-color:#B23A3A;}
+.cm-option-btn.selected-nice{background:#C97A1E; color:white; border-color:#C97A1E;}
+.cm-option-btn.selected-live{background:#2E7D4F; color:white; border-color:#2E7D4F;}
+.cm-option-btn.selected-routing{background:rgba(110,151,201,0.2); color:#345277; border-color:#345277;}
+.cm-option-btn.selected-ai{background:rgba(215,169,74,0.22); color:#7a571c; border-color:#7a571c;}
+.cm-option-btn.selected-gov{background:rgba(168,162,60,0.2); color:#5e5a1e; border-color:#5e5a1e;}
+.cm-option-btn.selected-tool{background:rgba(11,27,51,0.08); color:var(--navy); border-color:var(--navy);}
+.cm-option-btn.selected-xl{background:rgba(178,58,58,0.14); color:#B23A3A; border-color:#B23A3A;}
+.cm-option-btn.selected-l{background:rgba(201,122,30,0.16); color:#C97A1E; border-color:#C97A1E;}
+.cm-option-btn.selected-m{background:rgba(11,27,51,0.08); color:var(--navy); border-color:var(--navy);}
+.cm-option-btn.selected-s{background:rgba(168,162,60,0.18); color:#5e5a1e; border-color:#5e5a1e;}
+.cm-option-btn.selected-xs{background:rgba(46,125,79,0.14); color:#2E7D4F; border-color:#2E7D4F;}
+.cm-footer{
+  padding:16px 24px; border-top:1px solid var(--line);
+  display:flex; gap:10px; justify-content:flex-end; align-items:center;
+}
+.cm-save-btn{
+  background:var(--navy); color:var(--cream); border:none; border-radius:10px;
+  padding:10px 22px; font-size:13px; font-weight:700; cursor:pointer; font-family:inherit;
+  transition:background .15s ease;
+}
+.cm-save-btn:hover{background:#1c3257;}
+.cm-cancel-btn{
+  background:none; color:var(--tan); border:1.5px solid var(--line); border-radius:10px;
+  padding:10px 18px; font-size:13px; font-weight:600; cursor:pointer; font-family:inherit;
+  transition:all .15s ease;
+}
+.cm-cancel-btn:hover{border-color:var(--navy); color:var(--navy);}
+.cm-saved-flash{font-size:12px; color:#2E7D4F; font-weight:600; opacity:0; transition:opacity .3s ease; margin-right:auto;}
+.cm-saved-flash.show{opacity:1;}
 .cm-deps{display:flex; flex-direction:column; gap:6px;}
 .cm-dep-item{
   display:flex; align-items:center; gap:8px; font-size:12.5px; color:#3d4654;
@@ -365,7 +419,6 @@ input.file-hidden{display:none;}
   color:var(--tan); padding:4px;
 }
 .cm-close:hover{color:var(--navy);}
-.cm-header{position:relative;}
 .chip-group{display:flex; gap:6px; flex-wrap:wrap;}
 .effort-badge{
   font-size:8.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
@@ -571,7 +624,8 @@ input.file-hidden{display:none;}
       <button class="editor-btn" id="importBtn">Import changes</button>
       <button class="editor-btn" id="resetBtn">Reset this phase</button>
       <input type="file" id="importFile" class="file-hidden" accept="application/json">
-      <span class="editor-hint">Drag a card between columns to recategorize it, or up/down within a column to reorder it. Click a tag chip to cycle its value.</span>
+      <span class="editor-hint">Drag cards to reorder. Click a tag to open its dropdown. Edits auto-save in this browser.</span>
+      <span class="autosave-indicator" id="autosaveIndicator"></span>
     </div>
 
     <div class="filter-bar">
@@ -1186,9 +1240,10 @@ const DATA = {
     },
     build: {
       wf: [
-        {t:"Business continuity & V1 migration", d:"First-pass migration of existing studio data into Workfront with no workflow disruption.", priority:"must", tag:"gov"},
-        {t:"Core user management", d:"Groups, users, roles configured.", priority:"must", tag:"gov"},
-        {t:"Core visibility & templates", d:"Permissions, views, filters, template-level presets; project/program/task templates by request type.", priority:"must", tag:"gov"},
+        {t:"Business continuity & V1 migration", d:"First-pass migration of existing studio data into Workfront with no workflow disruption. Dependent on: Implementation design and Migration inventory & planning (both Analysis & Strategy, First 60 Days).", priority:"must", tag:"gov"},
+        {t:"Setup user management, roles & permissions", d:"Configure groups, users, roles, and permission levels across all tiers. Establishes who can see and action what across BU Studios, COEs, ME Studios, Offshore Hubs, and Flex Pool.", priority:"must", tag:"gov"},
+        {t:"Setup program & project templates", d:"Build project, program, and task templates by request type so all briefs follow a consistent structure from day one.", priority:"must", tag:"gov"},
+        {t:"Setup role-specific views and filters", d:"Configure tailored views and filter presets per role (e.g. campaign lead, studio producer, market manager) so each user sees the most relevant work without noise.", priority:"must", tag:"gov"},
         {t:"Planning workspaces", d:"Campaigns, markets, channels, brands set up in Workfront Planning.", priority:"must", tag:"tool"},
         {t:"Brief submission form", d:"Market, brief details, requestor, due date, channels, budget fields live as a Workfront request form.", priority:"must", tag:"routing"},
         {t:"Resource visibility setup", d:"Views configured to see and assign across BU Studios, COEs, ME Studios, Offshore Hubs, Flex Pool.", priority:"must", tag:"routing"},
@@ -1198,8 +1253,10 @@ const DATA = {
         {t:"Agile capability layer", d:"Sprint-style views added on top of core templates where teams need them.", priority:"nice", tag:"tool"}
       ],
       blend: [
-        {t:"Business continuity & V1 migration", d:"First-pass migration of existing studio data into Workfront and DI Studio with no workflow disruption.", priority:"must", tag:"gov"},
-        {t:"Core user management & templates", d:"Roles and templates set in both tools where applicable.", priority:"must", tag:"gov"},
+        {t:"Business continuity & V1 migration", d:"First-pass migration of existing studio data into Workfront and DI Studio with no workflow disruption. Dependent on: Implementation design and Migration inventory & planning (both Analysis & Strategy, First 60 Days).", priority:"must", tag:"gov"},
+        {t:"Setup user management, roles & permissions", d:"Roles and permission levels configured in both Workfront and DI Studio where applicable.", priority:"must", tag:"gov"},
+        {t:"Setup program & project templates", d:"Project, program, and task templates by request type built across both tools where applicable.", priority:"must", tag:"gov"},
+        {t:"Setup role-specific views and filters", d:"Role-specific views and filter presets configured in Workfront; DI Studio views aligned where possible.", priority:"must", tag:"gov"},
         {t:"Workfront intake & routing build", d:"Workfront remains the intake/routing layer; resource visibility views built for all five tiers.", priority:"must", tag:"routing"},
         {t:"DI Studio production scaffolding", d:"Production-side task structures mirrored from the brief submission form fields.", priority:"must", tag:"tool"},
         {t:"Frame.io integration", d:"Connect Frame.io for review/delivery, surfaced into DI Studio production views.", priority:"nice", tag:"tool"},
@@ -1207,9 +1264,10 @@ const DATA = {
         {t:"Dynamic rate cards", d:"Initial rate-card logic for Flex Pool and shared production surge capacity.", priority:"nice", tag:"gov"}
       ],
       alt: [
-        {t:"Business continuity & V1 migration", d:"First-pass migration of existing studio data into the new tool with no workflow disruption.", priority:"must", tag:"gov"},
-        {t:"User & permission setup", d:"Groups, roles, views rebuilt natively, no legacy config to inherit.", priority:"must", tag:"gov"},
-        {t:"Template library build", d:"Project/program/task templates authored from scratch by request type.", priority:"must", tag:"tool"},
+        {t:"Business continuity & V1 migration", d:"First-pass migration of existing studio data into the new tool with no workflow disruption. Dependent on: Implementation design and Migration inventory & planning (both Analysis & Strategy, First 60 Days).", priority:"must", tag:"gov"},
+        {t:"Setup user management, roles & permissions", d:"Groups, users, roles, and permission levels configured natively in the new tool from scratch, no legacy config to inherit.", priority:"must", tag:"gov"},
+        {t:"Setup program & project templates", d:"Project, program, and task templates authored from scratch by request type in the new tool.", priority:"must", tag:"tool"},
+        {t:"Setup role-specific views and filters", d:"Role-specific views and filter presets built natively in the new tool per user role.", priority:"must", tag:"gov"},
         {t:"Alternative tool intake form build", d:"Brief submission form rebuilt natively in the chosen tool.", priority:"must", tag:"routing"},
         {t:"Routing structure rebuild", d:"BU Studios, COEs, ME Studios, Offshore Hubs, Flex Pool modelled as boards, spaces, or lists.", priority:"must", tag:"routing"},
         {t:"Frame.io integration", d:"Connect Frame.io for review/delivery; built from scratch against the new tool's API.", priority:"nice", tag:"tool"},
@@ -1252,7 +1310,7 @@ const DATA = {
         {t:"SmartAI modeling & design, AI context", d:"Design the AI/context model that will eventually power assisted and automated routing decisions.", priority:"nice", tag:"ai"},
         {t:"Brief intelligence, design", d:"Design how briefs get enriched with audience, media, and cultural data via GENIE/dentsu.connect before reaching creative.", priority:"nice", tag:"ai"},
         {t:"Predictive resourcing assessment", d:"Evaluate forecasting resource contention across tiers using historical campaign volume.", priority:"nice", tag:"ai"},
-        {t:"AD/Fusion sourcing consult", d:"Assess whether user management can be sourced from Active Directory via connector.", priority:"must", tag:"gov"},
+        {t:"Active Directory / Fusion sourcing consult", d:"Assess whether user management can be sourced from Active Directory via connector.", priority:"must", tag:"gov"},
         {t:"Data ownership, portability & decoupling plan", d:"Define the framework so PR retains full control and reversible access to its data, ahead of any decoupling work.", priority:"must", tag:"gov"},
         {t:"Creative effectiveness benchmarking, design", d:"Define the benchmarks and data sources for scoring creative performance against market.", priority:"live", tag:"ai"},
         {t:"Cultural & social listening, design", d:"Scope how external listening signals from dentsu.connect feed into the brief itself.", priority:"live", tag:"ai"},
@@ -1265,7 +1323,7 @@ const DATA = {
         {t:"SmartAI modeling & design, AI context", d:"Design the AI/context model, with a decision on which system surfaces AI-assisted routing.", priority:"nice", tag:"ai"},
         {t:"Brief intelligence, design", d:"Design how briefs get enriched via GENIE/dentsu.connect, with Workfront as the receiving intake layer.", priority:"nice", tag:"ai"},
         {t:"Predictive resourcing assessment", d:"Same scope, scoped against whichever system holds production scheduling data.", priority:"nice", tag:"ai"},
-        {t:"AD/Fusion sourcing consult", d:"Assess whether user management can be sourced from Active Directory via connector.", priority:"must", tag:"gov"},
+        {t:"Active Directory / Fusion sourcing consult", d:"Assess whether user management can be sourced from Active Directory via connector.", priority:"must", tag:"gov"},
         {t:"Data ownership, portability & decoupling plan", d:"Define the framework across both systems so PR retains full control and reversible access to its data.", priority:"must", tag:"gov"},
         {t:"Creative effectiveness benchmarking, design", d:"Define the benchmarks and data sources, decided independent of which system hosts the dashboard.", priority:"live", tag:"ai"},
         {t:"Cultural & social listening, design", d:"Scope how external listening signals feed into the brief, regardless of which system the brief lives in.", priority:"live", tag:"ai"},
@@ -1278,7 +1336,7 @@ const DATA = {
         {t:"SmartAI modeling & design, AI context", d:"Design the AI/context model against whatever automation builder the new tool offers.", priority:"nice", tag:"ai"},
         {t:"Brief intelligence, design", d:"Design how briefs get enriched via GENIE/dentsu.connect, with the new tool as the receiving intake layer.", priority:"nice", tag:"ai"},
         {t:"Predictive resourcing assessment", d:"Dependent on the alternative tool's reporting API exposing enough historical data.", priority:"nice", tag:"ai"},
-        {t:"AD/Fusion sourcing consult", d:"Assess whether user management can be sourced from Active Directory via connector into the new tool.", priority:"must", tag:"gov"},
+        {t:"Active Directory / Fusion sourcing consult", d:"Assess whether user management can be sourced from Active Directory via connector into the new tool.", priority:"must", tag:"gov"},
         {t:"Data ownership, portability & decoupling plan", d:"Define the framework so PR retains full control and reversible access to its data in the new tool.", priority:"must", tag:"gov"},
         {t:"Creative effectiveness benchmarking, design", d:"Define the benchmarks and data sources for the new tool's reporting layer to eventually surface.", priority:"live", tag:"ai"},
         {t:"Cultural & social listening, design", d:"Scope how external listening signals feed into the brief inside the new tool.", priority:"live", tag:"ai"},
@@ -1291,6 +1349,7 @@ const DATA = {
       wf: [
         {t:"Full historic migration", d:"Complete migration of remaining historical project/studio data beyond the V1 60-day migration.", priority:"must", tag:"gov"},
         {t:"Multi-partner model, build", d:"Build the tenant-isolation model designed in the 60-day phase, so secondary partners can operate without compromising PR's system of record.", priority:"must", tag:"gov"},
+        {t:"SSO / Active Directory / Fusion user enablement", d:"Actual build of the SSO and Active Directory integration via Fusion connector, enabling centralised user provisioning, deprovisioning, and role assignment directly from AD into Workfront.", priority:"must", tag:"tool"},
         {t:"Dynamic rate cards, enhanced for freelancers & fluctuations", d:"Extend the 60-day rate-card logic to cover freelancer rates and demand-driven rate fluctuations.", priority:"nice", tag:"gov"},
         {t:"Intelligent routing (assisted)", d:"Routing suggestions based on brief specifics and BU/COE alignment; human confirms.", priority:"nice", tag:"ai"},
         {t:"Duplicate detection, formalised", d:"Asset reuse and duplication checks become a standard triage step, not a manual spot-check.", priority:"nice", tag:"ai"},
@@ -1302,6 +1361,7 @@ const DATA = {
       blend: [
         {t:"Full historic migration", d:"Complete migration of remaining historical data across both Workfront and DI Studio.", priority:"must", tag:"gov"},
         {t:"Multi-partner model, build", d:"Build the tenant-isolation model, deciding whether DI Studio also needs partner-level access controls.", priority:"must", tag:"gov"},
+        {t:"SSO / Active Directory / Fusion user enablement", d:"Build the SSO and Active Directory integration via Fusion connector into Workfront; assess whether DI Studio requires a separate identity-management connector.", priority:"must", tag:"tool"},
         {t:"Dynamic rate cards, enhanced for freelancers & fluctuations", d:"Extend the 60-day rate-card logic to cover freelancer rates and demand-driven rate fluctuations.", priority:"nice", tag:"gov"},
         {t:"Automated DI Studio ↔ Workfront sync", d:"First automated handoff between production status and the system of record, replacing manual updates.", priority:"must", tag:"tool"},
         {t:"Duplicate detection, formalised", d:"Run at the Workfront intake layer, visible to DI Studio production teams.", priority:"nice", tag:"ai"},
@@ -1313,6 +1373,7 @@ const DATA = {
       alt: [
         {t:"Full historic migration", d:"Complete migration of remaining historical data into the new tool.", priority:"must", tag:"gov"},
         {t:"Multi-partner model, build", d:"Build the tenant-isolation model designed in the 60-day phase, natively in the new tool's permissioning system.", priority:"must", tag:"gov"},
+        {t:"SSO / Active Directory / Fusion user enablement", d:"Build the SSO and Active Directory integration into the new tool; Fusion connector may not be available natively, so a custom identity-management bridge may be required.", priority:"must", tag:"tool"},
         {t:"Dynamic rate cards, enhanced for freelancers & fluctuations", d:"Extend the 60-day rate-card logic to cover freelancer rates and demand-driven rate fluctuations.", priority:"nice", tag:"gov"},
         {t:"Intelligent routing (assisted)", d:"Rule-based routing native to the tool's automation builder.", priority:"nice", tag:"ai"},
         {t:"Duplicate detection, formalised", d:"Added via the alternative tool's automation/integration layer.", priority:"nice", tag:"ai"},
@@ -1561,6 +1622,34 @@ Object.keys(STATE).forEach(phase=>{
     });
   });
 });
+
+const LS_KEY = "pr_roadmap_v2_state";
+
+function saveToLocalStorage(){
+  try{
+    localStorage.setItem(LS_KEY, JSON.stringify(STATE));
+    const ind = document.getElementById("autosaveIndicator");
+    if(ind){
+      ind.textContent = "✓ Auto-saved";
+      ind.classList.add("show");
+      clearTimeout(ind._t);
+      ind._t = setTimeout(()=> ind.classList.remove("show"), 1800);
+    }
+  } catch(e){ /* storage full or unavailable */ }
+}
+
+function loadFromLocalStorage(){
+  try{
+    const saved = localStorage.getItem(LS_KEY);
+    if(!saved) return false;
+    const parsed = JSON.parse(saved);
+    Object.keys(parsed).forEach(k=>{ STATE[k] = parsed[k]; });
+    return true;
+  } catch(e){ return false; }
+}
+
+// Load saved state on startup — runs before first render
+const _hadSavedState = loadFromLocalStorage();
 
 const OPT_LABEL = {wf:"All TAG + PR in Workfront", blend:"DI Studio + Workfront blend", alt:"Alternative tool (Monday/ClickUp)"};const OPT_COLOR = {wf:"#0B1B33", blend:"#6E97C9", alt:"#A8A23C"};
 
@@ -1985,6 +2074,7 @@ function renderDetail(){
   renderItems(document.getElementById("colReport"), phase.report[currentOpt], "report");
   renderProsCons(currentPhase);
   applyFilters();
+  saveToLocalStorage();
 }
 
 function exportState(){
@@ -2005,6 +2095,7 @@ function importState(file){
     try{
       const parsed = JSON.parse(e.target.result);
       Object.keys(parsed).forEach(k=>{ STATE[k] = parsed[k]; });
+      saveToLocalStorage();
       render();
     }catch(err){
       alert("That file couldn't be read as roadmap data. Make sure it's a JSON export from this tool.");
@@ -2016,6 +2107,7 @@ function importState(file){
 function resetPhase(){
   STATE[currentPhase] = JSON.parse(JSON.stringify(DATA[currentPhase]));
   mergeBuildActive(STATE[currentPhase]);
+  saveToLocalStorage();
   renderDetail();
 }
 
@@ -2167,7 +2259,13 @@ wireColumnDrop(document.getElementById("colStrat"), "strat");
 wireColumnDrop(document.getElementById("colBuildActive"), "buildactive");
 wireColumnDrop(document.getElementById("colReport"), "report");
 
-document.getElementById("exportBtn").addEventListener("click", exportState);
+document.getElementById("exportBtn").addEventListener("click", ()=>{
+  exportState();
+  const btn = document.getElementById("exportBtn");
+  const orig = btn.textContent;
+  btn.textContent = "Saved to file ✓";
+  setTimeout(()=>{ btn.textContent = orig; }, 2000);
+});
 document.getElementById("resetBtn").addEventListener("click", ()=>{
   if(confirm("Reset this phase back to its original cards? This discards your drag/edit changes for this phase only.")) resetPhase();
 });
@@ -2215,36 +2313,106 @@ const PHASE_LABELS = {d60:"First 60 Days", y1:"Year 1", y2:"Year 2", y3:"Year 3"
 
 function openCardModal(item, idx, colKey){
   const col = STATE[currentPhase][colKey][currentOpt];
-  const deps = col.slice(0, idx).map((d, i) => `<div class="cm-dep-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>P${i+1} — ${d.t}</div>`).join("");
+  const deps = col.slice(0, idx).map((d, i) =>
+    `<div class="cm-dep-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>${d.t}</div>`
+  ).join("");
+  const currentEffort = item.effort || defaultEffort(item);
+
+  const priorityOpts = [{v:"must",l:"High"},{v:"nice",l:"Med"},{v:"live",l:"Low"}];
+  const tagOpts = [{v:"routing",l:"Routing"},{v:"ai",l:"AI/Auto"},{v:"gov",l:"Gov"},{v:"tool",l:"Tool"}];
+  const effortOpts = [{v:"xl",l:"XL"},{v:"l",l:"L"},{v:"m",l:"M"},{v:"s",l:"S"},{v:"xs",l:"XS"}];
+
+  const pBtns = priorityOpts.map(o=>`<button class="cm-option-btn${item.priority===o.v?' selected-'+o.v:''}" data-field="priority" data-val="${o.v}">${o.l}</button>`).join("");
+  const tBtns = tagOpts.map(o=>`<button class="cm-option-btn${item.tag===o.v?' selected-'+o.v:''}" data-field="tag" data-val="${o.v}">${tagIcon(o.v)}${o.l}</button>`).join("");
+  const eBtns = effortOpts.map(o=>`<button class="cm-option-btn${currentEffort===o.v?' selected-'+o.v:''}" data-field="effort" data-val="${o.v}">${o.l}</button>`).join("");
 
   document.getElementById("cardModal").innerHTML = `
     <div class="cm-header">
       <button class="cm-close" id="cmClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" width="18" height="18"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
       <div class="cm-phase">${PHASE_LABELS[currentPhase]} &nbsp;·&nbsp; ${COL_LABELS[colKey]}</div>
-      <h2 class="cm-title">${item.t}</h2>
-      <div class="cm-chips">
-        <span class="chip priority-${item.priority}">${priorityLabel(item.priority)}</span>
-        <span class="chip ${item.tag}">${tagIcon(item.tag)}${tagLabel(item.tag)}</span>
-        <span class="effort-badge effort-${item.effort || defaultEffort(item)}">${effortLabel(item.effort || defaultEffort(item))}</span>
-      </div>
+      <input class="cm-title-input" id="cmTitleInput" type="text" value="${item.t.replace(/"/g,'&quot;')}" spellcheck="true">
     </div>
     <div class="cm-body">
       <div class="cm-section">
-        <p class="cm-label">Description</p>
-        <p class="cm-text">${item.d}</p>
+        <label class="cm-label" for="cmDescInput">Description</label>
+        <textarea class="cm-textarea" id="cmDescInput" spellcheck="true">${item.d}</textarea>
       </div>
       <div class="cm-section">
-        <p class="cm-label">Prerequisites in this column</p>
+        <span class="cm-label">Priority</span>
+        <div class="cm-field-row" id="cmPriorityRow">${pBtns}</div>
+      </div>
+      <div class="cm-section">
+        <span class="cm-label">Category</span>
+        <div class="cm-field-row" id="cmTagRow">${tBtns}</div>
+      </div>
+      <div class="cm-section">
+        <span class="cm-label">Effort</span>
+        <div class="cm-field-row" id="cmEffortRow">${eBtns}</div>
+      </div>
+      <div class="cm-section">
+        <span class="cm-label">Prerequisites in this column</span>
         <div class="cm-deps">${deps || '<span class="cm-dep-none">No prerequisites — this is the first item in this column.</span>'}</div>
       </div>
       <div class="cm-section">
-        <p class="cm-label">Operating model</p>
+        <span class="cm-label">Operating model</span>
         <p class="cm-text">${OPT_LABEL[currentOpt]}</p>
       </div>
+    </div>
+    <div class="cm-footer">
+      <span class="cm-saved-flash" id="cmSavedFlash">Saved ✓</span>
+      <button class="cm-cancel-btn" id="cmCancel">Cancel</button>
+      <button class="cm-save-btn" id="cmSave">Save changes</button>
     </div>`;
 
-  document.getElementById("cardModalOverlay").classList.add("open");
+  // Track selected values in a draft object so we don't mutate until Save
+  const draft = {
+    t: item.t,
+    d: item.d,
+    priority: item.priority,
+    tag: item.tag,
+    effort: currentEffort
+  };
+
+  // Toggle single-select option buttons
+  function wireOptionRow(rowId, field){
+    document.getElementById(rowId).querySelectorAll(".cm-option-btn").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        document.getElementById(rowId).querySelectorAll(".cm-option-btn").forEach(b=>{
+          b.className = "cm-option-btn";
+        });
+        btn.className = `cm-option-btn selected-${btn.dataset.val}`;
+        draft[field] = btn.dataset.val;
+      });
+    });
+  }
+  wireOptionRow("cmPriorityRow", "priority");
+  wireOptionRow("cmTagRow", "tag");
+  wireOptionRow("cmEffortRow", "effort");
+
+  // Save button
+  document.getElementById("cmSave").addEventListener("click", ()=>{
+    draft.t = document.getElementById("cmTitleInput").value.trim() || item.t;
+    draft.d = document.getElementById("cmDescInput").value.trim() || item.d;
+    const arr = STATE[currentPhase][colKey][currentOpt];
+    arr[idx].t = draft.t;
+    arr[idx].d = draft.d;
+    arr[idx].priority = draft.priority;
+    arr[idx].tag = draft.tag;
+    arr[idx].effort = draft.effort;
+    renderDetail();
+    // Flash saved indicator, don't close so user can keep editing
+    const flash = document.getElementById("cmSavedFlash");
+    flash.classList.add("show");
+    setTimeout(()=> flash.classList.remove("show"), 1800);
+  });
+
+  // Cancel closes without saving
+  document.getElementById("cmCancel").addEventListener("click", closeCardModal);
   document.getElementById("cmClose").addEventListener("click", closeCardModal);
+
+  document.getElementById("cardModalOverlay").classList.add("open");
+  // Focus title input immediately
+  setTimeout(()=> document.getElementById("cmTitleInput")?.focus(), 50);
 }
 
 function closeCardModal(){
