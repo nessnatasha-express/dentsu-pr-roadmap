@@ -236,8 +236,9 @@ input.file-hidden{display:none;}
 .filter-label{font-size:10.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--tan); margin-right:3px;}
 .filter-pill{
   border:1.5px solid var(--line); background:var(--cream); color:#8b8478;
-  padding:6px 12px; border-radius:20px; font-size:12px; font-weight:600; cursor:pointer;
+  padding:6px 12px; border-radius:20px; font-size:11px; font-weight:700; cursor:pointer;
   transition:all .15s ease; display:inline-flex; align-items:center; gap:5px;
+  text-transform:uppercase; letter-spacing:.03em;
 }
 .filter-pill .fp-icon{width:10px; height:10px; flex-shrink:0; display:inline-flex;}
 .filter-pill .fp-icon svg{width:10px; height:10px;}
@@ -256,10 +257,10 @@ input.file-hidden{display:none;}
 .filter-pill.priority-must.active{background:#2E7D4F; color:white; border-color:#2E7D4F;}
 .filter-pill.priority-nice.active{background:#C97A1E; color:white; border-color:#C97A1E;}
 .filter-pill.priority-live.active{background:#B23A3A; color:white; border-color:#B23A3A;}
-.filter-pill.routing.active{background:#345277; color:white; border-color:#345277;}
-.filter-pill.ai.active{background:#7a571c; color:white; border-color:#7a571c;}
-.filter-pill.gov.active{background:#5e5a1e; color:white; border-color:#5e5a1e;}
-.filter-pill.tool.active{background:var(--navy); color:var(--cream); border-color:var(--navy);}
+.filter-pill.routing.active{background:rgba(110,151,201,0.2); color:#345277; border-color:#345277; font-weight:700;}
+.filter-pill.ai.active{background:rgba(215,169,74,0.25); color:#7a571c; border-color:#7a571c; font-weight:700;}
+.filter-pill.gov.active{background:rgba(168,162,60,0.22); color:#5e5a1e; border-color:#5e5a1e; font-weight:700;}
+.filter-pill.tool.active{background:rgba(11,27,51,0.1); color:var(--navy); border-color:var(--navy); font-weight:700;}
 
 .filter-pill.filter-clear{background:none; border:1px solid var(--tan); color:var(--tan); margin-left:auto;}
 .filter-pill.filter-clear:hover{border-color:var(--navy); color:var(--navy);}
@@ -273,7 +274,7 @@ input.file-hidden{display:none;}
   flex-shrink:0; font-size:10px; font-weight:700; letter-spacing:.03em; color:var(--navy);
   background:var(--cream); border:1px solid var(--tan); border-radius:20px; padding:3px 8px;
 }
-.chip{font-size:9.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding:3px 8px; border-radius:20px;}
+.chip{font-size:8.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding:3px 8px; border-radius:20px;}
 .chip.priority-must{background:#2E7D4F; color:white;}
 .chip.priority-nice{background:#C97A1E; color:white;}
 .chip.priority-live{background:#B23A3A; color:white;}
@@ -346,6 +347,26 @@ input.file-hidden{display:none;}
 .tc-table td:first-child{background:var(--white);}
 .tc-table tr.tc-section td:first-child{background:var(--cream);}
 .tc-table-wrap{max-height:640px; overflow:auto; border-radius:14px; border:1px solid var(--line);}
+.tc-subnav{display:flex; gap:8px; flex-wrap:wrap; margin:18px 0 20px;}
+.tc-subnav button{
+  border:1.5px solid var(--line); background:var(--white); color:var(--navy);
+  padding:9px 16px; border-radius:30px; font-size:12.5px; font-weight:700; cursor:pointer;
+  transition:all .15s ease;
+}
+.tc-subnav button:hover{border-color:var(--gold);}
+.tc-subnav button.active{background:var(--navy); color:var(--cream); border-color:var(--navy);}
+.tc-subnav button.tc-summary-btn{border-style:dashed; border-color:var(--tan);}
+.tc-subnav button.tc-summary-btn.active{background:var(--gold); color:var(--navy); border-color:var(--gold);}
+.tc-score-cell{text-align:center;}
+.tc-score-pill{
+  display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:6px 10px; border-radius:10px; min-width:64px;
+}
+.tc-score-pct{font-size:15px; font-weight:700;}
+.tc-score-breakdown{font-size:9.5px; color:inherit; opacity:0.85;}
+.tc-score-high{background:rgba(46,125,79,0.14); color:#2E7D4F;}
+.tc-score-mid{background:rgba(201,122,30,0.14); color:#C97A1E;}
+.tc-score-low{background:rgba(178,58,58,0.14); color:#B23A3A;}
+.tc-row-total td{background:var(--cream); font-weight:700;}
 .tc-table thead th, .tc-table tr:first-child th{position:sticky; top:0; z-index:5;}
 .tc-table th.tc-tool, .tc-table td.tc-tool{text-align:center; width:170px;}
 .tc-table tr.tc-section td{background:var(--cream); font-weight:700; color:var(--navy); text-transform:uppercase; font-size:11px; letter-spacing:.06em; padding:10px 14px;}
@@ -457,16 +478,16 @@ input.file-hidden{display:none;}
     <div class="filter-bar">
       <div class="filter-group">
         <span class="filter-label">Priority</span>
-        <button class="filter-pill priority-must active" data-filter-type="priority" data-filter-val="must">Must have</button>
-        <button class="filter-pill priority-nice active" data-filter-type="priority" data-filter-val="nice">Nice to have</button>
-        <button class="filter-pill priority-live active" data-filter-type="priority" data-filter-val="live">Can live without</button>
+        <button class="filter-pill priority-must active" data-filter-type="priority" data-filter-val="must">Must</button>
+        <button class="filter-pill priority-nice active" data-filter-type="priority" data-filter-val="nice">Nice</button>
+        <button class="filter-pill priority-live active" data-filter-type="priority" data-filter-val="live">Optional</button>
       </div>
       <div class="filter-group">
         <span class="filter-label">Category</span>
         <button class="filter-pill routing active" data-filter-type="tag" data-filter-val="routing"><span class="fp-icon"></span>Routing</button>
-        <button class="filter-pill ai active" data-filter-type="tag" data-filter-val="ai"><span class="fp-icon"></span>AI / Automation</button>
-        <button class="filter-pill gov active" data-filter-type="tag" data-filter-val="gov"><span class="fp-icon"></span>Governance</button>
-        <button class="filter-pill tool active" data-filter-type="tag" data-filter-val="tool"><span class="fp-icon"></span>Tooling</button>
+        <button class="filter-pill ai active" data-filter-type="tag" data-filter-val="ai"><span class="fp-icon"></span>AI/Auto</button>
+        <button class="filter-pill gov active" data-filter-type="tag" data-filter-val="gov"><span class="fp-icon"></span>Gov</button>
+        <button class="filter-pill tool active" data-filter-type="tag" data-filter-val="tool"><span class="fp-icon"></span>Tool</button>
       </div>
       <button class="filter-pill filter-clear" id="filterClearBtn">Reset filters</button>
       <span class="filter-count" id="filterCount"></span>
@@ -556,15 +577,18 @@ input.file-hidden{display:none;}
   <!-- TECHNOLOGY COMPARISON GRID VIEW -->
   <div id="techCompareView" class="section-block" style="display:none; margin-top:36px;">
     <h2>Technology Comparison Grid</h2>
-    <div class="lede">Adobe Workfront, Wrike, monday.com, and ClickUp assessed against The Mix's Five Must-Have Technology Pillars, required platform modules, and the forward integration roadmap (BI reporting, Bynder DAM, Figma, the Google-based brief generator). Workfront ratings draw on the submitted Appendix 4.2 responses and the Adobe Stack Final Assessment. Wrike, monday.com, and ClickUp ratings reflect current public vendor documentation as of June 2026, since none of the three were assessed in the RFP source material.</div>
+    <div class="lede">Adobe Workfront, Wrike, monday.com, and ClickUp assessed against The Mix's Five Must-Have Technology Pillars, required platform modules, the forward integration roadmap, data intelligence &amp; brief enrichment, certifications &amp; compliance, and data residency by region. Workfront ratings draw on the submitted Appendix 4.2 responses and the Adobe Stack Final Assessment. Wrike, monday.com, and ClickUp ratings reflect current public vendor documentation as of June 2026, since none of the three were assessed in the RFP source material. Rows marked "client addendum" reflect items added by Pernod Ricard after the initial assessment.</div>
 
-    <div class="tc-legend">
+    <div class="tc-subnav" id="tcSubnav"></div>
+
+    <div class="tc-legend" id="tcLegend">
       <span><span class="tc-badge full" style="width:16px;height:16px;font-size:9px;">&#10003;</span>Meets requirement</span>
       <span><span class="tc-badge partial" style="width:16px;height:16px;font-size:9px;">~</span>Partial / requires configuration or add-on</span>
       <span><span class="tc-badge gap" style="width:16px;height:16px;font-size:9px;">&#10007;</span>Significant gap</span>
+      <span style="font-style:italic; color:#9a9587;">Blank badge = open-ended item, pending a direct bidder response</span>
     </div>
 
-    <div class="tc-table-wrap">
+    <div class="tc-table-wrap" id="tcTableWrap">
     <table class="tc-table">
       <tr>
         <th>Requirement</th>
@@ -650,6 +674,38 @@ input.file-hidden{display:none;}
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Lists/boards/dashboards cover visibility; production-lifecycle depth is shallower</span></td>
       </tr>
 
+      <tr>
+        <td class="tc-req">Collaboration workflow — review &amp; approval + MAM<span class="tc-conf">[Verified] Appendix 4.2 client addendum</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Native proofing/approval workflow; MAM via AEM Assets or the Bynder connector</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Native proofing and approval flows; no built-in MAM, relies on integration</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Approval workflows via automations/forms; no native proofing tool or MAM</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Approval statuses and comments native; no dedicated proofing tool or MAM</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">Dashboards, reporting &amp; analytics (module-level, distinct from BI connector)<span class="tc-conf">[Verified] Appendix 4.2 client addendum</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Native dashboard builder with cross-project rollups</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Native analytics module with custom widgets</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Native dashboards; less depth at large cross-portfolio scale</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Native dashboards; less depth at large cross-portfolio scale</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">AI + GENIE integration &amp; scaling<span class="tc-conf">[Verified for Workfront] Appendix 1; [Probable] for others</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Native GENIE precedent named in submitted material; day-1 commitment</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No GENIE precedent; would be a custom build with no existing roadmap commitment</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No GENIE precedent; would be a custom build with no existing roadmap commitment</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No GENIE precedent; would be a custom build with no existing roadmap commitment</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">Omnichannel asset delivery <em>(nice to have)</em><span class="tc-conf">[Verified] Appendix 4.2 client addendum</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Possible via Bynder/AEM delivery APIs; not native to Workfront itself</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Probable] No native multi-channel delivery/transcode layer</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Probable] No native multi-channel delivery/transcode layer</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Probable] No native multi-channel delivery/transcode layer</span></td>
+      </tr>
+
       <tr class="tc-section"><td colspan="5">Forward Integration Roadmap</td></tr>
 
       <tr>
@@ -661,7 +717,7 @@ input.file-hidden{display:none;}
       </tr>
 
       <tr>
-        <td class="tc-req">Bynder DAM integration (bi-directional)<span class="tc-conf">[Verified for Workfront] Adobe Stack Assessment: not native</span></td>
+        <td class="tc-req">Bynder / BrandCloud DAM integration (bi-directional, + ContentCloud USA-Bynder)<span class="tc-conf">[Verified for Workfront] Adobe Stack Assessment: not native</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Bynder bi-directional REST API named in the Foundation tier; not out-of-the-box, built as part of baseline scope</span></td>
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Probable] No published Bynder connector; would require custom API build</span></td>
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Probable] No published Bynder connector; would require custom API build</span></td>
@@ -684,6 +740,228 @@ input.file-hidden{display:none;}
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Open API supports a custom build; not pre-built</span></td>
       </tr>
 
+      <tr class="tc-section"><td colspan="5">Data Intelligence &amp; Brief Enrichment <em style="text-transform:none; font-weight:400; color:#9a9587;">(client addendum — most of this sits with GENIE/dentsu.connect, not the work-management tool itself)</em></td></tr>
+
+      <tr>
+        <td class="tc-req">Brief intelligence — brief enriched with audience/media/cultural data before going to creative<span class="tc-conf">[Verified] Client addendum, item 11</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Possible via GENIE + Fusion enrichment before intake; not native to Workfront alone</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native enrichment layer; would require a custom pre-intake integration</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native enrichment layer; would require a custom pre-intake integration</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native enrichment layer; would require a custom pre-intake integration</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">Pre-flight creative quality scoring<span class="tc-conf">[Unverified] No documented capability on any platform</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native quality-scoring engine; would sit with GENIE or a third-party AI layer</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native quality-scoring engine</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native quality-scoring engine</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native quality-scoring engine</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">Asset performance learning loop — live performance informing next brief<span class="tc-conf">[Unverified] No documented capability on any platform</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Feasible via BI connector + GENIE feedback loop; not a built-in feature</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native learning-loop capability</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native learning-loop capability</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native learning-loop capability</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">Creative effectiveness benchmarking vs market, AI-powered<span class="tc-conf">[Unverified] No documented capability on any platform</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">Not a Workfront capability; would sit with a media partner or GENIE</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native benchmarking capability</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native benchmarking capability</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native benchmarking capability</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">Cultural &amp; social listening insight feeding creative briefs<span class="tc-conf">[Unverified] No documented capability on any platform</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">Sits with PR's data/media partners, not the work-management layer</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native social-listening integration</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native social-listening integration</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native social-listening integration</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">Data/Media-bridge — connecting media performance data into The Mix platform<span class="tc-conf">[Verified] Client addendum, item 10</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Fusion iPaaS named as the connector layer for media/data partner APIs</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Open API supports a custom bridge; no named media-data precedent</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Open API supports a custom bridge; no named media-data precedent</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Open API supports a custom bridge; no named media-data precedent</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">Reporting &amp; dashboards — Mix-level KPI visibility (delivery, cost, AI usage, reuse)<span class="tc-conf">[Verified] Client addendum</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Covered by the dashboards/reporting module row above; AI-usage and reuse metrics need GENIE feed</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Delivery/cost reportable natively; AI-usage and reuse metrics need an external feed</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Delivery/cost reportable natively; AI-usage and reuse metrics need an external feed</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Delivery/cost reportable natively; AI-usage and reuse metrics need an external feed</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">Project &amp; spend visibility and cost intelligence<span class="tc-conf">[Verified] Client addendum</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Native cost/budget tracking tied to resource module</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Native budget and cost-rate tracking</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Budget columns/automations cover basics; less mature cost intelligence</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Budget fields/automations cover basics; less mature cost intelligence</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">Data ownership &amp; exportability — PR owns and can export all data anytime<span class="tc-conf">[Verified] Client addendum, restates Pillar D above</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Reversibility scope defined (JSON/CSV/XML export); see Five Must-Have Pillars above</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Standard data export; no published reversibility framework</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Standard data export; no published reversibility framework</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Standard data export; no published reversibility framework</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">Specific data intelligence for local market AI tools<span class="tc-conf">[Unverified] No documented capability on any platform</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">Would route through ME Studios/Offshore Hub local tools, not the core platform</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No documented local-market AI tooling</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No documented local-market AI tooling</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No documented local-market AI tooling</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">Other proprietary data intelligence in your offer <em>(bidder to specify)</em><span class="tc-conf">[Unverified] Open-ended, requires direct vendor response</span></td>
+        <td class="tc-tool"><span class="tc-note">Pending direct response</span></td>
+        <td class="tc-tool"><span class="tc-note">Pending direct response</span></td>
+        <td class="tc-tool"><span class="tc-note">Pending direct response</span></td>
+        <td class="tc-tool"><span class="tc-note">Pending direct response</span></td>
+      </tr>
+
+      <tr class="tc-section"><td colspan="5">Certifications &amp; Compliance</td></tr>
+
+      <tr>
+        <td class="tc-req">ISO 27001 (Information Security)<span class="tc-conf">[Verified] Vendor trust centers, June 2026</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Certified, applies across Adobe Experience Cloud (incl. Workfront)</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Certified</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Certified</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Certified</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">ISO 27017 (Cloud Security)<span class="tc-conf">[Verified] Vendor trust centers, June 2026</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Certified</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Certified</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Certified</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Certified</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">ISO 27018 (PII in Cloud)<span class="tc-conf">[Verified] Vendor trust centers, June 2026</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Certified</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Certified</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Certified</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Certified</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">SOC 2 Type II<span class="tc-conf">[Verified] Vendor trust centers, June 2026</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Certified</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Certified</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Certified</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Certified</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">ISO 9001 (Quality Mgmt)<span class="tc-conf">[Verified for Workfront, Unverified for others] Vendor trust centers, June 2026</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Certified, ISO 9001:2015 across Adobe Experience Cloud</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No ISO 9001 listed on Wrike's published certification set</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No ISO 9001 listed on monday.com's published certification set</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No ISO 9001 listed on ClickUp's published certification set</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">EU GDPR DPA (signed)<span class="tc-conf">[Verified] Vendor trust centers, June 2026</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">DPA available; GDPR-ready</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">DPA available on request; GDPR compliant</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">DPA available; GDPR compliant</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">DPA available; GDPR compliant</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">Cyber Essentials Plus (UK)<span class="tc-conf">[Unverified] Not found on any vendor's published certification list</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">Not listed; would need direct confirmation from Adobe UK entity</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">Not listed; would need direct vendor confirmation</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">Not listed; would need direct vendor confirmation</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">Not listed; would need direct vendor confirmation</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">Local certifications <em>(specify per region)</em><span class="tc-conf">[Unverified] Open-ended, requires direct vendor response per market</span></td>
+        <td class="tc-tool"><span class="tc-note">Pending direct response</span></td>
+        <td class="tc-tool"><span class="tc-note">Pending direct response</span></td>
+        <td class="tc-tool"><span class="tc-note">Pending direct response</span></td>
+        <td class="tc-tool"><span class="tc-note">Pending direct response</span></td>
+      </tr>
+
+      <tr class="tc-section"><td colspan="5">Data Residency by Region</td></tr>
+
+      <tr>
+        <td class="tc-req">EU (BUs, N./S. Europe, CEE, France HQ)<span class="tc-conf">[Verified] Vendor documentation, June 2026</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">EU-West (Ireland) hosting confirmed; product-level residency varies by Adobe service</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Dedicated EU data center, Paris, France</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">EU Data Region on AWS; full EU residency on Enterprise</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">EU Data Region available on Enterprise</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">NOAM (USA, Canada)<span class="tc-conf">[Verified] Vendor documentation, June 2026</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">US-East/US-West hosting confirmed</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">US data centers, Santa Clara CA + Council Bluffs IA</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">US Data Region on AWS</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">US Data Region available</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">LATAM (Brazil, Mexico, Argentina)<span class="tc-conf">[Unverified] No dedicated regional data center confirmed</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed LATAM-resident hosting; would serve from NOAM</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed LATAM-resident hosting; would serve from NOAM/EU</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed LATAM-resident hosting; would serve from NOAM/EU</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed LATAM-resident hosting; would serve from NOAM/EU</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">AME (UAE, South Africa)<span class="tc-conf">[Unverified] No dedicated regional data center confirmed</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed AME-resident hosting</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed AME-resident hosting</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed AME-resident hosting</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed AME-resident hosting</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">India<span class="tc-conf">[Unverified] No dedicated regional data center confirmed</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed India-resident hosting; offshore hub processes, doesn't necessarily store, locally</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed India-resident hosting</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed India-resident hosting</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed India-resident hosting</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">China<span class="tc-conf">[Unverified] No dedicated regional data center confirmed</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed China-resident hosting; China data laws likely require a separate solution</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed China-resident hosting</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed China-resident hosting</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed China-resident hosting</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">APAC (other)<span class="tc-conf">[Verified for monday.com/ClickUp] Vendor documentation, June 2026</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] No confirmed dedicated APAC region for Workfront specifically</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed APAC-resident hosting in published Wrike documentation</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Dedicated APAC Data Region on AWS</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">APAC and Singapore data residency on Enterprise</span></td>
+      </tr>
+
+      <tr>
+        <td class="tc-req">Other <em>(specify)</em><span class="tc-conf">[Unverified] Open-ended, requires direct vendor response per market</span></td>
+        <td class="tc-tool"><span class="tc-note">Pending direct response</span></td>
+        <td class="tc-tool"><span class="tc-note">Pending direct response</span></td>
+        <td class="tc-tool"><span class="tc-note">Pending direct response</span></td>
+        <td class="tc-tool"><span class="tc-note">Pending direct response</span></td>
+      </tr>
+
       <tr class="tc-section"><td colspan="5">Cost &amp; Training</td></tr>
 
       <tr>
@@ -704,17 +982,23 @@ input.file-hidden{display:none;}
     </table>
     </div>
 
-    <div class="tc-summary">
+    <div class="tc-table-wrap" id="tcSummaryWrap" style="display:none;">
+      <table class="tc-table" id="tcSummaryTable"></table>
+    </div>
+
+    <div class="tc-summary" id="tcSummaryNarrative">
       <h3>Reading the comparison</h3>
       <p><strong>Wrike</strong> is the strongest alternative of the three new entrants. It is built for the same governance-heavy, multi-stakeholder approval use case as Workfront, with mature request-intake forms, workload management, and an existing Adobe Creative Cloud integration. It is also the only one of the three with a credible answer to PR's resource-allocation and capacity-planning requirements. It still has no DAM, no Bynder connector, and no documented reversibility/decoupling framework, so the eligibility-pillar gaps remain.</p>
       <p><strong>monday.com and ClickUp</strong> remain the lowest-cost options and now show a real AI advantage: both ship agentic AI platforms (AI Work Platform, ClickUp Brain) with drafting and enterprise search built in, which Workfront still handles through GENIE rather than natively. Neither has a DAM/MAM layer or a track record against PR's eligibility pillars (reuse enforcement, reversibility, multi-partner tenant isolation).</p>
       <p><strong>On the forward integration roadmap</strong> (BI, Bynder, Figma, the Google brief generator), no platform in this set has a confirmed, documented connector for Bynder or Figma specifically. Workfront's Bynder link is the only one named in submitted RFP material, and it is built rather than out-of-the-box. A Figma connector and a Google-based brief generator hookup would be custom API work for all four platforms; none should be assumed "integration-ready" on that basis alone.</p>
+      <p><strong>On certifications and data residency</strong>, all four platforms hold the core security stack (ISO 27001, 27017, 27018, SOC 2 Type II, GDPR DPA), so this isn't a real differentiator. ISO 9001 is confirmed only for Workfront via Adobe's broader Experience Cloud certification; the other three don't list it. None of the four have a confirmed Cyber Essentials Plus (UK) certification, and none have a confirmed dedicated data center in LATAM, AME, India, or China, those regions would be served from the nearest NOAM or EU facility today. monday.com and ClickUp are the only two with a confirmed dedicated APAC data region.</p>
+      <p><strong>On the data intelligence and brief-enrichment items PR added</strong> (brief intelligence, pre-flight quality scoring, performance learning loops, effectiveness benchmarking, cultural/social listening), almost none of this is a capability of any work-management platform on its own. These sit architecturally with GENIE, dentsu.connect, and PR's media/data partners; the work-management tool's role is mainly to receive the enriched brief and report back into the loop, not to generate the intelligence itself. Workfront has the clearest path today because GENIE and Fusion are already named as connector points; the other three would need a custom integration built from scratch with no existing precedent.</p>
     </div>
 
     <div class="tc-foot">
-      <strong>Confidence key:</strong> [Verified] = drawn directly from RFP source documents (Appendix 1, 2, 4.2, Adobe Stack Final Assessment, PR tech supporting slides) or from a vendor's own published pricing/feature pages as of June 2026. [Probable] = consistent with current third-party reviews and vendor documentation, not confirmed against PR's specific environment. [Unverified] = no source found confirming or denying the capability as of this search.<br><br>
-      Sources (accessed June 2026): checkthat.ai/brands/adobe-workfront/pricing, thedigitalprojectmanager.com/tools/adobe-workfront-pricing, clickup.com/learn/topic/project-management/tools/wrike, tech.co/project-management-software/clickup-pricing, eesel.ai/blog/clickup-pricing, wrike.com/project-management-guide/faq/what-are-project-management-tools, tech-insider.org/clickup-vs-monday-2026, monday.com/blog/project-management/clickup-alternative.<br><br>
-      Recommend a formal Appendix 4.2-style questionnaire response from Wrike, monday.com, and ClickUp, and a direct vendor confirmation on Bynder and Figma connectors, before using this in a client-facing deck.
+      <strong>Confidence key:</strong> [Verified] = drawn directly from RFP source documents (Appendix 1, 2, 4.2, Adobe Stack Final Assessment, PR tech supporting slides, client addendum) or from a vendor's own published trust center/pricing/feature pages as of June 2026. [Probable] = consistent with current third-party reviews and vendor documentation, not confirmed against PR's specific environment. [Unverified] = no source found confirming or denying the capability as of this search.<br><br>
+      Sources (accessed June 2026): checkthat.ai/brands/adobe-workfront/pricing, thedigitalprojectmanager.com/tools/adobe-workfront-pricing, clickup.com/learn/topic/project-management/tools/wrike, tech.co/project-management-software/clickup-pricing, eesel.ai/blog/clickup-pricing, wrike.com/project-management-guide/faq/what-are-project-management-tools, tech-insider.org/clickup-vs-monday-2026, monday.com/blog/project-management/clickup-alternative, adobe.com/trust/compliance/compliance-list.html, wrike.com/security/overview, monday.com/trustcenter, support.monday.com/hc/en-us/articles/4404392703250, security.clickup.com, clickup.com/security, clickup.com/contact/dataresidency, clickup.com/plans/enterprise.<br><br>
+      Recommend a formal Appendix 4.2-style questionnaire response from Wrike, monday.com, and ClickUp, and a direct vendor confirmation on Bynder/Figma connectors, Cyber Essentials Plus, local certifications, and data residency outside NOAM/EU/APAC, before using this in a client-facing deck.
     </div>
   </div>
 
@@ -746,37 +1030,71 @@ const DATA = {
     maturityColor: "#6E97C9",
     strat: {
       wf: [
+        {t:"Implementation design", d:"Overall technical implementation plan for the 60-day build, sequencing dependencies across modules.", priority:"must", tag:"tool"},
+        {t:"Migration inventory & planning", d:"Inventory existing studio/project data and design the migration sequence into Workfront ahead of go-live.", priority:"must", tag:"gov"},
+        {t:"Roles & responsibilities framework", d:"Define who owns what across TAG, PR, and the platform itself, by tier and request type.", priority:"must", tag:"gov"},
+        {t:"Multi-partner model design", d:"Design how secondary agencies/partners get tenant access without compromising PR's system of record.", priority:"must", tag:"gov"},
+        {t:"Genie connector integration design", d:"Design how GENIE's Smart Brief Builder will connect into the platform's intake layer.", priority:"nice", tag:"ai"},
+        {t:"Figma connector integration design", d:"Design the approach for a Figma connector, since none of the four platforms has one out of the box.", priority:"nice", tag:"tool"},
+        {t:"BI tooling connector integration design", d:"Design how Power BI / data-lake feeds will connect to the platform's reporting layer.", priority:"nice", tag:"tool"},
         {t:"3rd-party integration & taxonomy mapping", d:"Assessment and mapping strategy for Bynder, Fusion, Genie. Analysis only, no build.", priority:"nice", tag:"gov"},
-        {t:"AD/Fusion sourcing consult", d:"Assess whether user management can be sourced from Active Directory via connector.", priority:"must", tag:"gov"}
+        {t:"Initial training & enablement (pre-packaged by Adobe)", d:"Stand up Adobe's pre-built Workfront onboarding materials for the initial user base.", priority:"must", tag:"gov"}
       ],
       blend: [
+        {t:"Implementation design", d:"Overall technical implementation plan for the 60-day build across both systems.", priority:"must", tag:"tool"},
+        {t:"Migration inventory & planning", d:"Inventory existing studio/project data and design the migration sequence into Workfront and DI Studio.", priority:"must", tag:"gov"},
+        {t:"Roles & responsibilities framework", d:"Define who owns what across TAG, PR, DI Studio, and Workfront, by tier and request type.", priority:"must", tag:"gov"},
+        {t:"DI Studio ↔ Workfront handoff design", d:"Define what data passes between systems and when, ahead of any automation build.", priority:"must", tag:"tool"},
+        {t:"Multi-partner model design", d:"Design how secondary agencies/partners get tenant access without compromising PR's system of record.", priority:"must", tag:"gov"},
+        {t:"Genie connector integration design", d:"Design how GENIE's Smart Brief Builder will connect into Workfront intake, then to DI Studio.", priority:"nice", tag:"ai"},
+        {t:"Figma connector integration design", d:"Design the approach for a Figma connector, scoped against whichever system would own it.", priority:"nice", tag:"tool"},
+        {t:"BI tooling connector integration design", d:"Design how Power BI / data-lake feeds will connect, likely via the Workfront layer.", priority:"nice", tag:"tool"},
         {t:"3rd-party integration & taxonomy mapping", d:"Same scope, plus the question of which system, DI Studio or Workfront, owns each integration.", priority:"nice", tag:"gov"},
-        {t:"DI Studio ↔ Workfront handoff design", d:"Define what data passes between systems and when, ahead of any automation build.", priority:"must", tag:"tool"}
+        {t:"Initial training & enablement (pre-packaged by Adobe)", d:"Stand up Adobe's pre-built Workfront onboarding materials; DI Studio training handled separately.", priority:"must", tag:"gov"}
       ],
       alt: [
+        {t:"Implementation design", d:"Overall technical implementation plan for the 60-day rebuild in the new tool.", priority:"must", tag:"tool"},
+        {t:"Migration inventory & planning", d:"Inventory existing studio/project data and scope what migrates versus what gets archived.", priority:"must", tag:"gov"},
+        {t:"Roles & responsibilities framework", d:"Define who owns what across TAG, PR, and the new platform, by tier and request type.", priority:"must", tag:"gov"},
+        {t:"Multi-partner model design", d:"Design how secondary agencies/partners get tenant access without compromising PR's system of record.", priority:"must", tag:"gov"},
+        {t:"Genie connector integration design", d:"Design how GENIE's Smart Brief Builder will connect into the new tool's intake layer.", priority:"nice", tag:"ai"},
+        {t:"Figma connector integration design", d:"Design the approach for a Figma connector; no native option on this tool either.", priority:"nice", tag:"tool"},
+        {t:"BI tooling connector integration design", d:"Design how Power BI / data-lake feeds will connect to the new tool's reporting layer.", priority:"nice", tag:"tool"},
         {t:"3rd-party integration & taxonomy mapping", d:"Mapping strategy assessed against the new tool's integration ecosystem.", priority:"nice", tag:"gov"},
-        {t:"Migration feasibility assessment", d:"Scope what historical Workfront data needs to migrate versus what can be archived.", priority:"must", tag:"gov"}
+        {t:"Initial training & enablement (pre-packaged by Adobe)", d:"No Adobe-native onboarding path; would need to be rebuilt or sourced from the new vendor.", priority:"nice", tag:"gov"}
       ]
     },
     build: {
       wf: [
-        {t:"Brief submission form", d:"Market, brief details, requestor, due date, channels, budget fields live as a Workfront request form.", priority:"must", tag:"routing"},
-        {t:"Resource visibility setup", d:"Views configured to see and assign across BU Studios, COEs, ME Studios, Offshore Hubs, Flex Pool.", priority:"must", tag:"routing"},
+        {t:"Business continuity & V1 migration", d:"First-pass migration of existing studio data into Workfront with no workflow disruption.", priority:"must", tag:"gov"},
         {t:"Core user management", d:"Groups, users, roles configured.", priority:"must", tag:"gov"},
         {t:"Core visibility & templates", d:"Permissions, views, filters, template-level presets; project/program/task templates by request type.", priority:"must", tag:"gov"},
         {t:"Planning workspaces", d:"Campaigns, markets, channels, brands set up in Workfront Planning.", priority:"must", tag:"tool"},
+        {t:"Brief submission form", d:"Market, brief details, requestor, due date, channels, budget fields live as a Workfront request form.", priority:"must", tag:"routing"},
+        {t:"Resource visibility setup", d:"Views configured to see and assign across BU Studios, COEs, ME Studios, Offshore Hubs, Flex Pool.", priority:"must", tag:"routing"},
+        {t:"Frame.io integration", d:"Connect Frame.io for review/delivery alongside the existing Bynder/Fusion/Genie integration plan.", priority:"nice", tag:"tool"},
+        {t:"Omnichannel asset delivery via Frame.io", d:"Deliverables route out to all channels through a Frame.io-connected delivery step.", priority:"nice", tag:"tool"},
+        {t:"Dynamic rate cards", d:"Initial rate-card logic for Flex Pool and shared production surge capacity.", priority:"nice", tag:"gov"},
         {t:"Agile capability layer", d:"Sprint-style views added on top of core templates where teams need them.", priority:"nice", tag:"tool"}
       ],
       blend: [
-        {t:"DI Studio production scaffolding", d:"Production-side task structures mirrored from the brief submission form fields.", priority:"must", tag:"tool"},
+        {t:"Business continuity & V1 migration", d:"First-pass migration of existing studio data into Workfront and DI Studio with no workflow disruption.", priority:"must", tag:"gov"},
+        {t:"Core user management & templates", d:"Roles and templates set in both tools where applicable.", priority:"must", tag:"gov"},
         {t:"Workfront intake & routing build", d:"Workfront remains the intake/routing layer; resource visibility views built for all five tiers.", priority:"must", tag:"routing"},
-        {t:"Core user management & templates", d:"Roles and templates set in both tools where applicable.", priority:"must", tag:"gov"}
+        {t:"DI Studio production scaffolding", d:"Production-side task structures mirrored from the brief submission form fields.", priority:"must", tag:"tool"},
+        {t:"Frame.io integration", d:"Connect Frame.io for review/delivery, surfaced into DI Studio production views.", priority:"nice", tag:"tool"},
+        {t:"Omnichannel asset delivery via Frame.io", d:"Deliverables route out to all channels through a Frame.io-connected delivery step.", priority:"nice", tag:"tool"},
+        {t:"Dynamic rate cards", d:"Initial rate-card logic for Flex Pool and shared production surge capacity.", priority:"nice", tag:"gov"}
       ],
       alt: [
+        {t:"Business continuity & V1 migration", d:"First-pass migration of existing studio data into the new tool with no workflow disruption.", priority:"must", tag:"gov"},
+        {t:"User & permission setup", d:"Groups, roles, views rebuilt natively, no legacy config to inherit.", priority:"must", tag:"gov"},
+        {t:"Template library build", d:"Project/program/task templates authored from scratch by request type.", priority:"must", tag:"tool"},
         {t:"Alternative tool intake form build", d:"Brief submission form rebuilt natively in the chosen tool.", priority:"must", tag:"routing"},
         {t:"Routing structure rebuild", d:"BU Studios, COEs, ME Studios, Offshore Hubs, Flex Pool modelled as boards, spaces, or lists.", priority:"must", tag:"routing"},
-        {t:"User & permission setup", d:"Groups, roles, views rebuilt natively, no legacy config to inherit.", priority:"must", tag:"gov"},
-        {t:"Template library build", d:"Project/program/task templates authored from scratch by request type.", priority:"must", tag:"tool"}
+        {t:"Frame.io integration", d:"Connect Frame.io for review/delivery; built from scratch against the new tool's API.", priority:"nice", tag:"tool"},
+        {t:"Omnichannel asset delivery via Frame.io", d:"Deliverables route out to all channels through a Frame.io-connected delivery step.", priority:"nice", tag:"tool"},
+        {t:"Dynamic rate cards", d:"Initial rate-card logic for Flex Pool and shared production surge capacity, rebuilt natively.", priority:"nice", tag:"gov"}
       ]
     },
     active: {
@@ -810,28 +1128,78 @@ const DATA = {
     maturityColor: "#A8A23C",
     strat: {
       wf: [
+        {t:"AI-assisted review concept", d:"Define what an automated first-pass brand/compliance check would need to cover before Year 2 build.", priority:"nice", tag:"ai"},
+        {t:"SmartAI modeling & design, AI context", d:"Design the AI/context model that will eventually power assisted and automated routing decisions.", priority:"nice", tag:"ai"},
+        {t:"Brief intelligence, design", d:"Design how briefs get enriched with audience, media, and cultural data via GENIE/dentsu.connect before reaching creative.", priority:"nice", tag:"ai"},
         {t:"Predictive resourcing assessment", d:"Evaluate forecasting resource contention across tiers using historical campaign volume.", priority:"nice", tag:"ai"},
-        {t:"AI-assisted review concept", d:"Define what an automated first-pass brand/compliance check would need to cover before Year 2 build.", priority:"nice", tag:"ai"}
+        {t:"AD/Fusion sourcing consult", d:"Assess whether user management can be sourced from Active Directory via connector.", priority:"must", tag:"gov"},
+        {t:"Data ownership, portability & decoupling plan", d:"Define the framework so PR retains full control and reversible access to its data, ahead of any decoupling work.", priority:"must", tag:"gov"},
+        {t:"Creative effectiveness benchmarking, design", d:"Define the benchmarks and data sources for scoring creative performance against market.", priority:"live", tag:"ai"},
+        {t:"Cultural & social listening, design", d:"Scope how external listening signals from dentsu.connect feed into the brief itself.", priority:"live", tag:"ai"},
+        {t:"Mix-level KPI dashboard, design", d:"Define the requirements for a single delivery/cost/AI-usage/reuse view across the platform.", priority:"nice", tag:"gov"},
+        {t:"Spend visibility & cost intelligence, design", d:"Define what project- and spend-level cost intelligence needs to surface beyond the brief's budget field.", priority:"nice", tag:"gov"},
+        {t:"Custom training & enablement (pre-packaged by Adobe)", d:"Move beyond initial onboarding into role-specific, custom Workfront training built on Adobe's pre-packaged materials.", priority:"nice", tag:"gov"}
       ],
       blend: [
-        {t:"Predictive resourcing assessment", d:"Same scope, scoped against whichever system holds production scheduling data.", priority:"nice", tag:"ai"}
+        {t:"AI-assisted review concept", d:"Define what an automated first-pass brand/compliance check would need to cover before Year 2 build.", priority:"nice", tag:"ai"},
+        {t:"SmartAI modeling & design, AI context", d:"Design the AI/context model, with a decision on which system surfaces AI-assisted routing.", priority:"nice", tag:"ai"},
+        {t:"Brief intelligence, design", d:"Design how briefs get enriched via GENIE/dentsu.connect, with Workfront as the receiving intake layer.", priority:"nice", tag:"ai"},
+        {t:"Predictive resourcing assessment", d:"Same scope, scoped against whichever system holds production scheduling data.", priority:"nice", tag:"ai"},
+        {t:"AD/Fusion sourcing consult", d:"Assess whether user management can be sourced from Active Directory via connector.", priority:"must", tag:"gov"},
+        {t:"Data ownership, portability & decoupling plan", d:"Define the framework across both systems so PR retains full control and reversible access to its data.", priority:"must", tag:"gov"},
+        {t:"Creative effectiveness benchmarking, design", d:"Define the benchmarks and data sources, decided independent of which system hosts the dashboard.", priority:"live", tag:"ai"},
+        {t:"Cultural & social listening, design", d:"Scope how external listening signals feed into the brief, regardless of which system the brief lives in.", priority:"live", tag:"ai"},
+        {t:"Mix-level KPI dashboard, design", d:"Define requirements for a combined view across Workfront and DI Studio data.", priority:"nice", tag:"gov"},
+        {t:"Spend visibility & cost intelligence, design", d:"Define cost-intelligence requirements, noting where budget data actually lives across both systems.", priority:"nice", tag:"gov"},
+        {t:"Custom training & enablement (pre-packaged by Adobe)", d:"Role-specific Workfront training; DI Studio training developed separately.", priority:"nice", tag:"gov"}
       ],
       alt: [
-        {t:"Predictive resourcing assessment", d:"Dependent on the alternative tool's reporting API exposing enough historical data.", priority:"nice", tag:"ai"}
+        {t:"AI-assisted review concept", d:"Define what an automated first-pass brand/compliance check would need to cover before Year 2 build.", priority:"nice", tag:"ai"},
+        {t:"SmartAI modeling & design, AI context", d:"Design the AI/context model against whatever automation builder the new tool offers.", priority:"nice", tag:"ai"},
+        {t:"Brief intelligence, design", d:"Design how briefs get enriched via GENIE/dentsu.connect, with the new tool as the receiving intake layer.", priority:"nice", tag:"ai"},
+        {t:"Predictive resourcing assessment", d:"Dependent on the alternative tool's reporting API exposing enough historical data.", priority:"nice", tag:"ai"},
+        {t:"AD/Fusion sourcing consult", d:"Assess whether user management can be sourced from Active Directory via connector into the new tool.", priority:"must", tag:"gov"},
+        {t:"Data ownership, portability & decoupling plan", d:"Define the framework so PR retains full control and reversible access to its data in the new tool.", priority:"must", tag:"gov"},
+        {t:"Creative effectiveness benchmarking, design", d:"Define the benchmarks and data sources for the new tool's reporting layer to eventually surface.", priority:"live", tag:"ai"},
+        {t:"Cultural & social listening, design", d:"Scope how external listening signals feed into the brief inside the new tool.", priority:"live", tag:"ai"},
+        {t:"Mix-level KPI dashboard, design", d:"Define requirements for a combined view, dependent on the new tool's reporting depth.", priority:"nice", tag:"gov"},
+        {t:"Spend visibility & cost intelligence, design", d:"Define cost-intelligence requirements against the new tool's available budget/spend fields.", priority:"nice", tag:"gov"},
+        {t:"Custom training & enablement (pre-packaged by Adobe)", d:"No Adobe-native package available; training materials sourced from the new vendor or built in-house.", priority:"nice", tag:"gov"}
       ]
     },
     build: {
       wf: [
+        {t:"Full historic migration", d:"Complete migration of remaining historical project/studio data beyond the V1 60-day migration.", priority:"must", tag:"gov"},
+        {t:"Multi-partner model, build", d:"Build the tenant-isolation model designed in the 60-day phase, so secondary partners can operate without compromising PR's system of record.", priority:"must", tag:"gov"},
+        {t:"Dynamic rate cards, enhanced for freelancers & fluctuations", d:"Extend the 60-day rate-card logic to cover freelancer rates and demand-driven rate fluctuations.", priority:"nice", tag:"gov"},
         {t:"Intelligent routing (assisted)", d:"Routing suggestions based on brief specifics and BU/COE alignment; human confirms.", priority:"nice", tag:"ai"},
-        {t:"Duplicate detection, formalised", d:"Asset reuse and duplication checks become a standard triage step, not a manual spot-check.", priority:"nice", tag:"ai"}
+        {t:"Duplicate detection, formalised", d:"Asset reuse and duplication checks become a standard triage step, not a manual spot-check.", priority:"nice", tag:"ai"},
+        {t:"Genie connector", d:"Build the GENIE Smart Brief Builder connector designed in the 60-day phase into the live intake layer.", priority:"nice", tag:"ai"},
+        {t:"BI / Power BI / data-lake connector", d:"Build the connector designed in the 60-day phase into the live reporting layer.", priority:"nice", tag:"tool"},
+        {t:"Figma connector", d:"Build the Figma connector designed in the 60-day phase; no platform has one natively, this is custom work.", priority:"live", tag:"tool"},
+        {t:"Data/media-bridge", d:"Connect media performance data into the platform, a precursor to the asset performance learning loop in later phases.", priority:"nice", tag:"ai"}
       ],
       blend: [
+        {t:"Full historic migration", d:"Complete migration of remaining historical data across both Workfront and DI Studio.", priority:"must", tag:"gov"},
+        {t:"Multi-partner model, build", d:"Build the tenant-isolation model, deciding whether DI Studio also needs partner-level access controls.", priority:"must", tag:"gov"},
+        {t:"Dynamic rate cards, enhanced for freelancers & fluctuations", d:"Extend the 60-day rate-card logic to cover freelancer rates and demand-driven rate fluctuations.", priority:"nice", tag:"gov"},
         {t:"Automated DI Studio ↔ Workfront sync", d:"First automated handoff between production status and the system of record, replacing manual updates.", priority:"must", tag:"tool"},
-        {t:"Duplicate detection, formalised", d:"Run at the Workfront intake layer, visible to DI Studio production teams.", priority:"nice", tag:"ai"}
+        {t:"Duplicate detection, formalised", d:"Run at the Workfront intake layer, visible to DI Studio production teams.", priority:"nice", tag:"ai"},
+        {t:"Genie connector", d:"Build the GENIE connector into Workfront intake, flowing through to DI Studio.", priority:"nice", tag:"ai"},
+        {t:"BI / Power BI / data-lake connector", d:"Build via Workfront, with DI Studio production data surfaced into the same reports.", priority:"nice", tag:"tool"},
+        {t:"Figma connector", d:"Build the Figma connector; custom work regardless of which system ultimately owns it.", priority:"live", tag:"tool"},
+        {t:"Data/media-bridge", d:"Connect media performance data into Workfront, surfaced into DI Studio production views.", priority:"nice", tag:"ai"}
       ],
       alt: [
+        {t:"Full historic migration", d:"Complete migration of remaining historical data into the new tool.", priority:"must", tag:"gov"},
+        {t:"Multi-partner model, build", d:"Build the tenant-isolation model designed in the 60-day phase, natively in the new tool's permissioning system.", priority:"must", tag:"gov"},
+        {t:"Dynamic rate cards, enhanced for freelancers & fluctuations", d:"Extend the 60-day rate-card logic to cover freelancer rates and demand-driven rate fluctuations.", priority:"nice", tag:"gov"},
         {t:"Intelligent routing (assisted)", d:"Rule-based routing native to the tool's automation builder.", priority:"nice", tag:"ai"},
-        {t:"Duplicate detection, formalised", d:"Added via the alternative tool's automation/integration layer.", priority:"nice", tag:"ai"}
+        {t:"Duplicate detection, formalised", d:"Added via the alternative tool's automation/integration layer.", priority:"nice", tag:"ai"},
+        {t:"Genie connector", d:"Build the GENIE connector into the new tool's intake layer from scratch.", priority:"nice", tag:"ai"},
+        {t:"BI / Power BI / data-lake connector", d:"Build against the new tool's API; higher effort without a native connector.", priority:"nice", tag:"tool"},
+        {t:"Figma connector", d:"Build the Figma connector; custom work, no native option on this tool either.", priority:"live", tag:"tool"},
+        {t:"Data/media-bridge", d:"Connect media performance data into the new tool via custom API work.", priority:"nice", tag:"ai"}
       ]
     },
     active: {
@@ -869,31 +1237,61 @@ const DATA = {
     strat: {
       wf: [
         {t:"Self-optimising budget allocation, design", d:"Define guardrails and approval thresholds before any spend-reallocation logic is built.", priority:"nice", tag:"ai"},
-        {t:"Unified partner marketplace assessment", d:"Evaluate matching TAG, Flex Pool, and external specialty partners to briefs automatically.", priority:"live", tag:"gov"}
+        {t:"Unified partner marketplace assessment", d:"Evaluate matching TAG, Flex Pool, and external specialty partners to briefs automatically.", priority:"live", tag:"gov"},
+        {t:"Local market AI tooling, scoping", d:"Open scoping exercise for specific data intelligence needs of local market AI tools; not yet a committed build.", priority:"live", tag:"ai"}
       ],
       blend: [
-        {t:"Self-optimising budget allocation, design", d:"Same scope, plus where budget data lives across the two systems.", priority:"nice", tag:"ai"}
+        {t:"Self-optimising budget allocation, design", d:"Same scope, plus where budget data lives across the two systems.", priority:"nice", tag:"ai"},
+        {t:"Local market AI tooling, scoping", d:"Open scoping exercise, independent of which system ultimately hosts the data.", priority:"live", tag:"ai"}
       ],
       alt: [
-        {t:"Self-optimising budget allocation, design", d:"Dependent on the alternative tool exposing budget data via API.", priority:"live", tag:"ai"}
+        {t:"Self-optimising budget allocation, design", d:"Dependent on the alternative tool exposing budget data via API.", priority:"live", tag:"ai"},
+        {t:"Local market AI tooling, scoping", d:"Open scoping exercise; likely the same scope regardless of platform choice.", priority:"live", tag:"ai"}
       ]
     },
     build: {
       wf: [
-        {t:"Bynder DAM integration", d:"Asset retrieval and storage connected directly into the brief and review workflow.", priority:"nice", tag:"tool"},
         {t:"Fusion integration", d:"Workflow automation extended via Fusion connectors for cross-system data movement.", priority:"nice", tag:"tool"},
+        {t:"Bynder DAM integration", d:"Asset retrieval and storage connected directly into the brief and review workflow.", priority:"nice", tag:"tool"},
         {t:"Genie/GenieAI integration", d:"Smart Brief Builder and related GENIE modules connected into Workfront's intake layer.", priority:"live", tag:"ai"},
+        {t:"Smart triage for briefs", d:"Briefs auto-classified and routed at intake based on content, channel, and brand, ahead of full automated routing.", priority:"must", tag:"ai"},
+        {t:"AI-driven capacity forecasting", d:"Build out the predictive resourcing concept from Year 1 into a live forecasting model against real demand.", priority:"nice", tag:"ai"},
         {t:"AI-assisted review", d:"Automated first-pass compliance and brand-guardrail checks ahead of human review.", priority:"nice", tag:"ai"},
-        {t:"Generative first-draft creative pilot", d:"Pilot brief-to-board generation that produces a first-pass concept for review.", priority:"live", tag:"ai"}
+        {t:"Brief intelligence, live", d:"Briefs enriched with audience/media/cultural data via GENIE/dentsu.connect before reaching creative.", priority:"nice", tag:"ai"},
+        {t:"Cultural & social listening, live", d:"External listening signals from dentsu.connect now feeding live into creative briefs.", priority:"live", tag:"ai"},
+        {t:"Pre-flight creative quality scoring", d:"Automated quality check on creative ahead of human review; no vendor has this natively, built from scratch.", priority:"live", tag:"ai"},
+        {t:"Generative first-draft creative pilot", d:"Pilot brief-to-board generation that produces a first-pass concept for review.", priority:"live", tag:"ai"},
+        {t:"Asset performance learning loop, pilot", d:"Pilot version of live performance data informing the next brief, ahead of the full Year 3 closed-loop version.", priority:"nice", tag:"ai"},
+        {t:"Creative effectiveness benchmarking, build", d:"Build the benchmarking capability against the data sources defined in Year 1.", priority:"live", tag:"ai"},
+        {t:"Mix-level KPI dashboard, build", d:"Build the combined delivery/cost/AI-usage/reuse dashboard designed in Year 1.", priority:"nice", tag:"gov"},
+        {t:"Spend visibility & cost intelligence, build", d:"Build project- and spend-level cost intelligence beyond the brief's budget field.", priority:"nice", tag:"gov"}
       ],
       blend: [
         {t:"Bynder & Fusion integration", d:"Connected primarily through Workfront, surfaced into DI Studio production views.", priority:"nice", tag:"tool"},
         {t:"Genie/GenieAI integration", d:"Smart Brief Builder output flows into Workfront intake; DI Studio consumes the resulting brief.", priority:"live", tag:"ai"},
-        {t:"AI-assisted review", d:"Runs at the Workfront review stage.", priority:"nice", tag:"ai"}
+        {t:"Smart triage for briefs", d:"Briefs auto-classified at the Workfront intake layer, before being handed to DI Studio for production.", priority:"must", tag:"ai"},
+        {t:"AI-driven capacity forecasting", d:"Forecasting model built against whichever system holds the most complete scheduling data.", priority:"nice", tag:"ai"},
+        {t:"AI-assisted review", d:"Runs at the Workfront review stage.", priority:"nice", tag:"ai"},
+        {t:"Brief intelligence, live", d:"Briefs enriched via GENIE/dentsu.connect at the Workfront intake layer, consumed by DI Studio for production.", priority:"nice", tag:"ai"},
+        {t:"Cultural & social listening, live", d:"External listening signals feeding live into creative briefs.", priority:"live", tag:"ai"},
+        {t:"Pre-flight creative quality scoring", d:"Automated quality check, run at whichever stage the review workflow lives.", priority:"live", tag:"ai"},
+        {t:"Asset performance learning loop, pilot", d:"Pilot version of live performance feeding the next brief.", priority:"nice", tag:"ai"},
+        {t:"Creative effectiveness benchmarking, build", d:"Build the benchmarking capability, independent of which system surfaces it.", priority:"live", tag:"ai"},
+        {t:"Mix-level KPI dashboard, build", d:"Build the combined view across Workfront and DI Studio data designed in Year 1.", priority:"nice", tag:"gov"},
+        {t:"Spend visibility & cost intelligence, build", d:"Build cost intelligence, pulling budget data from wherever it lives across both systems.", priority:"nice", tag:"gov"}
       ],
       alt: [
         {t:"Bynder, Fusion & Genie integration", d:"Rebuilt against the alternative tool's API/automation layer; higher effort without Workfront's native connectors.", priority:"nice", tag:"tool"},
-        {t:"AI-assisted review", d:"Added via the tool's automation or a bolt-on AI layer.", priority:"nice", tag:"ai"}
+        {t:"Smart triage for briefs", d:"Built via the tool's native automation/AI add-ons; maturity varies by vendor.", priority:"must", tag:"ai"},
+        {t:"AI-driven capacity forecasting", d:"Dependent on the tool's reporting API exposing enough historical scheduling data to forecast against.", priority:"nice", tag:"ai"},
+        {t:"AI-assisted review", d:"Added via the tool's automation or a bolt-on AI layer.", priority:"nice", tag:"ai"},
+        {t:"Brief intelligence, live", d:"Briefs enriched via GENIE/dentsu.connect, with the new tool as the receiving intake layer.", priority:"nice", tag:"ai"},
+        {t:"Cultural & social listening, live", d:"External listening signals feeding live into briefs inside the new tool.", priority:"live", tag:"ai"},
+        {t:"Pre-flight creative quality scoring", d:"Automated quality check; built from scratch against the new tool's automation layer.", priority:"live", tag:"ai"},
+        {t:"Asset performance learning loop, pilot", d:"Pilot version, dependent on the new tool's reporting depth.", priority:"nice", tag:"ai"},
+        {t:"Creative effectiveness benchmarking, build", d:"Build the benchmarking capability against the new tool's available reporting fields.", priority:"live", tag:"ai"},
+        {t:"Mix-level KPI dashboard, build", d:"Build the combined view, dependent on the new tool's reporting depth matching the Year 1 design.", priority:"nice", tag:"gov"},
+        {t:"Spend visibility & cost intelligence, build", d:"Build cost intelligence against the new tool's available budget/spend fields.", priority:"nice", tag:"gov"}
       ]
     },
     active: {
@@ -928,13 +1326,19 @@ const DATA = {
     maturityColor: "#0B1B33",
     strat: {
       wf: [
-        {t:"Next-horizon evaluation", d:"Assess autonomous compliance scoring and closed-loop learning expansion beyond Year 3.", priority:"live", tag:"ai"}
+        {t:"Next-horizon evaluation", d:"Assess autonomous compliance scoring and closed-loop learning expansion beyond Year 3.", priority:"live", tag:"ai"},
+        {t:"Portability of agency playbook, design", d:"Design a playbook for transferring ownership, knowledge, and tooling to PR so operations can run with less TAG dependency.", priority:"nice", tag:"gov"},
+        {t:"Continued training & enablement", d:"Ongoing custom training to support evolving platform capabilities and new user cohorts.", priority:"nice", tag:"gov"}
       ],
       blend: [
-        {t:"Next-horizon evaluation", d:"Same assessment, plus whether DI Studio is still needed for specialty production only.", priority:"live", tag:"ai"}
+        {t:"Next-horizon evaluation", d:"Same assessment, plus whether DI Studio is still needed for specialty production only.", priority:"live", tag:"ai"},
+        {t:"Portability of agency playbook, design", d:"Design a playbook covering both Workfront and DI Studio so PR can run with reduced TAG dependency.", priority:"nice", tag:"gov"},
+        {t:"Continued training & enablement", d:"Ongoing custom training across both systems as capabilities evolve.", priority:"nice", tag:"gov"}
       ],
       alt: [
-        {t:"Next-horizon evaluation", d:"Contingent on whether the alternative tool's roadmap can support autonomous scoring.", priority:"live", tag:"ai"}
+        {t:"Next-horizon evaluation", d:"Contingent on whether the alternative tool's roadmap can support autonomous scoring.", priority:"live", tag:"ai"},
+        {t:"Portability of agency playbook, design", d:"Design a playbook for the new tool so PR can run with reduced TAG dependency.", priority:"nice", tag:"gov"},
+        {t:"Continued training & enablement", d:"Ongoing custom training as the new tool's capabilities evolve.", priority:"nice", tag:"gov"}
       ]
     },
     build: {
@@ -944,10 +1348,14 @@ const DATA = {
         {t:"Unified partner marketplace, rollout", d:"Single intake surface matching TAG, Flex Pool, and specialty partners to briefs.", priority:"live", tag:"gov"}
       ],
       blend: [
-        {t:"Closed-loop optimisation layer", d:"Built primarily in Workfront, with DI Studio retained for specialty production only.", priority:"nice", tag:"ai"}
+        {t:"Closed-loop optimisation layer", d:"Built primarily in Workfront, with DI Studio retained for specialty production only.", priority:"nice", tag:"ai"},
+        {t:"Self-optimising budget allocation, rollout", d:"Budget reallocation across markets/channels live, with approval gates above threshold.", priority:"nice", tag:"ai"},
+        {t:"Unified partner marketplace, rollout", d:"Single intake surface matching TAG, Flex Pool, and specialty partners to briefs.", priority:"live", tag:"gov"}
       ],
       alt: [
-        {t:"Closed-loop optimisation layer", d:"Built natively if the tool's automation depth supports it; otherwise remains a future-state item.", priority:"live", tag:"ai"}
+        {t:"Closed-loop optimisation layer", d:"Built natively if the tool's automation depth supports it; otherwise remains a future-state item.", priority:"live", tag:"ai"},
+        {t:"Self-optimising budget allocation, rollout", d:"Budget reallocation live, contingent on the tool's automation supporting spend logic.", priority:"live", tag:"ai"},
+        {t:"Unified partner marketplace, rollout", d:"Single intake surface for partners; dependent on routing being fully automated by this point.", priority:"live", tag:"gov"}
       ]
     },
     active: {
@@ -1059,6 +1467,137 @@ const PROS_CONS = {
   }
 };
 
+let tcInitialized = false;
+let tcCategories = [];
+const TC_SHORT_LABELS = {
+  "Five Must-Have Pillars (RFP Eligibility)": "Five Pillars",
+  "Required Platform Modules (Appendix 2)": "Platform Modules",
+  "Forward Integration Roadmap": "Integration Roadmap",
+  "Data Intelligence & Brief Enrichment": "Data Intelligence",
+  "Certifications & Compliance": "Compliance",
+  "Data Residency by Region": "Data Residency",
+  "Cost & Training": "Cost & Training"
+};
+
+function initTechCompare(){
+  if(tcInitialized) return;
+  tcInitialized = true;
+
+  const table = document.querySelector("#tcTableWrap .tc-table");
+  const rows = Array.from(table.querySelectorAll("tr"));
+  let cat = null;
+
+  rows.forEach(row=>{
+    if(row.querySelector("th")){ row.dataset.cat = "header"; return; }
+    if(row.classList.contains("tc-section")){
+      const rawLabel = row.textContent.trim().split("(client addendum")[0].trim();
+      const shortLabel = TC_SHORT_LABELS[rawLabel] || rawLabel;
+      cat = {slug: "cat" + tcCategories.length, label: shortLabel, rows: []};
+      tcCategories.push(cat);
+      row.dataset.cat = cat.slug;
+      row.style.display = "none";
+      return;
+    }
+    if(cat){
+      row.dataset.cat = cat.slug;
+      cat.rows.push(row);
+    }
+  });
+
+  const subnav = document.getElementById("tcSubnav");
+  tcCategories.forEach((c, i)=>{
+    const btn = document.createElement("button");
+    btn.textContent = c.label;
+    btn.dataset.cat = c.slug;
+    if(i === 0) btn.classList.add("active");
+    btn.addEventListener("click", ()=> showTcCategory(c.slug));
+    subnav.appendChild(btn);
+  });
+  const summaryBtn = document.createElement("button");
+  summaryBtn.textContent = "Summary";
+  summaryBtn.className = "tc-summary-btn";
+  summaryBtn.dataset.cat = "summary";
+  summaryBtn.addEventListener("click", ()=> showTcCategory("summary"));
+  subnav.appendChild(summaryBtn);
+
+  showTcCategory(tcCategories[0].slug);
+}
+
+function showTcCategory(slug){
+  document.querySelectorAll("#tcSubnav button").forEach(b=>{
+    b.classList.toggle("active", b.dataset.cat === slug);
+  });
+
+  if(slug === "summary"){
+    document.getElementById("tcTableWrap").style.display = "none";
+    document.getElementById("tcLegend").style.display = "none";
+    document.getElementById("tcSummaryWrap").style.display = "block";
+    document.getElementById("tcSummaryNarrative").style.display = "block";
+    buildTcSummary();
+    return;
+  }
+
+  document.getElementById("tcTableWrap").style.display = "block";
+  document.getElementById("tcLegend").style.display = "flex";
+  document.getElementById("tcSummaryWrap").style.display = "none";
+  document.getElementById("tcSummaryNarrative").style.display = "none";
+
+  document.querySelectorAll("#tcTableWrap .tc-table tr").forEach(row=>{
+    if(row.dataset.cat === "header") return; // always show header
+    row.style.display = (row.dataset.cat === slug) ? "" : "none";
+  });
+}
+
+function scoreRow(row){
+  // returns {full, partial, gap, scored} counts across the 4 tool cells in this row
+  const cells = Array.from(row.querySelectorAll("td.tc-tool"));
+  return cells.map(cell=>{
+    if(cell.querySelector(".tc-badge.full")) return 2;
+    if(cell.querySelector(".tc-badge.partial")) return 1;
+    if(cell.querySelector(".tc-badge.gap")) return 0;
+    return null; // open-ended / pending, excluded from scoring
+  });
+}
+
+function buildTcSummary(){
+  const tools = ["Adobe Workfront", "Wrike", "monday.com", "ClickUp"];
+  const totals = [0,0,0,0];
+  const totalsMax = [0,0,0,0];
+
+  let html = `<tr><th>Category</th>${tools.map(t=>`<th class="tc-tool">${t}</th>`).join("")}</tr>`;
+
+  tcCategories.forEach(cat=>{
+    const sums = [0,0,0,0];
+    const maxes = [0,0,0,0];
+    cat.rows.forEach(row=>{
+      const scores = scoreRow(row);
+      scores.forEach((s, i)=>{
+        if(s !== null){ sums[i] += s; maxes[i] += 2; totals[i] += s; totalsMax[i] += 2; }
+      });
+    });
+    html += `<tr><td class="tc-req">${cat.label}</td>`;
+    sums.forEach((s, i)=>{
+      const pct = maxes[i] ? Math.round((s/maxes[i])*100) : null;
+      html += `<td class="tc-score-cell">${pct === null ? '<span class="tc-note">No scored items</span>' : scorePillHtml(pct)}</td>`;
+    });
+    html += `</tr>`;
+  });
+
+  html += `<tr class="tc-row-total"><td>Overall</td>`;
+  totals.forEach((t, i)=>{
+    const pct = totalsMax[i] ? Math.round((t/totalsMax[i])*100) : null;
+    html += `<td class="tc-score-cell">${pct === null ? "" : scorePillHtml(pct)}</td>`;
+  });
+  html += `</tr>`;
+
+  document.getElementById("tcSummaryTable").innerHTML = html;
+}
+
+function scorePillHtml(pct){
+  const cls = pct >= 70 ? "tc-score-high" : (pct >= 40 ? "tc-score-mid" : "tc-score-low");
+  return `<span class="tc-score-pill ${cls}"><span class="tc-score-pct">${pct}%</span><span class="tc-score-breakdown">requirement fit</span></span>`;
+}
+
 function renderProsCons(phaseKey){
   const grid = document.getElementById("prosConsGrid");
   grid.innerHTML = "";
@@ -1081,8 +1620,8 @@ function renderProsCons(phaseKey){
   });
 }
 
-function priorityLabel(p){return {must:"Must have", nice:"Nice to have", live:"Can live without"}[p] || p;}
-function tagLabel(tag){return {routing:"Routing", ai:"AI / Automation", gov:"Governance", tool:"Tooling"}[tag] || tag;}
+function priorityLabel(p){return {must:"Must", nice:"Nice", live:"Optional"}[p] || p;}
+function tagLabel(tag){return {routing:"Routing", ai:"AI/Auto", gov:"Gov", tool:"Tool"}[tag] || tag;}
 function tagIcon(tag){
   const icons = {
     routing: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 17h4l3-10 3 14 3-10h3"/></svg>',
@@ -1351,6 +1890,7 @@ function render(){
     document.getElementById("routingView").style.display = "block";
   } else if(currentPhase === "techcompare"){
     document.getElementById("techCompareView").style.display = "block";
+    initTechCompare();
   } else {
     document.getElementById("detailView").style.display = "block";
     renderDetail();
