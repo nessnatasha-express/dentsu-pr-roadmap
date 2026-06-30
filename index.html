@@ -67,8 +67,9 @@ p.sub{
   backdrop-filter:blur(2px);
 }
 .model-panel .ptitle{
-  font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:12px;
+  font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:5px;
 }
+.model-subtitle{font-size:12px; color:rgba(255,255,255,0.65); margin-bottom:12px; line-height:1.45;}
 .model-opts{display:flex; flex-direction:column; gap:8px; margin-bottom:14px;}
 .opt-btn{
   border:1.5px solid rgba(255,255,255,0.18);
@@ -215,8 +216,29 @@ p.sub{
 .item.drop-before{box-shadow:0 -3px 0 0 var(--gold);}
 .item.drop-after{box-shadow:0 3px 0 0 var(--gold);}
 .col-body.drag-over{background:rgba(215,169,74,0.12); outline:2px dashed var(--gold); outline-offset:-4px;}
-.chip{cursor:pointer; user-select:none;}
+.chip{cursor:pointer; user-select:none; position:relative;}
 .chip:hover{filter:brightness(1.08); box-shadow:0 0 0 1px rgba(11,27,51,0.2) inset;}
+
+/* Chip dropdown */
+.chip-dropdown{
+  position:fixed; z-index:300;
+  background:var(--white); border:1px solid var(--line); border-radius:12px;
+  box-shadow:0 8px 28px rgba(11,27,51,0.16); padding:6px; min-width:140px;
+  display:none;
+}
+.chip-dropdown.open{display:block;}
+.chip-dropdown-item{
+  display:flex; align-items:center; gap:8px; padding:8px 10px; border-radius:8px; cursor:pointer;
+  font-size:12px; font-weight:600; transition:background .12s ease;
+}
+.chip-dropdown-item:hover{background:var(--cream);}
+.chip-dropdown-item .dd-swatch{
+  width:10px; height:10px; border-radius:50%; flex-shrink:0;
+}
+.chip-dropdown-item.selected{background:var(--cream);}
+.chip-dropdown-item.selected::after{
+  content:"✓"; margin-left:auto; font-size:10px; color:var(--navy);
+}
 .editor-bar{
   display:flex; align-items:center; gap:10px; margin:14px 0 0; flex-wrap:wrap;
 }
@@ -245,18 +267,18 @@ input.file-hidden{display:none;}
 .filter-pill:hover{border-color:var(--gold);}
 
 /* Inactive state: same hue family as the card chip, just muted */
-.filter-pill.priority-must{color:#2E7D4F; border-color:rgba(46,125,79,0.35); background:rgba(46,125,79,0.07);}
+.filter-pill.priority-must{color:#B23A3A; border-color:rgba(178,58,58,0.35); background:rgba(178,58,58,0.07);}
 .filter-pill.priority-nice{color:#C97A1E; border-color:rgba(201,122,30,0.35); background:rgba(201,122,30,0.07);}
-.filter-pill.priority-live{color:#B23A3A; border-color:rgba(178,58,58,0.35); background:rgba(178,58,58,0.07);}
+.filter-pill.priority-live{color:#2E7D4F; border-color:rgba(46,125,79,0.35); background:rgba(46,125,79,0.07);}
 .filter-pill.routing{color:#345277; border-color:rgba(110,151,201,0.4); background:rgba(110,151,201,0.1);}
 .filter-pill.ai{color:#7a571c; border-color:rgba(215,169,74,0.4); background:rgba(215,169,74,0.12);}
 .filter-pill.gov{color:#5e5a1e; border-color:rgba(168,162,60,0.4); background:rgba(168,162,60,0.1);}
 .filter-pill.tool{color:var(--navy); border-color:rgba(11,27,51,0.25); background:rgba(11,27,51,0.05);}
 
 /* Active state: solid fill, exactly matching the card chip's filled color */
-.filter-pill.priority-must.active{background:#2E7D4F; color:white; border-color:#2E7D4F;}
+.filter-pill.priority-must.active{background:#B23A3A; color:white; border-color:#B23A3A;}
 .filter-pill.priority-nice.active{background:#C97A1E; color:white; border-color:#C97A1E;}
-.filter-pill.priority-live.active{background:#B23A3A; color:white; border-color:#B23A3A;}
+.filter-pill.priority-live.active{background:#2E7D4F; color:white; border-color:#2E7D4F;}
 .filter-pill.routing.active{background:rgba(110,151,201,0.2); color:#345277; border-color:#345277; font-weight:700;}
 .filter-pill.ai.active{background:rgba(215,169,74,0.25); color:#7a571c; border-color:#7a571c; font-weight:700;}
 .filter-pill.gov.active{background:rgba(168,162,60,0.22); color:#5e5a1e; border-color:#5e5a1e; font-weight:700;}
@@ -264,20 +286,102 @@ input.file-hidden{display:none;}
 
 .filter-pill.filter-clear{background:none; border:1px solid var(--tan); color:var(--tan); margin-left:auto;}
 .filter-pill.filter-clear:hover{border-color:var(--navy); color:var(--navy);}
+.filter-clear-icon{
+  background:none; border:1px solid var(--tan); color:var(--tan); padding:7px 8px; border-radius:8px;
+  cursor:pointer; display:inline-flex; align-items:center; justify-content:center; margin-left:auto;
+  transition:all .15s ease;
+}
+.filter-clear-icon:hover{border-color:var(--navy); color:var(--navy);}
+/* Effort filter pills — same lighter tints as effort badges */
+.effort-pill{border-style:solid;}
+.xl-pill{color:#B23A3A; border-color:rgba(178,58,58,0.35); background:rgba(178,58,58,0.07);}
+.l-pill{color:#C97A1E; border-color:rgba(201,122,30,0.35); background:rgba(201,122,30,0.07);}
+.m-pill{color:var(--navy); border-color:rgba(11,27,51,0.2); background:rgba(11,27,51,0.04);}
+.s-pill{color:#5e5a1e; border-color:rgba(168,162,60,0.35); background:rgba(168,162,60,0.07);}
+.xs-pill{color:#2E7D4F; border-color:rgba(46,125,79,0.35); background:rgba(46,125,79,0.07);}
+.xl-pill.active{background:rgba(178,58,58,0.14); border-color:#B23A3A; font-weight:700;}
+.l-pill.active{background:rgba(201,122,30,0.16); border-color:#C97A1E; font-weight:700;}
+.m-pill.active{background:rgba(11,27,51,0.1); border-color:var(--navy); font-weight:700;}
+.s-pill.active{background:rgba(168,162,60,0.18); border-color:#5e5a1e; font-weight:700;}
+.xs-pill.active{background:rgba(46,125,79,0.14); border-color:#2E7D4F; font-weight:700;}
 .filter-count{font-size:11.5px; color:#9a9587; font-style:italic;}
 .item.filtered-out{display:none;}
-.item .item-title{font-size:13px; font-weight:700; color:var(--navy); margin:0 0 3px; line-height:1.3;}
-.item .item-desc{font-size:11.5px; color:#5b6573; line-height:1.45; margin:0;}
-.chips{display:flex; gap:6px; margin-top:8px; flex-wrap:wrap; align-items:center; justify-content:space-between;}
-.chip-group{display:flex; gap:6px; flex-wrap:wrap;}
-.pos-badge{
-  flex-shrink:0; font-size:10px; font-weight:700; letter-spacing:.03em; color:var(--navy);
-  background:var(--cream); border:1px solid var(--tan); border-radius:20px; padding:3px 8px;
+.item .item-title{font-size:13px; font-weight:700; color:var(--navy); margin:0; line-height:1.3;}
+.item .item-desc{display:none;}
+.chips{display:flex; gap:6px; margin-top:8px; align-items:center; justify-content:space-between;}
+.chip-group{display:flex; gap:6px; flex-wrap:wrap; align-items:center;}
+.expand-btn{
+  flex-shrink:0; background:none; border:none; cursor:pointer; padding:2px; color:var(--tan);
+  display:inline-flex; align-items:center; transition:color .15s ease;
 }
+.expand-btn:hover{color:var(--navy);}
+.expand-btn svg{width:18px; height:18px;}
+
+/* Search bar */
+.search-bar{
+  display:flex; align-items:center; gap:10px; margin:14px 0 0;
+  background:var(--white); border:1px solid var(--line); border-radius:10px; padding:9px 14px;
+}
+.search-bar svg{width:15px; height:15px; flex-shrink:0; stroke:var(--tan);}
+.search-bar input{
+  border:none; outline:none; background:none; font-size:13px; color:var(--navy); width:100%;
+  font-family:inherit;
+}
+.search-bar input::placeholder{color:#c0b8ac;}
+.search-count{font-size:11.5px; color:#9a9587; white-space:nowrap;}
+.item.search-hidden{display:none;}
+
+/* Card modal */
+.card-modal-overlay{
+  position:fixed; inset:0; background:rgba(11,27,51,0.55); z-index:200;
+  display:flex; align-items:center; justify-content:center; padding:24px;
+  opacity:0; pointer-events:none; transition:opacity .18s ease;
+}
+.card-modal-overlay.open{opacity:1; pointer-events:all;}
+.card-modal{
+  background:var(--white); border-radius:18px; max-width:560px; width:100%;
+  box-shadow:0 24px 60px rgba(11,27,51,0.22); max-height:85vh; overflow-y:auto;
+  transform:translateY(12px); transition:transform .18s ease;
+}
+.card-modal-overlay.open .card-modal{transform:translateY(0);}
+.cm-header{padding:22px 24px 16px; border-bottom:1px solid var(--line);}
+.cm-phase{font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--tan); margin-bottom:6px;}
+.cm-title{font-size:17px; font-weight:700; color:var(--navy); margin:0 0 10px; line-height:1.3;}
+.cm-chips{display:flex; gap:7px; flex-wrap:wrap; align-items:center;}
+.cm-body{padding:20px 24px;}
+.cm-section{margin-bottom:18px;}
+.cm-section:last-child{margin-bottom:0;}
+.cm-label{font-size:10.5px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--tan); margin:0 0 6px;}
+.cm-text{font-size:13.5px; color:#3d4654; line-height:1.6; margin:0;}
+.cm-deps{display:flex; flex-direction:column; gap:6px;}
+.cm-dep-item{
+  display:flex; align-items:center; gap:8px; font-size:12.5px; color:#3d4654;
+  background:var(--cream); border-radius:8px; padding:7px 10px;
+}
+.cm-dep-item svg{width:12px; height:12px; flex-shrink:0; stroke:var(--tan);}
+.cm-dep-none{font-size:12.5px; color:#9a9587; font-style:italic;}
+.cm-close{
+  position:absolute; top:16px; right:16px; background:none; border:none; cursor:pointer;
+  color:var(--tan); padding:4px;
+}
+.cm-close:hover{color:var(--navy);}
+.cm-header{position:relative;}
+.chip-group{display:flex; gap:6px; flex-wrap:wrap;}
+.effort-badge{
+  font-size:8.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+  padding:3px 8px; border-radius:20px; display:inline-flex; align-items:center; cursor:pointer;
+  user-select:none; transition:filter .15s ease;
+}
+.effort-badge:hover{filter:brightness(1.08);}
+.effort-xl{background:rgba(178,58,58,0.14); color:#B23A3A;}
+.effort-l{background:rgba(201,122,30,0.16); color:#C97A1E;}
+.effort-m{background:rgba(11,27,51,0.08); color:var(--navy);}
+.effort-s{background:rgba(168,162,60,0.18); color:#5e5a1e;}
+.effort-xs{background:rgba(46,125,79,0.14); color:#2E7D4F;}
 .chip{font-size:8.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding:3px 8px; border-radius:20px;}
-.chip.priority-must{background:#2E7D4F; color:white;}
+.chip.priority-must{background:#B23A3A; color:white;}
 .chip.priority-nice{background:#C97A1E; color:white;}
-.chip.priority-live{background:#B23A3A; color:white;}
+.chip.priority-live{background:#2E7D4F; color:white;}
 .chip.routing{background:rgba(110,151,201,0.18); color:#345277;}
 .chip.ai{background:rgba(215,169,74,0.22); color:#7a571c;}
 .chip.gov{background:rgba(168,162,60,0.2); color:#5e5a1e;}
@@ -409,15 +513,10 @@ input.file-hidden{display:none;}
         </div>
         <h1 class="title">Technical Activation &amp; Delivery Roadmap</h1>
         <p class="sub">What we're building, what goes active, and what becomes reportable across the first 60 days through Year 3, with intelligent routing, AI review, and automation maturing at every stage.</p>
-        <div class="legend">
-          <span><span class="dot" style="background:#AD9F87"></span>Strategizing / Analyzing</span>
-          <span><span class="dot" style="background:#6E97C9"></span>Building</span>
-          <span><span class="dot" style="background:#A8A23C"></span>Active</span>
-          <span><span class="dot" style="background:#0B1B33"></span>Reportable</span>
-        </div>
       </div>
       <div class="model-panel">
-        <div class="ptitle">Operating model</div>
+        <div class="ptitle">Choose your operating model</div>
+        <div class="model-subtitle">The roadmap details will shift based on the model selected.</div>
         <div class="model-opts" id="modelOpts">
           <button class="opt-btn active" data-opt="wf"><span class="num">1</span>All TAG + PR in Workfront</button>
           <button class="opt-btn" data-opt="blend"><span class="num">2</span>DI Studio + Workfront blend</button>
@@ -478,9 +577,9 @@ input.file-hidden{display:none;}
     <div class="filter-bar">
       <div class="filter-group">
         <span class="filter-label">Priority</span>
-        <button class="filter-pill priority-must active" data-filter-type="priority" data-filter-val="must">Must</button>
-        <button class="filter-pill priority-nice active" data-filter-type="priority" data-filter-val="nice">Nice</button>
-        <button class="filter-pill priority-live active" data-filter-type="priority" data-filter-val="live">Optional</button>
+        <button class="filter-pill priority-must active" data-filter-type="priority" data-filter-val="must">High</button>
+        <button class="filter-pill priority-nice active" data-filter-type="priority" data-filter-val="nice">Med</button>
+        <button class="filter-pill priority-live active" data-filter-type="priority" data-filter-val="live">Low</button>
       </div>
       <div class="filter-group">
         <span class="filter-label">Category</span>
@@ -489,8 +588,24 @@ input.file-hidden{display:none;}
         <button class="filter-pill gov active" data-filter-type="tag" data-filter-val="gov"><span class="fp-icon"></span>Gov</button>
         <button class="filter-pill tool active" data-filter-type="tag" data-filter-val="tool"><span class="fp-icon"></span>Tool</button>
       </div>
-      <button class="filter-pill filter-clear" id="filterClearBtn">Reset filters</button>
+      <div class="filter-group">
+        <span class="filter-label">Effort</span>
+        <button class="filter-pill effort-pill xl-pill active" data-filter-type="effort" data-filter-val="xl">XL</button>
+        <button class="filter-pill effort-pill l-pill active" data-filter-type="effort" data-filter-val="l">L</button>
+        <button class="filter-pill effort-pill m-pill active" data-filter-type="effort" data-filter-val="m">M</button>
+        <button class="filter-pill effort-pill s-pill active" data-filter-type="effort" data-filter-val="s">S</button>
+        <button class="filter-pill effort-pill xs-pill active" data-filter-type="effort" data-filter-val="xs">XS</button>
+      </div>
+      <button class="filter-clear-icon" id="filterClearBtn" title="Reset all filters">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="16" height="16"><path d="M4 4v5h5"/><path d="M20 20v-5h-5"/><path d="M4 9a9 9 0 0114.13-3.36M20 15a9 9 0 01-14.13 3.36"/></svg>
+      </button>
       <span class="filter-count" id="filterCount"></span>
+    </div>
+
+    <div class="search-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3L21 21"/></svg>
+      <input type="text" id="cardSearch" placeholder="Search cards in this phase…">
+      <span class="search-count" id="searchCount"></span>
     </div>
 
     <div class="cols">
@@ -1005,6 +1120,11 @@ input.file-hidden{display:none;}
   <div class="foot">
     Internal planning view for The Mix RFP / Pernod Ricard Technical Activation &amp; Delivery. Priority tags (must have / nice to have / can live without) and operating-model variations are directional, drawn from the 60-day MVP brainstorm and internal planning input. [Probable] — not a contractual delivery schedule.
   </div>
+  <div class="card-modal-overlay" id="cardModalOverlay">
+    <div class="card-modal" id="cardModal"></div>
+  </div>
+
+  <div class="chip-dropdown" id="chipDropdown"></div>
 
 </div>
 
@@ -1111,13 +1231,13 @@ const DATA = {
     },
     report: {
       wf: [
-        {t:"Simple reporting dashboard", d:"Tracking of projects, programs, and SLAs from day one inside Workfront.", priority:"must", tag:"tool"}
+        {t:"Simple reporting dashboard", d:"Live from day one inside Workfront. KPIs: total briefs submitted, briefs by market/brand/channel, open vs. closed request volume, average time from brief submission to assignment, SLA on-time rate (% of projects hitting due date), active projects by tier (BU Studio / COE / ME Studio / Offshore / Flex Pool).", priority:"must", tag:"tool"}
       ],
       blend: [
-        {t:"Simple reporting dashboard", d:"Workfront-side dashboard for SLAs; DI Studio production status reported separately until integration matures.", priority:"must", tag:"tool"}
+        {t:"Simple reporting dashboard", d:"Workfront-side from day one; DI Studio production status reported separately until the sync is automated. KPIs: total briefs submitted, briefs by market/brand/channel, open vs. closed request volume, average time from brief submission to assignment, SLA on-time rate, active projects by tier.", priority:"must", tag:"tool"}
       ],
       alt: [
-        {t:"Simple reporting dashboard", d:"Native dashboarding inside the alternative tool; SLA tracking rebuilt without Workfront's pre-existing structure.", priority:"must", tag:"tool"}
+        {t:"Simple reporting dashboard", d:"Native dashboarding inside the alternative tool. KPIs: total briefs submitted, briefs by market/brand/channel, open vs. closed request volume, average time from brief submission to assignment, SLA on-time rate, active projects by tier.", priority:"must", tag:"tool"}
       ]
     }
   },
@@ -1218,14 +1338,17 @@ const DATA = {
     },
     report: {
       wf: [
-        {t:"SLA & throughput reporting", d:"Dashboards expand from simple tracking to SLA compliance by tier and brand.", priority:"must", tag:"tool"},
-        {t:"Duplication savings reporting", d:"First measurable reuse/duplication-avoidance metric.", priority:"nice", tag:"ai"}
+        {t:"SLA & throughput reporting", d:"Dashboards expand to SLA compliance by tier and brand. KPIs: SLA breach rate by tier (BU / COE / ME / Offshore / Flex), average brief-to-delivery cycle time by brand and market, throughput volume by channel, backlog size by request type, on-time delivery rate by studio.", priority:"must", tag:"tool"},
+        {t:"Duplicate & reuse savings reporting", d:"First measurable reuse and duplication-avoidance metric. KPIs: number of duplicate briefs detected and deflected, asset reuse rate (% of briefs resolved from existing assets), estimated hours/cost saved from deduplication, reuse rate by brand and market.", priority:"nice", tag:"ai"},
+        {t:"Resource utilisation reporting", d:"Visibility into how resource capacity is being consumed. KPIs: resource utilisation rate by tier, over/under-capacity flags by studio, freelancer vs. FTE hours split, Flex Pool activation frequency.", priority:"nice", tag:"routing"}
       ],
       blend: [
-        {t:"SLA & throughput reporting", d:"Combined view assembled from both systems, still partially manual.", priority:"must", tag:"tool"}
+        {t:"SLA & throughput reporting", d:"Combined view assembled from Workfront and DI Studio, still partially manual. KPIs: SLA breach rate by tier, average brief-to-delivery cycle time, throughput volume by channel, on-time delivery rate by studio.", priority:"must", tag:"tool"},
+        {t:"Duplicate & reuse savings reporting", d:"KPIs: duplicate briefs detected, asset reuse rate, estimated cost saved, reuse rate by brand and market.", priority:"nice", tag:"ai"}
       ],
       alt: [
-        {t:"SLA & throughput reporting", d:"Native dashboards extended to SLA compliance by tier and brand.", priority:"must", tag:"tool"}
+        {t:"SLA & throughput reporting", d:"Native dashboards extended to SLA compliance by tier and brand. KPIs: SLA breach rate by tier, average brief-to-delivery cycle time, throughput volume by channel, on-time delivery rate by studio.", priority:"must", tag:"tool"},
+        {t:"Duplicate & reuse savings reporting", d:"KPIs: duplicate briefs detected, asset reuse rate, estimated cost saved, reuse rate by brand and market.", priority:"nice", tag:"ai"}
       ]
     }
   },
@@ -1308,14 +1431,20 @@ const DATA = {
     },
     report: {
       wf: [
-        {t:"Proactive monitoring dashboards", d:"SLA risk flagged before breach; asset reuse and AI-review accuracy both reportable.", priority:"must", tag:"ai"},
-        {t:"TAG reliance baseline", d:"First measurable view of work volume still requiring TAG agency involvement.", priority:"must", tag:"gov"}
+        {t:"Proactive monitoring dashboards", d:"SLA risk flagged before breach. KPIs: predicted SLA breach risk score by project (flag when > X% likely to miss), routing automation rate (% of briefs auto-routed vs. manually assigned), AI-review pass/fail rate, AI-review accuracy rate (% of auto-checks later overridden by humans), asset reuse rate by campaign, brief enrichment rate (% of briefs receiving GENIE intelligence data).", priority:"must", tag:"ai"},
+        {t:"TAG reliance baseline", d:"First measurable view of work volume still requiring TAG agency involvement. KPIs: % of briefs requiring TAG intervention vs. automated/self-serve, TAG hours logged by work type, specialty vs. bulk brief split, Flex Pool activation rate vs. TAG engagement rate.", priority:"must", tag:"gov"},
+        {t:"Integration health & data quality reporting", d:"With Fusion, Bynder, and Genie all live, data quality becomes reportable. KPIs: Bynder sync success rate, Genie brief-enrichment coverage rate (% of briefs with enrichment data attached), Fusion workflow completion rate, data/media-bridge ingestion success rate.", priority:"nice", tag:"tool"},
+        {t:"Creative intelligence reporting", d:"First data from the brief intelligence and effectiveness benchmarking builds. KPIs: cultural/social listening signal coverage (% of markets with active listening feeds), creative effectiveness score vs. market benchmark, pre-flight quality score distribution across submitted creative.", priority:"live", tag:"ai"}
       ],
       blend: [
-        {t:"Proactive monitoring dashboards", d:"Assembled across both tools; TAG reliance baseline tracked at the Workfront layer.", priority:"must", tag:"ai"}
+        {t:"Proactive monitoring dashboards", d:"Assembled across Workfront and DI Studio. KPIs: predicted SLA breach risk score, routing automation rate, AI-review pass/fail rate, AI-review accuracy rate, asset reuse rate by campaign, brief enrichment rate.", priority:"must", tag:"ai"},
+        {t:"TAG reliance baseline", d:"Tracked at the Workfront layer. KPIs: % of briefs requiring TAG intervention, TAG hours logged by work type, specialty vs. bulk brief split, Flex Pool activation rate vs. TAG engagement rate.", priority:"must", tag:"gov"},
+        {t:"Integration health reporting", d:"KPIs: Bynder sync success rate, Genie brief-enrichment coverage rate, DI Studio sync error rate.", priority:"nice", tag:"tool"}
       ],
       alt: [
-        {t:"Proactive monitoring dashboards", d:"Native to the alternative tool's reporting layer; AI-review accuracy reported alongside SLA risk.", priority:"must", tag:"ai"}
+        {t:"Proactive monitoring dashboards", d:"Native to the alternative tool's reporting layer. KPIs: predicted SLA breach risk score, routing automation rate, AI-review pass/fail rate, AI-review accuracy rate, asset reuse rate by campaign, brief enrichment rate.", priority:"must", tag:"ai"},
+        {t:"TAG reliance baseline", d:"KPIs: % of briefs requiring TAG intervention, TAG hours logged by work type, specialty vs. bulk brief split, Flex Pool activation rate vs. TAG engagement rate.", priority:"must", tag:"gov"},
+        {t:"Integration health reporting", d:"KPIs: Bynder/Fusion sync success rate, Genie brief-enrichment coverage rate, data-bridge ingestion rate.", priority:"nice", tag:"tool"}
       ]
     }
   },
@@ -1376,16 +1505,20 @@ const DATA = {
     },
     report: {
       wf: [
-        {t:"Full-funnel performance reporting", d:"From brief intake through delivery to in-market performance, in one connected view.", priority:"must", tag:"ai"},
-        {t:"TAG vs. in-house volume split", d:"Reportable ratio showing reduced agency dependency year over year.", priority:"must", tag:"gov"}
+        {t:"Full-funnel performance reporting", d:"From brief intake through delivery to in-market performance, in one connected view. KPIs: brief-to-live campaign cycle time end-to-end, campaign delivery rate on-time vs. SLA, in-market performance score per campaign (tied to media/performance bridge), asset performance loop effectiveness (% of briefs using prior-campaign intelligence), closed-loop optimisation rate (% of briefs where performance data influenced the next brief).", priority:"must", tag:"ai"},
+        {t:"TAG vs. in-house volume split", d:"Reportable ratio showing reduced agency dependency year over year. KPIs: % of total brief volume handled in-house vs. TAG, % of bulk/templated work fully automated (no TAG touch), TAG hours by work category (specialty vs. bespoke vs. bulk), year-on-year TAG cost reduction, Flex Pool activation rate vs. Year 1 baseline.", priority:"must", tag:"gov"},
+        {t:"Platform ROI & value reporting", d:"Aggregate view of platform value to PR. KPIs: total estimated cost avoidance from deduplication and reuse (cumulative Year 1-3), AI-review ROI (hours saved vs. cost of AI layer), SLA improvement vs. pre-platform baseline, brief-to-live cycle time improvement vs. pre-platform baseline, creative effectiveness score trend vs. market benchmark over 3 years.", priority:"nice", tag:"ai"},
+        {t:"AI maturity & automation health", d:"Tracking how much of the platform now runs autonomously. KPIs: routing automation rate (% fully automated), AI-review automation rate, pre-flight quality score pass rate, generative first-draft adoption rate (% of briefs using generative pilot output), closed-loop brief-enrichment coverage (% of briefs enriched with prior performance data).", priority:"nice", tag:"ai"}
       ],
       blend: [
-        {t:"Full-funnel performance reporting", d:"Connected view assembled across DI Studio and Workfront.", priority:"must", tag:"ai"},
-        {t:"TAG vs. in-house volume split", d:"Tracked the same way, split by which tool handled the work.", priority:"must", tag:"gov"}
+        {t:"Full-funnel performance reporting", d:"Connected view assembled across DI Studio and Workfront. KPIs: brief-to-live campaign cycle time, campaign delivery rate on-time vs. SLA, in-market performance score per campaign, asset performance loop effectiveness, closed-loop optimisation rate.", priority:"must", tag:"ai"},
+        {t:"TAG vs. in-house volume split", d:"Tracked across both systems. KPIs: % of brief volume handled in-house vs. TAG, % of bulk work automated, TAG hours by work category, year-on-year TAG cost reduction, Flex Pool activation rate vs. Year 1 baseline.", priority:"must", tag:"gov"},
+        {t:"Platform ROI & value reporting", d:"KPIs: total cost avoidance from deduplication/reuse, AI-review ROI, SLA improvement vs. pre-platform baseline, brief-to-live cycle time improvement.", priority:"nice", tag:"ai"}
       ],
       alt: [
-        {t:"Full-funnel performance reporting", d:"Native to the alternative tool, contingent on its reporting depth matching Workfront's by Year 3.", priority:"must", tag:"ai"},
-        {t:"TAG vs. in-house volume split", d:"Tracked natively.", priority:"must", tag:"gov"}
+        {t:"Full-funnel performance reporting", d:"Native to the alternative tool, contingent on its reporting depth. KPIs: brief-to-live campaign cycle time, campaign delivery rate on-time vs. SLA, in-market performance score per campaign, closed-loop optimisation rate.", priority:"must", tag:"ai"},
+        {t:"TAG vs. in-house volume split", d:"Tracked natively. KPIs: % of brief volume handled in-house vs. TAG, % of bulk work automated, TAG hours by work category, year-on-year TAG cost reduction.", priority:"must", tag:"gov"},
+        {t:"Platform ROI & value reporting", d:"KPIs: total cost avoidance from deduplication/reuse, AI-review ROI, SLA improvement vs. pre-platform baseline, brief-to-live cycle time improvement.", priority:"nice", tag:"ai"}
       ]
     }
   }
@@ -1397,6 +1530,18 @@ const STATE = JSON.parse(JSON.stringify(DATA)); // mutable working copy: drag/dr
 const COLS = ["strat","buildactive","report"];
 const PRIORITY_CYCLE = ["must","nice","live"];
 const TAG_CYCLE = ["routing","ai","gov","tool"];
+const EFFORT_CYCLE = ["xl","l","m","s","xs"];
+const PRIORITY_ORDER = {must:0, nice:1, live:2};
+
+function defaultEffort(item){
+  const map = {
+    ai:{must:"xl", nice:"l", live:"m"},
+    tool:{must:"l", nice:"m", live:"s"},
+    gov:{must:"m", nice:"s", live:"xs"},
+    routing:{must:"l", nice:"m", live:"s"}
+  };
+  return (map[item.tag] && map[item.tag][item.priority]) || "m";
+}
 
 function mergeBuildActive(phaseObj){
   phaseObj.buildactive = {};
@@ -1405,6 +1550,17 @@ function mergeBuildActive(phaseObj){
   });
 }
 Object.keys(STATE).forEach(k=>{ if(STATE[k].build) mergeBuildActive(STATE[k]); });
+// Initialize effort defaults for all items
+Object.keys(STATE).forEach(phase=>{
+  ["strat","buildactive","report"].forEach(col=>{
+    if(!STATE[phase][col]) return;
+    ["wf","blend","alt"].forEach(opt=>{
+      (STATE[phase][col][opt]||[]).forEach(item=>{
+        if(!item.effort) item.effort = defaultEffort(item);
+      });
+    });
+  });
+});
 
 const OPT_LABEL = {wf:"All TAG + PR in Workfront", blend:"DI Studio + Workfront blend", alt:"Alternative tool (Monday/ClickUp)"};const OPT_COLOR = {wf:"#0B1B33", blend:"#6E97C9", alt:"#A8A23C"};
 
@@ -1620,8 +1776,9 @@ function renderProsCons(phaseKey){
   });
 }
 
-function priorityLabel(p){return {must:"Must", nice:"Nice", live:"Optional"}[p] || p;}
+function priorityLabel(p){return {must:"High", nice:"Med", live:"Low"}[p] || p;}
 function tagLabel(tag){return {routing:"Routing", ai:"AI/Auto", gov:"Gov", tool:"Tool"}[tag] || tag;}
+function effortLabel(e){return {xl:"XL", l:"L", m:"M", s:"S", xs:"XS"}[e] || e;}
 function tagIcon(tag){
   const icons = {
     routing: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 17h4l3-10 3 14 3-10h3"/></svg>',
@@ -1639,25 +1796,36 @@ function renderItems(container, items, colKey){
   container.dataset.col = colKey;
   if(!items || items.length === 0){
     container.innerHTML = '<div class="empty-note">Nothing scoped here for this option/phase. Drag a card in to add one.</div>';
+    return;
   }
-  (items||[]).forEach((it, idx)=>{
+  // Sort by priority (High → Med → Low), preserve relative order within same priority
+  const sorted = [...(items||[])].map((it,i)=>({...it, _origIdx:i}))
+    .sort((a,b)=> PRIORITY_ORDER[a.priority] - PRIORITY_ORDER[b.priority]);
+
+  sorted.forEach((it, sortedIdx)=>{
+    const origIdx = it._origIdx;
+    const effort = it.effort || defaultEffort(it);
     const div = document.createElement("div");
     div.className = "item";
     div.draggable = true;
-    div.dataset.idx = idx;
+    div.dataset.idx = origIdx;
     div.dataset.priority = it.priority;
     div.dataset.tag = it.tag;
+    div.dataset.effort = effort;
     div.innerHTML = `<p class="item-title">${it.t}</p><p class="item-desc">${it.d}</p>
       <div class="chips">
         <div class="chip-group">
-          <span class="chip priority-${it.priority}" data-field="priority" data-idx="${idx}">${priorityLabel(it.priority)}</span>
-          <span class="chip ${it.tag}" data-field="tag" data-idx="${idx}">${tagIcon(it.tag)}${tagLabel(it.tag)}</span>
+          <span class="chip priority-${it.priority}" data-field="priority" data-idx="${origIdx}">${priorityLabel(it.priority)}</span>
+          <span class="chip ${it.tag}" data-field="tag" data-idx="${origIdx}">${tagIcon(it.tag)}${tagLabel(it.tag)}</span>
+          <span class="effort-badge effort-${effort}" data-field="effort" data-idx="${origIdx}">${effortLabel(effort)}</span>
         </div>
-        <span class="pos-badge">P${idx+1}</span>
+        <button class="expand-btn" data-col="${colKey}" data-idx="${origIdx}" title="View details">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="9"/><path d="M9 12h6M13 10l2 2-2 2"/></svg>
+        </button>
       </div>`;
     div.addEventListener("dragstart", (e)=>{
       div.classList.add("dragging");
-      e.dataTransfer.setData("text/plain", JSON.stringify({col:colKey, idx}));
+      e.dataTransfer.setData("text/plain", JSON.stringify({col:colKey, idx:origIdx}));
     });
     div.addEventListener("dragend", ()=>{
       div.classList.remove("dragging");
@@ -1671,14 +1839,21 @@ function renderItems(container, items, colKey){
       const before = (e.clientY - rect.top) < (rect.height / 2);
       clearDropIndicators();
       div.classList.add(before ? "drop-before" : "drop-after");
-      dropTarget = {col: colKey, beforeIdx: before ? idx : idx + 1};
+      dropTarget = {col: colKey, beforeIdx: before ? origIdx : origIdx + 1};
     });
-
     div.querySelectorAll(".chip").forEach(chip=>{
       chip.addEventListener("click", (e)=>{
         e.stopPropagation();
-        cycleField(colKey, idx, chip.dataset.field);
+        openChipDropdown(chip, colKey, origIdx, chip.dataset.field);
       });
+    });
+    div.querySelector(".effort-badge").addEventListener("click", (e)=>{
+      e.stopPropagation();
+      cycleField(colKey, origIdx, "effort");
+    });
+    div.querySelector(".expand-btn").addEventListener("click", (e)=>{
+      e.stopPropagation();
+      openCardModal(it, origIdx, colKey);
     });
     container.appendChild(div);
   });
@@ -1690,15 +1865,77 @@ function clearDropIndicators(){
   });
 }
 
+const PRIORITY_OPTIONS = [
+  {val:"must", label:"High", swatch:"#B23A3A"},
+  {val:"nice",  label:"Med",  swatch:"#C97A1E"},
+  {val:"live",  label:"Low",  swatch:"#2E7D4F"}
+];
+const TAG_OPTIONS = [
+  {val:"routing", label:"Routing",      swatch:"#345277"},
+  {val:"ai",      label:"AI / Automation", swatch:"#7a571c"},
+  {val:"gov",     label:"Governance",   swatch:"#5e5a1e"},
+  {val:"tool",    label:"Tooling",      swatch:"#0B1B33"}
+];
+
+function openChipDropdown(chipEl, colKey, idx, field){
+  const dd = document.getElementById("chipDropdown");
+  dd.innerHTML = "";
+  const options = field === "priority" ? PRIORITY_OPTIONS : TAG_OPTIONS;
+  const arr = STATE[currentPhase][colKey][currentOpt];
+  const current = arr[idx][field === "priority" ? "priority" : "tag"];
+  options.forEach(opt=>{
+    const item = document.createElement("div");
+    item.className = "chip-dropdown-item" + (opt.val === current ? " selected" : "");
+    item.innerHTML = `<span class="dd-swatch" style="background:${opt.swatch}"></span>${opt.label}`;
+    item.addEventListener("mousedown", (e)=>{
+      e.preventDefault();
+      e.stopPropagation();
+      setField(colKey, idx, field, opt.val);
+      closeChipDropdown();
+    });
+    dd.appendChild(item);
+  });
+
+  // Position relative to the chip
+  const rect = chipEl.getBoundingClientRect();
+  dd.style.top = (rect.bottom + 4) + "px";
+  dd.style.left = rect.left + "px";
+  dd.classList.add("open");
+
+  // Guard against going off-screen right
+  requestAnimationFrame(()=>{
+    const ddRect = dd.getBoundingClientRect();
+    if(ddRect.right > window.innerWidth - 8){
+      dd.style.left = (window.innerWidth - ddRect.width - 8) + "px";
+    }
+  });
+}
+
+function closeChipDropdown(){
+  document.getElementById("chipDropdown").classList.remove("open");
+}
+
+function setField(colKey, idx, field, val){
+  const arr = STATE[currentPhase][colKey][currentOpt];
+  const item = arr[idx];
+  if(field === "priority") item.priority = val;
+  else item.tag = val;
+  renderDetail();
+}
+
+document.addEventListener("click", ()=> closeChipDropdown());
+document.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeChipDropdown(); });
+
 function cycleField(colKey, idx, field){
   const arr = STATE[currentPhase][colKey][currentOpt];
   const item = arr[idx];
   if(field === "priority"){
-    const next = PRIORITY_CYCLE[(PRIORITY_CYCLE.indexOf(item.priority)+1) % PRIORITY_CYCLE.length];
-    item.priority = next;
+    item.priority = PRIORITY_CYCLE[(PRIORITY_CYCLE.indexOf(item.priority)+1) % PRIORITY_CYCLE.length];
+  } else if(field === "effort"){
+    const cur = item.effort || defaultEffort(item);
+    item.effort = EFFORT_CYCLE[(EFFORT_CYCLE.indexOf(cur)+1) % EFFORT_CYCLE.length];
   } else {
-    const next = TAG_CYCLE[(TAG_CYCLE.indexOf(item.tag)+1) % TAG_CYCLE.length];
-    item.tag = next;
+    item.tag = TAG_CYCLE[(TAG_CYCLE.indexOf(item.tag)+1) % TAG_CYCLE.length];
   }
   renderDetail();
 }
@@ -1900,6 +2137,12 @@ function render(){
 
 function switchPhase(key){
   currentPhase = key;
+  searchQuery = "";
+  const si = document.getElementById("cardSearch");
+  if(si) si.value = "";
+  const sc = document.getElementById("searchCount");
+  if(sc) sc.textContent = "";
+  closeCardModal();
   document.querySelectorAll(".phase-btn").forEach(b=>{
     b.classList.toggle("active", b.dataset.phase === key);
   });
@@ -1936,26 +2179,26 @@ document.getElementById("importFile").addEventListener("change", (e)=>{
 
 const activePriorities = new Set(["must","nice","live"]);
 const activeTags = new Set(["routing","ai","gov","tool"]);
+const activeEfforts = new Set(["xl","l","m","s","xs"]);
 
 function applyFilters(){
   let shown = 0, total = 0;
   document.querySelectorAll("#detailView .item").forEach(el=>{
     total++;
-    const matches = activePriorities.has(el.dataset.priority) && activeTags.has(el.dataset.tag);
+    const effort = el.dataset.effort || "m";
+    const matches = activePriorities.has(el.dataset.priority) && activeTags.has(el.dataset.tag) && activeEfforts.has(effort);
     el.classList.toggle("filtered-out", !matches);
     if(matches) shown++;
   });
   const countEl = document.getElementById("filterCount");
-  if(countEl){
-    countEl.textContent = (shown === total) ? "" : `Showing ${shown} of ${total} cards`;
-  }
+  if(countEl) countEl.textContent = (shown === total) ? "" : `Showing ${shown} of ${total} cards`;
 }
 
 document.querySelectorAll(".filter-pill[data-filter-type]").forEach(btn=>{
   btn.addEventListener("click", ()=>{
     const type = btn.dataset.filterType;
     const val = btn.dataset.filterVal;
-    const set = (type === "priority") ? activePriorities : activeTags;
+    const set = type === "priority" ? activePriorities : type === "effort" ? activeEfforts : activeTags;
     if(set.has(val)){
       set.delete(val);
       btn.classList.remove("active");
@@ -1967,16 +2210,95 @@ document.querySelectorAll(".filter-pill[data-filter-type]").forEach(btn=>{
   });
 });
 
-document.getElementById("filterClearBtn").addEventListener("click", ()=>{
-  activePriorities.clear(); ["must","nice","live"].forEach(v=>activePriorities.add(v));
-  activeTags.clear(); ["routing","ai","gov","tool"].forEach(v=>activeTags.add(v));
-  document.querySelectorAll(".filter-pill[data-filter-type]").forEach(b=>b.classList.add("active"));
-  applyFilters();
+const COL_LABELS = {strat:"Analysis & Strategy", buildactive:"Build & Activate", report:"Reportable"};
+const PHASE_LABELS = {d60:"First 60 Days", y1:"Year 1", y2:"Year 2", y3:"Year 3"};
+
+function openCardModal(item, idx, colKey){
+  const col = STATE[currentPhase][colKey][currentOpt];
+  const deps = col.slice(0, idx).map((d, i) => `<div class="cm-dep-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>P${i+1} — ${d.t}</div>`).join("");
+
+  document.getElementById("cardModal").innerHTML = `
+    <div class="cm-header">
+      <button class="cm-close" id="cmClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" width="18" height="18"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+      <div class="cm-phase">${PHASE_LABELS[currentPhase]} &nbsp;·&nbsp; ${COL_LABELS[colKey]}</div>
+      <h2 class="cm-title">${item.t}</h2>
+      <div class="cm-chips">
+        <span class="chip priority-${item.priority}">${priorityLabel(item.priority)}</span>
+        <span class="chip ${item.tag}">${tagIcon(item.tag)}${tagLabel(item.tag)}</span>
+        <span class="effort-badge effort-${item.effort || defaultEffort(item)}">${effortLabel(item.effort || defaultEffort(item))}</span>
+      </div>
+    </div>
+    <div class="cm-body">
+      <div class="cm-section">
+        <p class="cm-label">Description</p>
+        <p class="cm-text">${item.d}</p>
+      </div>
+      <div class="cm-section">
+        <p class="cm-label">Prerequisites in this column</p>
+        <div class="cm-deps">${deps || '<span class="cm-dep-none">No prerequisites — this is the first item in this column.</span>'}</div>
+      </div>
+      <div class="cm-section">
+        <p class="cm-label">Operating model</p>
+        <p class="cm-text">${OPT_LABEL[currentOpt]}</p>
+      </div>
+    </div>`;
+
+  document.getElementById("cardModalOverlay").classList.add("open");
+  document.getElementById("cmClose").addEventListener("click", closeCardModal);
+}
+
+function closeCardModal(){
+  document.getElementById("cardModalOverlay").classList.remove("open");
+}
+
+document.getElementById("cardModalOverlay").addEventListener("click", (e)=>{
+  if(e.target === document.getElementById("cardModalOverlay")) closeCardModal();
 });
+document.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeCardModal(); });
+
+/* Search */
+let searchQuery = "";
+document.getElementById("cardSearch").addEventListener("input", (e)=>{
+  searchQuery = e.target.value.trim().toLowerCase();
+  applySearch();
+});
+
+function applySearch(){
+  const items = document.querySelectorAll("#detailView .item");
+  let shown = 0;
+  items.forEach(el=>{
+    const title = el.querySelector(".item-title")?.textContent.toLowerCase() || "";
+    const desc  = el.querySelector(".item-desc")?.textContent.toLowerCase() || "";
+    const hidden = searchQuery && !title.includes(searchQuery) && !desc.includes(searchQuery);
+    el.classList.toggle("search-hidden", hidden);
+    if(!hidden && !el.classList.contains("filtered-out")) shown++;
+  });
+  const countEl = document.getElementById("searchCount");
+  if(countEl) countEl.textContent = searchQuery ? `${shown} result${shown !== 1 ? "s" : ""}` : "";
+}
+
+const _origApplyFilters = applyFilters;
+applyFilters = function(){
+  _origApplyFilters();
+  applySearch();
+};
 
 document.querySelectorAll(".filter-pill[data-filter-type='tag'] .fp-icon").forEach(span=>{
   const btn = span.closest(".filter-pill");
   span.innerHTML = tagIcon(btn.dataset.filterVal);
+});
+
+document.getElementById("filterClearBtn").addEventListener("click", ()=>{
+  activePriorities.clear(); ["must","nice","live"].forEach(v=>activePriorities.add(v));
+  activeTags.clear(); ["routing","ai","gov","tool"].forEach(v=>activeTags.add(v));
+  activeEfforts.clear(); ["xl","l","m","s","xs"].forEach(v=>activeEfforts.add(v));
+  document.querySelectorAll(".filter-pill[data-filter-type]").forEach(b=>b.classList.add("active"));
+  searchQuery = "";
+  const si = document.getElementById("cardSearch");
+  if(si) si.value = "";
+  const sc = document.getElementById("searchCount");
+  if(sc) sc.textContent = "";
+  applyFilters();
 });
 
 render();
