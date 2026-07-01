@@ -5,7 +5,7 @@
 <title>Pernod Ricard — Technical Activation & Delivery Roadmap</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --navy:#0B1B33;
@@ -20,7 +20,7 @@
   --white:#FFFFFF;
 }
 *{box-sizing:border-box;}
-html,body{margin:0;padding:0;}
+html,body{margin:0;padding:0; height:100%;}
 body{
   font-family:'Poppins', 'Helvetica Neue', Arial, sans-serif;
   background:var(--cream);
@@ -35,9 +35,137 @@ h1,h2,h3,h4,
 .tc-summary h3,
 .proscons-wrap h3,
 .cm-title-input{
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: 'Bebas Neue', 'Futura PT', 'Century Gothic', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
 }
-.wrap{max-width:1320px;margin:0 auto;padding:0 32px 90px;}
+
+/* ---------- SIDEBAR LAYOUT ---------- */
+.app-layout{display:flex; min-height:100vh;}
+.sidebar{
+  width:300px; flex-shrink:0;
+  background:linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);
+  position:fixed; top:0; left:0; bottom:0; overflow-y:auto;
+  display:flex; flex-direction:column;
+  padding:28px 24px 32px;
+  z-index:100;
+}
+.main-content{
+  margin-left:300px; flex:1; padding:0 36px 90px; min-height:100vh; box-sizing:border-box;
+  background:var(--white);
+}
+
+/* 1. Logo sits alone at top */
+.sb-brand{margin-bottom:14px;}
+
+/* 5. Larger sidebar title */
+.sb-title{
+  font-family:'Bebas Neue','Futura PT','Century Gothic',sans-serif;
+  text-transform:uppercase; letter-spacing:-.01em;
+  font-size:30px; font-weight:400; color:var(--cream); line-height:1.15;
+  margin:0 0 10px;
+}
+.sb-desc{font-size:12px; color:rgba(255,255,255,0.6); line-height:1.6; margin:0 0 24px;}
+
+/* 2. Divider above roadmap btn (moved inline to HTML) */
+.sb-model-section{margin-bottom:6px;}
+.sb-roadmap-btn{
+  display:flex; align-items:center; gap:9px; width:100%;
+  background:none; border:1.5px solid rgba(255,255,255,0.12); color:rgba(255,255,255,0.75);
+  padding:10px 14px; border-radius:10px;
+  font-size:12.5px; font-weight:600; cursor:pointer; text-align:left;
+  font-family:'Poppins',sans-serif; transition:all .15s ease;
+  margin-bottom:0;
+}
+.sb-roadmap-btn:hover{border-color:rgba(255,255,255,0.4); color:white;}
+.sb-roadmap-btn.active{background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.35); color:white;}
+.sb-roadmap-btn svg{stroke:currentColor;}
+/* 4. Match operating model label to Reference style */
+.sb-model-label{font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:6px;}
+.sb-model-sub{font-size:11px; color:rgba(255,255,255,0.55); margin-bottom:12px; line-height:1.45;}
+.sb-model-opts{display:flex; flex-direction:column; gap:7px; margin-bottom:12px;}
+.opt-btn{
+  border:1.5px solid rgba(255,255,255,0.18);
+  background:rgba(255,255,255,0.04);
+  color:var(--cream);
+  padding:10px 12px;
+  border-radius:10px;
+  font-size:12.5px; font-weight:600; cursor:pointer;
+  transition:all .18s ease;
+  display:flex; align-items:center; gap:10px; text-align:left;
+  font-family:'Poppins',sans-serif;
+}
+.opt-btn .num{
+  width:20px;height:20px;border-radius:50%;
+  background:rgba(255,255,255,0.18); color:var(--cream); font-size:11px;
+  display:flex;align-items:center;justify-content:center; flex-shrink:0; font-weight:700;
+}
+.opt-btn:hover{border-color:var(--gold);}
+.opt-btn.active{background:var(--gold); color:var(--navy); border-color:var(--gold);}
+.opt-btn.active .num{background:var(--navy); color:var(--gold);}
+.model-desc{font-size:11.5px; color:rgba(255,255,255,0.65); line-height:1.55;}
+.model-desc b{color:var(--gold);}
+
+/* Sidebar divider */
+.sb-divider{height:1px; background:rgba(255,255,255,0.12); margin:20px 0;}
+
+/* Sidebar nav links */
+.sb-nav-section{display:flex; flex-direction:column; gap:8px;}
+.sb-nav-label{font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:6px;}
+.sb-nav-btn{
+  background:none; border:1.5px solid rgba(255,255,255,0.12); color:rgba(255,255,255,0.75);
+  padding:10px 14px; border-radius:10px; font-size:12.5px; font-weight:600;
+  cursor:pointer; text-align:left; font-family:'Poppins',sans-serif;
+  display:flex; align-items:center; gap:9px; transition:all .15s ease;
+}
+.sb-nav-btn:hover{border-color:rgba(255,255,255,0.4); color:white;}
+.sb-nav-btn.active{background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.35); color:white;}
+.sb-nav-btn svg{width:14px; height:14px; flex-shrink:0; stroke:currentColor;}
+
+.sb-spacer{flex:1;}
+.sb-footer{font-size:10px; color:rgba(255,255,255,0.3); line-height:1.5; margin-top:20px;}
+
+/* Phase sub-nav inside main content */
+.phase-subnav-wrap{
+  position:sticky; top:0; z-index:50; background:var(--white);
+  border-bottom:2px solid var(--line);
+  box-shadow:0 2px 14px rgba(11,27,51,0.04);
+  margin:0 -36px 28px; padding:0 16px 0 36px;
+  display:flex; align-items:stretch; justify-content:space-between; gap:0;
+}
+.opt-dropdown-wrap{
+  display:flex; align-items:center; flex-shrink:0; padding:10px 0;
+}
+.opt-dropdown{
+  appearance:none; -webkit-appearance:none;
+  background:var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='%230B1B33' stroke-width='2.8'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center;
+  border:none; border-radius:20px;
+  padding:7px 36px 7px 16px; font-size:13px; font-weight:700;
+  color:var(--navy);
+  font-family:'Bebas Neue','Futura PT',sans-serif;
+  letter-spacing:.06em; text-transform:uppercase;
+  cursor:pointer; transition:all .15s ease; min-width:0;
+  box-shadow:0 2px 10px rgba(11,27,51,0.15);
+}
+.opt-dropdown:focus{outline:none; box-shadow:0 2px 14px rgba(11,27,51,0.22);}
+.opt-dropdown:hover{box-shadow:0 4px 16px rgba(11,27,51,0.2);}
+.phase-nav{
+  display:flex; gap:0; flex-wrap:nowrap; align-items:stretch; overflow-x:auto;
+  scrollbar-width:none; flex:1;
+}
+.phase-nav::-webkit-scrollbar{display:none;}
+.phase-btn{
+  background:none; border:none; cursor:pointer;
+  padding:16px 18px 14px; font-size:18px; font-weight:400; color:#8b8478;
+  border-bottom:3px solid transparent; letter-spacing:.04em;
+  transition:all .15s ease;
+  font-family:'Bebas Neue','Futura PT','Century Gothic',sans-serif;
+  text-transform:uppercase; white-space:nowrap; line-height:1;
+}
+.phase-btn:hover{color:var(--navy);}
+.phase-btn.active{color:var(--navy); border-bottom-color:var(--gold);}
+
+.wrap{max-width:1300px;margin:0 auto;padding:0 0 90px;}
 
 /* ---------- HEADER ---------- */
 header.top{
@@ -119,18 +247,10 @@ h1.title{
 .phase-nav{
   display:flex; gap:0; margin:38px 0 0; border-bottom:2px solid var(--line); flex-wrap:wrap;
 }
-.phase-btn{
-  background:none; border:none; cursor:pointer;
-  padding:14px 24px 16px; font-size:14px; font-weight:700; color:#8b8478;
-  border-bottom:3px solid transparent; letter-spacing:.02em;
-  transition:all .15s ease;
-}
-.phase-btn:hover{color:var(--navy);}
-.phase-btn.active{color:var(--navy); border-bottom-color:var(--gold);}
 
 /* ---------- MASTER TIMELINE ---------- */
 .master-wrap{margin-top:36px;}
-.master-wrap h2{font-size:24px; color:var(--navy); margin:0 0 6px;}
+.master-wrap h2{font-size:38px; color:var(--navy); margin:34px 0 10px; letter-spacing:-.01em;}
 .master-wrap .lede{}
 .master-track{position:relative; padding:10px 0 30px;}
 .master-line{
@@ -212,10 +332,15 @@ h1.title{
 .eg-bar-cell{border-left:1px solid var(--line); position:relative;}
 .eg-bar{
   position:absolute; top:50%; transform:translateY(-50%);
-  height:26px; border-radius:6px; display:flex; align-items:center;
-  padding:0 9px; font-size:10.5px; font-weight:700; color:white;
-  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-  box-shadow:0 1px 4px rgba(11,27,51,0.15); z-index:1; cursor:default;
+  height:4px; border-radius:4px; opacity:0.35;
+  z-index:0;
+}
+.eg-item-chip{
+  position:absolute; transform:translateY(-50%);
+  height:auto; border-radius:6px; display:flex; align-items:center;
+  padding:4px 8px; font-size:10px; font-weight:600; color:white; line-height:1.3;
+  box-shadow:0 1px 4px rgba(11,27,51,0.18); z-index:1; cursor:default;
+  max-width:130px; white-space:normal; word-break:break-word;
 }
 .eg-items-tooltip{
   font-size:10px; color:rgba(255,255,255,0.85); margin-top:2px; display:block;
@@ -227,7 +352,7 @@ h1.title{
 
 /* ---------- GANTT MILESTONE VIEW ---------- */
 .gantt-wrap{margin-top:48px;}
-.gantt-wrap h3{font-size:20px; color:var(--navy); margin:0 0 6px;}
+.gantt-wrap h3{font-size:38px; color:var(--navy); margin:34px 0 10px; letter-spacing:-.01em;}
 .gantt-grid{
   display:grid; grid-template-columns:160px repeat(4,1fr);
   border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--white);
@@ -267,7 +392,22 @@ h1.title{
 
 /* ---------- PHASE HEAD ---------- */
 .phase-head{ margin:34px 0 0; }
-.phase-head h2{font-size:28px; margin:0 0 10px; color:var(--navy);}
+.phase-head-top{display:flex; align-items:flex-start; justify-content:space-between; gap:16px;}
+.phase-head h2{font-size:38px; margin:0 0 10px; color:var(--navy); letter-spacing:-.01em;}
+.view-toggle{
+  display:inline-flex; align-items:center; flex-shrink:0; margin-top:6px;
+  background:#f0eee9; border-radius:30px; padding:3px; gap:2px;
+  border:1px solid var(--line);
+}
+.view-toggle-btn{
+  border:none; background:none; cursor:pointer; padding:7px 16px; border-radius:26px;
+  font-size:12px; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+  font-family:'Poppins',sans-serif; color:#9a9587; transition:all .15s ease; white-space:nowrap;
+}
+.view-toggle-btn.active{
+  background:var(--navy); color:var(--white);
+  box-shadow:0 2px 8px rgba(11,27,51,0.2);
+}
 .phase-tags{display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:14px;}
 .maturity{
   font-size:11.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
@@ -277,6 +417,11 @@ h1.title{
   font-size:11.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
   padding:7px 14px; border-radius:20px;
   background:rgba(11,27,51,0.07); color:var(--navy); border:1.5px solid rgba(11,27,51,0.12);
+}
+.date-tag{
+  font-size:11.5px; font-weight:700; letter-spacing:.04em;
+  padding:7px 14px; border-radius:20px;
+  background:rgba(215,169,74,0.15); color:#7a571c; border:1.5px solid rgba(215,169,74,0.4);
 }
 .phase-objective{
   font-size:14.5px; line-height:1.75; color:#3d4654;
@@ -578,7 +723,7 @@ input.file-hidden{display:none;}
 
 /* ---------- ROUTING REFERENCE ---------- */
 .section-block{margin-top:58px;}
-.section-block h2{font-size:24px; color:var(--navy); margin-bottom:6px;}
+.section-block h2{font-size:32px; color:var(--navy); margin-bottom:6px; letter-spacing:-.01em;}
 .section-block .lede{}
 
 .routing-grid{display:flex; flex-direction:column; gap:12px;}
@@ -689,57 +834,68 @@ input.file-hidden{display:none;}
 </head>
 <body>
 
-<header class="top">
-  <div class="wrap" style="padding:0;">
-    <div class="header-grid">
-      <div>
-        <div class="brandmark">
-          <svg width="32" height="31" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M4.7326 12.3143C6.9547 13.1624 8.4268 14.5717 8.4268 14.5717C8.4436 13.8874 8.6212 13.1842 8.8775 12.5888C8.8775 12.5888 8.1662 11.261 6.0672 9.82257C3.8131 8.27713 1.2401 7.84619 1.2401 7.84619C0.715101 8.98542 0.342401 10.2084 0.148701 11.4896C0.148701 11.4896 2.0315 11.2843 4.7326 12.3143Z" fill="#D7A94A"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.3285 7.82766C8.4487 9.87758 9.2146 11.9376 9.2146 11.9376C9.607 11.3087 10.1283 10.7671 10.7435 10.3478C10.7435 10.3478 9.9565 7.87642 8.6816 6.05075C7.4068 4.22579 5.3413 2.71021 5.3413 2.71021C4.3329 3.48766 3.4352 4.40049 2.678 5.42179C2.678 5.42179 4.7807 6.33028 6.3285 7.82766Z" fill="#D7A94A"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.0581 5.26788C11.0155 7.71596 11.2594 10.0374 11.2594 10.0374C11.8884 9.70547 12.7053 9.44917 13.4523 9.38807C13.4523 9.38807 13.4902 7.02587 12.9703 4.59817C12.3617 1.76065 11.6671 -0.000244141 11.6671 -0.000244141C10.4112 0.192661 9.2113 0.554453 8.0916 1.06037C8.0916 1.06037 9.3963 3.57687 10.0581 5.26788Z" fill="#D7A94A"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M22.7225 12.3143C20.4998 13.1624 19.0283 14.5717 19.0283 14.5717C19.0116 13.8874 18.8339 13.1842 18.5777 12.5888C18.5777 12.5888 19.289 11.261 21.3873 9.82257C23.6421 8.27713 26.2151 7.84619 26.2151 7.84619C26.7407 8.98542 27.112 10.2084 27.3057 11.4896C27.3057 11.4896 25.4237 11.2843 22.7225 12.3143Z" fill="#D7A94A"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.1262 7.82766C19.0068 9.87758 18.2401 11.9376 18.2401 11.9376C17.8484 11.3087 17.3264 10.7671 16.7112 10.3478C16.7112 10.3478 17.4982 7.87642 18.7738 6.05075C20.0487 4.22579 22.1135 2.71021 22.1135 2.71021C23.1218 3.48766 24.0195 4.40049 24.7774 5.42179C24.7774 5.42179 22.6741 6.33028 21.1262 7.82766Z" fill="#D7A94A"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M17.3971 5.26788C16.4389 7.71596 16.1958 10.0374 16.1958 10.0374C15.5667 9.70547 14.7498 9.44917 14.0021 9.38807C14.0021 9.38807 13.9642 7.02587 14.4848 4.59817C15.0935 1.76065 15.7873 -0.000244141 15.7873 -0.000244141C17.044 0.192661 18.2438 0.554453 19.3636 1.06037C19.3636 1.06037 18.0582 3.57687 17.3971 5.26788Z" fill="#D7A94A"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.576 20.6491C9.224 19.3883 11.8945 19.6489 11.8945 19.6489C10.9466 19.2966 10.1268 18.6866 9.5225 17.9062C9.5225 17.9062 7.1512 17.6231 5.3339 17.9892C2.5833 18.5439 1.3645 19.499 1.3645 19.499C1.923 20.6477 2.6386 21.7061 3.4832 22.6488C3.4832 22.6488 4.619 21.5809 6.576 20.6491Z" fill="#D7A94A"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M4.5177 16.658C7.2173 16.5285 9.0797 17.2338 9.0797 17.2338C8.7448 16.6304 8.5257 15.9556 8.4521 15.2385C8.4521 15.2385 6.308 14.0171 4.3313 13.7521C1.5952 13.3852 0 13.91 0 13.91C0.035 15.2058 0.250498 16.4571 0.622498 17.6393C0.622498 17.6393 2.3757 16.7607 4.5177 16.658Z" fill="#D7A94A"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.7273 22.716C17.5918 22.716 19.2824 26.0602 19.2824 26.0602C20.4881 25.5251 21.6013 24.8241 22.5929 23.987C22.5929 23.987 19.3283 19.8806 13.7273 19.8806C8.127 19.8806 4.8616 23.987 4.8616 23.987C5.8547 24.8241 6.9679 25.5251 8.1728 26.0602C8.1728 26.0602 9.8627 22.716 13.7273 22.716Z" fill="#D7A94A"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M20.8788 20.6491C18.2309 19.3883 15.5596 19.6489 15.5596 19.6489C16.5083 19.2966 17.3281 18.6866 17.9324 17.9062C17.9324 17.9062 20.3037 17.6231 22.1209 17.9892C24.8716 18.5439 26.0911 19.499 26.0911 19.499C25.5319 20.6477 24.8162 21.7061 23.9709 22.6488C23.9709 22.6488 22.8359 21.5809 20.8788 20.6491Z" fill="#D7A94A"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M22.9373 16.658C20.2369 16.5285 18.3753 17.2338 18.3753 17.2338C18.7102 16.6304 18.9286 15.9556 19.0029 15.2385C19.0029 15.2385 21.147 14.0171 23.1237 13.7521C25.8598 13.3852 27.455 13.91 27.455 13.91C27.42 15.2058 27.2045 16.4571 26.8325 17.6393C26.8325 17.6393 25.0786 16.7607 22.9373 16.658Z" fill="#D7A94A"/>
-          </svg>
-          Pernod Ricard &times; The Mix
-        </div>
-        <div class="presentation-credit">Presented by dentsu team to Pernod Ricard &nbsp;|&nbsp; July 2026</div>
-        <h1 class="title">Technical Activation &amp; Delivery Roadmap</h1>
-        <p class="sub">What we're building, what goes active, and what becomes reportable across the first 60 days through Year 3, with intelligent routing, AI review, and automation maturing at every stage.</p>
+<div class="app-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sb-brand">
+      <svg width="40" height="38" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.7326 12.3143C6.9547 13.1624 8.4268 14.5717 8.4268 14.5717C8.4436 13.8874 8.6212 13.1842 8.8775 12.5888C8.8775 12.5888 8.1662 11.261 6.0672 9.82257C3.8131 8.27713 1.2401 7.84619 1.2401 7.84619C0.715101 8.98542 0.342401 10.2084 0.148701 11.4896C0.148701 11.4896 2.0315 11.2843 4.7326 12.3143Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M6.3285 7.82766C8.4487 9.87758 9.2146 11.9376 9.2146 11.9376C9.607 11.3087 10.1283 10.7671 10.7435 10.3478C10.7435 10.3478 9.9565 7.87642 8.6816 6.05075C7.4068 4.22579 5.3413 2.71021 5.3413 2.71021C4.3329 3.48766 3.4352 4.40049 2.678 5.42179C2.678 5.42179 4.7807 6.33028 6.3285 7.82766Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M10.0581 5.26788C11.0155 7.71596 11.2594 10.0374 11.2594 10.0374C11.8884 9.70547 12.7053 9.44917 13.4523 9.38807C13.4523 9.38807 13.4902 7.02587 12.9703 4.59817C12.3617 1.76065 11.6671 -0.000244141 11.6671 -0.000244141C10.4112 0.192661 9.2113 0.554453 8.0916 1.06037C8.0916 1.06037 9.3963 3.57687 10.0581 5.26788Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M22.7225 12.3143C20.4998 13.1624 19.0283 14.5717 19.0283 14.5717C19.0116 13.8874 18.8339 13.1842 18.5777 12.5888C18.5777 12.5888 19.289 11.261 21.3873 9.82257C23.6421 8.27713 26.2151 7.84619 26.2151 7.84619C26.7407 8.98542 27.112 10.2084 27.3057 11.4896C27.3057 11.4896 25.4237 11.2843 22.7225 12.3143Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M21.1262 7.82766C19.0068 9.87758 18.2401 11.9376 18.2401 11.9376C17.8484 11.3087 17.3264 10.7671 16.7112 10.3478C16.7112 10.3478 17.4982 7.87642 18.7738 6.05075C20.0487 4.22579 22.1135 2.71021 22.1135 2.71021C23.1218 3.48766 24.0195 4.40049 24.7774 5.42179C24.7774 5.42179 22.6741 6.33028 21.1262 7.82766Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.3971 5.26788C16.4389 7.71596 16.1958 10.0374 16.1958 10.0374C15.5667 9.70547 14.7498 9.44917 14.0021 9.38807C14.0021 9.38807 13.9642 7.02587 14.4848 4.59817C15.0935 1.76065 15.7873 -0.000244141 15.7873 -0.000244141C17.044 0.192661 18.2438 0.554453 19.3636 1.06037C19.3636 1.06037 18.0582 3.57687 17.3971 5.26788Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M6.576 20.6491C9.224 19.3883 11.8945 19.6489 11.8945 19.6489C10.9466 19.2966 10.1268 18.6866 9.5225 17.9062C9.5225 17.9062 7.1512 17.6231 5.3339 17.9892C2.5833 18.5439 1.3645 19.499 1.3645 19.499C1.923 20.6477 2.6386 21.7061 3.4832 22.6488C3.4832 22.6488 4.619 21.5809 6.576 20.6491Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M4.5177 16.658C7.2173 16.5285 9.0797 17.2338 9.0797 17.2338C8.7448 16.6304 8.5257 15.9556 8.4521 15.2385C8.4521 15.2385 6.308 14.0171 4.3313 13.7521C1.5952 13.3852 0 13.91 0 13.91C0.035 15.2058 0.250498 16.4571 0.622498 17.6393C0.622498 17.6393 2.3757 16.7607 4.5177 16.658Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M13.7273 22.716C17.5918 22.716 19.2824 26.0602 19.2824 26.0602C20.4881 25.5251 21.6013 24.8241 22.5929 23.987C22.5929 23.987 19.3283 19.8806 13.7273 19.8806C8.127 19.8806 4.8616 23.987 4.8616 23.987C5.8547 24.8241 6.9679 25.5251 8.1728 26.0602C8.1728 26.0602 9.8627 22.716 13.7273 22.716Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M20.8788 20.6491C18.2309 19.3883 15.5596 19.6489 15.5596 19.6489C16.5083 19.2966 17.3281 18.6866 17.9324 17.9062C17.9324 17.9062 20.3037 17.6231 22.1209 17.9892C24.8716 18.5439 26.0911 19.499 26.0911 19.499C25.5319 20.6477 24.8162 21.7061 23.9709 22.6488C23.9709 22.6488 22.8359 21.5809 20.8788 20.6491Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M22.9373 16.658C20.2369 16.5285 18.3753 17.2338 18.3753 17.2338C18.7102 16.6304 18.9286 15.9556 19.0029 15.2385C19.0029 15.2385 21.147 14.0171 23.1237 13.7521C25.8598 13.3852 27.455 13.91 27.455 13.91C27.42 15.2058 27.2045 16.4571 26.8325 17.6393C26.8325 17.6393 25.0786 16.7607 22.9373 16.658Z" fill="white"/></svg>
+    </div>
+    <h1 class="sb-title">Technical Activation &amp; Delivery Roadmap</h1>
+    <span class="sb-brand-label" style="display:block; margin-bottom:10px; color:var(--gold); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:700;">The Mix: Pernod Ricard &times; Dentsu</span>
+    <p class="sb-desc" style="margin-bottom:12px;">This roadmap gives you a view of how we intend to onboard, implement, and operate from day one through core milestones, all the way to Year 3.</p>
+
+    <div class="sb-divider"></div>
+
+    <div class="sb-nav-section">
+      <button class="sb-roadmap-btn" id="sbRoadmapBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="15" height="15"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        Partnership Roadmap
+      </button>
+      <button class="sb-nav-btn" id="sbRoutingBtn" data-phase="routing">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M4 17h4l3-10 3 14 3-10h3"/></svg>
+        Resource Routing Rubric
+      </button>
+      <button class="sb-nav-btn" id="sbTechBtn" data-phase="techcompare">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        PMO Tech Comparison
+      </button>
+      <button class="sb-nav-btn" id="sbProsConsBtn" data-phase="proscons">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        Pros &amp; Cons
+      </button>
+    </div>
+
+    <div class="sb-spacer"></div>
+    <div class="sb-footer">July 2026 &nbsp;·&nbsp; dentsu &times; Merkle &nbsp;·&nbsp; Pernod Ricard</div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- Phase sub-nav (roadmap only) -->
+    <div class="phase-subnav-wrap" id="phaseSubnavWrap">
+      <div class="phase-nav" id="phaseNav">
+        <button class="phase-btn active" data-phase="master">Summary</button>
+        <button class="phase-btn" data-phase="ataglance">At a Glance</button>
+        <button class="phase-btn" data-phase="d60">First 30 Days</button>
+        <button class="phase-btn" data-phase="next60">Next 60 Days</button>
+        <button class="phase-btn" data-phase="y1">Year 1</button>
+        <button class="phase-btn" data-phase="y2">Year 2</button>
+        <button class="phase-btn" data-phase="y3">Year 3</button>
       </div>
-      <div class="model-panel">
-        <div class="ptitle">Choose your operating model</div>
-        <div class="model-subtitle">The roadmap details will shift based on the model selected.</div>
-        <div class="model-opts" id="modelOpts">
-          <button class="opt-btn active" data-opt="wf"><span class="num">1</span>All TAG + PR in Workfront</button>
-          <button class="opt-btn" data-opt="blend"><span class="num">2</span>DI Studio + Workfront blend</button>
-          <button class="opt-btn" data-opt="alt"><span class="num">3</span>Alternative tool (Monday/ClickUp)</button>
-        </div>
-        <div class="model-desc" id="optDesc"></div>
+      <div class="opt-dropdown-wrap">
+        <select class="opt-dropdown" id="optDropdown">
+          <option value="wf">Workfront</option>
+          <option value="alt">Alternative Tool</option>
+        </select>
       </div>
     </div>
-  </div>
-</header>
 
-<div class="wrap">
-
-  <div class="phase-nav" id="phaseNav">
-    <button class="phase-btn active" data-phase="master">Master Roadmap</button>
-    <button class="phase-btn" data-phase="d60">First 60 Days</button>
-    <button class="phase-btn" data-phase="y1">Year 1</button>
-    <button class="phase-btn" data-phase="y2">Year 2</button>
-    <button class="phase-btn" data-phase="y3">Year 3</button>
-    <button class="phase-btn" data-phase="routing">Routing Rubric</button>
-    <button class="phase-btn" data-phase="techcompare">Tech Comparison</button>
-  </div>
+    <div class="wrap">
 
   <!-- MASTER VIEW -->
+  <!-- SUMMARY VIEW -->
   <div id="masterView" class="master-wrap">
     <h2>The full arc, at a glance</h2>
     <div class="tab-description-wrap">
@@ -749,12 +905,15 @@ input.file-hidden{display:none;}
       <div class="master-line"></div>
       <div class="master-nodes" id="masterNodes"></div>
     </div>
+  </div>
 
-    <div class="gantt-wrap">
-      <h3>Milestone roadmap</h3>
-      <div class="tab-description-wrap">
-        <div class="lede">Every card across all four phases, laid out as a swimlane Gantt so you can see what's happening when, by track.</div>
-      </div>
+  <!-- AT A GLANCE VIEW -->
+  <div id="atAGlanceView" class="master-wrap" style="display:none;">
+    <h2>Milestone roadmap</h2>
+    <div class="tab-description-wrap">
+      <div class="lede">Every card across all phases laid out as a swimlane Gantt so you can see what's happening when, by track.</div>
+    </div>
+    <div class="gantt-wrap" style="margin-top:0;">
       <div class="gantt-grid" id="ganttGrid"></div>
     </div>
   </div>
@@ -762,10 +921,17 @@ input.file-hidden{display:none;}
   <!-- DETAIL VIEW -->
   <div id="detailView" style="display:none;">
     <div class="phase-head">
-      <h2 id="phaseTitle"></h2>
+      <div class="phase-head-top">
+        <h2 id="phaseTitle"></h2>
+        <div class="view-toggle" id="viewToggle">
+          <button class="view-toggle-btn active" data-mode="highlevel">High-level</button>
+          <button class="view-toggle-btn" data-mode="taskbased">Task-Based</button>
+        </div>
+      </div>
       <div class="phase-tags">
         <span class="maturity" id="phaseMaturity"></span>
         <span class="ai-stage-tag" id="phaseAiStage"></span>
+        <span class="date-tag" id="phaseDateTag"></span>
       </div>
       <div class="tab-description-wrap">
         <div class="phase-objective" id="phaseTagline"></div>
@@ -823,11 +989,6 @@ input.file-hidden{display:none;}
         <div class="col-head report">Reportable</div>
         <div class="col-body" id="colReport"></div>
       </div>
-    </div>
-
-    <div class="proscons-wrap">
-      <h3>Pros &amp; cons of each approach, at this phase</h3>
-      <div class="proscons-grid" id="prosConsGrid"></div>
     </div>
 
     <div class="editor-bar" style="margin-top:28px; border-top:1px solid var(--line); padding-top:16px;">
@@ -1341,25 +1502,36 @@ input.file-hidden{display:none;}
 
   <div class="chip-dropdown" id="chipDropdown"></div>
 
-</div>
+  <!-- PROS & CONS VIEW -->
+  <div id="prosConsView" class="section-block" style="display:none; margin-top:36px;">
+    <h2>Pros &amp; Cons</h2>
+    <div class="tab-description-wrap">
+      <div class="lede">How each operating model stacks up across all five phases — what you gain and what you trade off at each stage of the roadmap.</div>
+    </div>
+    <div id="prosConsAllContent"></div>
+  </div>
+
+    </div><!-- end .wrap -->
+  </main><!-- end .main-content -->
+</div><!-- end .app-layout -->
 
 <script>
 const OPTION_DESC = {
-  wf: "TAG and Pernod Ricard both work and manage exclusively inside <b>Adobe Workfront</b>. Single source of truth for requests, routing, and reporting. Lowest integration overhead, highest dependency on Workfront's native routing and dashboard capability.",
-  blend: "<b>DI Studio</b> (home-grown internal PM tool) handles day-to-day production management, while <b>Workfront</b> is the system of record for intake, routing, and cross-tier visibility. Requires a defined sync/handoff layer between the two systems.",
+  wf: "TAG and Pernod Ricard work and manage exclusively inside <b>Adobe Workfront</b>. Single source of truth for requests, routing, and reporting. Lowest integration overhead, highest dependency on Workfront's native routing and dashboard capability.",
   alt: "TAG and Pernod Ricard move off Workfront entirely into an <b>alternative tool</b> such as Monday.com or ClickUp. Requires rebuilding routing logic, templates, and reporting natively, plus a migration plan for historical project data."
 };
 
 const MASTER_META = {
-  d60: {label:"Foundation", color:"#6E97C9", title:"First 60 Days", preview:"Stand up brief intake, resourcing visibility, and core governance across all five tiers."},
-  y1:  {label:"Stabilise", color:"#A8A23C", title:"Year 1", preview:"Close must-have gaps, formalise duplicate detection, and start assisted routing."},
-  y2:  {label:"Scale", color:"#D7A94A", title:"Year 2", preview:"Bynder, Fusion, and Genie come online; AI-assisted review and generative pilots begin."},
-  y3:  {label:"Mature", color:"#0B1B33", title:"Year 3", preview:"AI review and automation at scale, with reduced reliance on TAG agency for bulk work."}
+  d60:    {label:"Foundation", color:"#6E97C9", title:"First 30 Days",  preview:"Stand up brief intake, resourcing visibility, and core governance across all five tiers."},
+  next60: {label:"Foundation", color:"#6E97C9", title:"Next 60 Days",   preview:"Complete integrations, expand to additional studios, and layer in first automation and routing intelligence."},
+  y1:     {label:"Stabilise",  color:"#A8A23C", title:"Year 1",         preview:"Close must-have gaps, formalise duplicate detection, and start assisted routing."},
+  y2:     {label:"Scale",      color:"#D7A94A", title:"Year 2",         preview:"Bynder, Fusion, and Genie come online; AI-assisted review and generative pilots begin."},
+  y3:     {label:"Mature",     color:"#0B1B33", title:"Year 3",         preview:"AI review and automation at scale, with reduced reliance on TAG agency for bulk work."}
 };
 
 const DATA = {
   d60: {
-    title: "First 60 Days",
+    title: "First 30 Days",
     tagline: "Stand up the intake layer and prove routing visibility across tiers.",
     maturity: "Foundation",
     maturityColor: "#6E97C9",
@@ -1399,66 +1571,9 @@ const DATA = {
         {t:"Initial training & enablement (pre-packaged by Adobe)", d:"No Adobe-native onboarding path; would need to be rebuilt or sourced from the new vendor.", priority:"nice", tag:"gov"}
       ]
     },
-    build: {
-      wf: [
-        {t:"Business continuity & V1 migration", d:"First-pass migration of existing studio data into Workfront with no workflow disruption. Dependent on: Implementation design and Migration inventory & planning (both Analysis & Strategy, First 60 Days).", priority:"must", tag:"gov"},
-        {t:"Setup user management, roles & permissions", d:"Configure groups, users, roles, and permission levels across all tiers. Establishes who can see and action what across BU Studios, COEs, ME Studios, Offshore Hubs, and Flex Pool.", priority:"must", tag:"gov"},
-        {t:"Setup program & project templates", d:"Build project, program, and task templates by request type so all briefs follow a consistent structure from day one.", priority:"must", tag:"gov"},
-        {t:"Setup role-specific views and filters", d:"Configure tailored views and filter presets per role (e.g. campaign lead, studio producer, market manager) so each user sees the most relevant work without noise.", priority:"must", tag:"gov"},
-        {t:"Planning workspaces", d:"Campaigns, markets, channels, brands set up in Workfront Planning.", priority:"must", tag:"tool"},
-        {t:"Brief submission form", d:"Market, brief details, requestor, due date, channels, budget fields live as a Workfront request form.", priority:"must", tag:"routing"},
-        {t:"Resource visibility setup", d:"Views configured to see and assign across BU Studios, COEs, ME Studios, Offshore Hubs, Flex Pool.", priority:"must", tag:"routing"},
-        {t:"Frame.io integration", d:"Connect Frame.io for review/delivery alongside the existing Bynder/Fusion/Genie integration plan.", priority:"nice", tag:"tool"},
-        {t:"Omnichannel asset delivery via Frame.io", d:"Deliverables route out to all channels through a Frame.io-connected delivery step.", priority:"nice", tag:"tool"},
-        {t:"Dynamic rate cards", d:"Initial rate-card logic for Flex Pool and shared production surge capacity.", priority:"nice", tag:"gov"},
-        {t:"Agile capability layer", d:"Sprint-style views added on top of core templates where teams need them.", priority:"nice", tag:"tool"}
-      ],
-      blend: [
-        {t:"Business continuity & V1 migration", d:"First-pass migration of existing studio data into Workfront and DI Studio with no workflow disruption. Dependent on: Implementation design and Migration inventory & planning (both Analysis & Strategy, First 60 Days).", priority:"must", tag:"gov"},
-        {t:"Setup user management, roles & permissions", d:"Roles and permission levels configured in both Workfront and DI Studio where applicable.", priority:"must", tag:"gov"},
-        {t:"Setup program & project templates", d:"Project, program, and task templates by request type built across both tools where applicable.", priority:"must", tag:"gov"},
-        {t:"Setup role-specific views and filters", d:"Role-specific views and filter presets configured in Workfront; DI Studio views aligned where possible.", priority:"must", tag:"gov"},
-        {t:"Workfront intake & routing build", d:"Workfront remains the intake/routing layer; resource visibility views built for all five tiers.", priority:"must", tag:"routing"},
-        {t:"DI Studio production scaffolding", d:"Production-side task structures mirrored from the brief submission form fields.", priority:"must", tag:"tool"},
-        {t:"Frame.io integration", d:"Connect Frame.io for review/delivery, surfaced into DI Studio production views.", priority:"nice", tag:"tool"},
-        {t:"Omnichannel asset delivery via Frame.io", d:"Deliverables route out to all channels through a Frame.io-connected delivery step.", priority:"nice", tag:"tool"},
-        {t:"Dynamic rate cards", d:"Initial rate-card logic for Flex Pool and shared production surge capacity.", priority:"nice", tag:"gov"}
-      ],
-      alt: [
-        {t:"Business continuity & V1 migration", d:"First-pass migration of existing studio data into the new tool with no workflow disruption. Dependent on: Implementation design and Migration inventory & planning (both Analysis & Strategy, First 60 Days).", priority:"must", tag:"gov"},
-        {t:"Setup user management, roles & permissions", d:"Groups, users, roles, and permission levels configured natively in the new tool from scratch, no legacy config to inherit.", priority:"must", tag:"gov"},
-        {t:"Setup program & project templates", d:"Project, program, and task templates authored from scratch by request type in the new tool.", priority:"must", tag:"tool"},
-        {t:"Setup role-specific views and filters", d:"Role-specific views and filter presets built natively in the new tool per user role.", priority:"must", tag:"gov"},
-        {t:"Alternative tool intake form build", d:"Brief submission form rebuilt natively in the chosen tool.", priority:"must", tag:"routing"},
-        {t:"Routing structure rebuild", d:"BU Studios, COEs, ME Studios, Offshore Hubs, Flex Pool modelled as boards, spaces, or lists.", priority:"must", tag:"routing"},
-        {t:"Frame.io integration", d:"Connect Frame.io for review/delivery; built from scratch against the new tool's API.", priority:"nice", tag:"tool"},
-        {t:"Omnichannel asset delivery via Frame.io", d:"Deliverables route out to all channels through a Frame.io-connected delivery step.", priority:"nice", tag:"tool"},
-        {t:"Dynamic rate cards", d:"Initial rate-card logic for Flex Pool and shared production surge capacity, rebuilt natively.", priority:"nice", tag:"gov"}
-      ]
-    },
-    active: {
-      wf: [
-        {t:"SOP documentation by role", d:"Tech schematics and one-pagers published alongside the live form.", priority:"must", tag:"gov"},
-        {t:"Duplicate creative/asset detection", d:"Basic asset reuse and duplication checks running at intake.", priority:"nice", tag:"ai"}
-      ],
-      blend: [
-        {t:"SOP documentation by role", d:"Includes a note on which tool owns which step.", priority:"must", tag:"gov"}
-      ],
-      alt: [
-        {t:"SOP documentation by role", d:"Rewritten for the new tool's terminology and structure.", priority:"must", tag:"gov"}
-      ]
-    },
-    report: {
-      wf: [
-        {t:"Simple reporting dashboard", d:"Live from day one inside Workfront. KPIs: total briefs submitted, briefs by market/brand/channel, open vs. closed request volume, average time from brief submission to assignment, SLA on-time rate (% of projects hitting due date), active projects by tier (BU Studio / COE / ME Studio / Offshore / Flex Pool).", priority:"must", tag:"tool"}
-      ],
-      blend: [
-        {t:"Simple reporting dashboard", d:"Workfront-side from day one; DI Studio production status reported separately until the sync is automated. KPIs: total briefs submitted, briefs by market/brand/channel, open vs. closed request volume, average time from brief submission to assignment, SLA on-time rate, active projects by tier.", priority:"must", tag:"tool"}
-      ],
-      alt: [
-        {t:"Simple reporting dashboard", d:"Native dashboarding inside the alternative tool. KPIs: total briefs submitted, briefs by market/brand/channel, open vs. closed request volume, average time from brief submission to assignment, SLA on-time rate, active projects by tier.", priority:"must", tag:"tool"}
-      ]
-    }
+    build:  {wf:[], blend:[], alt:[]},
+    active: {wf:[], blend:[], alt:[]},
+    report: {wf:[], blend:[], alt:[]}
   },
   y1: {
     title: "Year 1",
@@ -1746,8 +1861,98 @@ const DATA = {
   }
 };
 
+// next60 — Build, Active & Report moved from First 30 Days
+DATA.next60 = {
+  title: "Next 60 Days",
+  tagline: "Carry momentum from day 30 — completing integrations, expanding access, and layering in first automation.",
+  maturity: "Foundation",
+  maturityColor: "#6E97C9",
+  strat: {
+    wf: [
+      {t:"Genie / dentsu.connect integration design", d:"Define the API handshake and data model for how Genie brief intelligence feeds into Workfront request forms.", priority:"must", tag:"tool"},
+      {t:"Figma connector design", d:"Scope how Figma/Figma Make connects to Workfront for asset request and delivery status.", priority:"must", tag:"tool"},
+      {t:"BI / Power BI integration design", d:"Define the reporting data model, field mapping, and refresh cadence for Power BI dashboards.", priority:"must", tag:"tool"},
+      {t:"Assisted routing design", d:"Design the first routing-logic layer — criteria, scoring, and escalation paths for automated triage.", priority:"nice", tag:"routing"},
+      {t:"Partner / secondary-agency access model", d:"Define permission tiers and data isolation rules for secondary partners operating in the platform.", priority:"must", tag:"gov"}
+    ],
+    blend: [
+      {t:"Genie / dentsu.connect integration design", d:"Scope the integration for both Workfront and DI Studio where applicable.", priority:"must", tag:"tool"},
+      {t:"DI Studio sync automation design", d:"Design the automated sync layer between DI Studio and Workfront to remove manual handoff.", priority:"must", tag:"tool"},
+      {t:"BI / Power BI integration design", d:"Define the reporting data model across both tools.", priority:"must", tag:"tool"},
+      {t:"Partner / secondary-agency access model", d:"Define permission tiers across both Workfront and DI Studio.", priority:"must", tag:"gov"}
+    ],
+    alt: [
+      {t:"Genie / dentsu.connect integration design", d:"Scope the integration against the alternative tool's API.", priority:"must", tag:"tool"},
+      {t:"BI / Power BI integration design", d:"Define the reporting data model for the alternative tool.", priority:"must", tag:"tool"},
+      {t:"Assisted routing design", d:"Design the routing logic natively in the alternative tool.", priority:"nice", tag:"routing"},
+      {t:"Partner / secondary-agency access model", d:"Define permission tiers natively in the alternative tool.", priority:"must", tag:"gov"}
+    ]
+  },
+  build: {
+    wf: [
+      {t:"Business continuity & V1 migration", d:"First-pass migration of existing studio data into Workfront with no workflow disruption. Dependent on: Implementation design and Migration inventory & planning (both Analysis & Strategy, First 30 Days).", priority:"must", tag:"gov"},
+      {t:"Setup user management, roles & permissions", d:"Configure groups, users, roles, and permission levels across all tiers. Establishes who can see and action what across BU Studios, COEs, ME Studios, Offshore Hubs, and Flex Pool.", priority:"must", tag:"gov"},
+      {t:"Setup program & project templates", d:"Build project, program, and task templates by request type so all briefs follow a consistent structure from day one.", priority:"must", tag:"gov"},
+      {t:"Setup role-specific views and filters", d:"Configure tailored views and filter presets per role (e.g. campaign lead, studio producer, market manager) so each user sees the most relevant work without noise.", priority:"must", tag:"gov"},
+      {t:"Planning workspaces", d:"Campaigns, markets, channels, brands set up in Workfront Planning.", priority:"must", tag:"tool"},
+      {t:"Brief submission form", d:"Market, brief details, requestor, due date, channels, budget fields live as a Workfront request form.", priority:"must", tag:"routing"},
+      {t:"Resource visibility setup", d:"Views configured to see and assign across BU Studios, COEs, ME Studios, Offshore Hubs, Flex Pool.", priority:"must", tag:"routing"},
+      {t:"Frame.io integration", d:"Connect Frame.io for review/delivery alongside the existing Bynder/Fusion/Genie integration plan.", priority:"nice", tag:"tool"},
+      {t:"Omnichannel asset delivery via Frame.io", d:"Deliverables route out to all channels through a Frame.io-connected delivery step.", priority:"nice", tag:"tool"},
+      {t:"Dynamic rate cards", d:"Initial rate-card logic for Flex Pool and shared production surge capacity.", priority:"nice", tag:"gov"},
+      {t:"Agile capability layer", d:"Sprint-style views added on top of core templates where teams need them.", priority:"nice", tag:"tool"}
+    ],
+    blend: [
+      {t:"Business continuity & V1 migration", d:"First-pass migration of existing studio data into Workfront and DI Studio with no workflow disruption. Dependent on: Implementation design and Migration inventory & planning (both Analysis & Strategy, First 30 Days).", priority:"must", tag:"gov"},
+      {t:"Setup user management, roles & permissions", d:"Roles and permission levels configured in both Workfront and DI Studio where applicable.", priority:"must", tag:"gov"},
+      {t:"Setup program & project templates", d:"Project, program, and task templates by request type built across both tools where applicable.", priority:"must", tag:"gov"},
+      {t:"Setup role-specific views and filters", d:"Role-specific views and filter presets configured in Workfront; DI Studio views aligned where possible.", priority:"must", tag:"gov"},
+      {t:"Workfront intake & routing build", d:"Workfront remains the intake/routing layer; resource visibility views built for all five tiers.", priority:"must", tag:"routing"},
+      {t:"DI Studio production scaffolding", d:"Production-side task structures mirrored from the brief submission form fields.", priority:"must", tag:"tool"},
+      {t:"Frame.io integration", d:"Connect Frame.io for review/delivery, surfaced into DI Studio production views.", priority:"nice", tag:"tool"},
+      {t:"Omnichannel asset delivery via Frame.io", d:"Deliverables route out to all channels through a Frame.io-connected delivery step.", priority:"nice", tag:"tool"},
+      {t:"Dynamic rate cards", d:"Initial rate-card logic for Flex Pool and shared production surge capacity.", priority:"nice", tag:"gov"}
+    ],
+    alt: [
+      {t:"Business continuity & V1 migration", d:"First-pass migration of existing studio data into the new tool with no workflow disruption. Dependent on: Implementation design and Migration inventory & planning (both Analysis & Strategy, First 30 Days).", priority:"must", tag:"gov"},
+      {t:"Setup user management, roles & permissions", d:"Groups, users, roles, and permission levels configured natively in the new tool from scratch, no legacy config to inherit.", priority:"must", tag:"gov"},
+      {t:"Setup program & project templates", d:"Project, program, and task templates authored from scratch by request type in the new tool.", priority:"must", tag:"tool"},
+      {t:"Setup role-specific views and filters", d:"Role-specific views and filter presets built natively in the new tool per user role.", priority:"must", tag:"gov"},
+      {t:"Alternative tool intake form build", d:"Brief submission form rebuilt natively in the chosen tool.", priority:"must", tag:"routing"},
+      {t:"Routing structure rebuild", d:"BU Studios, COEs, ME Studios, Offshore Hubs, Flex Pool modelled as boards, spaces, or lists.", priority:"must", tag:"routing"},
+      {t:"Frame.io integration", d:"Connect Frame.io for review/delivery; built from scratch against the new tool's API.", priority:"nice", tag:"tool"},
+      {t:"Omnichannel asset delivery via Frame.io", d:"Deliverables route out to all channels through a Frame.io-connected delivery step.", priority:"nice", tag:"tool"},
+      {t:"Dynamic rate cards", d:"Initial rate-card logic for Flex Pool and shared production surge capacity, rebuilt natively.", priority:"nice", tag:"gov"}
+    ]
+  },
+  active: {
+    wf: [
+      {t:"SOP documentation by role", d:"Tech schematics and one-pagers published alongside the live form.", priority:"must", tag:"gov"},
+      {t:"Duplicate creative/asset detection", d:"Basic asset reuse and duplication checks running at intake.", priority:"nice", tag:"ai"}
+    ],
+    blend: [
+      {t:"SOP documentation by role", d:"Includes a note on which tool owns which step.", priority:"must", tag:"gov"}
+    ],
+    alt: [
+      {t:"SOP documentation by role", d:"Rewritten for the new tool's terminology and structure.", priority:"must", tag:"gov"}
+    ]
+  },
+  report: {
+    wf: [
+      {t:"Simple reporting dashboard", d:"Live from day one inside Workfront. KPIs: total briefs submitted, briefs by market/brand/channel, open vs. closed request volume, average time from brief submission to assignment, SLA on-time rate (% of projects hitting due date), active projects by tier (BU Studio / COE / ME Studio / Offshore / Flex Pool).", priority:"must", tag:"tool"}
+    ],
+    blend: [
+      {t:"Simple reporting dashboard", d:"Workfront-side from day one; DI Studio production status reported separately until the sync is automated. KPIs: total briefs submitted, briefs by market/brand/channel, open vs. closed request volume, average time from brief submission to assignment, SLA on-time rate, active projects by tier.", priority:"must", tag:"tool"}
+    ],
+    alt: [
+      {t:"Simple reporting dashboard", d:"Native dashboarding inside the alternative tool. KPIs: total briefs submitted, briefs by market/brand/channel, open vs. closed request volume, average time from brief submission to assignment, SLA on-time rate, active projects by tier.", priority:"must", tag:"tool"}
+    ]
+  }
+};
+
 let currentOpt = "wf";
 let currentPhase = "master";
+let phaseViewMode = "highlevel"; // "highlevel" | "taskbased"
 const STATE = JSON.parse(JSON.stringify(DATA)); // mutable working copy: drag/drop and tag edits write here
 const COLS = ["strat","buildactive","report"];
 const PRIORITY_CYCLE = ["must","nice","live"];
@@ -1784,7 +1989,7 @@ Object.keys(STATE).forEach(phase=>{
   });
 });
 
-const LS_KEY = "pr_roadmap_v2_state";
+const LS_KEY = "pr_roadmap_v3_state";
 
 function saveToLocalStorage(){
   try{
@@ -1804,7 +2009,16 @@ function loadFromLocalStorage(){
     const saved = localStorage.getItem(LS_KEY);
     if(!saved) return false;
     const parsed = JSON.parse(saved);
-    Object.keys(parsed).forEach(k=>{ STATE[k] = parsed[k]; });
+    // Only restore phases that exist in DATA — prevents stale keys overwriting new phases
+    Object.keys(parsed).forEach(k=>{
+      if(DATA[k]) STATE[k] = parsed[k];
+    });
+    // Ensure any new phases added since last save exist in STATE
+    Object.keys(DATA).forEach(k=>{
+      if(!STATE[k]) STATE[k] = JSON.parse(JSON.stringify(DATA[k]));
+    });
+    // Re-run mergeBuildActive for all phases after restore
+    Object.keys(STATE).forEach(k=>{ if(STATE[k] && STATE[k].build) mergeBuildActive(STATE[k]); });
     return true;
   } catch(e){ return false; }
 }
@@ -1812,7 +2026,7 @@ function loadFromLocalStorage(){
 // Load saved state on startup — runs before first render
 const _hadSavedState = loadFromLocalStorage();
 
-const OPT_LABEL = {wf:"All TAG + PR in Workfront", blend:"DI Studio + Workfront blend", alt:"Alternative tool (Monday/ClickUp)"};const OPT_COLOR = {wf:"#0B1B33", blend:"#6E97C9", alt:"#A8A23C"};
+const OPT_LABEL = {wf:"Adobe Workfront Operations", alt:"Alternative tool (Monday/ClickUp)"};const OPT_COLOR = {wf:"#0B1B33", alt:"#A8A23C"};
 
 const PROS_CONS = {
   d60: {
@@ -1827,6 +2041,20 @@ const PROS_CONS = {
     alt: {
       pros:["If the long-term decision is already made, no time is spent half-building in Workfront first.", "Clean slate avoids inheriting any legacy Workfront configuration debt."],
       cons:["Everything, including templates and permissions, is built from zero with no head start.", "Highest risk of missing a must-have requirement since nothing carries over."]
+    }
+  },
+  next60: {
+    wf: {
+      pros:["Connector builds layer on top of a stable Workfront foundation with no rework.", "Active Directory and SSO integration benefits from Fusion's native Workfront support."],
+      cons:["Integration builds are dependent on external API availability from Genie, Figma, and BI vendors.", "Any scope creep from First 30 Days risks delaying connector work."]
+    },
+    blend: {
+      pros:["DI Studio sync design from First 30 Days begins actual build, reducing dual-entry overhead."],
+      cons:["Sync layer introduces new infrastructure that needs its own QA and monitoring from the start."]
+    },
+    alt: {
+      pros:["All connector builds are done natively in the chosen tool with no Workfront dependency."],
+      cons:["Connector ecosystem for some alternatives is less mature, requiring more custom build work."]
     }
   },
   y1: {
@@ -2005,24 +2233,48 @@ function scorePillHtml(pct){
 }
 
 function renderProsCons(phaseKey){
-  const grid = document.getElementById("prosConsGrid");
-  grid.innerHTML = "";
-  const pc = PROS_CONS[phaseKey];
-  ["wf","blend","alt"].forEach(opt=>{
-    const card = document.createElement("div");
-    card.className = "pc-card";
-    const data = pc[opt];
-    const prosLi = data.pros.map(p=>`<li>${p}</li>`).join("");
-    const consLi = data.cons.map(c=>`<li>${c}</li>`).join("");
-    card.innerHTML = `
-      <div class="pc-head" style="background:${OPT_COLOR[opt]}">${OPT_LABEL[opt]}</div>
-      <div class="pc-body">
-        <p class="pc-sub pro">Pros</p>
-        <ul class="pc-list">${prosLi}</ul>
-        <p class="pc-sub con">Cons</p>
-        <ul class="pc-list">${consLi}</ul>
-      </div>`;
-    grid.appendChild(card);
+  // No-op now — pros/cons live on the dedicated page
+}
+
+function renderAllProsCons(){
+  const container = document.getElementById("prosConsAllContent");
+  if(!container) return;
+  container.innerHTML = "";
+  const phases = [
+    {key:"d60",    label:"First 30 Days"},
+    {key:"next60", label:"Next 60 Days"},
+    {key:"y1",     label:"Year 1"},
+    {key:"y2",     label:"Year 2"},
+    {key:"y3",     label:"Year 3"}
+  ];
+  const opts = Object.keys(OPT_LABEL);
+  phases.forEach(ph=>{
+    const pc = PROS_CONS[ph.key];
+    if(!pc) return;
+    const section = document.createElement("div");
+    section.style.cssText = "margin-bottom:48px;";
+    section.innerHTML = `<h3 style="font-size:24px;color:var(--navy);margin:0 0 16px;letter-spacing:-.01em;">${ph.label}</h3>`;
+    const grid = document.createElement("div");
+    grid.className = "proscons-grid";
+    opts.forEach(opt=>{
+      if(!pc[opt]) return;
+      const card = document.createElement("div");
+      card.className = "pc-card";
+      const data = pc[opt];
+      const prosLi = data.pros.map(p=>`<li>${p}</li>`).join("");
+      const consLi = data.cons.map(c=>`<li>${c}</li>`).join("");
+      card.innerHTML = `
+        <div class="pc-head" style="background:${OPT_COLOR[opt]}">${OPT_LABEL[opt]}</div>
+        <div class="pc-body">
+          <p class="pc-sub pro">Pros</p>
+          <ul class="pc-list">${prosLi}</ul>
+          <p class="pc-sub con">Cons</p>
+          <ul class="pc-list">${consLi}</ul>
+        </div>`;
+      grid.appendChild(card);
+    });
+    section.appendChild(grid);
+    container.appendChild(section);
   });
 }
 
@@ -2223,8 +2475,9 @@ function wireColumnDrop(container, colKey){
 }
 
 const PHASE_OBJECTIVES = {
-  d60: `<strong>Foundation: up and running in 60 days, zero days down.</strong> This phase is focused on standing up all core platform infrastructure — brief intake, resource visibility, user management, permissions, and role-specific views — with business continuity built in from day one. We start with a small, select group of studios and markets, <strong>likely beginning with the US market</strong>, ensuring a seamless V1 migration with no disruption to live work. Integration design for Genie, Figma, and BI tooling is scoped and locked during this window, so every connector built in Year 1 has a clear blueprint. By the end of 60 days, the platform can receive a brief, route it, track it, and report on it.`,
-  y1: `<strong>Year 1: close the gaps, connect the systems, build the intelligence foundation.</strong> With the platform live, Year 1 is about completing what the 60-day sprint couldn't: full historic migration, multi-partner tenant isolation, Active Directory / SSO enablement, and the first connector builds — Genie, BI/Power BI, Figma, and the data/media bridge. Intelligent assisted routing and duplicate detection go live, reducing manual triage overhead. The design work kicked off in 60 days graduates into real integrations, and the first meaningful performance metrics — SLA compliance by tier, asset reuse rates, resource utilisation — become available to the wider team.`,
+  d60: `Up and running with zero days down. Core platform infrastructure — brief intake, resource visibility, user management, permissions, and role-specific views — goes live from day one, starting with a select group of studios and markets. Integration design for Genie, Figma, and BI is locked so every Year 1 connector has a clear blueprint. By day 30, the platform can receive a brief, route it, track it, and report on it.`,
+  next60: `Carrying momentum from the first 30 days into deeper build work. This phase focuses on completing integrations scoped in October, expanding platform access to additional studios and markets, and layering in the first automation and routing intelligence. Cards will be moved here from First 30 Days as the plan develops.`,
+  y1: `<strong>Year 1: close the gaps, connect the systems, build the intelligence foundation.</strong> With the platform live, Year 1 is about completing what the 30-day sprint couldn't: full historic migration, multi-partner tenant isolation, Active Directory / SSO enablement, and the first connector builds — Genie, BI/Power BI, Figma, and the data/media bridge. Intelligent assisted routing and duplicate detection go live, reducing manual triage overhead. The design work kicked off in the first 30 days graduates into real integrations, and the first meaningful performance metrics — SLA compliance by tier, asset reuse rates, resource utilisation — become available to the wider team.`,
   y2: `<strong>Year 2: turn the platform intelligent.</strong> Bynder, Fusion, and Genie are all live and connected. Smart triage auto-classifies briefs at intake, AI-assisted review runs ahead of human sign-off, and capacity forecasting proactively flags resource risk before it becomes a problem. The data and media bridge feeds live performance data back into the system, and brief intelligence starts enriching briefs with cultural, audience, and media signals before they reach creative. By the end of Year 2, the platform isn't just a system of record — it's actively improving how work gets briefed, routed, and delivered.`,
   y3: `<strong>Year 3: reduce agency reliance by 50%, with a clear ramp-down plan if PR chooses to go further.</strong> Bulk and templated campaign work runs autonomously. AI review, automated routing, and proactive monitoring are the default — human intervention is the exception, not the rule. A formal portability playbook is designed so TAG can hand operational control to PR on any timeline PR chooses, with no lock-in. The closed-loop optimisation layer means past campaign performance directly informs how the next brief is written. By the end of Year 3, the platform runs the majority of The Mix's throughput with significantly less agency overhead, and PR has full optionality on what comes next.`
 };
@@ -2261,21 +2514,32 @@ function epicTimeFrac(col, priority, effort){
 
 const AI_STAGE = {
   d60:"AI: Manual",
+  next60:"AI: Manual",
   y1:"AI: Automated",
   y2:"AI: Agentic",
   y3:"AI: Autonomous"
 };
 
+const PHASE_DATES = {
+  d60:   "Oct 1 – Oct 31, 2026",
+  next60:"Nov 1 – Dec 31, 2026",
+  y1:    "Jan 1 – Dec 31, 2027",
+  y2:    "Jan 1 – Dec 31, 2028",
+  y3:    "Jan 1 – Dec 31, 2029"
+};
+
 const PHASE_PERIODS = {
-  d60:["Week 1–2","Week 3–4","Week 5–6","Week 7–8"],
-  y1:["Q1","Q2","Q3","Q4"],
-  y2:["Q1","Q2","Q3","Q4"],
-  y3:["Q1","Q2","Q3","Q4"]
+  d60:   ["Week 1","Week 2","Week 3","Week 4"],
+  next60:["Week 5–6","Week 7–8","Week 9–10","Week 11–13"],
+  y1:    ["Q1","Q2","Q3","Q4"],
+  y2:    ["Q1","Q2","Q3","Q4"],
+  y3:    ["Q1","Q2","Q3","Q4"]
 };
 
 function renderStaggeredRoadmap(){
   const container = document.getElementById("staggeredRoadmap");
   if(!container) return;
+  if(!STATE[currentPhase]) return;
 
   const phase = STATE[currentPhase];
   const periods = PHASE_PERIODS[currentPhase]||["Q1","Q2","Q3","Q4"];
@@ -2310,11 +2574,29 @@ function renderStaggeredRoadmap(){
   // Rows
   activeEpics.forEach(epic=>{
     const ep = epicMap[epic.id];
-    const n = ep.items.length;
-    const names = ep.items.map(e=>e.item.t).join(" · ");
+    const isActive = activeEpicFilter === epic.id;
+
+    // Sort items by column order so strat → build → report reads left to right
+    const colOrder = {strat:0, buildactive:1, report:2};
+    const sorted = [...ep.items].sort((a,b)=> colOrder[a.col] - colOrder[b.col]);
+    const n = sorted.length;
+
+    // Spread evenly — cap right edge at 72% so chips never overflow (chips are ~140px wide)
+    const chips = sorted.map((entry, i)=>{
+      const pct = n === 1 ? 35 : 2 + (i / (n - 1)) * 70;
+      let topPct;
+      if(n > 6){
+        const rowMod = i % 3;
+        topPct = rowMod === 0 ? "20%" : rowMod === 1 ? "50%" : "78%";
+      } else {
+        topPct = i % 2 === 0 ? "28%" : "65%";
+      }
+      return `<div class="eg-item-chip" style="left:${pct.toFixed(1)}%;top:${topPct};background:${epic.color};" title="${entry.item.t}">${entry.item.t}</div>`;
+    }).join("");
+
+    // Background bar spans strat-start to report-end for visual context
     const sp = (ep.start*100).toFixed(1);
     const wi = ((ep.end-ep.start)*100).toFixed(1);
-    const isActive = activeEpicFilter === epic.id;
 
     const cellDividers = Array.from({length:nPeriods},(_,i)=>
       `<div style="position:absolute;left:${i*100/nPeriods}%;top:0;bottom:0;width:1px;background:var(--line);"></div>`
@@ -2325,11 +2607,10 @@ function renderStaggeredRoadmap(){
         <div class="eg-row-label-top"><span class="eg-dot" style="background:${epic.color};"></span>${epic.label}</div>
         <div class="eg-row-desc">${epic.desc}</div>
       </div>
-      <div style="position:relative;grid-column:span ${nPeriods};display:flex;align-items:center;min-height:60px;">
+      <div style="position:relative;grid-column:span ${nPeriods};min-height:${n > 4 ? 110 : 90}px;overflow:hidden;">
         ${cellDividers}
-        <div class="eg-bar" style="left:${sp}%;width:${wi}%;background:${epic.color};" title="${names}">
-          <span>${n} item${n!==1?"s":""}</span>
-        </div>
+        <div class="eg-bar" style="left:${sp}%;width:${wi}%;background:${epic.color};top:50%;"></div>
+        ${chips}
       </div>
     </div>`;
   });
@@ -2353,7 +2634,37 @@ function renderStaggeredRoadmap(){
   });
 }
 
+function applyViewMode(){
+  const gantt  = document.querySelector(".staggered-roadmap-wrap");
+  const filter = document.querySelector(".filter-bar");
+  const search = document.querySelector(".search-bar");
+  const cols   = document.querySelector(".cols");
+  const editor = document.querySelector(".editor-bar");
+  const isHigh = phaseViewMode === "highlevel";
+
+  if(gantt)  gantt.style.display  = isHigh ? "block" : "none";
+  if(filter) filter.style.display = isHigh ? "none"  : "flex";
+  if(search) search.style.display = isHigh ? "none"  : "flex";
+  if(cols)   cols.style.display   = isHigh ? "none"  : "grid";
+  if(editor) editor.style.display = isHigh ? "none"  : "flex";
+
+  // Sync toggle button active state
+  document.querySelectorAll(".view-toggle-btn").forEach(b=>{
+    b.classList.toggle("active", b.dataset.mode === phaseViewMode);
+  });
+}
+
 function renderDetail(){
+  // Guard: if STATE doesn't have this phase yet, seed it from DATA
+  if(!STATE[currentPhase]){
+    if(DATA[currentPhase]){
+      STATE[currentPhase] = JSON.parse(JSON.stringify(DATA[currentPhase]));
+      if(STATE[currentPhase].build) mergeBuildActive(STATE[currentPhase]);
+    } else {
+      console.warn("renderDetail: unknown phase", currentPhase);
+      return;
+    }
+  }
   const phase = STATE[currentPhase];
   document.getElementById("phaseTitle").textContent = phase.title;
   const tagEl = document.getElementById("phaseTagline");
@@ -2364,13 +2675,15 @@ function renderDetail(){
   mat.style.color = (phase.maturity === "Stabilise" || phase.maturity === "Scale") ? "#2c2a0d" : "white";
   const aiEl = document.getElementById("phaseAiStage");
   if(aiEl) aiEl.textContent = AI_STAGE[currentPhase] || "";
+  const dateEl = document.getElementById("phaseDateTag");
+  if(dateEl) dateEl.textContent = PHASE_DATES[currentPhase] || "";
 
   renderItems(document.getElementById("colStrat"), phase.strat[currentOpt], "strat");
   renderItems(document.getElementById("colBuildActive"), phase.buildactive[currentOpt], "buildactive");
   renderItems(document.getElementById("colReport"), phase.report[currentOpt], "report");
-  renderProsCons(currentPhase);
   renderStaggeredRoadmap();
   applyFilters();
+  applyViewMode();
   saveToLocalStorage();
 }
 
@@ -2402,6 +2715,7 @@ function importState(file){
 }
 
 function resetPhase(){
+  if(!DATA[currentPhase]) return;
   STATE[currentPhase] = JSON.parse(JSON.stringify(DATA[currentPhase]));
   mergeBuildActive(STATE[currentPhase]);
   saveToLocalStorage();
@@ -2418,8 +2732,8 @@ function countItems(phase, opt){
 function buildMasterNodes(){
   const container = document.getElementById("masterNodes");
   container.innerHTML = "";
-  const keys = ["d60","y1","y2","y3"];
-  const classes = {d60:"t60", y1:"ty1", y2:"ty2", y3:"ty3"};
+  const keys = ["d60","next60","y1","y2","y3"];
+  const classes = {d60:"t60", next60:"t60", y1:"ty1", y2:"ty2", y3:"ty3"};
   keys.forEach((k, idx)=>{
     const phase = STATE[k];
     const meta = MASTER_META[k];
@@ -2503,31 +2817,47 @@ function shortName(title){
 }
 
 function render(){
-  document.getElementById("masterView").style.display = "none";
-  document.getElementById("detailView").style.display = "none";
-  document.getElementById("routingView").style.display = "none";
-  document.getElementById("techCompareView").style.display = "none";
-
+  ["masterView","atAGlanceView","detailView","routingView","techCompareView","prosConsView"].forEach(id=>{
+    const el = document.getElementById(id); if(el) el.style.display = "none";
+  });
+  const isRoadmap = ["master","ataglance","next60","d60","y1","y2","y3"].includes(currentPhase);
+  const subnavWrap = document.getElementById("phaseSubnavWrap");
+  if(subnavWrap) subnavWrap.style.display = isRoadmap ? "flex" : "none";
+  const sbRoadmap = document.getElementById("sbRoadmapBtn");
+  if(sbRoadmap) sbRoadmap.classList.toggle("active", isRoadmap);
+  const sbR = document.getElementById("sbRoutingBtn");
+  const sbT = document.getElementById("sbTechBtn");
+  if(sbR) sbR.classList.toggle("active", currentPhase === "routing");
+  if(sbT) sbT.classList.toggle("active", currentPhase === "techcompare");
+  const sbPC = document.getElementById("sbProsConsBtn");
+  if(sbPC) sbPC.classList.toggle("active", currentPhase === "proscons");
   if(currentPhase === "master"){
     document.getElementById("masterView").style.display = "block";
     buildMasterNodes();
+  } else if(currentPhase === "ataglance"){
+    document.getElementById("atAGlanceView").style.display = "block";
     buildGantt();
   } else if(currentPhase === "routing"){
     document.getElementById("routingView").style.display = "block";
   } else if(currentPhase === "techcompare"){
     document.getElementById("techCompareView").style.display = "block";
     initTechCompare();
+  } else if(currentPhase === "proscons"){
+    document.getElementById("prosConsView").style.display = "block";
+    renderAllProsCons();
   } else {
     document.getElementById("detailView").style.display = "block";
     renderDetail();
   }
-  document.getElementById("optDesc").innerHTML = OPTION_DESC[currentOpt];
+  const dd = document.getElementById("optDropdown");
+  if(dd) dd.value = currentOpt;
 }
 
 function switchPhase(key){
   currentPhase = key;
   searchQuery = "";
   activeEpicFilter = null;
+  phaseViewMode = "highlevel";
   const si = document.getElementById("cardSearch");
   if(si) si.value = "";
   const sc = document.getElementById("searchCount");
@@ -2537,7 +2867,7 @@ function switchPhase(key){
     b.classList.toggle("active", b.dataset.phase === key);
   });
   render();
-  window.scrollTo({top: document.querySelector(".phase-nav").offsetTop - 10, behavior:"smooth"});
+  document.querySelector(".main-content").scrollTo({top:0, behavior:"smooth"});
 }
 
 document.querySelectorAll(".opt-btn").forEach(btn=>{
@@ -2547,6 +2877,29 @@ document.querySelectorAll(".opt-btn").forEach(btn=>{
     currentOpt = btn.dataset.opt;
     render();
   });
+});
+
+document.getElementById("sbRoadmapBtn").addEventListener("click", ()=> switchPhase("master"));
+
+// View toggle
+document.querySelectorAll(".view-toggle-btn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    phaseViewMode = btn.dataset.mode;
+    applyViewMode();
+  });
+});
+
+// Operating model dropdown
+const optDropdown = document.getElementById("optDropdown");
+if(optDropdown){
+  optDropdown.addEventListener("change", ()=>{
+    currentOpt = optDropdown.value;
+    render();
+  });
+}
+
+document.querySelectorAll(".sb-nav-btn[data-phase]").forEach(btn=>{
+  btn.addEventListener("click", ()=> switchPhase(btn.dataset.phase));
 });
 
 document.querySelectorAll(".phase-btn").forEach(btn=>{
@@ -2608,7 +2961,7 @@ document.querySelectorAll(".filter-pill[data-filter-type]").forEach(btn=>{
 });
 
 const COL_LABELS = {strat:"Analysis & Strategy", buildactive:"Build & Activate", report:"Reportable"};
-const PHASE_LABELS = {d60:"First 60 Days", y1:"Year 1", y2:"Year 2", y3:"Year 3"};
+const PHASE_LABELS = {d60:"First 30 Days", next60:"Next 60 Days", y1:"Year 1", y2:"Year 2", y3:"Year 3"};
 
 function openCardModal(item, idx, colKey){
   const currentEffort = item.effort || defaultEffort(item);
@@ -2617,7 +2970,7 @@ function openCardModal(item, idx, colKey){
   const priorityOpts = [{v:"must",l:"High"},{v:"nice",l:"Med"},{v:"live",l:"Low"}];
   const tagOpts = [{v:"routing",l:"Routing"},{v:"ai",l:"AI/Auto"},{v:"gov",l:"Gov"},{v:"tool",l:"Tool"}];
   const effortOpts = [{v:"xl",l:"XL"},{v:"l",l:"L"},{v:"m",l:"M"},{v:"s",l:"S"},{v:"xs",l:"XS"}];
-  const phaseOpts = [{v:"d60",l:"60 Days"},{v:"y1",l:"Year 1"},{v:"y2",l:"Year 2"},{v:"y3",l:"Year 3"}];
+  const phaseOpts = [{v:"d60",l:"First 30 Days"},{v:"next60",l:"Next 60 Days"},{v:"y1",l:"Year 1"},{v:"y2",l:"Year 2"},{v:"y3",l:"Year 3"}];
 
   const pBtns = priorityOpts.map(o=>`<button class="cm-option-btn${item.priority===o.v?' selected-'+o.v:''}" data-field="priority" data-val="${o.v}">${o.l}</button>`).join("");
   const tBtns = tagOpts.map(o=>`<button class="cm-option-btn${item.tag===o.v?' selected-'+o.v:''}" data-field="tag" data-val="${o.v}">${tagIcon(o.v)}${o.l}</button>`).join("");
@@ -2626,7 +2979,7 @@ function openCardModal(item, idx, colKey){
 
   // Build prereq checklist — checked items first, then unchecked
   let prereqItems = [];
-  ["d60","y1","y2","y3"].forEach(ph=>{
+  ["d60","next60","y1","y2","y3"].forEach(ph=>{
     ["strat","buildactive","report"].forEach(col=>{
       (STATE[ph][col]?.[currentOpt]||[]).forEach((it,i)=>{
         if(ph === currentPhase && col === colKey && i === idx) return; // skip self
