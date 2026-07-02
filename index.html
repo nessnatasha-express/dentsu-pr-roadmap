@@ -284,12 +284,115 @@ h1.title{
   text-align:center; font-size:11.5px; font-weight:700; color:var(--gold); margin-top:12px; letter-spacing:.03em;
 }
 
-/* ---------- PHASE OBJECTIVE ---------- */
+/* ---------- WORKPLAN TABLE ---------- */
+.workplan-table-wrap{overflow-x:auto; margin-top:24px;}
+.workplan-table{
+  width:100%; border-collapse:separate; border-spacing:0;
+  border:1px solid var(--line); border-radius:14px; overflow:hidden;
+  font-size:12.5px; font-family:'Poppins',sans-serif;
+}
+.workplan-table thead tr th{
+  background:var(--navy); color:var(--cream); font-size:10.5px; font-weight:700;
+  letter-spacing:.07em; text-transform:uppercase; padding:13px 14px; text-align:left;
+  border-bottom:2px solid rgba(255,255,255,0.1);
+}
+.workplan-table thead tr th:not(:last-child){border-right:1px solid rgba(255,255,255,0.08);}
+.wp-row td{
+  padding:14px 14px; vertical-align:top; line-height:1.55;
+  color:#3d4654; border-bottom:1px solid var(--line);
+}
+.wp-row td:not(:last-child){border-right:1px solid var(--line);}
+.wp-row:last-child td{border-bottom:none;}
+.wp-row:nth-child(even) td{background:#fafaf8;}
+.wp-row:hover td{background:#f5f2ec;}
+.wp-row:last-child td:first-child{border-bottom-left-radius:14px;}
+.wp-row:last-child td:last-child{border-bottom-right-radius:14px;}
+
+/* Phase cell */
+.wp-phase-cell{font-weight:700; color:var(--navy); font-size:12px; min-width:140px;}
+.wp-phase-num{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:22px; height:22px; border-radius:50%; background:var(--navy); color:var(--cream);
+  font-size:10px; font-weight:700; margin-right:8px; flex-shrink:0; vertical-align:middle;
+  margin-bottom:2px;
+}
+.wp-row-1 .wp-phase-num{background:#6E97C9;}
+.wp-row-2 .wp-phase-num{background:#7fb3c8;}
+.wp-row-3 .wp-phase-num{background:var(--olive);}
+.wp-row-4 .wp-phase-num{background:var(--gold); color:var(--navy);}
+.wp-row-5 .wp-phase-num{background:var(--navy);}
+
+/* Timeline tags */
+.wp-timeline-tag{
+  display:inline-block; font-size:11px; font-weight:700; padding:5px 12px; border-radius:20px;
+  white-space:nowrap; letter-spacing:.03em; text-transform:uppercase;
+}
+.wp-t-d60{background:rgba(110,151,201,0.18); color:#345277; border:1px solid rgba(110,151,201,0.4);}
+.wp-t-next60{background:rgba(127,179,200,0.18); color:#2a6278; border:1px solid rgba(127,179,200,0.4);}
+.wp-t-y1{background:rgba(168,162,60,0.18); color:#5e5a1e; border:1px solid rgba(168,162,60,0.4);}
+.wp-t-y2{background:rgba(215,169,74,0.2); color:#7a571c; border:1px solid rgba(215,169,74,0.4);}
+.wp-t-y3{background:rgba(11,27,51,0.1); color:var(--navy); border:1px solid rgba(11,27,51,0.2);}
+
+/* Theme */
+.wp-theme{font-size:11.5px; font-weight:600; color:#6b7280;}
+
+/* Milestone */
+.wp-milestone{
+  display:inline-block; font-size:11px; font-weight:700; padding:5px 10px;
+  border-radius:8px; background:rgba(11,27,51,0.06); color:var(--navy);
+  border:1px solid rgba(11,27,51,0.12); line-height:1.4;
+}
+
+/* Column widths */
+.wp-col-num{width:3%; text-align:center;}
+.wp-col-phase{width:11%;}
+.wp-col-timeline{width:8%;}
+.wp-col-theme{width:9%;}
+.wp-col-obj{width:16%;}
+.wp-col-del{width:22%;}
+.wp-col-kpi{width:17%;}
+.wp-col-ms{width:12%;}
+
+/* # number column */
+.wp-num-cell{text-align:center; vertical-align:middle;}
+.wp-phase-cell{font-weight:700; color:var(--navy); font-size:12px;}
+.wp-phase-num{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:24px; height:24px; border-radius:50%; background:var(--navy); color:var(--cream);
+  font-size:11px; font-weight:700;
+}
+.wp-row-1 .wp-phase-num{background:#6E97C9;}
+.wp-row-2 .wp-phase-num{background:#7fb3c8;}
+.wp-row-3 .wp-phase-num{background:var(--olive);}
+.wp-row-4 .wp-phase-num{background:var(--gold); color:var(--navy);}
+.wp-row-5 .wp-phase-num{background:var(--navy);}
+
+/* Deliverable pills */
+.wp-del-cell{padding-top:12px !important;}
+.wp-del{
+  display:inline-block; font-size:10.5px; font-weight:600; padding:3px 9px;
+  border-radius:20px; margin:2px 3px 2px 0; line-height:1.4; white-space:nowrap;
+}
+.wp-del-1{background:rgba(110,151,201,0.16); color:#2a4a6b; border:1px solid rgba(110,151,201,0.35);}
+.wp-del-2{background:rgba(127,179,200,0.16); color:#1f5a70; border:1px solid rgba(127,179,200,0.35);}
+.wp-del-3{background:rgba(168,162,60,0.16); color:#4a470d; border:1px solid rgba(168,162,60,0.35);}
+.wp-del-4{background:rgba(215,169,74,0.18); color:#6b4a0a; border:1px solid rgba(215,169,74,0.4);}
+.wp-date-range{
+  font-size:10.5px; font-weight:700; letter-spacing:.03em;
+  display:inline-block; margin-top:5px;
+  background:rgba(11,27,51,0.06); color:#5b6573;
+  border:1px solid rgba(11,27,51,0.14); border-radius:20px; padding:4px 10px;
+}
+
+/* KPI bullet list */
+.wp-kpi-list{margin:0; padding:0 0 0 14px; list-style:none; display:flex; flex-direction:column; gap:5px;}
+.wp-kpi-list li{font-size:12px; color:#3d4654; line-height:1.45; padding-left:2px; position:relative;}
+.wp-kpi-list li::before{content:"—"; position:absolute; left:-14px; color:var(--tan); font-weight:700;}
 .phase-objective,
 .lede,
 .master-wrap .lede,
 .section-block .lede{
-  font-size:14.5px; line-height:1.75; color:#3d4654;
+  font-size:13.5px; line-height:1.75; color:#3d4654;
   width:100%; max-width:100%; margin:0 0 0;
   font-family:'Poppins', 'Helvetica Neue', Arial, sans-serif;
 }
@@ -330,18 +433,16 @@ h1.title{
 .item.epic-hidden{display:none;}
 .eg-bar-area{position:relative; display:grid; grid-column:span 4; grid-template-columns:repeat(4,1fr);}
 .eg-bar-cell{border-left:1px solid var(--line); position:relative;}
-.eg-bar{
-  position:absolute; top:50%; transform:translateY(-50%);
-  height:4px; border-radius:4px; opacity:0.35;
-  z-index:0;
-}
+.eg-bar{display:none;}
 .eg-item-chip{
   position:absolute; transform:translateY(-50%);
   height:auto; border-radius:6px; display:flex; align-items:center;
   padding:4px 8px; font-size:10px; font-weight:600; color:white; line-height:1.3;
-  box-shadow:0 1px 4px rgba(11,27,51,0.18); z-index:1; cursor:default;
+  box-shadow:0 1px 4px rgba(11,27,51,0.18); z-index:1; cursor:pointer;
   max-width:130px; white-space:normal; word-break:break-word;
+  transition:transform .12s ease, box-shadow .12s ease;
 }
+.eg-item-chip:hover{transform:translateY(calc(-50% - 2px)); box-shadow:0 4px 10px rgba(11,27,51,0.25);}
 .eg-items-tooltip{
   font-size:10px; color:rgba(255,255,255,0.85); margin-top:2px; display:block;
 }
@@ -354,40 +455,40 @@ h1.title{
 .gantt-wrap{margin-top:48px;}
 .gantt-wrap h3{font-size:38px; color:var(--navy); margin:34px 0 10px; letter-spacing:-.01em;}
 .gantt-grid{
-  display:grid; grid-template-columns:160px repeat(4,1fr);
+  display:grid; grid-template-columns:100px repeat(5,1fr);
   border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--white);
 }
-.gantt-corner{background:var(--cream);}
+.gantt-corner{background:#f2f2f0;}
 .gantt-phase-head{
-  padding:12px 14px; font-size:12.5px; font-weight:700; color:white; text-align:center;
+  padding:10px 10px; font-size:11.5px; font-weight:700; color:white; text-align:center;
   border-left:1px solid rgba(255,255,255,0.18);
 }
 .gantt-phase-head.gp-d60{background:var(--blue);}
+.gantt-phase-head.gp-next60{background:#7fb3c8; color:white;}
 .gantt-phase-head.gp-y1{background:var(--olive); color:white;}
 .gantt-phase-head.gp-y2{background:var(--gold); color:white;}
 .gantt-phase-head.gp-y3{background:var(--navy);}
 .gantt-lane-label{
-  padding:14px 14px; font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
-  color:var(--navy); background:var(--cream); display:flex; align-items:center; gap:8px; border-top:1px solid var(--line);
+  padding:10px 10px; font-size:10px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+  color:#6b7280; background:#f2f2f0; display:flex; align-items:center; gap:6px; border-top:1px solid var(--line);
 }
-.gantt-lane-label svg{width:15px; height:15px; flex-shrink:0; stroke:var(--navy);}
+.gantt-lane-label svg{width:13px; height:13px; flex-shrink:0; stroke:#6b7280;}
 .gantt-cell{
-  padding:10px 10px; border-top:1px solid var(--line); border-left:1px solid var(--line);
-  display:flex; flex-direction:column; gap:6px; min-height:54px;
+  padding:8px 8px; border-top:1px solid var(--line); border-left:1px solid var(--line);
+  display:flex; flex-direction:column; gap:5px; min-height:48px;
 }
 .gantt-bar{
-  font-size:11px; font-weight:600; color:var(--navy); padding:5px 9px; border-radius:7px;
-  line-height:1.3; box-shadow:0 1px 2px rgba(11,27,51,0.08);
-  background:#EDE6D3; border:1px solid #DCD0AE;
+  font-size:10.5px; font-weight:600; color:#3d4654; padding:4px 8px; border-radius:6px;
+  line-height:1.3; background:var(--white); border:1px solid #d8d4cc;
 }
-.gantt-empty{font-size:10.5px; color:#c9c2af; font-style:italic;}
+.gantt-empty{font-size:10px; color:#c9c2af; font-style:italic;}
 
 @media(max-width:980px){
-  .gantt-grid{grid-template-columns:120px repeat(4,1fr); font-size:11px;}
+  .gantt-grid{grid-template-columns:80px repeat(5,1fr); font-size:11px;}
 }
 @media(max-width:760px){
   .gantt-wrap{overflow-x:auto;}
-  .gantt-grid{grid-template-columns:120px repeat(4, minmax(140px,1fr)); width:max-content; min-width:100%;}
+  .gantt-grid{grid-template-columns:80px repeat(5, minmax(120px,1fr)); width:max-content; min-width:100%;}
 }
 
 /* ---------- PHASE HEAD ---------- */
@@ -408,6 +509,11 @@ h1.title{
   background:var(--navy); color:var(--white);
   box-shadow:0 2px 8px rgba(11,27,51,0.2);
 }
+.phase-name-tag{
+  font-size:11.5px; font-weight:700; letter-spacing:.04em;
+  padding:7px 14px; border-radius:20px;
+  background:var(--navy); color:var(--cream);
+}
 .phase-tags{display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:14px;}
 .maturity{
   font-size:11.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
@@ -421,7 +527,7 @@ h1.title{
 .date-tag{
   font-size:11.5px; font-weight:700; letter-spacing:.04em;
   padding:7px 14px; border-radius:20px;
-  background:rgba(215,169,74,0.15); color:#7a571c; border:1.5px solid rgba(215,169,74,0.4);
+  background:rgba(11,27,51,0.07); color:var(--navy); border:1.5px solid rgba(11,27,51,0.12);
 }
 .phase-objective{
   font-size:14.5px; line-height:1.75; color:#3d4654;
@@ -488,9 +594,28 @@ h1.title{
 input.file-hidden{display:none;}
 
 .filter-bar{
-  display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin:16px 0 0;
-  padding:12px 16px; background:var(--white); border:1px solid var(--line); border-radius:12px;
+  display:flex; flex-direction:column; gap:8px;
+  margin:16px 0 0; padding:12px 16px;
+  background:var(--white); border:1px solid var(--line); border-radius:12px;
 }
+.filter-row{display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
+.filter-row-top{flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none;}
+.filter-row-top::-webkit-scrollbar{display:none;}
+.filter-row-epics{flex-wrap:wrap; padding-top:2px; gap:6px;}
+.filter-search-wrap{
+  display:flex; align-items:center; gap:6px;
+  border:1.5px solid var(--line); border-radius:8px;
+  padding:5px 10px; background:var(--cream); margin-left:auto;
+  min-width:120px; max-width:190px; flex-shrink:0;
+}
+.filter-search-wrap input{
+  border:none; outline:none; font-size:11.5px; background:none;
+  color:var(--navy); font-family:inherit; width:100%;
+}
+.filter-search-wrap svg{flex-shrink:0; stroke:var(--tan);}
+.search-count{font-size:10px; color:var(--tan); white-space:nowrap; flex-shrink:0;}
+.epic-pill{border-color:rgba(11,27,51,0.15); color:#6b7280; background:rgba(11,27,51,0.04);}
+.epic-pill.active{background:var(--navy); color:white; border-color:var(--navy); font-weight:700;}
 .filter-group{display:flex; align-items:center; gap:7px; flex-wrap:wrap;}
 .filter-label{font-size:10.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--tan); margin-right:3px;}
 .filter-pill{
@@ -543,8 +668,8 @@ input.file-hidden{display:none;}
 .xs-pill.active{background:rgba(46,125,79,0.14); border-color:#2E7D4F; font-weight:700;}
 .filter-count{font-size:11.5px; color:#9a9587; font-style:italic;}
 .item.filtered-out{display:none;}
-.item .item-title{font-size:13px; font-weight:700; color:var(--navy); margin:0; line-height:1.3;}
-.item .item-desc{display:none;}
+.item .item-title{font-size:13px; font-weight:700; color:var(--navy); margin:0 0 4px; line-height:1.3;}
+.item .item-desc{font-size:11.5px; color:#6b7280; margin:0 0 8px; line-height:1.5; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;}
 .chips{display:flex; gap:6px; margin-top:8px; align-items:center; justify-content:space-between;}
 .chip-group{display:flex; gap:6px; flex-wrap:wrap; align-items:center;}
 .expand-btn{
@@ -894,16 +1019,90 @@ input.file-hidden{display:none;}
 
     <div class="wrap">
 
-  <!-- MASTER VIEW -->
   <!-- SUMMARY VIEW -->
   <div id="masterView" class="master-wrap">
-    <h2>The full arc, at a glance</h2>
+    <h2>Partnership Roadmap</h2>
     <div class="tab-description-wrap">
-      <div class="lede">Four milestones, one operating model selected above. Click any milestone to open its detail view, with items strategizing, building, active, and reportable at that point in time.</div>
+      <div class="lede">Five phases from operating model design through AI-powered autonomous operations — outlining what we're delivering, when, and how we'll know it's working.</div>
     </div>
-    <div class="master-track">
-      <div class="master-line"></div>
-      <div class="master-nodes" id="masterNodes"></div>
+
+    <div class="workplan-table-wrap">
+      <table class="workplan-table">
+        <thead>
+          <tr>
+            <th class="wp-col-num">#</th>
+            <th class="wp-col-phase">Phase</th>
+            <th class="wp-col-timeline">Timeline</th>
+            <th class="wp-col-theme">Theme</th>
+            <th class="wp-col-obj">Primary Objective</th>
+            <th class="wp-col-del">Major Deliverables</th>
+            <th class="wp-col-kpi">Key Success Metrics</th>
+            <th class="wp-col-ms">Milestone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="wp-row wp-row-1">
+            <td class="wp-num-cell"><span class="wp-phase-num">1</span></td>
+            <td class="wp-phase-cell">Global Operating Model Design</td>
+            <td><span class="wp-timeline-tag wp-t-d60">First 30 Days</span><br><span class="wp-date-range">10/26</span></td>
+            <td><span class="wp-theme">Strategy &amp; Foundation</span></td>
+            <td>Define the future-state global marketing operating model, establish governance, prioritize brands, studios, and markets, design the Workfront architecture, identify AI opportunities, and prepare the pilot.</td>
+            <td class="wp-del-cell">
+              <span class="wp-del wp-del-1">Discovery workshops</span><span class="wp-del wp-del-1">Operating model</span><span class="wp-del wp-del-1">Workfront solution design</span><span class="wp-del wp-del-1">Migration strategy</span><span class="wp-del wp-del-1">Brand &amp; market prioritization</span><span class="wp-del wp-del-1">Governance model</span><span class="wp-del wp-del-1">Integration architecture</span><span class="wp-del wp-del-1">Taxonomy</span><span class="wp-del wp-del-1">AI opportunity assessment</span><span class="wp-del wp-del-1">KPI framework</span>
+            </td>
+            <td><ul class="wp-kpi-list"><li>Discovery completed</li><li>Operating model approved</li><li>Solution architecture approved</li><li>Pilot charter approved</li><li>Transformation KPIs established</li></ul></td>
+            <td><span class="wp-milestone">Pilot Ready</span></td>
+          </tr>
+          <tr class="wp-row wp-row-2">
+            <td class="wp-num-cell"><span class="wp-phase-num">2</span></td>
+            <td class="wp-phase-cell">Pilot &amp; Validate</td>
+            <td><span class="wp-timeline-tag wp-t-next60">Next 60 Days</span><br><span class="wp-date-range">11/1/26 – 12/31/26</span></td>
+            <td><span class="wp-theme">Pilot Execution &amp; Validation</span></td>
+            <td>Configure Workfront, deploy the pilot across selected brands, studios, and markets, validate the operating model, integrations, AI capabilities, and prepare for global rollout.</td>
+            <td class="wp-del-cell">
+              <span class="wp-del wp-del-2">Pilot environment</span><span class="wp-del wp-del-2">Workfront configuration</span><span class="wp-del wp-del-2">Planning workspaces</span><span class="wp-del wp-del-2">Templates</span><span class="wp-del wp-del-2">Workflows &amp; approvals</span><span class="wp-del wp-del-2">Integrations</span><span class="wp-del wp-del-2">Training</span><span class="wp-del wp-del-2">Pilot campaigns</span><span class="wp-del wp-del-2">Reporting dashboards</span><span class="wp-del wp-del-2">SOPs</span><span class="wp-del wp-del-2">AI pilot</span><span class="wp-del wp-del-2">QBR</span>
+            </td>
+            <td><ul class="wp-kpi-list"><li>Pilot KPIs achieved</li><li>UAT approved</li><li>Pilot adoption targets met</li><li>Operational readiness confirmed</li><li>Executive Go/No-Go decision</li></ul></td>
+            <td><span class="wp-milestone">Pilot Launched &amp; Global Rollout Approved</span></td>
+          </tr>
+          <tr class="wp-row wp-row-3">
+            <td class="wp-num-cell"><span class="wp-phase-num">3</span></td>
+            <td class="wp-phase-cell">Global Brand &amp; Studio Rollout</td>
+            <td><span class="wp-timeline-tag wp-t-y1">Year 1</span><br><span class="wp-date-range">All 2027</span></td>
+            <td><span class="wp-theme">Scale the Operating Model</span></td>
+            <td>Roll out the standardized marketing operating model across brands, studios, agency partners, and markets while expanding governance, integrations, reporting, and adoption.</td>
+            <td class="wp-del-cell">
+              <span class="wp-del wp-del-3">Brand &amp; studio migration</span><span class="wp-del wp-del-3">Rollout waves</span><span class="wp-del wp-del-3">Onboarding framework</span><span class="wp-del wp-del-3">Operating playbooks</span><span class="wp-del wp-del-3">Cross-brand governance</span><span class="wp-del wp-del-3">Enterprise integrations</span><span class="wp-del wp-del-3">Reporting</span><span class="wp-del wp-del-3">Enablement</span><span class="wp-del wp-del-3">Hypercare</span>
+            </td>
+            <td><ul class="wp-kpi-list"><li>&gt;90% adoption across brands and studios</li><li>Rollout waves completed</li><li>Governance operational</li><li>SLA compliance achieved</li></ul></td>
+            <td><span class="wp-milestone">Global Marketing Operations Live</span></td>
+          </tr>
+          <tr class="wp-row wp-row-4">
+            <td class="wp-num-cell"><span class="wp-phase-num">4</span></td>
+            <td class="wp-phase-cell">Global Marketing Operations Optimization</td>
+            <td><span class="wp-timeline-tag wp-t-y2">Year 2</span><br><span class="wp-date-range">All 2028</span></td>
+            <td><span class="wp-theme">Intelligence &amp; Optimization</span></td>
+            <td>Optimize operations using AI, predictive insights, cross-studio resource management, marketing intelligence, and standardized global processes.</td>
+            <td class="wp-del-cell">
+              <span class="wp-del wp-del-4">Intelligent routing</span><span class="wp-del wp-del-4">Predictive capacity planning</span><span class="wp-del wp-del-4">AI-assisted reviews</span><span class="wp-del wp-del-4">Creative benchmarking</span><span class="wp-del wp-del-4">Marketing intelligence</span><span class="wp-del wp-del-4">Executive dashboards</span><span class="wp-del wp-del-4">Cross-brand reporting</span><span class="wp-del wp-del-4">Operational optimization</span>
+            </td>
+            <td><ul class="wp-kpi-list"><li>&gt;75% automated routing</li><li>Improved studio utilization</li><li>AI-assisted review adoption</li><li>Executive dashboards operational</li><li>Measurable productivity improvements</li></ul></td>
+            <td><span class="wp-milestone">AI-Optimized Marketing Operations</span></td>
+          </tr>
+          <tr class="wp-row wp-row-5">
+            <td class="wp-num-cell"><span class="wp-phase-num">5</span></td>
+            <td class="wp-phase-cell">AI-Powered Global Marketing Operations</td>
+            <td><span class="wp-timeline-tag wp-t-y3">Year 3</span><br><span class="wp-date-range">All 2029</span></td>
+            <td><span class="wp-theme">Autonomous Operations &amp; Workforce Transformation</span></td>
+            <td>Transform marketing operations into an AI-first operating model by automating work management, creative production, resource allocation, and decision-making while significantly reducing manual effort.</td>
+            <td class="wp-del-cell">
+              <span class="wp-del wp-del-5">Autonomous work intake</span><span class="wp-del wp-del-5">AI copilots</span><span class="wp-del wp-del-5">Autonomous routing</span><span class="wp-del wp-del-5">Generative content automation</span><span class="wp-del wp-del-5">Closed-loop optimization</span><span class="wp-del wp-del-5">Executive command center</span><span class="wp-del wp-del-5">Workforce optimization dashboards</span><span class="wp-del wp-del-5">AI governance</span>
+            </td>
+            <td><ul class="wp-kpi-list"><li>~50% reduction in manual effort</li><li>&gt;90% automated routing</li><li>&gt;80% AI-assisted operations</li><li>Significant cost savings</li><li>Continuous optimization operational</li></ul></td>
+            <td><span class="wp-milestone">AI-Powered Marketing Operations Center of Excellence</span></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
@@ -929,6 +1128,7 @@ input.file-hidden{display:none;}
         </div>
       </div>
       <div class="phase-tags">
+        <span class="phase-name-tag" id="phaseWorkplanName"></span>
         <span class="maturity" id="phaseMaturity"></span>
         <span class="ai-stage-tag" id="phaseAiStage"></span>
         <span class="date-tag" id="phaseDateTag"></span>
@@ -943,50 +1143,48 @@ input.file-hidden{display:none;}
     </div>
 
     <div class="filter-bar">
-      <div class="filter-group">
-        <span class="filter-label">Priority</span>
-        <button class="filter-pill priority-must active" data-filter-type="priority" data-filter-val="must">High</button>
-        <button class="filter-pill priority-nice active" data-filter-type="priority" data-filter-val="nice">Med</button>
-        <button class="filter-pill priority-live active" data-filter-type="priority" data-filter-val="live">Low</button>
+      <div class="filter-row filter-row-top">
+        <div class="filter-group">
+          <span class="filter-label">Priority</span>
+          <button class="filter-pill priority-must active" data-filter-type="priority" data-filter-val="must">High</button>
+          <button class="filter-pill priority-nice active" data-filter-type="priority" data-filter-val="nice">Med</button>
+          <button class="filter-pill priority-live active" data-filter-type="priority" data-filter-val="live">Low</button>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Effort</span>
+          <button class="filter-pill effort-pill xl-pill active" data-filter-type="effort" data-filter-val="xl">XL</button>
+          <button class="filter-pill effort-pill l-pill active" data-filter-type="effort" data-filter-val="l">L</button>
+          <button class="filter-pill effort-pill m-pill active" data-filter-type="effort" data-filter-val="m">M</button>
+          <button class="filter-pill effort-pill s-pill active" data-filter-type="effort" data-filter-val="s">S</button>
+          <button class="filter-pill effort-pill xs-pill active" data-filter-type="effort" data-filter-val="xs">XS</button>
+        </div>
+        <div class="filter-search-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="14" height="14"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3L21 21"/></svg>
+          <input type="text" id="cardSearch" placeholder="Search…">
+          <span class="search-count" id="searchCount"></span>
+        </div>
+        <button class="filter-clear-icon" id="filterClearBtn" title="Reset all filters">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="16" height="16"><path d="M4 4v5h5"/><path d="M20 20v-5h-5"/><path d="M4 9a9 9 0 0114.13-3.36M20 15a9 9 0 01-14.13 3.36"/></svg>
+        </button>
+        <span class="filter-count" id="filterCount"></span>
       </div>
-      <div class="filter-group">
-        <span class="filter-label">Category</span>
-        <button class="filter-pill routing active" data-filter-type="tag" data-filter-val="routing"><span class="fp-icon"></span>Routing</button>
-        <button class="filter-pill ai active" data-filter-type="tag" data-filter-val="ai"><span class="fp-icon"></span>AI/Auto</button>
-        <button class="filter-pill gov active" data-filter-type="tag" data-filter-val="gov"><span class="fp-icon"></span>Gov</button>
-        <button class="filter-pill tool active" data-filter-type="tag" data-filter-val="tool"><span class="fp-icon"></span>Tool</button>
+      <div class="filter-row filter-row-epics" id="epicFilterRow">
+        <span class="filter-label">Epic</span>
+        <!-- pills built dynamically per phase -->
       </div>
-      <div class="filter-group">
-        <span class="filter-label">Effort</span>
-        <button class="filter-pill effort-pill xl-pill active" data-filter-type="effort" data-filter-val="xl">XL</button>
-        <button class="filter-pill effort-pill l-pill active" data-filter-type="effort" data-filter-val="l">L</button>
-        <button class="filter-pill effort-pill m-pill active" data-filter-type="effort" data-filter-val="m">M</button>
-        <button class="filter-pill effort-pill s-pill active" data-filter-type="effort" data-filter-val="s">S</button>
-        <button class="filter-pill effort-pill xs-pill active" data-filter-type="effort" data-filter-val="xs">XS</button>
-      </div>
-      <button class="filter-clear-icon" id="filterClearBtn" title="Reset all filters">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="16" height="16"><path d="M4 4v5h5"/><path d="M20 20v-5h-5"/><path d="M4 9a9 9 0 0114.13-3.36M20 15a9 9 0 01-14.13 3.36"/></svg>
-      </button>
-      <span class="filter-count" id="filterCount"></span>
-    </div>
-
-    <div class="search-bar">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3L21 21"/></svg>
-      <input type="text" id="cardSearch" placeholder="Search cards in this phase…">
-      <span class="search-count" id="searchCount"></span>
     </div>
 
     <div class="cols">
       <div class="col">
-        <div class="col-head strat">Analysis &amp; Strategy</div>
+        <div class="col-head strat">Design</div>
         <div class="col-body" id="colStrat"></div>
       </div>
       <div class="col">
-        <div class="col-head buildactive">Build &amp; Activate</div>
+        <div class="col-head buildactive">Delivery</div>
         <div class="col-body" id="colBuildActive"></div>
       </div>
       <div class="col">
-        <div class="col-head report">Reportable</div>
+        <div class="col-head report">Report</div>
         <div class="col-body" id="colReport"></div>
       </div>
     </div>
@@ -1522,437 +1720,254 @@ const OPTION_DESC = {
 };
 
 const MASTER_META = {
-  d60:    {label:"Foundation", color:"#6E97C9", title:"First 30 Days",  preview:"Stand up brief intake, resourcing visibility, and core governance across all five tiers."},
-  next60: {label:"Foundation", color:"#6E97C9", title:"Next 60 Days",   preview:"Complete integrations, expand to additional studios, and layer in first automation and routing intelligence."},
-  y1:     {label:"Stabilise",  color:"#A8A23C", title:"Year 1",         preview:"Close must-have gaps, formalise duplicate detection, and start assisted routing."},
-  y2:     {label:"Scale",      color:"#D7A94A", title:"Year 2",         preview:"Bynder, Fusion, and Genie come online; AI-assisted review and generative pilots begin."},
-  y3:     {label:"Mature",     color:"#0B1B33", title:"Year 3",         preview:"AI review and automation at scale, with reduced reliance on TAG agency for bulk work."}
+  d60: {label:"Foundation", color:"#6E97C9", title:"First 30 Days", preview:"Define the future-state global marketing operating model, establish governance, prioritize brands, s...", milestone:"Pilot Ready"},
+  next60: {label:"Pilot", color:"#7a9e87", title:"Next 60 Days", preview:"Configure Workfront, deploy the pilot across selected brands, studios, and markets, validate the ope...", milestone:"Global Rollout Approved"},
+  y1: {label:"Scale", color:"#A8A23C", title:"Year 1", preview:"Roll out the standardized marketing operating model across brands, studios, agency partners, and mar...", milestone:"Global Marketing Operations Live"},
+  y2: {label:"Optimise", color:"#D7A94A", title:"Year 2", preview:"Optimize operations using AI, predictive insights, cross-studio resource management, marketing intel...", milestone:"AI-Optimized Marketing Operations"},
+  y3: {label:"Autonomous", color:"#0B1B33", title:"Year 3", preview:"Transform marketing operations into an AI-first operating model by automating work management, creat...", milestone:"AI-Powered Marketing Operations Center of Excellence"}
 };
 
 const DATA = {
-  d60: {
+  d60:   {
     title: "First 30 Days",
-    tagline: "Stand up the intake layer and prove routing visibility across tiers.",
+    tagline: "Define the future-state global marketing operating model, establish governance, prioritize brands, studios, and markets, design the Workfront architecture, identify AI opportunities, and prepare the pilot.",
     maturity: "Foundation",
     maturityColor: "#6E97C9",
-    strat: {
-      wf: [
-        {t:"Implementation design", d:"Overall technical implementation plan for the 60-day build, sequencing dependencies across modules.", priority:"must", tag:"tool"},
-        {t:"Migration inventory & planning", d:"Inventory existing studio/project data and design the migration sequence into Workfront ahead of go-live.", priority:"must", tag:"gov"},
-        {t:"Roles & responsibilities framework", d:"Define who owns what across TAG, PR, and the platform itself, by tier and request type.", priority:"must", tag:"gov"},
-        {t:"Multi-partner model design", d:"Design how secondary agencies/partners get tenant access without compromising PR's system of record.", priority:"must", tag:"gov"},
-        {t:"Genie connector integration design", d:"Design how GENIE's Smart Brief Builder will connect into the platform's intake layer.", priority:"nice", tag:"ai"},
-        {t:"Figma connector integration design", d:"Design the approach for a Figma connector, since none of the four platforms has one out of the box.", priority:"nice", tag:"tool"},
-        {t:"BI tooling connector integration design", d:"Design how Power BI / data-lake feeds will connect to the platform's reporting layer.", priority:"nice", tag:"tool"},
-        {t:"3rd-party integration & taxonomy mapping", d:"Assessment and mapping strategy for Bynder, Fusion, Genie. Analysis only, no build.", priority:"nice", tag:"gov"},
-        {t:"Initial training & enablement (pre-packaged by Adobe)", d:"Stand up Adobe's pre-built Workfront onboarding materials for the initial user base.", priority:"must", tag:"gov"}
-      ],
-      blend: [
-        {t:"Implementation design", d:"Overall technical implementation plan for the 60-day build across both systems.", priority:"must", tag:"tool"},
-        {t:"Migration inventory & planning", d:"Inventory existing studio/project data and design the migration sequence into Workfront and DI Studio.", priority:"must", tag:"gov"},
-        {t:"Roles & responsibilities framework", d:"Define who owns what across TAG, PR, DI Studio, and Workfront, by tier and request type.", priority:"must", tag:"gov"},
-        {t:"DI Studio ↔ Workfront handoff design", d:"Define what data passes between systems and when, ahead of any automation build.", priority:"must", tag:"tool"},
-        {t:"Multi-partner model design", d:"Design how secondary agencies/partners get tenant access without compromising PR's system of record.", priority:"must", tag:"gov"},
-        {t:"Genie connector integration design", d:"Design how GENIE's Smart Brief Builder will connect into Workfront intake, then to DI Studio.", priority:"nice", tag:"ai"},
-        {t:"Figma connector integration design", d:"Design the approach for a Figma connector, scoped against whichever system would own it.", priority:"nice", tag:"tool"},
-        {t:"BI tooling connector integration design", d:"Design how Power BI / data-lake feeds will connect, likely via the Workfront layer.", priority:"nice", tag:"tool"},
-        {t:"3rd-party integration & taxonomy mapping", d:"Same scope, plus the question of which system, DI Studio or Workfront, owns each integration.", priority:"nice", tag:"gov"},
-        {t:"Initial training & enablement (pre-packaged by Adobe)", d:"Stand up Adobe's pre-built Workfront onboarding materials; DI Studio training handled separately.", priority:"must", tag:"gov"}
-      ],
-      alt: [
-        {t:"Implementation design", d:"Overall technical implementation plan for the 60-day rebuild in the new tool.", priority:"must", tag:"tool"},
-        {t:"Migration inventory & planning", d:"Inventory existing studio/project data and scope what migrates versus what gets archived.", priority:"must", tag:"gov"},
-        {t:"Roles & responsibilities framework", d:"Define who owns what across TAG, PR, and the new platform, by tier and request type.", priority:"must", tag:"gov"},
-        {t:"Multi-partner model design", d:"Design how secondary agencies/partners get tenant access without compromising PR's system of record.", priority:"must", tag:"gov"},
-        {t:"Genie connector integration design", d:"Design how GENIE's Smart Brief Builder will connect into the new tool's intake layer.", priority:"nice", tag:"ai"},
-        {t:"Figma connector integration design", d:"Design the approach for a Figma connector; no native option on this tool either.", priority:"nice", tag:"tool"},
-        {t:"BI tooling connector integration design", d:"Design how Power BI / data-lake feeds will connect to the new tool's reporting layer.", priority:"nice", tag:"tool"},
-        {t:"3rd-party integration & taxonomy mapping", d:"Mapping strategy assessed against the new tool's integration ecosystem.", priority:"nice", tag:"gov"},
-        {t:"Initial training & enablement (pre-packaged by Adobe)", d:"No Adobe-native onboarding path; would need to be rebuilt or sourced from the new vendor.", priority:"nice", tag:"gov"}
-      ]
-    },
-    build:  {wf:[], blend:[], alt:[]},
-    active: {wf:[], blend:[], alt:[]},
-    report: {wf:[], blend:[], alt:[]}
+    strat:  {wf: [
+        {t:"Discovery Plan & Facilitation", d:"Conduct discovery workshops, document current state, align stakeholders, define implementation approach, governance, and roadmap.", priority:"must", tag:"gov", effort:"xl", epic:"Program Management"},
+        {t:"Pilot Scope Alignment", d:"Define pilot brands, markets, studios, campaign types, success criteria, KPIs, and rollout approach.", priority:"must", tag:"gov", effort:"l", epic:"Program Management"},
+        {t:"Brand & Market Prioritization", d:"Prioritize rollout sequence by brand, market, studio, and campaign complexity for future rollout waves.", priority:"must", tag:"gov", effort:"m", epic:"Program Management"},
+        {t:"Implementation Design", d:"Define overall Adobe Workfront implementation architecture, deployment strategy, environments, and implementation methodology.", priority:"must", tag:"tool", effort:"xl", epic:"Platform Foundation"},
+        {t:"Migration Inventory & Planning", d:"Inventory projects, assets, users, templates, metadata, and migration requirements across pilot brands and studios.", priority:"must", tag:"tool", effort:"l", epic:"Platform Foundation"},
+        {t:"Environment Strategy", d:"Define Development, Sandbox, UAT, and Production environments, deployment approach, and governance.", priority:"must", tag:"tool", effort:"m", epic:"Platform Foundation"},
+        {t:"Workfront Solution Design", d:"Define how portfolios, programs, projects, templates, planning workspaces, and core Workfront objects will support brands and studios.", priority:"must", tag:"tool", effort:"l", epic:"Platform Foundation"},
+        {t:"Roles & Responsibilities Framework (RACI)", d:"Define ownership, governance, decision rights, and operational responsibilities.", priority:"must", tag:"gov", effort:"m", epic:"Governance & Operating Model"},
+        {t:"Global Marketing Operating Model", d:"Design the future-state operating model across brands, markets, client teams, Merkle-operated studios, and agency partners.", priority:"must", tag:"gov", effort:"xl", epic:"Governance & Operating Model"},
+        {t:"Brand & Studio Transition Planning", d:"Develop onboarding strategy, rollout sequencing, organizational readiness, and transition planning for brands and studios.", priority:"must", tag:"gov", effort:"m", epic:"Governance & Operating Model"},
+        {t:"Studio Service Catalog", d:"Define services delivered by each studio (email, web, social, CRM, video, localization, etc.) and ownership model.", priority:"nice", tag:"gov", effort:"m", epic:"Governance & Operating Model"},
+        {t:"Brief Form (MVP) Design", d:"Design pilot intake experience, metadata, approval path, and request process.", priority:"must", tag:"tool", effort:"m", epic:"Work Management"},
+        {t:"Workfront Data Model", d:"Design the Workfront hierarchy supporting brands, markets, studios, campaigns, service offerings, and reporting.", priority:"must", tag:"tool", effort:"l", epic:"Work Management"},
+        {t:"Current-State Capacity Assessment", d:"Assess staffing levels, workload distribution, throughput, utilization, and delivery model across brands and studios to establish transformation baselines.", priority:"must", tag:"routing", effort:"l", epic:"Resource Management"},
+        {t:"Permission Architecture", d:"Define permission model, external user strategy, role hierarchy, and security controls.", priority:"must", tag:"gov", effort:"l", epic:"Identity & Access"},
+        {t:"Genie Integration Design", d:"Design integration approach between Workfront and Adobe Genie.", priority:"nice", tag:"tool", effort:"m", epic:"Data & Integrations"},
+        {t:"Figma Integration Design", d:"Define Figma integration requirements supporting creative collaboration.", priority:"nice", tag:"tool", effort:"s", epic:"Data & Integrations"},
+        {t:"BI Tool Integration Design", d:"Define reporting architecture, semantic model, and Power BI integration approach.", priority:"nice", tag:"tool", effort:"m", epic:"Data & Integrations"},
+        {t:"Third-Party Integration & Taxonomy Mapping", d:"Define enterprise taxonomy, metadata standards, downstream integrations, and data mapping strategy.", priority:"must", tag:"tool", effort:"l", epic:"Data & Integrations"},
+        {t:"MarTech Inventory Review", d:"Inventory all enterprise marketing platforms, APIs, DAMs, creative tools, and integration dependencies.", priority:"must", tag:"tool", effort:"m", epic:"Data & Integrations"},
+        {t:"Initial Training & Enablement Plan", d:"Develop pilot training curriculum, onboarding strategy, communications, and enablement plan.", priority:"nice", tag:"gov", effort:"m", epic:"Enablement & Adoption"},
+        {t:"Pilot Campaign Selection", d:"Identify representative pilot campaigns across priority brands, studios, and markets to validate the future operating model and platform capabilities.", priority:"must", tag:"routing", effort:"m", epic:"Campaign Operations"}
+      ], blend: [], alt: []},
+    build:  {wf: [], blend: [], alt: []},
+    active: {wf: [], blend: [], alt: []},
+    report: {wf: [], blend: [], alt: []}
   },
-  y1: {
+  y1:   {
     title: "Year 1",
-    tagline: "Close the must-have gaps, formalise detection, deepen reporting.",
-    maturity: "Stabilise",
-    maturityColor: "#A8A23C",
-    strat: {
-      wf: [
-        {t:"AI-assisted review concept", d:"Define what an automated first-pass brand/compliance check would need to cover before Year 2 build.", priority:"nice", tag:"ai"},
-        {t:"SmartAI modeling & design, AI context", d:"Design the AI/context model that will eventually power assisted and automated routing decisions.", priority:"nice", tag:"ai"},
-        {t:"Brief intelligence, design", d:"Design how briefs get enriched with audience, media, and cultural data via GENIE/dentsu.connect before reaching creative.", priority:"nice", tag:"ai"},
-        {t:"Predictive resourcing assessment", d:"Evaluate forecasting resource contention across tiers using historical campaign volume.", priority:"nice", tag:"ai"},
-        {t:"Active Directory / Fusion sourcing consult", d:"Assess whether user management can be sourced from Active Directory via connector.", priority:"must", tag:"gov"},
-        {t:"Data ownership, portability & decoupling plan", d:"Define the framework so PR retains full control and reversible access to its data, ahead of any decoupling work.", priority:"must", tag:"gov"},
-        {t:"Creative effectiveness benchmarking, design", d:"Define the benchmarks and data sources for scoring creative performance against market.", priority:"live", tag:"ai"},
-        {t:"Cultural & social listening, design", d:"Scope how external listening signals from dentsu.connect feed into the brief itself.", priority:"live", tag:"ai"},
-        {t:"Mix-level KPI dashboard, design", d:"Define the requirements for a single delivery/cost/AI-usage/reuse view across the platform.", priority:"nice", tag:"gov"},
-        {t:"Spend visibility & cost intelligence, design", d:"Define what project- and spend-level cost intelligence needs to surface beyond the brief's budget field.", priority:"nice", tag:"gov"},
-        {t:"Custom training & enablement (pre-packaged by Adobe)", d:"Move beyond initial onboarding into role-specific, custom Workfront training built on Adobe's pre-packaged materials.", priority:"nice", tag:"gov"}
-      ],
-      blend: [
-        {t:"AI-assisted review concept", d:"Define what an automated first-pass brand/compliance check would need to cover before Year 2 build.", priority:"nice", tag:"ai"},
-        {t:"SmartAI modeling & design, AI context", d:"Design the AI/context model, with a decision on which system surfaces AI-assisted routing.", priority:"nice", tag:"ai"},
-        {t:"Brief intelligence, design", d:"Design how briefs get enriched via GENIE/dentsu.connect, with Workfront as the receiving intake layer.", priority:"nice", tag:"ai"},
-        {t:"Predictive resourcing assessment", d:"Same scope, scoped against whichever system holds production scheduling data.", priority:"nice", tag:"ai"},
-        {t:"Active Directory / Fusion sourcing consult", d:"Assess whether user management can be sourced from Active Directory via connector.", priority:"must", tag:"gov"},
-        {t:"Data ownership, portability & decoupling plan", d:"Define the framework across both systems so PR retains full control and reversible access to its data.", priority:"must", tag:"gov"},
-        {t:"Creative effectiveness benchmarking, design", d:"Define the benchmarks and data sources, decided independent of which system hosts the dashboard.", priority:"live", tag:"ai"},
-        {t:"Cultural & social listening, design", d:"Scope how external listening signals feed into the brief, regardless of which system the brief lives in.", priority:"live", tag:"ai"},
-        {t:"Mix-level KPI dashboard, design", d:"Define requirements for a combined view across Workfront and DI Studio data.", priority:"nice", tag:"gov"},
-        {t:"Spend visibility & cost intelligence, design", d:"Define cost-intelligence requirements, noting where budget data actually lives across both systems.", priority:"nice", tag:"gov"},
-        {t:"Custom training & enablement (pre-packaged by Adobe)", d:"Role-specific Workfront training; DI Studio training developed separately.", priority:"nice", tag:"gov"}
-      ],
-      alt: [
-        {t:"AI-assisted review concept", d:"Define what an automated first-pass brand/compliance check would need to cover before Year 2 build.", priority:"nice", tag:"ai"},
-        {t:"SmartAI modeling & design, AI context", d:"Design the AI/context model against whatever automation builder the new tool offers.", priority:"nice", tag:"ai"},
-        {t:"Brief intelligence, design", d:"Design how briefs get enriched via GENIE/dentsu.connect, with the new tool as the receiving intake layer.", priority:"nice", tag:"ai"},
-        {t:"Predictive resourcing assessment", d:"Dependent on the alternative tool's reporting API exposing enough historical data.", priority:"nice", tag:"ai"},
-        {t:"Active Directory / Fusion sourcing consult", d:"Assess whether user management can be sourced from Active Directory via connector into the new tool.", priority:"must", tag:"gov"},
-        {t:"Data ownership, portability & decoupling plan", d:"Define the framework so PR retains full control and reversible access to its data in the new tool.", priority:"must", tag:"gov"},
-        {t:"Creative effectiveness benchmarking, design", d:"Define the benchmarks and data sources for the new tool's reporting layer to eventually surface.", priority:"live", tag:"ai"},
-        {t:"Cultural & social listening, design", d:"Scope how external listening signals feed into the brief inside the new tool.", priority:"live", tag:"ai"},
-        {t:"Mix-level KPI dashboard, design", d:"Define requirements for a combined view, dependent on the new tool's reporting depth.", priority:"nice", tag:"gov"},
-        {t:"Spend visibility & cost intelligence, design", d:"Define cost-intelligence requirements against the new tool's available budget/spend fields.", priority:"nice", tag:"gov"},
-        {t:"Custom training & enablement (pre-packaged by Adobe)", d:"No Adobe-native package available; training materials sourced from the new vendor or built in-house.", priority:"nice", tag:"gov"}
-      ]
-    },
-    build: {
-      wf: [
-        {t:"Full historic migration", d:"Complete migration of remaining historical project/studio data beyond the V1 60-day migration.", priority:"must", tag:"gov"},
-        {t:"Multi-partner model, build", d:"Build the tenant-isolation model designed in the 60-day phase, so secondary partners can operate without compromising PR's system of record.", priority:"must", tag:"gov"},
-        {t:"SSO / Active Directory / Fusion user enablement", d:"Actual build of the SSO and Active Directory integration via Fusion connector, enabling centralised user provisioning, deprovisioning, and role assignment directly from AD into Workfront.", priority:"must", tag:"tool"},
-        {t:"Dynamic rate cards, enhanced for freelancers & fluctuations", d:"Extend the 60-day rate-card logic to cover freelancer rates and demand-driven rate fluctuations.", priority:"nice", tag:"gov"},
-        {t:"Intelligent routing (assisted)", d:"Routing suggestions based on brief specifics and BU/COE alignment; human confirms.", priority:"nice", tag:"ai"},
-        {t:"Duplicate detection, formalised", d:"Asset reuse and duplication checks become a standard triage step, not a manual spot-check.", priority:"nice", tag:"ai"},
-        {t:"Genie connector", d:"Build the GENIE Smart Brief Builder connector designed in the 60-day phase into the live intake layer.", priority:"nice", tag:"ai"},
-        {t:"BI / Power BI / data-lake connector", d:"Build the connector designed in the 60-day phase into the live reporting layer.", priority:"nice", tag:"tool"},
-        {t:"Figma connector", d:"Build the Figma connector designed in the 60-day phase; no platform has one natively, this is custom work.", priority:"live", tag:"tool"},
-        {t:"Data/media-bridge", d:"Connect media performance data into the platform, a precursor to the asset performance learning loop in later phases.", priority:"nice", tag:"ai"}
-      ],
-      blend: [
-        {t:"Full historic migration", d:"Complete migration of remaining historical data across both Workfront and DI Studio.", priority:"must", tag:"gov"},
-        {t:"Multi-partner model, build", d:"Build the tenant-isolation model, deciding whether DI Studio also needs partner-level access controls.", priority:"must", tag:"gov"},
-        {t:"SSO / Active Directory / Fusion user enablement", d:"Build the SSO and Active Directory integration via Fusion connector into Workfront; assess whether DI Studio requires a separate identity-management connector.", priority:"must", tag:"tool"},
-        {t:"Dynamic rate cards, enhanced for freelancers & fluctuations", d:"Extend the 60-day rate-card logic to cover freelancer rates and demand-driven rate fluctuations.", priority:"nice", tag:"gov"},
-        {t:"Automated DI Studio ↔ Workfront sync", d:"First automated handoff between production status and the system of record, replacing manual updates.", priority:"must", tag:"tool"},
-        {t:"Duplicate detection, formalised", d:"Run at the Workfront intake layer, visible to DI Studio production teams.", priority:"nice", tag:"ai"},
-        {t:"Genie connector", d:"Build the GENIE connector into Workfront intake, flowing through to DI Studio.", priority:"nice", tag:"ai"},
-        {t:"BI / Power BI / data-lake connector", d:"Build via Workfront, with DI Studio production data surfaced into the same reports.", priority:"nice", tag:"tool"},
-        {t:"Figma connector", d:"Build the Figma connector; custom work regardless of which system ultimately owns it.", priority:"live", tag:"tool"},
-        {t:"Data/media-bridge", d:"Connect media performance data into Workfront, surfaced into DI Studio production views.", priority:"nice", tag:"ai"}
-      ],
-      alt: [
-        {t:"Full historic migration", d:"Complete migration of remaining historical data into the new tool.", priority:"must", tag:"gov"},
-        {t:"Multi-partner model, build", d:"Build the tenant-isolation model designed in the 60-day phase, natively in the new tool's permissioning system.", priority:"must", tag:"gov"},
-        {t:"SSO / Active Directory / Fusion user enablement", d:"Build the SSO and Active Directory integration into the new tool; Fusion connector may not be available natively, so a custom identity-management bridge may be required.", priority:"must", tag:"tool"},
-        {t:"Dynamic rate cards, enhanced for freelancers & fluctuations", d:"Extend the 60-day rate-card logic to cover freelancer rates and demand-driven rate fluctuations.", priority:"nice", tag:"gov"},
-        {t:"Intelligent routing (assisted)", d:"Rule-based routing native to the tool's automation builder.", priority:"nice", tag:"ai"},
-        {t:"Duplicate detection, formalised", d:"Added via the alternative tool's automation/integration layer.", priority:"nice", tag:"ai"},
-        {t:"Genie connector", d:"Build the GENIE connector into the new tool's intake layer from scratch.", priority:"nice", tag:"ai"},
-        {t:"BI / Power BI / data-lake connector", d:"Build against the new tool's API; higher effort without a native connector.", priority:"nice", tag:"tool"},
-        {t:"Figma connector", d:"Build the Figma connector; custom work, no native option on this tool either.", priority:"live", tag:"tool"},
-        {t:"Data/media-bridge", d:"Connect media performance data into the new tool via custom API work.", priority:"nice", tag:"ai"}
-      ]
-    },
-    active: {
-      wf: [
-        {t:"Brief intake, routing, and resourcing", d:"Fully operational across all five tiers with live SLA tracking.", priority:"must", tag:"routing"},
-        {t:"Review & legal alerting", d:"Comments and alerts for reviews live, with privacy stipulations applied where flagged.", priority:"must", tag:"gov"}
-      ],
-      blend: [
-        {t:"Brief intake, routing, and resourcing", d:"Operational across both tools with a defined handoff point.", priority:"must", tag:"routing"},
-        {t:"Review & legal alerting", d:"Live in Workfront; production-stage comments live in DI Studio.", priority:"must", tag:"gov"}
-      ],
-      alt: [
-        {t:"Brief intake, routing, and resourcing", d:"Fully operational natively in the alternative tool.", priority:"must", tag:"routing"},
-        {t:"Review & legal alerting", d:"Live via the tool's native approval/comment workflow.", priority:"must", tag:"gov"}
-      ]
-    },
-    report: {
-      wf: [
-        {t:"SLA & throughput reporting", d:"Dashboards expand to SLA compliance by tier and brand. KPIs: SLA breach rate by tier (BU / COE / ME / Offshore / Flex), average brief-to-delivery cycle time by brand and market, throughput volume by channel, backlog size by request type, on-time delivery rate by studio.", priority:"must", tag:"tool"},
-        {t:"Duplicate & reuse savings reporting", d:"First measurable reuse and duplication-avoidance metric. KPIs: number of duplicate briefs detected and deflected, asset reuse rate (% of briefs resolved from existing assets), estimated hours/cost saved from deduplication, reuse rate by brand and market.", priority:"nice", tag:"ai"},
-        {t:"Resource utilisation reporting", d:"Visibility into how resource capacity is being consumed. KPIs: resource utilisation rate by tier, over/under-capacity flags by studio, freelancer vs. FTE hours split, Flex Pool activation frequency.", priority:"nice", tag:"routing"}
-      ],
-      blend: [
-        {t:"SLA & throughput reporting", d:"Combined view assembled from Workfront and DI Studio, still partially manual. KPIs: SLA breach rate by tier, average brief-to-delivery cycle time, throughput volume by channel, on-time delivery rate by studio.", priority:"must", tag:"tool"},
-        {t:"Duplicate & reuse savings reporting", d:"KPIs: duplicate briefs detected, asset reuse rate, estimated cost saved, reuse rate by brand and market.", priority:"nice", tag:"ai"}
-      ],
-      alt: [
-        {t:"SLA & throughput reporting", d:"Native dashboards extended to SLA compliance by tier and brand. KPIs: SLA breach rate by tier, average brief-to-delivery cycle time, throughput volume by channel, on-time delivery rate by studio.", priority:"must", tag:"tool"},
-        {t:"Duplicate & reuse savings reporting", d:"KPIs: duplicate briefs detected, asset reuse rate, estimated cost saved, reuse rate by brand and market.", priority:"nice", tag:"ai"}
-      ]
-    }
-  },
-  y2: {
-    title: "Year 2",
-    tagline: "Bynder, Fusion, and Genie come online; routing and review get genuinely intelligent.",
+    tagline: "Roll out the standardized marketing operating model across brands, studios, agency partners, and markets while expanding governance, integrations, reporting, and adoption.",
     maturity: "Scale",
-    maturityColor: "#D7A94A",
-    strat: {
-      wf: [
-        {t:"Self-optimising budget allocation, design", d:"Define guardrails and approval thresholds before any spend-reallocation logic is built.", priority:"nice", tag:"ai"},
-        {t:"Unified partner marketplace assessment", d:"Evaluate matching TAG, Flex Pool, and external specialty partners to briefs automatically.", priority:"live", tag:"gov"},
-        {t:"Local market AI tooling, scoping", d:"Open scoping exercise for specific data intelligence needs of local market AI tools; not yet a committed build.", priority:"live", tag:"ai"}
-      ],
-      blend: [
-        {t:"Self-optimising budget allocation, design", d:"Same scope, plus where budget data lives across the two systems.", priority:"nice", tag:"ai"},
-        {t:"Local market AI tooling, scoping", d:"Open scoping exercise, independent of which system ultimately hosts the data.", priority:"live", tag:"ai"}
-      ],
-      alt: [
-        {t:"Self-optimising budget allocation, design", d:"Dependent on the alternative tool exposing budget data via API.", priority:"live", tag:"ai"},
-        {t:"Local market AI tooling, scoping", d:"Open scoping exercise; likely the same scope regardless of platform choice.", priority:"live", tag:"ai"}
-      ]
-    },
-    build: {
-      wf: [
-        {t:"Fusion integration", d:"Workflow automation extended via Fusion connectors for cross-system data movement.", priority:"nice", tag:"tool"},
-        {t:"Bynder DAM integration", d:"Asset retrieval and storage connected directly into the brief and review workflow.", priority:"nice", tag:"tool"},
-        {t:"Genie/GenieAI integration", d:"Smart Brief Builder and related GENIE modules connected into Workfront's intake layer.", priority:"live", tag:"ai"},
-        {t:"Smart triage for briefs", d:"Briefs auto-classified and routed at intake based on content, channel, and brand, ahead of full automated routing.", priority:"must", tag:"ai"},
-        {t:"AI-driven capacity forecasting", d:"Build out the predictive resourcing concept from Year 1 into a live forecasting model against real demand.", priority:"nice", tag:"ai"},
-        {t:"AI-assisted review", d:"Automated first-pass compliance and brand-guardrail checks ahead of human review.", priority:"nice", tag:"ai"},
-        {t:"Brief intelligence, live", d:"Briefs enriched with audience/media/cultural data via GENIE/dentsu.connect before reaching creative.", priority:"nice", tag:"ai"},
-        {t:"Cultural & social listening, live", d:"External listening signals from dentsu.connect now feeding live into creative briefs.", priority:"live", tag:"ai"},
-        {t:"Pre-flight creative quality scoring", d:"Automated quality check on creative ahead of human review; no vendor has this natively, built from scratch.", priority:"live", tag:"ai"},
-        {t:"Generative first-draft creative pilot", d:"Pilot brief-to-board generation that produces a first-pass concept for review.", priority:"live", tag:"ai"},
-        {t:"Asset performance learning loop, pilot", d:"Pilot version of live performance data informing the next brief, ahead of the full Year 3 closed-loop version.", priority:"nice", tag:"ai"},
-        {t:"Creative effectiveness benchmarking, build", d:"Build the benchmarking capability against the data sources defined in Year 1.", priority:"live", tag:"ai"},
-        {t:"Mix-level KPI dashboard, build", d:"Build the combined delivery/cost/AI-usage/reuse dashboard designed in Year 1.", priority:"nice", tag:"gov"},
-        {t:"Spend visibility & cost intelligence, build", d:"Build project- and spend-level cost intelligence beyond the brief's budget field.", priority:"nice", tag:"gov"}
-      ],
-      blend: [
-        {t:"Bynder & Fusion integration", d:"Connected primarily through Workfront, surfaced into DI Studio production views.", priority:"nice", tag:"tool"},
-        {t:"Genie/GenieAI integration", d:"Smart Brief Builder output flows into Workfront intake; DI Studio consumes the resulting brief.", priority:"live", tag:"ai"},
-        {t:"Smart triage for briefs", d:"Briefs auto-classified at the Workfront intake layer, before being handed to DI Studio for production.", priority:"must", tag:"ai"},
-        {t:"AI-driven capacity forecasting", d:"Forecasting model built against whichever system holds the most complete scheduling data.", priority:"nice", tag:"ai"},
-        {t:"AI-assisted review", d:"Runs at the Workfront review stage.", priority:"nice", tag:"ai"},
-        {t:"Brief intelligence, live", d:"Briefs enriched via GENIE/dentsu.connect at the Workfront intake layer, consumed by DI Studio for production.", priority:"nice", tag:"ai"},
-        {t:"Cultural & social listening, live", d:"External listening signals feeding live into creative briefs.", priority:"live", tag:"ai"},
-        {t:"Pre-flight creative quality scoring", d:"Automated quality check, run at whichever stage the review workflow lives.", priority:"live", tag:"ai"},
-        {t:"Asset performance learning loop, pilot", d:"Pilot version of live performance feeding the next brief.", priority:"nice", tag:"ai"},
-        {t:"Creative effectiveness benchmarking, build", d:"Build the benchmarking capability, independent of which system surfaces it.", priority:"live", tag:"ai"},
-        {t:"Mix-level KPI dashboard, build", d:"Build the combined view across Workfront and DI Studio data designed in Year 1.", priority:"nice", tag:"gov"},
-        {t:"Spend visibility & cost intelligence, build", d:"Build cost intelligence, pulling budget data from wherever it lives across both systems.", priority:"nice", tag:"gov"}
-      ],
-      alt: [
-        {t:"Bynder, Fusion & Genie integration", d:"Rebuilt against the alternative tool's API/automation layer; higher effort without Workfront's native connectors.", priority:"nice", tag:"tool"},
-        {t:"Smart triage for briefs", d:"Built via the tool's native automation/AI add-ons; maturity varies by vendor.", priority:"must", tag:"ai"},
-        {t:"AI-driven capacity forecasting", d:"Dependent on the tool's reporting API exposing enough historical scheduling data to forecast against.", priority:"nice", tag:"ai"},
-        {t:"AI-assisted review", d:"Added via the tool's automation or a bolt-on AI layer.", priority:"nice", tag:"ai"},
-        {t:"Brief intelligence, live", d:"Briefs enriched via GENIE/dentsu.connect, with the new tool as the receiving intake layer.", priority:"nice", tag:"ai"},
-        {t:"Cultural & social listening, live", d:"External listening signals feeding live into briefs inside the new tool.", priority:"live", tag:"ai"},
-        {t:"Pre-flight creative quality scoring", d:"Automated quality check; built from scratch against the new tool's automation layer.", priority:"live", tag:"ai"},
-        {t:"Asset performance learning loop, pilot", d:"Pilot version, dependent on the new tool's reporting depth.", priority:"nice", tag:"ai"},
-        {t:"Creative effectiveness benchmarking, build", d:"Build the benchmarking capability against the new tool's available reporting fields.", priority:"live", tag:"ai"},
-        {t:"Mix-level KPI dashboard, build", d:"Build the combined view, dependent on the new tool's reporting depth matching the Year 1 design.", priority:"nice", tag:"gov"},
-        {t:"Spend visibility & cost intelligence, build", d:"Build cost intelligence against the new tool's available budget/spend fields.", priority:"nice", tag:"gov"}
-      ]
-    },
-    active: {
-      wf: [
-        {t:"Intelligent, automated routing", d:"Routing decisions made automatically from brief specifics, exception-only human intervention.", priority:"must", tag:"ai"},
-        {t:"Cross-system asset visibility", d:"Bynder, Fusion, and Genie all live and feeding the same planning workspace.", priority:"nice", tag:"tool"}
-      ],
-      blend: [
-        {t:"Intelligent, automated routing", d:"Automated in Workfront; DI Studio production scheduling still semi-manual.", priority:"must", tag:"ai"}
-      ],
-      alt: [
-        {t:"Intelligent, automated routing", d:"Automated natively, scope depends on the tool's rules-engine maturity.", priority:"must", tag:"ai"}
-      ]
-    },
-    report: {
-      wf: [
-        {t:"Proactive monitoring dashboards", d:"SLA risk flagged before breach. KPIs: predicted SLA breach risk score by project (flag when > X% likely to miss), routing automation rate (% of briefs auto-routed vs. manually assigned), AI-review pass/fail rate, AI-review accuracy rate (% of auto-checks later overridden by humans), asset reuse rate by campaign, brief enrichment rate (% of briefs receiving GENIE intelligence data).", priority:"must", tag:"ai"},
-        {t:"TAG reliance baseline", d:"First measurable view of work volume still requiring TAG agency involvement. KPIs: % of briefs requiring TAG intervention vs. automated/self-serve, TAG hours logged by work type, specialty vs. bulk brief split, Flex Pool activation rate vs. TAG engagement rate.", priority:"must", tag:"gov"},
-        {t:"Integration health & data quality reporting", d:"With Fusion, Bynder, and Genie all live, data quality becomes reportable. KPIs: Bynder sync success rate, Genie brief-enrichment coverage rate (% of briefs with enrichment data attached), Fusion workflow completion rate, data/media-bridge ingestion success rate.", priority:"nice", tag:"tool"},
-        {t:"Creative intelligence reporting", d:"First data from the brief intelligence and effectiveness benchmarking builds. KPIs: cultural/social listening signal coverage (% of markets with active listening feeds), creative effectiveness score vs. market benchmark, pre-flight quality score distribution across submitted creative.", priority:"live", tag:"ai"}
-      ],
-      blend: [
-        {t:"Proactive monitoring dashboards", d:"Assembled across Workfront and DI Studio. KPIs: predicted SLA breach risk score, routing automation rate, AI-review pass/fail rate, AI-review accuracy rate, asset reuse rate by campaign, brief enrichment rate.", priority:"must", tag:"ai"},
-        {t:"TAG reliance baseline", d:"Tracked at the Workfront layer. KPIs: % of briefs requiring TAG intervention, TAG hours logged by work type, specialty vs. bulk brief split, Flex Pool activation rate vs. TAG engagement rate.", priority:"must", tag:"gov"},
-        {t:"Integration health reporting", d:"KPIs: Bynder sync success rate, Genie brief-enrichment coverage rate, DI Studio sync error rate.", priority:"nice", tag:"tool"}
-      ],
-      alt: [
-        {t:"Proactive monitoring dashboards", d:"Native to the alternative tool's reporting layer. KPIs: predicted SLA breach risk score, routing automation rate, AI-review pass/fail rate, AI-review accuracy rate, asset reuse rate by campaign, brief enrichment rate.", priority:"must", tag:"ai"},
-        {t:"TAG reliance baseline", d:"KPIs: % of briefs requiring TAG intervention, TAG hours logged by work type, specialty vs. bulk brief split, Flex Pool activation rate vs. TAG engagement rate.", priority:"must", tag:"gov"},
-        {t:"Integration health reporting", d:"KPIs: Bynder/Fusion sync success rate, Genie brief-enrichment coverage rate, data-bridge ingestion rate.", priority:"nice", tag:"tool"}
-      ]
-    }
+    maturityColor: "#A8A23C",
+    strat:  {wf: [
+        {t:"AI Review Framework", d:"Define enterprise AI review architecture supporting creative studios and future AI capabilities.", priority:"nice", tag:"ai", effort:"l", epic:"AI & Automation"},
+        {t:"Brief Intelligence Design", d:"Design AI-driven intake recommendations, prioritization, and planning intelligence.", priority:"live", tag:"ai", effort:"m", epic:"AI & Automation"}
+      ], blend: [], alt: []},
+    build:  {wf: [
+        {t:"Global Rollout Planning", d:"Finalize rollout waves by brand, studio, and market, including deployment schedule, communications, and governance.", priority:"must", tag:"gov", effort:"l", epic:"Program Management"},
+        {t:"Wave 1 Brand & Studio Rollout", d:"Deploy Workfront operating model to the first priority brands, studios, and regional markets.", priority:"must", tag:"gov", effort:"xl", epic:"Program Management"},
+        {t:"Wave 2 Brand & Studio Rollout", d:"Expand deployment to additional brands, creative studios, and global markets.", priority:"must", tag:"gov", effort:"xl", epic:"Program Management"},
+        {t:"Brand & Studio Migration", d:"Migrate historical projects, templates, assets, metadata, and users for participating brands and studios.", priority:"must", tag:"tool", effort:"xl", epic:"Platform Foundation"},
+        {t:"Production Environment Optimization", d:"Optimize production environments, performance, monitoring, and operational readiness as rollout scales.", priority:"nice", tag:"tool", effort:"m", epic:"Platform Foundation"},
+        {t:"Cross-Brand Governance Rollout", d:"Expand governance standards, approval models, and SLAs across participating brands, studios, and agency partners.", priority:"must", tag:"gov", effort:"l", epic:"Governance & Operating Model"},
+        {t:"Brand Onboarding Framework", d:"Develop standardized onboarding process for future brands, studios, and markets joining the platform.", priority:"must", tag:"gov", effort:"m", epic:"Governance & Operating Model"},
+        {t:"Enterprise SSO Rollout", d:"Expand Active Directory / SSO across all participating brands, studios, and agency partners.", priority:"must", tag:"gov", effort:"m", epic:"Identity & Access"},
+        {t:"Brand & Studio User Onboarding", d:"Onboard creative teams, marketers, studio managers, and agency users using standardized security and permission models.", priority:"must", tag:"gov", effort:"m", epic:"Identity & Access"},
+        {t:"Brand & Studio Operating Model Rollout", d:"Expand templates, planning workspaces, request queues, workflows, and operating standards across brands and studios.", priority:"must", tag:"tool", effort:"l", epic:"Work Management"},
+        {t:"Studio Template Library", d:"Build reusable Workfront templates supporting different campaign types, brands, and studio operations.", priority:"nice", tag:"tool", effort:"m", epic:"Work Management"},
+        {t:"Brand Operating Playbooks", d:"Create standardized playbooks documenting intake, planning, approvals, production, and governance by brand.", priority:"nice", tag:"tool", effort:"m", epic:"Work Management"},
+        {t:"Cross-Studio Capacity Planning", d:"Expand resource planning and workload balancing across internal studios, agency studios, and regional markets.", priority:"must", tag:"routing", effort:"l", epic:"Resource Management"},
+        {t:"Cross-Studio Financial Management", d:"Expand labor rates, financial tracking, and cost visibility across studios and agency partners.", priority:"nice", tag:"gov", effort:"m", epic:"Financial Management"},
+        {t:"Adobe Genie Integration", d:"Deploy and validate Genie integration for pilot teams.", priority:"must", tag:"tool", effort:"l", epic:"Data & Integrations"},
+        {t:"Power BI Integration", d:"Deploy executive reporting and operational dashboards.", priority:"nice", tag:"tool", effort:"m", epic:"Data & Integrations"},
+        {t:"Cross-Brand Genie Rollout (Initial)", d:"Expand Genie integration across participating brands and studio operations.", priority:"must", tag:"tool", effort:"m", epic:"Data & Integrations"},
+        {t:"Cross-Brand Power BI Rollout", d:"Expand reporting dashboards across participating brands and operational teams.", priority:"nice", tag:"tool", effort:"m", epic:"Data & Integrations"},
+        {t:"Cross-Brand Bynder Integration", d:"Integrate enterprise DAM capabilities for asset lifecycle management.", priority:"nice", tag:"tool", effort:"l", epic:"Data & Integrations"},
+        {t:"Cross-Brand Figma Rollout", d:"Expand creative collaboration across studios and creative teams.", priority:"nice", tag:"tool", effort:"m", epic:"Data & Integrations"},
+        {t:"Cross-Brand Asset Governance", d:"Expand metadata standards, taxonomy, lifecycle rules, and asset governance across brands and studios.", priority:"nice", tag:"tool", effort:"m", epic:"Content & Assets"},
+        {t:"AI Automation Pilot", d:"Implement high-value AI automations identified during discovery (routing, metadata, tagging, recommendations, etc.).", priority:"must", tag:"ai", effort:"l", epic:"AI & Automation"},
+        {t:"Duplicate Asset Detection", d:"Deploy AI-powered duplicate detection and asset reuse recommendations.", priority:"nice", tag:"ai", effort:"m", epic:"AI & Automation"},
+        {t:"Cross-Studio Intelligent Routing", d:"Expand intelligent routing using capacity, skills, geography, brand, and studio assignment logic.", priority:"nice", tag:"ai", effort:"m", epic:"AI & Automation"},
+        {t:"Cross-Brand Duplicate Detection", d:"Expand duplicate asset detection and reuse recommendations across brands and studios.", priority:"nice", tag:"ai", effort:"m", epic:"AI & Automation"},
+        {t:"AI-Assisted Creative Review", d:"Deploy AI-assisted review recommendations across participating studios.", priority:"must", tag:"ai", effort:"l", epic:"AI & Automation"},
+        {t:"Executive Portfolio Reporting", d:"Deliver executive dashboards tracking brands, studios, markets, SLAs, throughput, and operational KPIs.", priority:"must", tag:"tool", effort:"m", epic:"Reporting & Intelligence"},
+        {t:"Brand & Studio Enablement", d:"Train marketers, studio managers, creative teams, and agency partners on the standardized operating model.", priority:"must", tag:"gov", effort:"l", epic:"Enablement & Adoption"},
+        {t:"Enterprise Change Management", d:"Execute communications, champion networks, and adoption campaigns across brands and markets.", priority:"must", tag:"gov", effort:"m", epic:"Enablement & Adoption"},
+        {t:"Wave 1 Hypercare", d:"Provide enhanced support following the first rollout wave.", priority:"must", tag:"gov", effort:"m", epic:"Operational Readiness"},
+        {t:"Wave 2 Hypercare", d:"Provide enhanced support following the second rollout wave.", priority:"must", tag:"gov", effort:"m", epic:"Operational Readiness"},
+        {t:"Wave 1 Campaign Portfolio Migration", d:"Transition the remaining priority campaign portfolios for Wave 1 brands and studios into Workfront using the standardized operating model.", priority:"must", tag:"routing", effort:"xl", epic:"Campaign Operations"},
+        {t:"Studio Campaign Cutover", d:"Transition all active campaign planning and execution from legacy tools into Workfront for participating studios.", priority:"must", tag:"routing", effort:"xl", epic:"Campaign Operations"},
+        {t:"Campaign Operations Stabilization", d:"Monitor campaign execution, resolve operational issues, optimize workflows, and stabilize production after rollout.", priority:"must", tag:"routing", effort:"l", epic:"Campaign Operations"},
+        {t:"Wave 2 Campaign Portfolio Migration", d:"Expand campaign portfolio migration to remaining brands, studios, markets, and agency partners.", priority:"must", tag:"routing", effort:"xl", epic:"Campaign Operations"},
+        {t:"Global Campaign Operating Model", d:"Standardize campaign planning, intake, approvals, production, reporting, and governance across all participating brands and studios.", priority:"must", tag:"routing", effort:"l", epic:"Campaign Operations"},
+        {t:"Cross-Brand Campaign Optimization", d:"Optimize campaign execution through reusable templates, standardized workflows, shared assets, and cross-studio collaboration.", priority:"nice", tag:"routing", effort:"m", epic:"Campaign Operations"}
+      ], blend: [], alt: []},
+    active: {wf: [], blend: [], alt: []},
+    report: {wf: [
+        {t:"Year 1 Executive Business Review", d:"Review rollout performance, adoption, KPIs, and define Year 2 optimization priorities.", priority:"must", tag:"gov", effort:"m", epic:"Program Management"},
+        {t:"Governance Effectiveness Assessment", d:"Measure governance adoption, compliance, SLA performance, and operational maturity across brands.", priority:"nice", tag:"gov", effort:"s", epic:"Governance & Operating Model"},
+        {t:"Cross-Studio Resource Visibility", d:"Deliver dashboards providing visibility into workload, utilization, and staffing across all studios.", priority:"nice", tag:"routing", effort:"m", epic:"Resource Management"},
+        {t:"Brand Performance Scorecards", d:"Deliver standardized scorecards comparing operational performance across brands.", priority:"nice", tag:"tool", effort:"m", epic:"Reporting & Intelligence"},
+        {t:"Studio Performance Dashboards", d:"Deliver dashboards measuring studio utilization, throughput, quality, and SLAs.", priority:"nice", tag:"tool", effort:"m", epic:"Reporting & Intelligence"},
+        {t:"Operational Readiness Assessment", d:"Assess support maturity, platform health, adoption, and readiness for Year 2 optimization.", priority:"nice", tag:"gov", effort:"m", epic:"Operational Readiness"},
+        {t:"Campaign Operations Maturity Assessment", d:"Assess campaign governance, operational consistency, execution quality, and overall maturity across brands and studios.", priority:"nice", tag:"routing", effort:"m", epic:"Campaign Operations"}
+      ], blend: [], alt: []}
   },
-  y3: {
+  y2:   {
+    title: "Year 2",
+    tagline: "Optimize operations using AI, predictive insights, cross-studio resource management, marketing intelligence, and standardized global processes.",
+    maturity: "Optimise",
+    maturityColor: "#D7A94A",
+    strat:  {wf: [
+        {t:"AI Budget Optimization Design", d:"Design AI-driven budget allocation and investment optimization across brands.", priority:"nice", tag:"ai", effort:"l", epic:"AI & Automation"},
+        {t:"AI Studio Operations Strategy", d:"Design AI assistants supporting creative operations, project managers, and studio leadership.", priority:"nice", tag:"ai", effort:"m", epic:"AI & Automation"}
+      ], blend: [], alt: []},
+    build:  {wf: [
+        {t:"Year 2 Roadmap Execution", d:"Launch Year 2 optimization initiatives focused on AI, operational excellence, and cross-brand consistency.", priority:"must", tag:"gov", effort:"m", epic:"Program Management"},
+        {t:"Cross-Brand Governance Optimization", d:"Refine governance standards, approval workflows, SLAs, and operational policies across brands and studios.", priority:"must", tag:"gov", effort:"m", epic:"Governance & Operating Model"},
+        {t:"Global Operating Standards", d:"Standardize marketing operations processes across all brands, studios, and agency partners.", priority:"must", tag:"gov", effort:"l", epic:"Governance & Operating Model"},
+        {t:"Smart Intake & Prioritization", d:"Introduce AI-assisted intake prioritization and work classification across brands.", priority:"must", tag:"tool", effort:"m", epic:"Work Management"},
+        {t:"Intelligent Cross-Studio Routing", d:"Route work automatically based on skills, capacity, geography, language, and studio specialization.", priority:"must", tag:"tool", effort:"l", epic:"Work Management"},
+        {t:"Studio Workload Optimization", d:"Continuously optimize workload balancing across studios and markets.", priority:"nice", tag:"tool", effort:"m", epic:"Work Management"},
+        {t:"Predictive (AI) Capacity Forecasting", d:"Forecast studio demand, staffing needs, and workload using AI and historical trends.", priority:"must", tag:"routing", effort:"l", epic:"Resource Management"},
+        {t:"Global Resource Optimization", d:"Optimize staffing and resource allocation across studios and regional markets.", priority:"nice", tag:"routing", effort:"m", epic:"Resource Management"},
+        {t:"Marketing Spend Intelligence (AI)", d:"Deliver dashboards for agency spend, labor costs, utilization, and campaign investment across brands.", priority:"nice", tag:"gov", effort:"m", epic:"Financial Management"},
+        {t:"Bynder Integration", d:"Integrate enterprise DAM capabilities for asset lifecycle management.", priority:"nice", tag:"tool", effort:"l", epic:"Data & Integrations"},
+        {t:"Adobe Experience Cloud Expansion", d:"Expand integrations across AEM Assets, AJO, RTCDP, Analytics, and other Adobe applications.", priority:"nice", tag:"tool", effort:"l", epic:"Data & Integrations"},
+        {t:"Live Brief Intelligence", d:"Deliver AI-generated recommendations during campaign planning and intake.", priority:"nice", tag:"ai", effort:"l", epic:"AI & Automation"},
+        {t:"Creative Quality Scoring", d:"Automatically score creative assets for compliance, completeness, and quality.", priority:"nice", tag:"ai", effort:"m", epic:"AI & Automation"},
+        {t:"Asset Performance Learning Loop", d:"Use campaign performance to continuously improve asset recommendations and reuse.", priority:"nice", tag:"ai", effort:"l", epic:"AI & Automation"},
+        {t:"Cross-Brand Content Benchmarking", d:"Benchmark creative performance and reuse across brands, campaigns, and studios.", priority:"nice", tag:"tool", effort:"m", epic:"Content & Assets"},
+        {t:"Executive Portfolio Dashboards", d:"Deliver executive reporting across brands, studios, markets, operations, and financial performance.", priority:"must", tag:"tool", effort:"m", epic:"Reporting & Intelligence"},
+        {t:"Live Marketing Intelligence", d:"Integrate campaign, social, operational, and creative performance into unified dashboards.", priority:"nice", tag:"tool", effort:"m", epic:"Reporting & Intelligence"},
+        {t:"Advanced Studio Enablement", d:"Deliver advanced administrator, studio manager, AI, and operations training.", priority:"nice", tag:"gov", effort:"m", epic:"Enablement & Adoption"},
+        {t:"Continuous Adoption Program", d:"Establish continuous feedback loops, office hours, and optimization workshops across brands and studios.", priority:"nice", tag:"gov", effort:"m", epic:"Enablement & Adoption"},
+        {t:"Platform Optimization Reviews", d:"Conduct quarterly platform health reviews, enhancement planning, and optimization assessments.", priority:"nice", tag:"gov", effort:"m", epic:"Operational Readiness"},
+        {t:"AI-Assisted Campaign Planning", d:"Introduce AI-assisted campaign planning, effort estimation, prioritization, and work recommendations.", priority:"must", tag:"routing", effort:"l", epic:"Campaign Operations"},
+        {t:"Intelligent Campaign Routing", d:"Automatically route campaign work to the optimal studio based on skills, capacity, geography, language, and SLAs.", priority:"must", tag:"routing", effort:"l", epic:"Campaign Operations"},
+        {t:"Campaign Performance Intelligence", d:"Combine operational and marketing performance data to improve campaign planning and execution.", priority:"nice", tag:"routing", effort:"m", epic:"Campaign Operations"},
+        {t:"Cross-Brand Campaign Benchmarking", d:"Benchmark campaign efficiency, throughput, quality, and delivery across brands, studios, and markets.", priority:"nice", tag:"routing", effort:"m", epic:"Campaign Operations"}
+      ], blend: [], alt: []},
+    active: {wf: [], blend: [], alt: []},
+    report: {wf: [
+        {t:"Year 2 Executive Business Review", d:"Assess operational maturity, AI adoption, KPIs, and prioritize Year 3 initiatives.", priority:"must", tag:"gov", effort:"m", epic:"Program Management"},
+        {t:"Brand & Studio Performance Benchmarking", d:"Compare operational performance, governance maturity, SLAs, and throughput across brands and studios.", priority:"nice", tag:"gov", effort:"m", epic:"Governance & Operating Model"},
+        {t:"Integration Health Monitoring", d:"Deliver dashboards monitoring APIs, synchronization, connector health, and data quality.", priority:"nice", tag:"tool", effort:"m", epic:"Data & Integrations"},
+        {t:"Operational Monitoring Suite", d:"Deliver proactive monitoring for SLAs, adoption, workload, integrations, and platform health.", priority:"nice", tag:"tool", effort:"m", epic:"Reporting & Intelligence"},
+        {t:"Operational Excellence Assessment", d:"Evaluate support maturity, release management, adoption, governance, and operational KPIs.", priority:"nice", tag:"gov", effort:"m", epic:"Operational Readiness"},
+        {t:"Campaign Portfolio Optimization", d:"Continuously optimize campaign investment, resource allocation, and production efficiency using AI-driven insights.", priority:"nice", tag:"routing", effort:"l", epic:"Campaign Operations"}
+      ], blend: [], alt: []}
+  },
+  y3:   {
     title: "Year 3",
-    tagline: "Full automation maturity; bulk production runs with reduced TAG reliance.",
-    maturity: "Mature",
+    tagline: "Transform marketing operations into an AI-first operating model by automating work management, creative production, resource allocation, and decision-making while significantly reducing manual effort.",
+    maturity: "Autonomous",
     maturityColor: "#0B1B33",
-    strat: {
-      wf: [
-        {t:"Next-horizon evaluation", d:"Assess autonomous compliance scoring and closed-loop learning expansion beyond Year 3.", priority:"live", tag:"ai"},
-        {t:"Portability of agency playbook, design", d:"Design a playbook for transferring ownership, knowledge, and tooling to PR so operations can run with less TAG dependency.", priority:"nice", tag:"gov"},
-        {t:"Continued training & enablement", d:"Ongoing custom training to support evolving platform capabilities and new user cohorts.", priority:"nice", tag:"gov"}
-      ],
-      blend: [
-        {t:"Next-horizon evaluation", d:"Same assessment, plus whether DI Studio is still needed for specialty production only.", priority:"live", tag:"ai"},
-        {t:"Portability of agency playbook, design", d:"Design a playbook covering both Workfront and DI Studio so PR can run with reduced TAG dependency.", priority:"nice", tag:"gov"},
-        {t:"Continued training & enablement", d:"Ongoing custom training across both systems as capabilities evolve.", priority:"nice", tag:"gov"}
-      ],
-      alt: [
-        {t:"Next-horizon evaluation", d:"Contingent on whether the alternative tool's roadmap can support autonomous scoring.", priority:"live", tag:"ai"},
-        {t:"Portability of agency playbook, design", d:"Design a playbook for the new tool so PR can run with reduced TAG dependency.", priority:"nice", tag:"gov"},
-        {t:"Continued training & enablement", d:"Ongoing custom training as the new tool's capabilities evolve.", priority:"nice", tag:"gov"}
-      ]
-    },
-    build: {
-      wf: [
-        {t:"Closed-loop optimisation layer", d:"Performance data feeds back into brief creation and routing logic automatically.", priority:"nice", tag:"ai"},
-        {t:"Self-optimising budget allocation, rollout", d:"Budget reallocation across markets/channels live, with approval gates above threshold.", priority:"nice", tag:"ai"},
-        {t:"Unified partner marketplace, rollout", d:"Single intake surface matching TAG, Flex Pool, and specialty partners to briefs.", priority:"live", tag:"gov"}
-      ],
-      blend: [
-        {t:"Closed-loop optimisation layer", d:"Built primarily in Workfront, with DI Studio retained for specialty production only.", priority:"nice", tag:"ai"},
-        {t:"Self-optimising budget allocation, rollout", d:"Budget reallocation across markets/channels live, with approval gates above threshold.", priority:"nice", tag:"ai"},
-        {t:"Unified partner marketplace, rollout", d:"Single intake surface matching TAG, Flex Pool, and specialty partners to briefs.", priority:"live", tag:"gov"}
-      ],
-      alt: [
-        {t:"Closed-loop optimisation layer", d:"Built natively if the tool's automation depth supports it; otherwise remains a future-state item.", priority:"live", tag:"ai"},
-        {t:"Self-optimising budget allocation, rollout", d:"Budget reallocation live, contingent on the tool's automation supporting spend logic.", priority:"live", tag:"ai"},
-        {t:"Unified partner marketplace, rollout", d:"Single intake surface for partners; dependent on routing being fully automated by this point.", priority:"live", tag:"gov"}
-      ]
-    },
-    active: {
-      wf: [
-        {t:"AI reviews at scale", d:"AI-led first-pass review is the default path for the majority of briefs; human review by exception.", priority:"must", tag:"ai"},
-        {t:"Full automation of routine routing & production", d:"Bulk/templated campaign work runs with minimal manual intervention.", priority:"must", tag:"ai"},
-        {t:"Proactive monitoring as default", d:"SLA, budget, and quality risk surfaced before issues occur across all tiers.", priority:"must", tag:"ai"},
-        {t:"Reduced TAG agency reliance", d:"Bulk and templated work shifts to in-house tiers and automation; TAG engaged for specialty briefs via the Flex Pool.", priority:"must", tag:"gov"}
-      ],
-      blend: [
-        {t:"AI reviews at scale", d:"Default path in Workfront; DI Studio handles only high-touch specialty production.", priority:"must", tag:"ai"},
-        {t:"Reduced TAG agency reliance", d:"Same shift, with DI Studio absorbing some specialty work historically routed to TAG.", priority:"must", tag:"gov"}
-      ],
-      alt: [
-        {t:"AI reviews at scale", d:"Default path inside the alternative tool, dependent on third-party AI add-ons being mature by Year 3.", priority:"must", tag:"ai"},
-        {t:"Reduced TAG agency reliance", d:"Same end-state goal; achievability depends on how much Workfront-native automation could be rebuilt.", priority:"must", tag:"gov"}
-      ]
-    },
-    report: {
-      wf: [
-        {t:"Full-funnel performance reporting", d:"From brief intake through delivery to in-market performance, in one connected view. KPIs: brief-to-live campaign cycle time end-to-end, campaign delivery rate on-time vs. SLA, in-market performance score per campaign (tied to media/performance bridge), asset performance loop effectiveness (% of briefs using prior-campaign intelligence), closed-loop optimisation rate (% of briefs where performance data influenced the next brief).", priority:"must", tag:"ai"},
-        {t:"TAG vs. in-house volume split", d:"Reportable ratio showing reduced agency dependency year over year. KPIs: % of total brief volume handled in-house vs. TAG, % of bulk/templated work fully automated (no TAG touch), TAG hours by work category (specialty vs. bespoke vs. bulk), year-on-year TAG cost reduction, Flex Pool activation rate vs. Year 1 baseline.", priority:"must", tag:"gov"},
-        {t:"Platform ROI & value reporting", d:"Aggregate view of platform value to PR. KPIs: total estimated cost avoidance from deduplication and reuse (cumulative Year 1-3), AI-review ROI (hours saved vs. cost of AI layer), SLA improvement vs. pre-platform baseline, brief-to-live cycle time improvement vs. pre-platform baseline, creative effectiveness score trend vs. market benchmark over 3 years.", priority:"nice", tag:"ai"},
-        {t:"AI maturity & automation health", d:"Tracking how much of the platform now runs autonomously. KPIs: routing automation rate (% fully automated), AI-review automation rate, pre-flight quality score pass rate, generative first-draft adoption rate (% of briefs using generative pilot output), closed-loop brief-enrichment coverage (% of briefs enriched with prior performance data).", priority:"nice", tag:"ai"}
-      ],
-      blend: [
-        {t:"Full-funnel performance reporting", d:"Connected view assembled across DI Studio and Workfront. KPIs: brief-to-live campaign cycle time, campaign delivery rate on-time vs. SLA, in-market performance score per campaign, asset performance loop effectiveness, closed-loop optimisation rate.", priority:"must", tag:"ai"},
-        {t:"TAG vs. in-house volume split", d:"Tracked across both systems. KPIs: % of brief volume handled in-house vs. TAG, % of bulk work automated, TAG hours by work category, year-on-year TAG cost reduction, Flex Pool activation rate vs. Year 1 baseline.", priority:"must", tag:"gov"},
-        {t:"Platform ROI & value reporting", d:"KPIs: total cost avoidance from deduplication/reuse, AI-review ROI, SLA improvement vs. pre-platform baseline, brief-to-live cycle time improvement.", priority:"nice", tag:"ai"}
-      ],
-      alt: [
-        {t:"Full-funnel performance reporting", d:"Native to the alternative tool, contingent on its reporting depth. KPIs: brief-to-live campaign cycle time, campaign delivery rate on-time vs. SLA, in-market performance score per campaign, closed-loop optimisation rate.", priority:"must", tag:"ai"},
-        {t:"TAG vs. in-house volume split", d:"Tracked natively. KPIs: % of brief volume handled in-house vs. TAG, % of bulk work automated, TAG hours by work category, year-on-year TAG cost reduction.", priority:"must", tag:"gov"},
-        {t:"Platform ROI & value reporting", d:"KPIs: total cost avoidance from deduplication/reuse, AI-review ROI, SLA improvement vs. pre-platform baseline, brief-to-live cycle time improvement.", priority:"nice", tag:"ai"}
-      ]
-    }
+    strat:  {wf: [], blend: [], alt: []},
+    build:  {wf: [
+        {t:"AI Transformation Roadmap", d:"Execute Year 3 roadmap focused on AI-first operations, workforce optimization, and autonomous marketing delivery.", priority:"must", tag:"gov", effort:"m", epic:"Program Management"},
+        {t:"AI Governance Framework", d:"Establish governance for AI-generated work, approvals, compliance, auditability, and human oversight.", priority:"must", tag:"gov", effort:"m", epic:"Governance & Operating Model"},
+        {t:"Global Studio Operating Model Optimization", d:"Optimize operating model across brands, markets, internal studios, and agency studios using automation and shared services.", priority:"must", tag:"gov", effort:"l", epic:"Governance & Operating Model"},
+        {t:"Autonomous Work Intake", d:"Automatically classify, prioritize, and create work requests using AI-driven intake.", priority:"must", tag:"tool", effort:"l", epic:"Work Management"},
+        {t:"Autonomous Studio Routing", d:"Automatically assign work to brands, studios, markets, or agency partners based on capacity, expertise, geography, language, and SLA.", priority:"must", tag:"tool", effort:"xl", epic:"Work Management"},
+        {t:"Self-Service Campaign Intake", d:"Enable marketers to launch standardized campaign requests with minimal operational support.", priority:"must", tag:"tool", effort:"l", epic:"Work Management"},
+        {t:"Autonomous Workflow Orchestration", d:"Automate project creation, task assignment, approvals, notifications, and production workflows end-to-end.", priority:"must", tag:"tool", effort:"xl", epic:"Work Management"},
+        {t:"AI Workforce Optimization", d:"Use AI to optimize staffing across studios, identify excess capacity, and recommend workforce rebalancing.", priority:"must", tag:"routing", effort:"l", epic:"Resource Management"},
+        {t:"Global Studio Capacity Marketplace", d:"Dynamically allocate work across internal and partner studios based on real-time availability and specialization.", priority:"must", tag:"routing", effort:"l", epic:"Resource Management"},
+        {t:"AI Cost Optimization", d:"Continuously optimize production costs, agency utilization, and staffing investment using AI insights.", priority:"must", tag:"gov", effort:"m", epic:"Financial Management"},
+        {t:"Marketing AI Orchestration Layer", d:"Integrate Workfront, Adobe Experience Cloud, GenStudio, Firefly, and enterprise AI services into unified workflows.", priority:"nice", tag:"tool", effort:"xl", epic:"Data & Integrations"},
+        {t:"AI Creative Copilot", d:"Provide AI assistants supporting project managers, marketers, studio managers, and creative teams.", priority:"must", tag:"ai", effort:"l", epic:"AI & Automation"},
+        {t:"AI Review at Scale", d:"Expand AI-powered creative review, compliance validation, accessibility, and brand governance across all brands.", priority:"must", tag:"ai", effort:"l", epic:"AI & Automation"},
+        {t:"Generative Content Automation", d:"Automate production of campaign variations, localization, resizing, tagging, and metadata generation using GenStudio and Firefly.", priority:"must", tag:"ai", effort:"xl", epic:"AI & Automation"},
+        {t:"Closed-Loop Marketing Optimization", d:"Continuously optimize routing, staffing, creative recommendations, and campaign execution using operational performance data.", priority:"must", tag:"ai", effort:"xl", epic:"AI & Automation"},
+        {t:"Global Content Intelligence", d:"Deliver AI-driven recommendations for asset reuse, localization, creative performance, and lifecycle optimization across brands.", priority:"nice", tag:"tool", effort:"m", epic:"Content & Assets"},
+        {t:"Executive Operations Command Center", d:"Deliver a real-time executive dashboard for brands, studios, markets, AI performance, SLAs, staffing, and operational KPIs.", priority:"must", tag:"tool", effort:"l", epic:"Reporting & Intelligence"},
+        {t:"Studio Performance Intelligence", d:"Benchmark internal and agency studios on throughput, quality, automation, utilization, and cost efficiency.", priority:"nice", tag:"tool", effort:"m", epic:"Reporting & Intelligence"},
+        {t:"AI Studio Enablement", d:"Train studio leaders, marketers, and operations teams to manage AI-assisted marketing operations and oversee autonomous workflows.", priority:"nice", tag:"gov", effort:"m", epic:"Enablement & Adoption"},
+        {t:"Autonomous Campaign Intake", d:"Automatically create campaign projects from approved briefs, marketing plans, or intake requests using AI.", priority:"must", tag:"routing", effort:"l", epic:"Campaign Operations"},
+        {t:"AI Campaign Orchestration", d:"Automate campaign planning, staffing, production sequencing, approvals, and delivery across brands and studios.", priority:"must", tag:"routing", effort:"xl", epic:"Campaign Operations"},
+        {t:"Self-Service Campaign Launch", d:"Enable marketers to initiate standardized campaign types with minimal operational intervention.", priority:"must", tag:"routing", effort:"l", epic:"Campaign Operations"},
+        {t:"Predictive Campaign Optimization", d:"Continuously optimize campaign execution, staffing, routing, and delivery using AI and historical performance data.", priority:"must", tag:"routing", effort:"l", epic:"Campaign Operations"}
+      ], blend: [], alt: []},
+    active: {wf: [], blend: [], alt: []},
+    report: {wf: [
+        {t:"Transformation Value Realization", d:"Measure three-year business value, AI adoption, staffing optimization, ROI, and define next-generation roadmap.", priority:"must", tag:"gov", effort:"m", epic:"Program Management"},
+        {t:"Brand & Studio Maturity Assessment", d:"Assess operational maturity across brands and studios and identify remaining optimization opportunities.", priority:"nice", tag:"gov", effort:"m", epic:"Governance & Operating Model"},
+        {t:"Workforce Productivity Dashboard", d:"Deliver executive reporting on productivity improvements, staffing efficiencies, automation rates, and cost savings.", priority:"must", tag:"gov", effort:"m", epic:"Financial Management"},
+        {t:"AI Workforce Impact Assessment", d:"Measure staffing reduction, productivity gains, automation rates, and business outcomes enabled by AI.", priority:"must", tag:"ai", effort:"m", epic:"AI & Automation"},
+        {t:"AI & Automation Scorecard", d:"Measure automation rate, AI adoption, manual effort reduction, staffing efficiency, and ROI across brands and markets.", priority:"must", tag:"tool", effort:"m", epic:"Reporting & Intelligence"},
+        {t:"Autonomous Operations Assessment", d:"Assess the organization's readiness to sustain AI-first marketing operations with continuous optimization and minimal manual intervention.", priority:"must", tag:"gov", effort:"m", epic:"Operational Readiness"},
+        {t:"AI-Powered Campaign Operations Center", d:"Establish an AI-driven campaign operations capability governing campaign execution, optimization, and performance across all brands, studios, and markets.", priority:"must", tag:"routing", effort:"xl", epic:"Campaign Operations"}
+      ], blend: [], alt: []}
   }
 };
 
-// next60 — Build, Active & Report moved from First 30 Days
-DATA.next60 = {
-  title: "Next 60 Days",
-  tagline: "Carry momentum from day 30 — completing integrations, expanding access, and layering in first automation.",
-  maturity: "Foundation",
-  maturityColor: "#6E97C9",
-  strat: {
-    wf: [
-      {t:"Genie / dentsu.connect integration design", d:"Define the API handshake and data model for how Genie brief intelligence feeds into Workfront request forms.", priority:"must", tag:"tool"},
-      {t:"Figma connector design", d:"Scope how Figma/Figma Make connects to Workfront for asset request and delivery status.", priority:"must", tag:"tool"},
-      {t:"BI / Power BI integration design", d:"Define the reporting data model, field mapping, and refresh cadence for Power BI dashboards.", priority:"must", tag:"tool"},
-      {t:"Assisted routing design", d:"Design the first routing-logic layer — criteria, scoring, and escalation paths for automated triage.", priority:"nice", tag:"routing"},
-      {t:"Partner / secondary-agency access model", d:"Define permission tiers and data isolation rules for secondary partners operating in the platform.", priority:"must", tag:"gov"}
-    ],
-    blend: [
-      {t:"Genie / dentsu.connect integration design", d:"Scope the integration for both Workfront and DI Studio where applicable.", priority:"must", tag:"tool"},
-      {t:"DI Studio sync automation design", d:"Design the automated sync layer between DI Studio and Workfront to remove manual handoff.", priority:"must", tag:"tool"},
-      {t:"BI / Power BI integration design", d:"Define the reporting data model across both tools.", priority:"must", tag:"tool"},
-      {t:"Partner / secondary-agency access model", d:"Define permission tiers across both Workfront and DI Studio.", priority:"must", tag:"gov"}
-    ],
-    alt: [
-      {t:"Genie / dentsu.connect integration design", d:"Scope the integration against the alternative tool's API.", priority:"must", tag:"tool"},
-      {t:"BI / Power BI integration design", d:"Define the reporting data model for the alternative tool.", priority:"must", tag:"tool"},
-      {t:"Assisted routing design", d:"Design the routing logic natively in the alternative tool.", priority:"nice", tag:"routing"},
-      {t:"Partner / secondary-agency access model", d:"Define permission tiers natively in the alternative tool.", priority:"must", tag:"gov"}
-    ]
-  },
-  build: {
-    wf: [
-      {t:"Business continuity & V1 migration", d:"First-pass migration of existing studio data into Workfront with no workflow disruption. Dependent on: Implementation design and Migration inventory & planning (both Analysis & Strategy, First 30 Days).", priority:"must", tag:"gov"},
-      {t:"Setup user management, roles & permissions", d:"Configure groups, users, roles, and permission levels across all tiers. Establishes who can see and action what across BU Studios, COEs, ME Studios, Offshore Hubs, and Flex Pool.", priority:"must", tag:"gov"},
-      {t:"Setup program & project templates", d:"Build project, program, and task templates by request type so all briefs follow a consistent structure from day one.", priority:"must", tag:"gov"},
-      {t:"Setup role-specific views and filters", d:"Configure tailored views and filter presets per role (e.g. campaign lead, studio producer, market manager) so each user sees the most relevant work without noise.", priority:"must", tag:"gov"},
-      {t:"Planning workspaces", d:"Campaigns, markets, channels, brands set up in Workfront Planning.", priority:"must", tag:"tool"},
-      {t:"Brief submission form", d:"Market, brief details, requestor, due date, channels, budget fields live as a Workfront request form.", priority:"must", tag:"routing"},
-      {t:"Resource visibility setup", d:"Views configured to see and assign across BU Studios, COEs, ME Studios, Offshore Hubs, Flex Pool.", priority:"must", tag:"routing"},
-      {t:"Frame.io integration", d:"Connect Frame.io for review/delivery alongside the existing Bynder/Fusion/Genie integration plan.", priority:"nice", tag:"tool"},
-      {t:"Omnichannel asset delivery via Frame.io", d:"Deliverables route out to all channels through a Frame.io-connected delivery step.", priority:"nice", tag:"tool"},
-      {t:"Dynamic rate cards", d:"Initial rate-card logic for Flex Pool and shared production surge capacity.", priority:"nice", tag:"gov"},
-      {t:"Agile capability layer", d:"Sprint-style views added on top of core templates where teams need them.", priority:"nice", tag:"tool"}
-    ],
-    blend: [
-      {t:"Business continuity & V1 migration", d:"First-pass migration of existing studio data into Workfront and DI Studio with no workflow disruption. Dependent on: Implementation design and Migration inventory & planning (both Analysis & Strategy, First 30 Days).", priority:"must", tag:"gov"},
-      {t:"Setup user management, roles & permissions", d:"Roles and permission levels configured in both Workfront and DI Studio where applicable.", priority:"must", tag:"gov"},
-      {t:"Setup program & project templates", d:"Project, program, and task templates by request type built across both tools where applicable.", priority:"must", tag:"gov"},
-      {t:"Setup role-specific views and filters", d:"Role-specific views and filter presets configured in Workfront; DI Studio views aligned where possible.", priority:"must", tag:"gov"},
-      {t:"Workfront intake & routing build", d:"Workfront remains the intake/routing layer; resource visibility views built for all five tiers.", priority:"must", tag:"routing"},
-      {t:"DI Studio production scaffolding", d:"Production-side task structures mirrored from the brief submission form fields.", priority:"must", tag:"tool"},
-      {t:"Frame.io integration", d:"Connect Frame.io for review/delivery, surfaced into DI Studio production views.", priority:"nice", tag:"tool"},
-      {t:"Omnichannel asset delivery via Frame.io", d:"Deliverables route out to all channels through a Frame.io-connected delivery step.", priority:"nice", tag:"tool"},
-      {t:"Dynamic rate cards", d:"Initial rate-card logic for Flex Pool and shared production surge capacity.", priority:"nice", tag:"gov"}
-    ],
-    alt: [
-      {t:"Business continuity & V1 migration", d:"First-pass migration of existing studio data into the new tool with no workflow disruption. Dependent on: Implementation design and Migration inventory & planning (both Analysis & Strategy, First 30 Days).", priority:"must", tag:"gov"},
-      {t:"Setup user management, roles & permissions", d:"Groups, users, roles, and permission levels configured natively in the new tool from scratch, no legacy config to inherit.", priority:"must", tag:"gov"},
-      {t:"Setup program & project templates", d:"Project, program, and task templates authored from scratch by request type in the new tool.", priority:"must", tag:"tool"},
-      {t:"Setup role-specific views and filters", d:"Role-specific views and filter presets built natively in the new tool per user role.", priority:"must", tag:"gov"},
-      {t:"Alternative tool intake form build", d:"Brief submission form rebuilt natively in the chosen tool.", priority:"must", tag:"routing"},
-      {t:"Routing structure rebuild", d:"BU Studios, COEs, ME Studios, Offshore Hubs, Flex Pool modelled as boards, spaces, or lists.", priority:"must", tag:"routing"},
-      {t:"Frame.io integration", d:"Connect Frame.io for review/delivery; built from scratch against the new tool's API.", priority:"nice", tag:"tool"},
-      {t:"Omnichannel asset delivery via Frame.io", d:"Deliverables route out to all channels through a Frame.io-connected delivery step.", priority:"nice", tag:"tool"},
-      {t:"Dynamic rate cards", d:"Initial rate-card logic for Flex Pool and shared production surge capacity, rebuilt natively.", priority:"nice", tag:"gov"}
-    ]
-  },
-  active: {
-    wf: [
-      {t:"SOP documentation by role", d:"Tech schematics and one-pagers published alongside the live form.", priority:"must", tag:"gov"},
-      {t:"Duplicate creative/asset detection", d:"Basic asset reuse and duplication checks running at intake.", priority:"nice", tag:"ai"}
-    ],
-    blend: [
-      {t:"SOP documentation by role", d:"Includes a note on which tool owns which step.", priority:"must", tag:"gov"}
-    ],
-    alt: [
-      {t:"SOP documentation by role", d:"Rewritten for the new tool's terminology and structure.", priority:"must", tag:"gov"}
-    ]
-  },
-  report: {
-    wf: [
-      {t:"Simple reporting dashboard", d:"Live from day one inside Workfront. KPIs: total briefs submitted, briefs by market/brand/channel, open vs. closed request volume, average time from brief submission to assignment, SLA on-time rate (% of projects hitting due date), active projects by tier (BU Studio / COE / ME Studio / Offshore / Flex Pool).", priority:"must", tag:"tool"}
-    ],
-    blend: [
-      {t:"Simple reporting dashboard", d:"Workfront-side from day one; DI Studio production status reported separately until the sync is automated. KPIs: total briefs submitted, briefs by market/brand/channel, open vs. closed request volume, average time from brief submission to assignment, SLA on-time rate, active projects by tier.", priority:"must", tag:"tool"}
-    ],
-    alt: [
-      {t:"Simple reporting dashboard", d:"Native dashboarding inside the alternative tool. KPIs: total briefs submitted, briefs by market/brand/channel, open vs. closed request volume, average time from brief submission to assignment, SLA on-time rate, active projects by tier.", priority:"must", tag:"tool"}
-    ]
-  }
-};
+// next60 — Pilot & Validate phase data
+DATA.next60 =   {
+    title: "Next 60 Days",
+    tagline: "Configure Workfront, deploy the pilot across selected brands, studios, and markets, validate the operating model, integrations, AI capabilities, and prepare for global rollout.",
+    maturity: "Pilot",
+    maturityColor: "#7a9e87",
+    strat:  {wf: [
+        {t:"AI Opportunity Assessment", d:"Identify manual activities that can be eliminated or augmented through AI, automation, and intelligent workflows. Prioritize opportunities by business value and implementation complexity.", priority:"must", tag:"ai", effort:"l", epic:"AI & Automation"},
+        {t:"Change Impact Assessment", d:"Assess organizational readiness, impacted teams, business processes, and adoption risks.", priority:"must", tag:"gov", effort:"m", epic:"Enablement & Adoption"},
+        {t:"Operational Support Model", d:"Define platform administration, support ownership, release management, AI governance, and continuous improvement responsibilities.", priority:"nice", tag:"gov", effort:"m", epic:"Operational Readiness"},
+        {t:"Transformation KPI Framework", d:"Define executive KPIs including throughput, staffing efficiency, cost per asset, AI adoption, asset reuse, cycle time, automation rate, and operational maturity.", priority:"must", tag:"gov", effort:"m", epic:"Operational Readiness"}
+      ], blend: [], alt: []},
+    build:  {wf: [
+        {t:"Pilot Environment Setup", d:"Configure the pilot Workfront environment, security, integrations, and deployment readiness.", priority:"must", tag:"gov", effort:"l", epic:"Program Management"},
+        {t:"User Acceptance Testing (UAT)", d:"Facilitate business validation, defect management, issue resolution, and formal signoff.", priority:"must", tag:"gov", effort:"l", epic:"Program Management"},
+        {t:"Pilot Market Launch", d:"Execute pilot campaigns across selected brands, studios, and markets using the new operating model.", priority:"must", tag:"gov", effort:"xl", epic:"Program Management"},
+        {t:"Pilot Migration", d:"Migrate pilot brands, studios, templates, users, projects, and assets into Workfront.", priority:"must", tag:"tool", effort:"l", epic:"Platform Foundation"},
+        {t:"Production Readiness Validation", d:"Validate platform performance, security, integrations, monitoring, and operational readiness.", priority:"must", tag:"tool", effort:"m", epic:"Platform Foundation"},
+        {t:"Cross-Brand Governance Configuration", d:"Configure governance processes, approvals, SLAs, and operating standards within the pilot.", priority:"must", tag:"gov", effort:"m", epic:"Governance & Operating Model"},
+        {t:"Brand & Studio Onboarding Framework", d:"Build repeatable onboarding process for future brands, studios, and markets.", priority:"must", tag:"gov", effort:"m", epic:"Governance & Operating Model"},
+        {t:"Naming Standards Implementation", d:"Configure naming conventions across portfolios, projects, templates, and assets.", priority:"nice", tag:"gov", effort:"s", epic:"Governance & Operating Model"},
+        {t:"Standard Operating Procedures (SOPs)", d:"Document pilot operating procedures, support processes, escalation paths, and governance.", priority:"nice", tag:"gov", effort:"m", epic:"Governance & Operating Model"},
+        {t:"Program & Project Templates", d:"Configure standardized templates supporting brands, studios, and campaign types.", priority:"must", tag:"tool", effort:"m", epic:"Work Management"},
+        {t:"Workfront Planning Configuration", d:"Configure Planning workspaces, record types, relationships, calendars, and governance.", priority:"must", tag:"tool", effort:"m", epic:"Work Management"},
+        {t:"Brief Submission Workflow", d:"Configure production-ready intake forms, routing, metadata, and approvals.", priority:"must", tag:"tool", effort:"m", epic:"Work Management"},
+        {t:"Custom Forms Configuration", d:"Configure reusable enterprise custom forms and metadata fields.", priority:"must", tag:"tool", effort:"l", epic:"Work Management"},
+        {t:"Workflow & Status Configuration", d:"Configure lifecycle workflows, milestones, task statuses, and business processes.", priority:"must", tag:"tool", effort:"m", epic:"Work Management"},
+        {t:"Request Queue Configuration", d:"Configure request queues, intake categories, queue topics, and routing logic.", priority:"must", tag:"tool", effort:"m", epic:"Work Management"},
+        {t:"Approval Workflow Configuration", d:"Configure multi-stage approvals, reviewers, decision paths, and SLA rules.", priority:"must", tag:"tool", effort:"m", epic:"Work Management"},
+        {t:"Business Rules & Automation", d:"Configure assignment rules, automated routing, notifications, and status updates.", priority:"must", tag:"tool", effort:"m", epic:"Work Management"},
+        {t:"Studio Template Library", d:"Build reusable templates supporting different brands, campaign types, and studio services.", priority:"nice", tag:"tool", effort:"m", epic:"Work Management"},
+        {t:"User Roles & Permissions", d:"Configure security roles, permission levels, layouts, and external user access.", priority:"must", tag:"gov", effort:"s", epic:"Identity & Access"},
+        {t:"Resource Visibility", d:"Configure workload balancing, studio utilization, and capacity reporting.", priority:"must", tag:"routing", effort:"m", epic:"Resource Management"},
+        {t:"Studio Capacity Model", d:"Configure resource pools, studio assignments, and capacity planning for the pilot.", priority:"must", tag:"routing", effort:"m", epic:"Resource Management"},
+        {t:"Rate Cards & Financial Tracking", d:"Configure labor rates, studio costing, agency costs, and financial reporting.", priority:"nice", tag:"gov", effort:"m", epic:"Financial Management"},
+        {t:"Figma Integration", d:"Configure Figma integration supporting creative collaboration.", priority:"nice", tag:"tool", effort:"m", epic:"Data & Integrations"},
+        {t:"Config Proofing & Frame.io Integration", d:"Configure proofing, collaboration, and review workflows.", priority:"nice", tag:"tool", effort:"m", epic:"Data & Integrations"},
+        {t:"Asset Governance Configuration", d:"Configure taxonomy, metadata, versioning, lifecycle, and governance policies.", priority:"nice", tag:"tool", effort:"m", epic:"Content & Assets"},
+        {t:"Pilot Brand & Studio Enablement", d:"Deliver training for marketers, studio managers, operations teams, agency partners, and creative users.", priority:"must", tag:"gov", effort:"m", epic:"Enablement & Adoption"},
+        {t:"Change & Communications Campaign", d:"Execute stakeholder communications, champion network, adoption activities, and feedback loops.", priority:"nice", tag:"gov", effort:"m", epic:"Enablement & Adoption"},
+        {t:"Deployment & Release Management", d:"Finalize production deployment process, release cadence, and change management procedures.", priority:"nice", tag:"gov", effort:"m", epic:"Operational Readiness"},
+        {t:"Monitoring & Health Configuration", d:"Configure operational dashboards, platform monitoring, support metrics, and alerting.", priority:"nice", tag:"gov", effort:"m", epic:"Operational Readiness"},
+        {t:"Hypercare Planning", d:"Prepare post-go-live support, issue triage, knowledge transfer, and stabilization activities.", priority:"must", tag:"gov", effort:"m", epic:"Operational Readiness"},
+        {t:"Pilot Campaign Readiness", d:"Validate campaign briefs, assets, dependencies, workflows, approvals, resource availability, and production readiness for the pilot portfolio.", priority:"must", tag:"routing", effort:"m", epic:"Campaign Operations"},
+        {t:"Pilot Campaign Portfolio Launch", d:"Execute the initial portfolio of campaigns through Workfront using the new operating model across pilot brands, studios, and markets.", priority:"must", tag:"routing", effort:"l", epic:"Campaign Operations"}
+      ], blend: [], alt: []},
+    active: {wf: [], blend: [], alt: []},
+    report: {wf: [
+        {t:"Pilot Review & Rollout Refinement", d:"Evaluate pilot performance, lessons learned, AI opportunities, and refine the Year 1 rollout strategy.", priority:"must", tag:"gov", effort:"m", epic:"Program Management"},
+        {t:"Pilot Executive Dashboard", d:"Deliver executive reporting measuring adoption, throughput, utilization, AI adoption, and operational KPIs.", priority:"must", tag:"tool", effort:"m", epic:"Reporting & Intelligence"},
+        {t:"Pilot KPI Design & Rollout Recommendations", d:"Evaluate pilot KPIs against the Transformation KPI Framework and recommend adjustments before global rollout.", priority:"must", tag:"tool", effort:"m", epic:"Reporting & Intelligence"},
+        {t:"Pilot Campaign Performance Assessment", d:"Measure campaign execution performance, operational KPIs, cycle times, resource utilization, and lessons learned to refine the global rollout approach.", priority:"must", tag:"routing", effort:"m", epic:"Campaign Operations"}
+      ], blend: [], alt: []}
+  };
 
 let currentOpt = "wf";
 let currentPhase = "master";
-let phaseViewMode = "highlevel"; // "highlevel" | "taskbased"
+let phaseViewMode = "highlevel";
+let searchQuery = "";
 const STATE = JSON.parse(JSON.stringify(DATA)); // mutable working copy: drag/drop and tag edits write here
 const COLS = ["strat","buildactive","report"];
 const PRIORITY_CYCLE = ["must","nice","live"];
@@ -1989,7 +2004,7 @@ Object.keys(STATE).forEach(phase=>{
   });
 });
 
-const LS_KEY = "pr_roadmap_v3_state";
+const LS_KEY = "pr_roadmap_v4_state";
 
 function saveToLocalStorage(){
   try{
@@ -2314,12 +2329,12 @@ function renderItems(container, items, colKey){
     div.dataset.priority = it.priority;
     div.dataset.tag = it.tag;
     div.dataset.effort = effort;
-    div.dataset.epic = assignEpic(it, colKey);
+    div.dataset.epic = (it.epic || "").trim();
     div.innerHTML = `<p class="item-title">${it.t}</p><p class="item-desc">${it.d}</p>
       <div class="chips">
         <div class="chip-group">
           <span class="chip priority-${it.priority}" data-field="priority" data-idx="${origIdx}">${priorityLabel(it.priority)}</span>
-          <span class="chip ${it.tag}" data-field="tag" data-idx="${origIdx}">${tagIcon(it.tag)}${tagLabel(it.tag)}</span>
+          <span class="chip ${it.tag}" data-field="tag" data-idx="${origIdx}" title="${it.epic||''}">${it.epic||tagLabel(it.tag)}</span>
           <span class="effort-badge effort-${effort}" data-field="effort" data-idx="${origIdx}">${effortLabel(effort)}</span>
         </div>
         <button class="expand-btn" data-col="${colKey}" data-idx="${origIdx}" title="View details">
@@ -2475,33 +2490,38 @@ function wireColumnDrop(container, colKey){
 }
 
 const PHASE_OBJECTIVES = {
-  d60: `Up and running with zero days down. Core platform infrastructure — brief intake, resource visibility, user management, permissions, and role-specific views — goes live from day one, starting with a select group of studios and markets. Integration design for Genie, Figma, and BI is locked so every Year 1 connector has a clear blueprint. By day 30, the platform can receive a brief, route it, track it, and report on it.`,
-  next60: `Carrying momentum from the first 30 days into deeper build work. This phase focuses on completing integrations scoped in October, expanding platform access to additional studios and markets, and layering in the first automation and routing intelligence. Cards will be moved here from First 30 Days as the plan develops.`,
-  y1: `<strong>Year 1: close the gaps, connect the systems, build the intelligence foundation.</strong> With the platform live, Year 1 is about completing what the 30-day sprint couldn't: full historic migration, multi-partner tenant isolation, Active Directory / SSO enablement, and the first connector builds — Genie, BI/Power BI, Figma, and the data/media bridge. Intelligent assisted routing and duplicate detection go live, reducing manual triage overhead. The design work kicked off in the first 30 days graduates into real integrations, and the first meaningful performance metrics — SLA compliance by tier, asset reuse rates, resource utilisation — become available to the wider team.`,
-  y2: `<strong>Year 2: turn the platform intelligent.</strong> Bynder, Fusion, and Genie are all live and connected. Smart triage auto-classifies briefs at intake, AI-assisted review runs ahead of human sign-off, and capacity forecasting proactively flags resource risk before it becomes a problem. The data and media bridge feeds live performance data back into the system, and brief intelligence starts enriching briefs with cultural, audience, and media signals before they reach creative. By the end of Year 2, the platform isn't just a system of record — it's actively improving how work gets briefed, routed, and delivered.`,
-  y3: `<strong>Year 3: reduce agency reliance by 50%, with a clear ramp-down plan if PR chooses to go further.</strong> Bulk and templated campaign work runs autonomously. AI review, automated routing, and proactive monitoring are the default — human intervention is the exception, not the rule. A formal portability playbook is designed so TAG can hand operational control to PR on any timeline PR chooses, with no lock-in. The closed-loop optimisation layer means past campaign performance directly informs how the next brief is written. By the end of Year 3, the platform runs the majority of The Mix's throughput with significantly less agency overhead, and PR has full optionality on what comes next.`
+  d60: `Define the future-state global marketing operating model, establish governance, prioritize brands, studios, and markets, design the Workfront architecture, identify AI opportunities, and prepare the pilot. Key deliverables include: Discovery workshops, operating model, Workfront solution design, migration strategy, brand & market prioritization, governance model, integration architecture, taxonomy, AI opportunity assessment, KPI framework. Success metrics: Discovery completed, operating model approved, solution architecture approved, pilot charter approved, transformation KPIs established.`,
+  next60: `Configure Workfront, deploy the pilot across selected brands, studios, and markets, validate the operating model, integrations, AI capabilities, and prepare for global rollout. Key deliverables include: Pilot environment, Workfront configuration, Planning workspaces, templates, workflows, approvals, integrations, training, pilot campaigns, reporting dashboards, SOPs, AI pilot, QBR. Success metrics: Pilot KPIs achieved, UAT approved, pilot adoption targets met, operational readiness confirmed, executive Go/No-Go decision.`,
+  y1: `Roll out the standardized marketing operating model across brands, studios, agency partners, and markets while expanding governance, integrations, reporting, and adoption. Key deliverables include: Brand & studio migration, rollout waves, onboarding framework, operating playbooks, cross-brand governance, enterprise integrations, reporting, enablement, hypercare. Success metrics: >90% adoption across participating brands and studios, rollout waves completed, governance operational, SLA compliance achieved.`,
+  y2: `Optimize operations using AI, predictive insights, cross-studio resource management, marketing intelligence, and standardized global processes. Key deliverables include: Intelligent routing, predictive capacity planning, AI-assisted reviews, creative benchmarking, marketing intelligence, executive dashboards, cross-brand reporting, operational optimization. Success metrics: >75% automated routing, improved studio utilization, AI-assisted review adoption, executive dashboards operational, measurable productivity improvements.`,
+  y3: `Transform marketing operations into an AI-first operating model by automating work management, creative production, resource allocation, and decision-making while significantly reducing manual effort. Key deliverables include: Autonomous work intake, AI copilots, autonomous routing, generative content automation, closed-loop optimization, executive command center, workforce optimization dashboards, AI governance. Success metrics: ~50% reduction in manual production effort, >90% automated routing, >80% AI-assisted operations, significant cost savings, measurable productivity gains, continuous optimization operational.`
 };
 
 const EPICS = [
-  {id:"foundation",   label:"Platform Foundation",        desc:"Core setup of users, roles, permissions, workspaces, and brief intake — the table stakes that everything else depends on.", color:"#6E97C9"},
-  {id:"migration",    label:"Migration & Continuity",     desc:"Moving existing studio data and live work into the new platform without disruption to active campaigns.", color:"#7a9e87"},
-  {id:"integrations", label:"Integrations & Connectors",  desc:"Building the API and connector layer that ties The Mix to Genie, Figma, Bynder, Fusion, Frame.io, and BI tools.", color:"#AD9F87"},
-  {id:"ai",           label:"AI & Automation",            desc:"Intelligent routing, automated review, smart triage, and capacity forecasting — removing manual bottlenecks at scale.", color:"#D7A94A"},
-  {id:"data",         label:"Data & Intelligence",        desc:"Brief enrichment, performance learning loops, social listening, and effectiveness benchmarking powered by live data.", color:"#9b7abf"},
-  {id:"governance",   label:"Governance & Training",      desc:"User enablement, partner model design, SSO/Active Directory integration, and the agency portability playbook.", color:"#A8A23C"},
-  {id:"reporting",    label:"Reporting & Analytics",      desc:"SLA dashboards, Mix-level KPI visibility, proactive monitoring, and full-funnel performance reporting.", color:"#0B1B33"},
+  {id:"foundation",   label:"Platform Foundation",        desc:"Core Workfront setup, workspace configuration, templates, and brief intake infrastructure.", color:"#6E97C9"},
+  {id:"governance",   label:"Governance & Operating Model",desc:"Operating model design, approval workflows, governance standards, and compliance frameworks.", color:"#A8A23C"},
+  {id:"integrations", label:"Data & Integrations",        desc:"Connector builds, API integrations, DAM, identity management, and data flow architecture.", color:"#AD9F87"},
+  {id:"resource",     label:"Resource Management",        desc:"Resource routing, capacity planning, utilization tracking, and studio assignment intelligence.", color:"#5b8a9e"},
+  {id:"campaign",     label:"Campaign Operations",        desc:"Campaign brief management, work intake, project execution, and cross-brand campaign coordination.", color:"#7a6bbf"},
+  {id:"ai",           label:"AI & Automation",            desc:"Intelligent routing, AI-assisted review, predictive capacity, and autonomous work management.", color:"#D7A94A"},
+  {id:"data",         label:"Reporting & Intelligence",   desc:"Dashboards, KPI frameworks, executive reporting, marketing intelligence, and performance benchmarking.", color:"#9b7abf"},
+  {id:"training",     label:"Enablement & Adoption",      desc:"Training programs, SOPs, change management, onboarding, and hypercare support.", color:"#7a9e87"},
+  {id:"migration",    label:"Migration & Continuity",     desc:"Historical data migration, platform continuity, and zero-disruption cutover planning.", color:"#5b7a6b"},
 ];
 
 let activeEpicFilter = null;
 
 function assignEpic(item, col){
+  const epic = (item.epic||"").toLowerCase();
   const t = (item.t||"").toLowerCase();
   if(/migrat|continuity/.test(t)) return "migration";
-  if(/connector|frame\.io|bynder|fusion|figma|power bi|bi \//i.test(t)||(item.tag==="tool"&&col==="buildactive"&&!/user management|template|workspace|view|filter|brief sub|resource vis/.test(t))) return "integrations";
-  if(/sso|active directory|training|enablement|portability|partner model/.test(t)) return "governance";
-  if(/brief intelligence|social listening|cultural|effectiveness bench|data\/media|mix-level kpi|spend visibility|quality scor|learning loop/.test(t)) return "data";
-  if(col==="report"||/report|dashboard|kpi|monitoring/.test(t)) return "reporting";
-  if(item.tag==="ai"||/smart triage|intelligent rout|forecasting|ai-assisted|ai-driven|generative/.test(t)) return "ai";
+  if(/ai & automation|ai-assisted|intelligent rout|forecasting|autonomous|generative|copilot/.test(epic)||item.tag==="ai") return "ai";
+  if(/reporting|intelligence|dashboard|kpi|analytics/.test(epic)||col==="report"||/report|dashboard|kpi/.test(t)) return "data";
+  if(/enablement|adoption|training|change management|sop|onboarding/.test(epic)) return "training";
+  if(/resource management/.test(epic)) return "resource";
+  if(/campaign operations|work management/.test(epic)) return "campaign";
+  if(/governance|operating model|identity|access|financial/.test(epic)) return "governance";
+  if(/data & integrations|integrations|connector|frame\.io|bynder|fusion|figma|power bi/.test(epic)) return "integrations";
   return "foundation";
 }
 
@@ -2511,6 +2531,14 @@ function epicTimeFrac(col, priority, effort){
   const ee = {xl:0, l:0, m:.05, s:.1, xs:.15}[effort||"m"]||0;
   return [Math.min(base[0]+ps,.9), Math.max(base[1]-ee,.1)];
 }
+
+const PHASE_WORKPLAN_NAMES = {
+  d60:   "Global Operating Model Design",
+  next60:"Pilot & Validate",
+  y1:    "Global Brand & Studio Rollout",
+  y2:    "Global Marketing Operations Optimization",
+  y3:    "AI-Powered Global Marketing Operations"
+};
 
 const AI_STAGE = {
   d60:"AI: Manual",
@@ -2615,12 +2643,7 @@ function renderStaggeredRoadmap(){
     </div>`;
   });
 
-  html += `<div class="eg-legend">
-    <span><span class="eg-legend-dot" style="background:var(--tan);"></span>Analysis & Strategy</span>
-    <span><span class="eg-legend-dot" style="background:var(--blue);"></span>Build & Activate</span>
-    <span><span class="eg-legend-dot" style="background:var(--navy);"></span>Reportable</span>
-    <span style="margin-left:auto;font-style:italic;color:#9a9587;">Click an epic row to filter tasks below</span>
-  </div></div>`;
+  html += `</div>`;
   container.innerHTML = html;
 
   // Wire epic row click → filter
@@ -2628,8 +2651,21 @@ function renderStaggeredRoadmap(){
     row.addEventListener("click", ()=>{
       const eid = row.dataset.epicId;
       activeEpicFilter = (activeEpicFilter === eid) ? null : eid;
-      renderStaggeredRoadmap(); // re-render to update active state
+      renderStaggeredRoadmap();
       applyFilters();
+    });
+  });
+
+  // Wire item chip clicks → open card modal
+  container.querySelectorAll(".eg-item-chip").forEach(chip=>{
+    chip.addEventListener("click", (e)=>{
+      e.stopPropagation(); // don't trigger epic row filter
+      const title = chip.title || chip.textContent;
+      ["strat","buildactive","report"].forEach(col=>{
+        const arr = STATE[currentPhase][col][currentOpt] || [];
+        const idx = arr.findIndex(it=> it.t === title);
+        if(idx !== -1) openCardModal(arr[idx], idx, col);
+      });
     });
   });
 }
@@ -2654,6 +2690,62 @@ function applyViewMode(){
   });
 }
 
+function buildEpicFilterPills(){
+  const row = document.getElementById("epicFilterRow");
+  if(!row) return;
+
+  // Collect which epic IDs actually exist in current phase/opt
+  const phase = STATE[currentPhase];
+  if(!phase) return;
+  const presentEpics = new Set();
+  ["strat","buildactive","report"].forEach(col=>{
+    (phase[col]?.[currentOpt]||[]).forEach(item=>{
+      if(item.epic && item.epic.trim()) presentEpics.add(item.epic.trim());
+    });
+  });
+
+  // Reset activeEpicIds to all present epics (all active by default)
+  activeEpicIds.clear();
+  presentEpics.forEach(name=> activeEpicIds.add(name));
+
+  // Rebuild pills
+  const label = row.querySelector(".filter-label");
+  row.innerHTML = "";
+  if(label) row.appendChild(label); else {
+    const l = document.createElement("span");
+    l.className = "filter-label";
+    l.textContent = "Epic";
+    row.appendChild(l);
+  }
+
+  const sortedEpics = [...presentEpics].sort();
+  sortedEpics.forEach(epicName=>{
+    const btn = document.createElement("button");
+    btn.className = "filter-pill epic-pill active";
+    btn.dataset.filterType = "epic";
+    btn.dataset.filterVal = epicName;
+    btn.textContent = epicName;
+    btn.addEventListener("click", ()=>{
+      const allBtns = [...row.querySelectorAll(".filter-pill.epic-pill")];
+      const allVals = allBtns.map(b=> b.dataset.filterVal);
+      const activeOnes = allBtns.filter(b=> b.classList.contains("active"));
+      if(activeOnes.length === 1 && activeOnes[0] === btn){
+        allVals.forEach(v=> activeEpicIds.add(v));
+        allBtns.forEach(b=> b.classList.add("active"));
+      } else {
+        allVals.forEach(v=> activeEpicIds.delete(v));
+        activeEpicIds.add(epicName);
+        allBtns.forEach(b=> b.classList.remove("active"));
+        btn.classList.add("active");
+      }
+      applyFilters();
+    });
+    row.appendChild(btn);
+  });
+
+  row.style.display = presentEpics.size > 0 ? "flex" : "none";
+}
+
 function renderDetail(){
   // Guard: if STATE doesn't have this phase yet, seed it from DATA
   if(!STATE[currentPhase]){
@@ -2669,10 +2761,15 @@ function renderDetail(){
   document.getElementById("phaseTitle").textContent = phase.title;
   const tagEl = document.getElementById("phaseTagline");
   tagEl.innerHTML = PHASE_OBJECTIVES[currentPhase] || phase.tagline || "";
+  const nameTag = document.getElementById("phaseWorkplanName");
+  if(nameTag){ nameTag.textContent = PHASE_WORKPLAN_NAMES[currentPhase] || ""; }
   const mat = document.getElementById("phaseMaturity");
-  mat.textContent = phase.maturity;
-  mat.style.background = phase.maturityColor;
-  mat.style.color = (phase.maturity === "Stabilise" || phase.maturity === "Scale") ? "#2c2a0d" : "white";
+  if(mat && phase.maturity){
+    mat.textContent = phase.maturity;
+    mat.style.display = "";
+    mat.style.background = phase.maturityColor;
+    mat.style.color = (phase.maturity === "Stabilise" || phase.maturity === "Scale" || phase.maturity === "Optimise") ? "#2c2a0d" : "white";
+  } else if(mat){ mat.style.display = "none"; }
   const aiEl = document.getElementById("phaseAiStage");
   if(aiEl) aiEl.textContent = AI_STAGE[currentPhase] || "";
   const dateEl = document.getElementById("phaseDateTag");
@@ -2682,6 +2779,7 @@ function renderDetail(){
   renderItems(document.getElementById("colBuildActive"), phase.buildactive[currentOpt], "buildactive");
   renderItems(document.getElementById("colReport"), phase.report[currentOpt], "report");
   renderStaggeredRoadmap();
+  buildEpicFilterPills();
   applyFilters();
   applyViewMode();
   saveToLocalStorage();
@@ -2731,6 +2829,7 @@ function countItems(phase, opt){
 
 function buildMasterNodes(){
   const container = document.getElementById("masterNodes");
+  if(!container) return; // Summary view no longer uses master nodes
   container.innerHTML = "";
   const keys = ["d60","next60","y1","y2","y3"];
   const classes = {d60:"t60", next60:"t60", y1:"ty1", y2:"ty2", y3:"ty3"};
@@ -2747,7 +2846,7 @@ function buildMasterNodes(){
       <span class="node-tag">${meta.label}</span>
       <div class="node-stats">
         <div class="ns"><span class="n">${total}</span><span class="l">Items</span></div>
-        <div class="ns"><span class="n">${buildCount}</span><span class="l">Build &amp; Activate</span></div>
+        <div class="ns"><span class="n">${buildCount}</span><span class="l">Delivery</span></div>
       </div>
       <div class="node-preview">
         <p>${meta.preview}</p>
@@ -2762,12 +2861,12 @@ function buildMasterNodes(){
 function buildGantt(){
   const container = document.getElementById("ganttGrid");
   container.innerHTML = "";
-  const phaseKeys = ["d60","y1","y2","y3"];
-  const phaseClasses = {d60:"gp-d60", y1:"gp-y1", y2:"gp-y2", y3:"gp-y3"};
+  const phaseKeys    = ["d60","next60","y1","y2","y3"];
+  const phaseClasses = {d60:"gp-d60", next60:"gp-next60", y1:"gp-y1", y2:"gp-y2", y3:"gp-y3"};
   const lanes = [
-    {key:"strat", label:"Analysis & Strategy", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3L21 21"/><path d="M8 10.5h5M10.5 8v5"/></svg>'},
-    {key:"buildactive", label:"Build & Activate", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14.7 6.3a4 4 0 00-5.6 5.6L4 17l3 3 5.1-5.1a4 4 0 005.6-5.6l-2 2-2.4-.6-.6-2.4 2-2z"/></svg>'},
-    {key:"report", label:"Reportable", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19h16M7 19V11M12 19V6M17 19v-8"/></svg>'}
+    {key:"strat",       label:"Design",   icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3L21 21"/><path d="M8 10.5h5M10.5 8v5"/></svg>'},
+    {key:"buildactive", label:"Delivery", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14.7 6.3a4 4 0 00-5.6 5.6L4 17l3 3 5.1-5.1a4 4 0 005.6-5.6l-2 2-2.4-.6-.6-2.4 2-2z"/></svg>'},
+    {key:"report",      label:"Report",   icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19h16M7 19V11M12 19V6M17 19v-8"/></svg>'}
   ];
 
   // header row
@@ -2926,41 +3025,61 @@ document.getElementById("importFile").addEventListener("change", (e)=>{
   e.target.value = "";
 });
 
-const activePriorities = new Set(["must","nice","live"]);
-const activeTags = new Set(["routing","ai","gov","tool"]);
-const activeEfforts = new Set(["xl","l","m","s","xs"]);
+const ALL_PRIORITIES = ["must","nice","live"];
+const ALL_TAGS       = ["routing","ai","gov","tool"];
+const ALL_EFFORTS    = ["xl","l","m","s","xs"];
+const ALL_EPICS      = ["foundation","governance","integrations","resource","campaign","ai","data","training","migration"];
+
+const activePriorities = new Set(ALL_PRIORITIES);
+const activeTags       = new Set(ALL_TAGS);
+const activeEfforts    = new Set(ALL_EFFORTS);
+const activeEpicIds    = new Set(ALL_EPICS);
 
 function applyFilters(){
   let shown = 0, total = 0;
   document.querySelectorAll("#detailView .item").forEach(el=>{
     total++;
-    const effort = el.dataset.effort || "m";
-    const epicMatch = !activeEpicFilter || el.dataset.epic === activeEpicFilter;
-    const matches = activePriorities.has(el.dataset.priority) && activeTags.has(el.dataset.tag) && activeEfforts.has(effort) && epicMatch;
+    const effort   = el.dataset.effort || "m";
+    const epicName = (el.dataset.epic  || "").trim();
+    const matches  = activePriorities.has(el.dataset.priority)
+      && activeEfforts.has(effort)
+      && (activeEpicIds.size === 0 || activeEpicIds.has(epicName));
     el.classList.toggle("filtered-out", !matches);
     if(matches) shown++;
   });
   const countEl = document.getElementById("filterCount");
-  if(countEl) countEl.textContent = (shown === total) ? "" : `Showing ${shown} of ${total} cards`+(activeEpicFilter ? ` · Epic: ${EPICS.find(e=>e.id===activeEpicFilter)?.label||""}` : "");
+  if(countEl) countEl.textContent = (shown === total) ? "" : `${shown} of ${total}`;
 }
 
 document.querySelectorAll(".filter-pill[data-filter-type]").forEach(btn=>{
   btn.addEventListener("click", ()=>{
     const type = btn.dataset.filterType;
-    const val = btn.dataset.filterVal;
-    const set = type === "priority" ? activePriorities : type === "effort" ? activeEfforts : activeTags;
-    if(set.has(val)){
-      set.delete(val);
-      btn.classList.remove("active");
+    const val  = btn.dataset.filterVal;
+
+    // Get all pills in this group
+    const groupBtns = [...document.querySelectorAll(`.filter-pill[data-filter-type="${type}"]`)];
+    const allVals   = groupBtns.map(b=> b.dataset.filterVal);
+    const setMap    = {priority: activePriorities, effort: activeEfforts, epic: activeEpicIds, tag: activeTags};
+    const set       = setMap[type];
+
+    // If this pill is the only active one → reset all in group
+    const activeInGroup = groupBtns.filter(b=> b.classList.contains("active"));
+    if(activeInGroup.length === 1 && activeInGroup[0] === btn){
+      allVals.forEach(v=> set.add(v));
+      groupBtns.forEach(b=> b.classList.add("active"));
     } else {
+      // Spotlight: make only this pill active
+      allVals.forEach(v=> set.delete(v));
       set.add(val);
+      groupBtns.forEach(b=> b.classList.remove("active"));
       btn.classList.add("active");
     }
+
     applyFilters();
   });
 });
 
-const COL_LABELS = {strat:"Analysis & Strategy", buildactive:"Build & Activate", report:"Reportable"};
+const COL_LABELS = {strat:"Design", buildactive:"Delivery", report:"Report"};
 const PHASE_LABELS = {d60:"First 30 Days", next60:"Next 60 Days", y1:"Year 1", y2:"Year 2", y3:"Year 3"};
 
 function openCardModal(item, idx, colKey){
@@ -3045,8 +3164,10 @@ function openCardModal(item, idx, colKey){
           <div class="cm-field-row" id="cmPriorityRow">${pBtns}</div>
         </div>
         <div class="cm-section">
-          <span class="cm-label">Category</span>
-          <div class="cm-field-row" id="cmTagRow">${tBtns}</div>
+          <span class="cm-label">Epic</span>
+          <div class="cm-field-row">
+            <span class="effort-badge" style="background:rgba(11,27,51,0.08);color:var(--navy);font-size:11px;padding:5px 12px;">${item.epic||"—"}</span>
+          </div>
         </div>
         <div class="cm-section">
           <span class="cm-label">Effort</span>
@@ -3094,29 +3215,32 @@ function openCardModal(item, idx, colKey){
 
   // Single-select option rows
   function wireOptionRow(rowId, field){
-    document.getElementById(rowId).querySelectorAll(".cm-option-btn").forEach(btn=>{
+    const rowEl = document.getElementById(rowId);
+    if(!rowEl) return;
+    rowEl.querySelectorAll(".cm-option-btn").forEach(btn=>{
       btn.addEventListener("click", ()=>{
-        document.getElementById(rowId).querySelectorAll(".cm-option-btn").forEach(b=> b.className = "cm-option-btn");
+        rowEl.querySelectorAll(".cm-option-btn").forEach(b=> b.className = "cm-option-btn");
         btn.className = `cm-option-btn selected-${btn.dataset.val}`;
         draft[field] = btn.dataset.val;
       });
     });
   }
   wireOptionRow("cmPriorityRow", "priority");
-  wireOptionRow("cmTagRow", "tag");
   wireOptionRow("cmEffortRow", "effort");
 
   // Phase selector
-  document.getElementById("cmPhaseRow").querySelectorAll(".cm-phase-btn").forEach(btn=>{
+  const phaseRowEl = document.getElementById("cmPhaseRow");
+  if(phaseRowEl) phaseRowEl.querySelectorAll(".cm-phase-btn").forEach(btn=>{
     btn.addEventListener("click", ()=>{
-      document.getElementById("cmPhaseRow").querySelectorAll(".cm-phase-btn").forEach(b=> b.className = "cm-phase-btn");
+      phaseRowEl.querySelectorAll(".cm-phase-btn").forEach(b=> b.className = "cm-phase-btn");
       btn.className = `cm-phase-btn sel-${btn.dataset.phase}`;
       draft.phase = btn.dataset.phase;
     });
   });
 
   // Prereq checkboxes
-  document.getElementById("cmPrereqList").querySelectorAll("input[type=checkbox]").forEach(cb=>{
+  const prereqListEl = document.getElementById("cmPrereqList");
+  if(prereqListEl) prereqListEl.querySelectorAll("input[type=checkbox]").forEach(cb=>{
     cb.addEventListener("change", ()=>{
       const label = cb.closest(".cm-prereq-item");
       if(cb.checked){
@@ -3177,7 +3301,6 @@ document.getElementById("cardModalOverlay").addEventListener("click", (e)=>{
 document.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeCardModal(); });
 
 /* Search */
-let searchQuery = "";
 document.getElementById("cardSearch").addEventListener("input", (e)=>{
   searchQuery = e.target.value.trim().toLowerCase();
   applySearch();
@@ -3212,6 +3335,7 @@ document.getElementById("filterClearBtn").addEventListener("click", ()=>{
   activePriorities.clear(); ["must","nice","live"].forEach(v=>activePriorities.add(v));
   activeTags.clear(); ["routing","ai","gov","tool"].forEach(v=>activeTags.add(v));
   activeEfforts.clear(); ["xl","l","m","s","xs"].forEach(v=>activeEfforts.add(v));
+  activeEpicIds.clear(); ALL_EPICS.forEach(v=>activeEpicIds.add(v));
   activeEpicFilter = null;
   document.querySelectorAll(".filter-pill[data-filter-type]").forEach(b=>b.classList.add("active"));
   searchQuery = "";
