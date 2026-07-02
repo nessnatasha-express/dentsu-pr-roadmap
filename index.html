@@ -430,6 +430,7 @@ h1.title{
   padding:2px 8px; border-radius:20px; display:inline-flex; align-items:center; gap:4px;
 }
 .cm-epic-row{display:flex; align-items:center; gap:8px; margin-top:10px;}
+.cm-epic-active{background:var(--navy) !important; color:white !important; border-color:var(--navy) !important;}
 .item.epic-hidden{display:none;}
 .eg-bar-area{position:relative; display:grid; grid-column:span 4; grid-template-columns:repeat(4,1fr);}
 .eg-bar-cell{border-left:1px solid var(--line); position:relative;}
@@ -1807,7 +1808,8 @@ const DATA = {
         {t:"Campaign Operations Stabilization", d:"Monitor campaign execution, resolve operational issues, optimize workflows, and stabilize production after rollout.", priority:"must", tag:"routing", effort:"l", epic:"Campaign Operations"},
         {t:"Wave 2 Campaign Portfolio Migration", d:"Expand campaign portfolio migration to remaining brands, studios, markets, and agency partners.", priority:"must", tag:"routing", effort:"xl", epic:"Campaign Operations"},
         {t:"Global Campaign Operating Model", d:"Standardize campaign planning, intake, approvals, production, reporting, and governance across all participating brands and studios.", priority:"must", tag:"routing", effort:"l", epic:"Campaign Operations"},
-        {t:"Cross-Brand Campaign Optimization", d:"Optimize campaign execution through reusable templates, standardized workflows, shared assets, and cross-studio collaboration.", priority:"nice", tag:"routing", effort:"m", epic:"Campaign Operations"}
+        {t:"Cross-Brand Campaign Optimization", d:"Optimize campaign execution through reusable templates, standardized workflows, shared assets, and cross-studio collaboration.", priority:"nice", tag:"routing", effort:"m", epic:"Campaign Operations"},
+        {t:"Ongoing campaign & media management", d:"Day-to-day campaign and media operations management across brands, studios, and markets — ensuring briefs are routed, tracked, and delivered against SLAs within Workfront.", priority:"must", tag:"routing", effort:"xl", epic:"Campaign Operations"}
       ], blend: [], alt: []},
     active: {wf: [], blend: [], alt: []},
     report: {wf: [
@@ -1853,7 +1855,8 @@ const DATA = {
         {t:"AI-Assisted Campaign Planning", d:"Introduce AI-assisted campaign planning, effort estimation, prioritization, and work recommendations.", priority:"must", tag:"routing", effort:"l", epic:"Campaign Operations"},
         {t:"Intelligent Campaign Routing", d:"Automatically route campaign work to the optimal studio based on skills, capacity, geography, language, and SLAs.", priority:"must", tag:"routing", effort:"l", epic:"Campaign Operations"},
         {t:"Campaign Performance Intelligence", d:"Combine operational and marketing performance data to improve campaign planning and execution.", priority:"nice", tag:"routing", effort:"m", epic:"Campaign Operations"},
-        {t:"Cross-Brand Campaign Benchmarking", d:"Benchmark campaign efficiency, throughput, quality, and delivery across brands, studios, and markets.", priority:"nice", tag:"routing", effort:"m", epic:"Campaign Operations"}
+        {t:"Cross-Brand Campaign Benchmarking", d:"Benchmark campaign efficiency, throughput, quality, and delivery across brands, studios, and markets.", priority:"nice", tag:"routing", effort:"m", epic:"Campaign Operations"},
+        {t:"Ongoing campaign & media management", d:"Continued day-to-day campaign and media operations management with AI-assisted routing, intelligent prioritization, and performance-led resource allocation.", priority:"must", tag:"routing", effort:"xl", epic:"Campaign Operations"}
       ], blend: [], alt: []},
     active: {wf: [], blend: [], alt: []},
     report: {wf: [
@@ -1894,7 +1897,8 @@ const DATA = {
         {t:"Autonomous Campaign Intake", d:"Automatically create campaign projects from approved briefs, marketing plans, or intake requests using AI.", priority:"must", tag:"routing", effort:"l", epic:"Campaign Operations"},
         {t:"AI Campaign Orchestration", d:"Automate campaign planning, staffing, production sequencing, approvals, and delivery across brands and studios.", priority:"must", tag:"routing", effort:"xl", epic:"Campaign Operations"},
         {t:"Self-Service Campaign Launch", d:"Enable marketers to initiate standardized campaign types with minimal operational intervention.", priority:"must", tag:"routing", effort:"l", epic:"Campaign Operations"},
-        {t:"Predictive Campaign Optimization", d:"Continuously optimize campaign execution, staffing, routing, and delivery using AI and historical performance data.", priority:"must", tag:"routing", effort:"l", epic:"Campaign Operations"}
+        {t:"Predictive Campaign Optimization", d:"Continuously optimize campaign execution, staffing, routing, and delivery using AI and historical performance data.", priority:"must", tag:"routing", effort:"l", epic:"Campaign Operations"},
+        {t:"Ongoing campaign & media management", d:"Fully autonomous campaign and media operations — AI-orchestrated intake, routing, production, and delivery with minimal manual intervention across all brands, studios, and markets.", priority:"must", tag:"routing", effort:"xl", epic:"Campaign Operations"}
       ], blend: [], alt: []},
     active: {wf: [], blend: [], alt: []},
     report: {wf: [
@@ -2004,7 +2008,7 @@ Object.keys(STATE).forEach(phase=>{
   });
 });
 
-const LS_KEY = "pr_roadmap_v4_state";
+const LS_KEY = "pr_roadmap_v6_state";
 
 function saveToLocalStorage(){
   try{
@@ -3090,11 +3094,19 @@ function openCardModal(item, idx, colKey){
   const tagOpts = [{v:"routing",l:"Routing"},{v:"ai",l:"AI/Auto"},{v:"gov",l:"Gov"},{v:"tool",l:"Tool"}];
   const effortOpts = [{v:"xl",l:"XL"},{v:"l",l:"L"},{v:"m",l:"M"},{v:"s",l:"S"},{v:"xs",l:"XS"}];
   const phaseOpts = [{v:"d60",l:"First 30 Days"},{v:"next60",l:"Next 60 Days"},{v:"y1",l:"Year 1"},{v:"y2",l:"Year 2"},{v:"y3",l:"Year 3"}];
+  const epicOpts = [
+    "Program Management","Platform Foundation","Governance & Operating Model",
+    "Identity & Access","Resource Management","Work Management","Campaign Operations",
+    "Data & Integrations","Reporting & Intelligence","Enablement & Adoption",
+    "AI & Automation","Content & Assets","Financial Management","Operational Readiness"
+  ];
+  const currentEpic = item.epic || "";
 
   const pBtns = priorityOpts.map(o=>`<button class="cm-option-btn${item.priority===o.v?' selected-'+o.v:''}" data-field="priority" data-val="${o.v}">${o.l}</button>`).join("");
   const tBtns = tagOpts.map(o=>`<button class="cm-option-btn${item.tag===o.v?' selected-'+o.v:''}" data-field="tag" data-val="${o.v}">${tagIcon(o.v)}${o.l}</button>`).join("");
   const eBtns = effortOpts.map(o=>`<button class="cm-option-btn${currentEffort===o.v?' selected-'+o.v:''}" data-field="effort" data-val="${o.v}">${o.l}</button>`).join("");
   const phBtns = phaseOpts.map(o=>`<button class="cm-phase-btn${currentPhase===o.v?' sel-'+o.v:''}" data-phase="${o.v}">${o.l}</button>`).join("");
+  const epBtns = epicOpts.map(e=>`<button class="cm-option-btn cm-epic-opt${currentEpic===e?' cm-epic-active':''}" data-epic="${e}">${e}</button>`).join("");
 
   // Build prereq checklist — checked items first, then unchecked
   let prereqItems = [];
@@ -3165,9 +3177,7 @@ function openCardModal(item, idx, colKey){
         </div>
         <div class="cm-section">
           <span class="cm-label">Epic</span>
-          <div class="cm-field-row">
-            <span class="effort-badge" style="background:rgba(11,27,51,0.08);color:var(--navy);font-size:11px;padding:5px 12px;">${item.epic||"—"}</span>
-          </div>
+          <div class="cm-field-row cm-epic-row-btns" id="cmEpicRow" style="flex-wrap:wrap; gap:6px;">${epBtns}</div>
         </div>
         <div class="cm-section">
           <span class="cm-label">Effort</span>
@@ -3209,7 +3219,7 @@ function openCardModal(item, idx, colKey){
   const draft = {
     t: item.t, d: item.d,
     priority: item.priority, tag: item.tag, effort: currentEffort,
-    phase: currentPhase,
+    phase: currentPhase, epic: currentEpic,
     prereqs: [...currentPrereqs]
   };
 
@@ -3227,6 +3237,16 @@ function openCardModal(item, idx, colKey){
   }
   wireOptionRow("cmPriorityRow", "priority");
   wireOptionRow("cmEffortRow", "effort");
+
+  // Epic selector
+  const epicRowEl = document.getElementById("cmEpicRow");
+  if(epicRowEl) epicRowEl.querySelectorAll(".cm-epic-opt").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      epicRowEl.querySelectorAll(".cm-epic-opt").forEach(b=> b.classList.remove("cm-epic-active"));
+      btn.classList.add("cm-epic-active");
+      draft.epic = btn.dataset.epic;
+    });
+  });
 
   // Phase selector
   const phaseRowEl = document.getElementById("cmPhaseRow");
@@ -3265,7 +3285,7 @@ function openCardModal(item, idx, colKey){
       const [moved] = sourceArr.splice(idx, 1);
       moved.t = draft.t; moved.d = draft.d;
       moved.priority = draft.priority; moved.tag = draft.tag;
-      moved.effort = draft.effort; moved.prereqs = draft.prereqs;
+      moved.effort = draft.effort; moved.epic = draft.epic; moved.prereqs = draft.prereqs;
       if(!STATE[draft.phase][colKey]) STATE[draft.phase][colKey] = {wf:[],blend:[],alt:[]};
       STATE[draft.phase][colKey][currentOpt].push(moved);
     } else {
@@ -3274,6 +3294,7 @@ function openCardModal(item, idx, colKey){
       sourceArr[idx].priority = draft.priority;
       sourceArr[idx].tag = draft.tag;
       sourceArr[idx].effort = draft.effort;
+      sourceArr[idx].epic = draft.epic;
       sourceArr[idx].prereqs = draft.prereqs;
     }
 
