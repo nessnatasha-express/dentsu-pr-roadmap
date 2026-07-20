@@ -1295,7 +1295,7 @@ input.file-hidden{display:none;}
         <th class="tc-tool">Airtable</th>
         <th class="tc-tool">Smartsheet</th>
         <th class="tc-tool">Aprimo</th>
-        <th class="tc-tool">Encodify</th>
+        <th class="tc-tool">Encodify<br><span style="font-size:9px;font-weight:400;opacity:0.75;">(DentsuStudio)</span></th>
         <th class="tc-tool">Bynder</th>
       </tr>
 
@@ -1321,24 +1321,24 @@ input.file-hidden{display:none;}
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Search exists via AEM Assets; enforcement must be configured</span></td>
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Probable] No native DAM or reuse enforcement; relies on third-party integration</span></td>
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Probable] No native DAM or reuse enforcement; relies on third-party integration</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Probable] No native DAM or dedupe logic</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Asset reuse and deduplication configurable via custom fields, automations, and ClickUp integrations with DAM tools; not enforced natively</span></td>
       
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No mandatory reuse enforcement; asset management is add-on via integrations</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Limited native deduplication; reuse enforcement via custom workflows</span></td>
       
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Content operations module tracks reuse and deduplication across campaigns</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Template reuse enforced; asset deduplication limited to brand portal</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] Native duplicate detection and mandatory asset reuse — core DAM capability</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Questionable—revised] Bynder supports DAM search, duplicate management, and asset reuse, but mandatory reuse/enforcement depends on configured workflows and governance.</span></td>
       </tr>
 
       <tr>
         <td class="tc-req" title="Governance and synergies: global standardization with GENIE/AI brief-builder integration Appendix 1" style="min-width:180px;max-width:220px;padding:8px 10px;font-size:11.5px;color:var(--navy);"><span style="font-size:10px;font-weight:800;color:var(--tan);margin-right:5px;">3.</span>Governance and synergies: global standardization with GENIE/AI brief-builder integration Appendix 1</td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Native GENIE precedent named in submitted material</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No documented native smart brief or confirmed GENIE-equivalent 3rd party integration path</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">With Workfront Fusion if you want to intergrate with GENIE, we can do that</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">Limited integration capabilities, would need to investigate</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Custom 3rd-party API integration possible; no native smart brief capability</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] ClickUp AI Brain provides native brief-building; custom GENIE integration via API feasible</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Questionable—revised] ClickUp AI can help draft and summarize briefs, but a governed global AI brief-builder and GENIE integration require configuration and API/integration work.</span></td>
       
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Airtable Automations + Interface Designer support native brief workflows; API integration with GENIE feasible</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Questionable—revised] Airtable can support configurable brief workflows and AI-assisted fields, but enterprise governance and GENIE integration require custom design and integration.</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Custom 3rd-party API integration possible; no native smart brief or AI brief builder</span></td>
       
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] API integration with GENIE feasible; Aprimo Workflow supports AI-enhanced brief templates</span></td>
@@ -1348,17 +1348,17 @@ input.file-hidden{display:none;}
 
       <tr>
         <td class="tc-req" title="Data ownership, portability, and progressive decoupling: PR retains full control, reversible and accessible to outside parties Appendix 1" style="min-width:180px;max-width:220px;padding:8px 10px;font-size:11.5px;color:var(--navy);"><span style="font-size:10px;font-weight:800;color:var(--tan);margin-right:5px;">4.</span>Data ownership, portability, and progressive decoupling: PR retains full control, reversible and accessible to outside parties Appendix 1</td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Reversibility scope defined (JSON/CSV/XML export); phased decoupling roadmap proposed</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Standard data export; no published decoupling/reversibility framework</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Standard data export; no published decoupling/reversibility framework</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Standard data export; no enterprise decoupling framework</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Reversibility scope defined (JSON/CSV/XML export); see Five Must-Have Pillars above</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Standard data export; no published reversibility framework</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Standard data export; no published reversibility framework</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] ClickUp supports full data export via API and CSV; enterprise contracts include data ownership and portability terms</span></td>
       
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Data exportable via API; ownership posture less formal vs enterprise contracts</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Data portability available; enterprise contracts support ownership terms</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Full data export via API; Airtable bases are user-owned</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Full data ownership and export; enterprise contracts include portability terms</span></td>
       
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Enterprise contracts include full data ownership and portability terms</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Data exportable; enterprise contract maturity less established than major platforms</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] Enterprise DAM contracts include full data ownership; Bynder data fully exportable</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Full data ownership and export under enterprise contract terms</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Data exportable; enterprise contract portability terms less established</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Full data ownership and export; Bynder enterprise contracts include portability</span></td>
       </tr>
 
       <tr>
@@ -1366,7 +1366,7 @@ input.file-hidden{display:none;}
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Role/permission model supports multi-partner access named in Appendix 4.2</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Workspace and permission hierarchy supports partner-level isolation without data crossover</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Workspace permissions and account-level isolation support multi-partner access control</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Space/folder permissioning exists; no documented multi-agency tenancy model</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] ClickUp workspace and permission hierarchy isolates partner workspaces without data crossover; secondary partners can operate independently</span></td>
       
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Base-level permissions and workspace isolation support multi-partner tenant separation</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Account-level workspace isolation and permission management support multi-partner operations</span></td>
@@ -1398,7 +1398,7 @@ input.file-hidden{display:none;}
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Rules-based routing strong; advanced forecasting needs BI add-ons</span></td>
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">Basic automation rules; no forecasting layer</span></td>
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">Basic automation rules; no forecasting layer</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">Automations exist; no capacity forecasting</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] ClickUp Brain supports AI-assisted work prioritisation, demand planning views, and workload forecasting across teams</span></td>
       
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No AI-driven capacity forecasting; no demand planning module</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Resource management available; AI forecasting not native</span></td>
@@ -1413,10 +1413,10 @@ input.file-hidden{display:none;}
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Workfront Resource Planner; native timesheets</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Workload views and time tracking; cost-rate modeling is shallower</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Workload views and time tracking; cost-rate modeling is shallower</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Workload views and time tracking present; less mature cost-rate modeling</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] ClickUp Workload View provides centralised resource allocation with availability, capacity, and time-tracking across studios and freelancers</span></td>
       
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Probable] No structured resource allocation or skills/availability engine</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Verified] Native resource management with workload views and capacity planning</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Native resource management with workload views and capacity planning</span></td>
       
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Native resource management module with skills, availability, and workload planning</span></td>
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No documented resource management or workload allocation capability</span></td>
@@ -1428,7 +1428,7 @@ input.file-hidden{display:none;}
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Native to Workfront's core project/program model</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Mature project + workload views with role-based dashboards</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Mature end-to-end project lifecycle; strong role-based dashboards and workload views at scale</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Lists/boards/dashboards cover visibility; production-lifecycle depth is shallower</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] ClickUp covers full project lifecycle from brief intake to delivery with role-based dashboards, Gantt, calendar, and real-time status views</span></td>
       
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Views and dashboards cover visibility; no production-lifecycle depth</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Strong project lifecycle management with real-time dashboards and role-based views</span></td>
@@ -1443,14 +1443,14 @@ input.file-hidden{display:none;}
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Native proofing/approval workflow; MAM via AEM Assets or the Bynder connector</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Native proofing and approval flows; no built-in MAM, relies on integration</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Approval workflows via automations/forms; no native proofing tool or MAM</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Approval statuses and comments native; no dedicated proofing tool or MAM</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] ClickUp supports review and approval workflows; MAM integration available via Bynder, Frame.io, and other connectors</span></td>
       
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Probable] Basic commenting and status; no proofing tool or MAM integration</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Approval workflows configurable; no native proofing or MAM layer</span></td>
       
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Native review and approval workflows; built-in asset management layer</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Brand asset approval workflows; limited proofing depth</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] Native review, approval, and DAM — core Bynder capability</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Native review, approval, and DAM — core Bynder capability</span></td>
       </tr>
 
       <tr>
@@ -1458,10 +1458,10 @@ input.file-hidden{display:none;}
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Native dashboard builder with cross-project rollups</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Native analytics module with custom widgets</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Native analytics module with custom widgets, cross-board rollups, and chart types at enterprise scale</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Native dashboards; less depth at large cross-portfolio scale</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] ClickUp native dashboards with widgets, cross-workspace reporting, and analytics at module and portfolio level</span></td>
       
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Native dashboards and charts; less depth at cross-portfolio scale</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] Native reporting and dashboards with cross-portfolio rollups; custom widgets</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Native reporting and dashboards with cross-portfolio rollups; custom widgets</span></td>
       
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Native analytics dashboards with campaign and operational reporting depth</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Basic usage and brand analytics; limited cross-portfolio reporting</span></td>
@@ -1470,32 +1470,32 @@ input.file-hidden{display:none;}
 
       <tr>
         <td class="tc-req" title="AI + GENIE integration &amp; scaling Appendix 1;  for others" style="min-width:180px;max-width:220px;padding:8px 10px;font-size:11.5px;color:var(--navy);"><span style="font-size:10px;font-weight:800;color:var(--tan);margin-right:5px;">12.</span>AI + GENIE integration &amp; scaling Appendix 1;  for others</td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Native GENIE precedent named in submitted material; day-1 commitment</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No GENIE precedent; would be a custom build with no existing roadmap commitment</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No GENIE precedent; would be a custom build with no existing roadmap commitment</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No GENIE precedent; would be a custom build with no existing roadmap commitment</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">With Workfront Fusion if you want to intergrate with GENIE, we can do that</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">Limited integration capabilities, would need to investigate</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Custom 3rd-party API integration possible; no native smart brief capability</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] ClickUp AI Brain provides native brief-building; custom GENIE integration via API feasible</span></td>
       
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No GENIE precedent; would be a custom build with no existing roadmap commitment</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No GENIE precedent; would be a custom build with no existing roadmap commitment</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Airtable Automations + Interface Designer support native brief workflows; API integration with GENIE feasible</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Custom 3rd-party API integration possible; no native smart brief or AI brief builder</span></td>
       
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No documented GENIE integration; would require custom API build</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No documented GENIE integration; would require custom API build</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No documented GENIE integration; DAM integration with brief tools not established</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] API integration with GENIE feasible; Aprimo Workflow supports AI-enhanced brief templates</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Custom 3rd-party API integration possible; brand brief templates native to platform</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">DAM-only; no brief-builder or GENIE integration pathway documented</span></td>
       </tr>
 
       <tr>
         <td class="tc-req" title="Omnichannel asset delivery (nice to have) Appendix 4.2 client addendum" style="min-width:180px;max-width:220px;padding:8px 10px;font-size:11.5px;color:var(--navy);"><span style="font-size:10px;font-weight:800;color:var(--tan);margin-right:5px;">13.</span>Omnichannel asset delivery (nice to have) Appendix 4.2 client addendum</td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Possible via Bynder/AEM delivery APIs; not native to Workfront itself</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Probable] No native multi-channel delivery/transcode layer</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Probable] No native multi-channel delivery/transcode layer</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Probable] No native multi-channel delivery/transcode layer</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Meets requirement to do omni-channel campaign management.</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Meets requirement to do omni-channel campaign management.</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Meets requirement to do omni-channel campaign management.</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Meets requirement to do omni-channel campaign management.</span></td>
       
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Probable] No native multi-channel delivery or transcode layer</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Probable] No native multi-channel delivery or transcode layer</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Meets requirement to do omni-channel campaign management.</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Meets requirement to do omni-channel campaign management.</span></td>
       
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Content distribution and publishing capabilities; no native transcode layer</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Brand portal delivery; limited transcode or multi-channel automation</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] CDN delivery, image transformations, multi-format rendition — core Bynder capability</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Meets requirement to do omni-channel campaign management.</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Meets requirement to do omni-channel campaign management.</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Meets requirement to do omni-channel campaign management.</span></td>
       </tr>
 
       <tr class="tc-section"><td colspan="10">Forward Integration Roadmap</td></tr>
@@ -1503,54 +1503,54 @@ input.file-hidden{display:none;}
       <tr>
         <td class="tc-req" title="BI / reporting connector (Power BI, data lake feeds) PR tech supporting slides" style="min-width:180px;max-width:220px;padding:8px 10px;font-size:11.5px;color:var(--navy);"><span style="font-size:10px;font-weight:800;color:var(--tan);margin-right:5px;">14.</span>BI / reporting connector (Power BI, data lake feeds) PR tech supporting slides</td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Named explicitly in the High tier: Power BI / Data Lake feeds, Fusion iPaaS</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Power BI connector and open API/data export exist; no purpose-built data-lake feed</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Power BI connector and open API/data export exist; no purpose-built data-lake feed</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Power BI connector available; reporting depth lighter than Workfront/Wrike at scale</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] API/webhooks can feed BI tools; no native Power BI connector, would need a sync layer</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] ClickUp integrates with Power BI, Tableau, and data lake tools via native connectors and open API</span></td>
       
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] API available; Power BI connector requires custom build</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] Native Power BI connector and data export; strong reporting integrations</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Native Power BI connector and data export; strong reporting integrations</span></td>
       
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Enterprise BI connectors available; Aprimo integrates with major BI tools</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] API available; no documented native Power BI connector</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] API available; no documented native Power BI connector</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] REST API available for BI integration; no native Power BI connector documented</span></td>
       </tr>
 
       <tr>
         <td class="tc-req" style="min-width:180px;max-width:220px;padding:8px 10px;font-size:11.5px;color:var(--navy);"><span style="font-size:10px;font-weight:800;color:var(--tan);margin-right:5px;">15.</span>Bynder / BrandCloud DAM integration (bi-directional, + ContentCloud USA-Bynder)</td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Bynder bi-directional REST API integration included in baseline scope via Workfront Fusion</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Probable] No published Bynder connector; would require custom API build</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Probable] No published Bynder connector; would require custom API build</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Probable] No published Bynder connector; would require custom API build</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Bynder integration available via Zapier, Make, and direct API; bi-directional asset linking configurable</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Monday + Bynder integration available via Zapier, Make, and direct API; bi-directional asset linking configurable</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">ClickUp + Bynder integration available via Zapier, Make, and direct API; bi-directional asset linking configurable</span></td>
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No documented Bynder connector; would require custom API build</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] No native Bynder connector; integration possible via API or middleware</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Aprimo and Bynder integration documented via API; joint customers exist</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] API integration possible; no documented native Bynder connector</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] This IS Bynder — native DAM, full ContentCloud API and webhook support</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] API integration possible; no documented native Bynder connector</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">This IS Bynder — native DAM, full ContentCloud API and webhook support</span></td>
       </tr>
 
       <tr>
         <td class="tc-req" style="min-width:180px;max-width:220px;padding:8px 10px;font-size:11.5px;color:var(--navy);"><span style="font-size:10px;font-weight:800;color:var(--tan);margin-right:5px;">16.</span>Figma connector</td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Workfront + Figma integration available via Workfront Fusion and Adobe Creative Cloud connector</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed, documented Figma connector</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed, documented Figma connector</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed, documented Figma connector</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">ClickUp has a native Figma integration — embed Figma designs directly into tasks and track design status</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Monday has a native Figma integration</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">ClickUp has a native Figma integration</span></td>
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No documented Figma connector</span></td>
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No documented Figma connector</span></td>
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No documented Figma connector for Aprimo</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] Brand asset delivery to Figma may be possible; no documented connector</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] Bynder Figma Plugin available — verified on Bynder marketplace</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] Brand asset delivery to Figma may be possible; no documented connector</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Bynder Figma Plugin available — verified on Bynder marketplace</span></td>
       </tr>
 
       <tr>
         <td class="tc-req" style="min-width:180px;max-width:220px;padding:8px 10px;font-size:11.5px;color:var(--navy);"><span style="font-size:10px;font-weight:800;color:var(--tan);margin-right:5px;">17.</span>Google or Microsoft brief generator hookup</td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Open API and Fusion iPaaS support custom Google Workspace / Microsoft 365 brief integrations</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Open API supports a custom build; not pre-built</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Integrates with Google Workspace and Microsoft 365 via native connectors; brief generation hookup configurable via API</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Open API and marketplace apps support a custom build; not pre-built</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Open API supports a custom build; not pre-built</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] API-based integration possible; no documented Google or Microsoft Brief hookup</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] API-based integration possible; no documented Google or Microsoft Brief hookup</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] ClickUp integrates with Google Workspace and Microsoft 365 via native connectors; brief generation hookup configurable via API</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] API-based integration possible; no documented Google or Microsoft Brief hookup</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Open API and marketplace apps support a custom build; not pre-built</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] API integration with Google/Microsoft brief tools feasible; not pre-built</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] API integration possible; no documented hookup</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] API integration possible; no documented hookup</span></td>
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">DAM-only; no brief generator integration pathway</span></td>
       </tr>
 
@@ -1558,25 +1558,25 @@ input.file-hidden{display:none;}
         <td class="tc-req" style="min-width:180px;max-width:220px;padding:8px 10px;font-size:11.5px;color:var(--navy);"><span style="font-size:10px;font-weight:800;color:var(--tan);margin-right:5px;">18.</span>Integration to WIP media asset management (MAM) solutions such as Frame.io</td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Frame.io is an Adobe product — native integration with Workfront via Adobe Creative Cloud and Fusion</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Frame.io integration possible via API; not a native connector</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Frame.io integration via API possible; not a native connector</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Frame.io integration via API possible; not a native connector</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] MAM/Frame.io integration not documented for Airtable</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] MAM/Frame.io integration not documented for Smartsheet</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Probable] Not verified</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] ClickUp integrates with Frame.io and other MAM tools via API and Zapier for WIP asset review and approval workflows</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] MAM/Frame.io integration not documented for Airtable</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Open API and marketplace apps support a custom build; not pre-built</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Aprimo has DAM/MAM capabilities; Frame.io integration via API feasible</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] Frame.io or MAM integration not documented for Encodify</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] Frame.io or MAM integration not documented for Encodify</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Bynder integrates with Frame.io for review and approval workflows</span></td>
       </tr>
 
       <tr>
         <td class="tc-req" style="min-width:180px;max-width:220px;padding:8px 10px;font-size:11.5px;color:var(--navy);"><span style="font-size:10px;font-weight:800;color:var(--tan);margin-right:5px;">19.</span>Real-time updates via communication tools (MS Teams, Slack)</td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Native MS Teams and Slack integrations available via Workfront and Workfront Fusion</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] Native Slack and MS Teams integrations available in Wrike</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] Native Slack and MS Teams integrations available in monday.com</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] Native Slack and MS Teams integrations available in ClickUp</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] Native Slack and MS Teams integrations available in Airtable</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] Native Slack and MS Teams integrations available in Smartsheet</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Native Slack and MS Teams integrations available in Wrike</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Native Slack and MS Teams integrations available in monday.com</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Native Slack and MS Teams integrations available in ClickUp</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Native Slack and MS Teams integrations available in Airtable</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Native Slack and MS Teams integrations available in Smartsheet</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Aprimo supports MS Teams and Slack integrations via API/Fusion</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] Slack/Teams integration not confirmed for Encodify</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] Slack/Teams integration not confirmed for Encodify</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Bynder supports Slack notifications; Teams integration via API</span></td>
       </tr>
 
@@ -1584,12 +1584,12 @@ input.file-hidden{display:none;}
         <td class="tc-req" style="min-width:180px;max-width:220px;padding:8px 10px;font-size:11.5px;color:var(--navy);"><span style="font-size:10px;font-weight:800;color:var(--tan);margin-right:5px;">20.</span>AI connector integrations (OpenAI, Claude, Gemini) for creation, updates, and data review</td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Workfront Fusion supports OpenAI, Claude, and Gemini API connectors; Workfront AI Assistant built on Adobe Firefly and GenAI</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Wrike AI features built-in; OpenAI/Claude/Gemini via custom API integration</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] monday AI Work Platform includes OpenAI integration; Claude/Gemini via API</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] ClickUp Brain integrates with OpenAI; Claude/Gemini connections via API</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] Airtable AI supports OpenAI and other LLMs via Automations and API</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">monday AI Work Platform includes OpenAI integration; Claude/Gemini via API</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">ClickUp Brain integrates with OpenAI; Claude/Gemini connections via API</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Airtable AI supports OpenAI and other LLMs via Automations and API</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Smartsheet Bridge supports API-based AI integrations; native LLM connectors limited</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Aprimo AI roadmap; OpenAI/Claude/Gemini via custom API integration</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] AI connector integrations not documented for Encodify</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] AI connector integrations not documented for Encodify</span></td>
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">DAM-only; no AI connector or LLM integration layer documented</span></td>
       </tr>
 
@@ -1597,61 +1597,61 @@ input.file-hidden{display:none;}
 
       <tr>
         <td class="tc-req" title="Brief intelligence — brief enriched with audience/media/cultural data before going to creative Client addendum, item 11" style="min-width:180px;max-width:220px;padding:8px 10px;font-size:11.5px;color:var(--navy);"><span style="font-size:10px;font-weight:800;color:var(--tan);margin-right:5px;">18.</span>Brief intelligence — brief enriched with audience/media/cultural data before going to creative Client addendum, item 11</td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Possible via GENIE + Fusion enrichment before intake; not native to Workfront alone</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native enrichment layer; would require a custom pre-intake integration</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native enrichment layer; would require a custom pre-intake integration</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native enrichment layer; would require a custom pre-intake integration</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Not natively but possble with integration of dentsu.connect, and a 3rd-party BI tool</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native social-listening integration</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Not natively but possble with integration of dentsu.connect, and a 3rd-party BI tool</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Not natively but possble with integration of dentsu.connect, and a 3rd-party BI tool</span></td>
       
-        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No documented brief enrichment capability</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No documented brief enrichment capability</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No documented cultural/social listening integration</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No documented cultural/social listening integration</span></td>
       
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] No documented brief enrichment with audience/media data</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] No documented brief enrichment capability</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">DAM-only; no brief intelligence or enrichment capability</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No documented cultural or social listening integration</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No documented cultural or social listening integration</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">DAM-only; no social or cultural listening layer</span></td>
       </tr>
 
       <tr>
         <td class="tc-req" title="Pre-flight creative quality scoring No documented capability on any platform" style="min-width:180px;max-width:220px;padding:8px 10px;font-size:11.5px;color:var(--navy);"><span style="font-size:10px;font-weight:800;color:var(--tan);margin-right:5px;">19.</span>Pre-flight creative quality scoring No documented capability on any platform</td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Not natively, but possible with integration of GENIE, dentsu.connect, and a 3rd-party BI tool</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Not natively but possble with integration of dentsu.connect, and a 3rd-party BI tool</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Not natively but possble with integration of dentsu.connect, and a 3rd-party BI tool</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Not natively but possble with integration of dentsu.connect, and a 3rd-party BI tool</span></td>
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native quality-scoring engine</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native quality-scoring engine</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native quality-scoring engine</span></td>
+      
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Not natively but possble with integration of dentsu.connect, and a 3rd-party BI tool</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No documented pre-flight creative quality scoring</span></td>
       
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No documented pre-flight creative quality scoring</span></td>
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No documented pre-flight creative quality scoring</span></td>
-      
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] No documented pre-flight creative quality scoring</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] No documented pre-flight creative quality scoring</span></td>
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">DAM provides asset metadata; no pre-flight creative quality scoring</span></td>
       </tr>
 
       <tr>
         <td class="tc-req" title="Asset performance learning loop — live performance informing next brief No documented capability on any platform" style="min-width:180px;max-width:220px;padding:8px 10px;font-size:11.5px;color:var(--navy);"><span style="font-size:10px;font-weight:800;color:var(--tan);margin-right:5px;">20.</span>Asset performance learning loop — live performance informing next brief No documented capability on any platform</td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Not natively, but possible with integration of GENIE, dentsu.connect, and a 3rd-party BI tool</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Not natively but possble with integration of dentsu.connect, and a 3rd-party BI tool</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Not natively but possble with integration of dentsu.connect, and a 3rd-party BI tool</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Not natively but possble with integration of dentsu.connect, and a 3rd-party BI tool</span></td>
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native learning-loop capability</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native learning-loop capability</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native learning-loop capability</span></td>
+      
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No documented performance learning loop capability</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No documented performance learning loop capability</span></td>
       
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No documented performance learning loop capability</span></td>
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No documented performance learning loop capability</span></td>
-      
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] No documented performance learning loop capability</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] No documented performance learning loop capability</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] Asset analytics available; performance learning loop into briefs not documented</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] Asset analytics available; performance learning loop into briefs not documented</span></td>
       </tr>
 
       <tr>
         <td class="tc-req" title="Creative effectiveness benchmarking vs market, AI-powered No documented capability on any platform" style="min-width:180px;max-width:220px;padding:8px 10px;font-size:11.5px;color:var(--navy);"><span style="font-size:10px;font-weight:800;color:var(--tan);margin-right:5px;">21.</span>Creative effectiveness benchmarking vs market, AI-powered No documented capability on any platform</td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">Not a Workfront capability; would sit with a media partner or GENIE</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native benchmarking capability</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native benchmarking capability</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Not natively but possble with integration of dentsu.connect, and a 3rd-party BI tool</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Not natively but possble with integration of dentsu.connect, and a 3rd-party BI tool</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Not natively but possble with integration of dentsu.connect, and a 3rd-party BI tool</span></td>
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No native benchmarking capability</span></td>
       
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No documented AI creative effectiveness benchmarking</span></td>
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No documented AI creative effectiveness benchmarking</span></td>
       
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] No documented AI creative effectiveness benchmarking</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] No documented AI creative effectiveness benchmarking</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No documented AI creative effectiveness benchmarking</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No documented AI creative effectiveness benchmarking</span></td>
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">DAM usage analytics only; no creative effectiveness benchmarking</span></td>
       </tr>
 
@@ -1680,8 +1680,8 @@ input.file-hidden{display:none;}
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No documented media performance bridge</span></td>
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No documented media performance bridge</span></td>
       
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] No documented media performance bridge to marketing operations platform</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] No documented media performance bridge</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No documented media performance bridge to marketing operations platform</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No documented media performance bridge</span></td>
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">DAM-only; no media performance bridge capability</span></td>
       </tr>
 
@@ -1689,7 +1689,7 @@ input.file-hidden{display:none;}
         <td class="tc-req" title="Reporting &amp; dashboards — Mix-level KPI visibility (delivery, cost, AI usage, reuse) Client addendum" style="min-width:180px;max-width:220px;padding:8px 10px;font-size:11.5px;color:var(--navy);"><span style="font-size:10px;font-weight:800;color:var(--tan);margin-right:5px;">24.</span>Reporting &amp; dashboards — Mix-level KPI visibility (delivery, cost, AI usage, reuse) Client addendum</td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Covered by the dashboards/reporting module row above; AI-usage and reuse metrics need GENIE feed</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] monday.com dashboards configurable for KPI visibility; AI summaries in Work OS</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Delivery/cost reportable natively; AI-usage and reuse metrics need an external feed</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Delivery/cost reportable natively; AI-usage and reuse metrics need an external feed</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Delivery/cost reportable natively; AI-usage and reuse metrics need an external feed</span></td>
       
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Basic dashboards available; Mix-level KPI rollups require configuration</span></td>
@@ -1705,7 +1705,7 @@ input.file-hidden{display:none;}
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Native cost/budget tracking tied to resource module</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Native budget and cost-rate tracking</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Budget columns/automations cover basics; less mature cost intelligence</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Budget fields/automations cover basics; less mature cost intelligence</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] ClickUp native budget tracking, time tracking, and cost fields provide project and spend visibility across studios</span></td>
       
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Budget fields available; spend intelligence requires custom build</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Native budget tracking and cost management; strong project spend visibility</span></td>
@@ -1718,7 +1718,7 @@ input.file-hidden{display:none;}
       <tr>
         <td class="tc-req" title="Data ownership &amp; exportability — PR owns and can export all data anytime Client addendum, restates Pillar D above" style="min-width:180px;max-width:220px;padding:8px 10px;font-size:11.5px;color:var(--navy);"><span style="font-size:10px;font-weight:800;color:var(--tan);margin-right:5px;">26.</span>Data ownership &amp; exportability — PR owns and can export all data anytime Client addendum, restates Pillar D above</td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Reversibility scope defined (JSON/CSV/XML export); see Five Must-Have Pillars above</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Standard data export; no published reversibility framework</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] ClickUp supports full data export via API and CSV; enterprise contracts include data ownership and portability terms</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Standard data export; no published reversibility framework</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Standard data export; no published reversibility framework</span></td>
       
@@ -1743,12 +1743,12 @@ input.file-hidden{display:none;}
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Certified</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Certified</span></td>
       
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] ISO 27001 certified — Airtable Trust Center, June 2026</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] ISO 27001 certified — Smartsheet Trust Center, June 2026</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">ISO 27001 certified — Airtable Trust Center, June 2026</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">ISO 27001 certified — Smartsheet Trust Center, June 2026</span></td>
       
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] ISO 27001 certified — Aprimo Trust documentation, June 2026</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] ISO 27001 certification not confirmed on Encodify published documentation</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] ISO 27001 certified — Bynder Trust Center, June 2026</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] ISO 27001 certification not confirmed on Encodify published documentation</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">ISO 27001 certified — Bynder Trust Center, June 2026</span></td>
       </tr>
 
       <tr>
@@ -1761,9 +1761,9 @@ input.file-hidden{display:none;}
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] ISO 27017 not listed on Airtable's published certifications</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] ISO 27017 not confirmed; Smartsheet has broad cloud security certs</span></td>
       
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] ISO 27017 not confirmed on Aprimo published certifications</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] ISO 27017 not confirmed on Encodify published certifications</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] ISO 27017 not confirmed on Bynder published certifications</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] ISO 27017 not confirmed on Aprimo published certifications</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] ISO 27017 not confirmed on Encodify published certifications</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] ISO 27017 not confirmed on Bynder published certifications</span></td>
       </tr>
 
       <tr>
@@ -1776,9 +1776,9 @@ input.file-hidden{display:none;}
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] ISO 27018 not listed on Airtable's published certifications</span></td>
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] ISO 27018 not confirmed on Smartsheet's published certifications</span></td>
       
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] ISO 27018 not confirmed on Aprimo published certifications</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] ISO 27018 not confirmed on Encodify published certifications</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] ISO 27018 not confirmed on Bynder published certifications</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] ISO 27018 not confirmed on Aprimo published certifications</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] ISO 27018 not confirmed on Encodify published certifications</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] ISO 27018 not confirmed on Bynder published certifications</span></td>
       </tr>
 
       <tr>
@@ -1788,12 +1788,12 @@ input.file-hidden{display:none;}
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Certified</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Certified</span></td>
       
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] SOC 2 Type II certified — Airtable Trust Center, June 2026</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] SOC 2 Type II certified — Smartsheet Trust Center, June 2026</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">SOC 2 Type II certified — Airtable Trust Center, June 2026</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">SOC 2 Type II certified — Smartsheet Trust Center, June 2026</span></td>
       
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] SOC 2 Type II certified — Aprimo Trust documentation, June 2026</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] SOC 2 Type II not confirmed on Encodify published certifications</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] SOC 2 Type II certified — Bynder Trust Center, June 2026</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] SOC 2 Type II not confirmed on Encodify published certifications</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">SOC 2 Type II certified — Bynder Trust Center, June 2026</span></td>
       </tr>
 
       <tr>
@@ -1806,24 +1806,24 @@ input.file-hidden{display:none;}
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No ISO 9001 listed on Airtable's published certification set</span></td>
         <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No ISO 9001 listed on Smartsheet's published certification set</span></td>
       
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] ISO 9001 not listed on Aprimo published certification set</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] ISO 9001 not listed on Encodify published certification set</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] ISO 9001 not listed on Aprimo published certification set</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] ISO 9001 not listed on Encodify published certification set</span></td>
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] ISO 9001 not listed on Bynder published certification set</span></td>
       </tr>
 
       <tr>
         <td class="tc-req" title="EU GDPR DPA (signed) Vendor trust centers, June 2026" style="min-width:180px;max-width:220px;padding:8px 10px;font-size:11.5px;color:var(--navy);"><span style="font-size:10px;font-weight:800;color:var(--tan);margin-right:5px;">34.</span>EU GDPR DPA (signed) Vendor trust centers, June 2026</td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">DPA available; GDPR-ready</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Vendor confirmation required—revised] Cyber Essentials Plus was not confirmed as a Workfront-specific certification in the reviewed public Adobe compliance materials.</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">DPA available on request; GDPR compliant</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">DPA available; GDPR compliant</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">DPA available; GDPR compliant</span></td>
       
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] GDPR DPA available — Airtable Trust Center, June 2026</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] GDPR DPA available — Smartsheet Trust Center, June 2026</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">GDPR DPA available — Airtable Trust Center, June 2026</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">GDPR DPA available — Smartsheet Trust Center, June 2026</span></td>
       
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] GDPR DPA available — Aprimo privacy documentation, June 2026</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] GDPR DPA not confirmed on Encodify published documentation</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] GDPR DPA available — Bynder Trust Center, June 2026</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] GDPR DPA not confirmed on Encodify published documentation</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">GDPR DPA available — Bynder Trust Center, June 2026</span></td>
       </tr>
 
       <tr>
@@ -1836,9 +1836,9 @@ input.file-hidden{display:none;}
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] Cyber Essentials Plus not found on Airtable's published certifications</span></td>
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] Cyber Essentials Plus not found on Smartsheet's published certifications</span></td>
       
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] Cyber Essentials Plus not found on Aprimo published certifications</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] Cyber Essentials Plus not found on Encodify published certifications</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] Cyber Essentials Plus not found on Bynder published certifications</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] Cyber Essentials Plus not found on Aprimo published certifications</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] Cyber Essentials Plus not found on Encodify published certifications</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] Cyber Essentials Plus not found on Bynder published certifications</span></td>
       </tr>
 
       <tr>
@@ -1851,9 +1851,9 @@ input.file-hidden{display:none;}
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] Open-ended; requires direct vendor response per market</span></td>
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] Open-ended; requires direct vendor response per market</span></td>
       
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] Open-ended; requires direct vendor response per market</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] Open-ended; requires direct vendor response per market</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] Open-ended; requires direct vendor response per market</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] Open-ended; requires direct vendor response per market</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] Open-ended; requires direct vendor response per market</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Incorrect evidence—revised] Amsterdam headquarters does not establish EU data residency. Confirm the contracted hosting region, subprocessors, backups, and disaster-recovery locations.</span></td>
       </tr>
 
       <tr class="tc-section"><td colspan="10">Data Residency by Region</td></tr>
@@ -1866,11 +1866,11 @@ input.file-hidden{display:none;}
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">EU Data Region available on Enterprise</span></td>
       
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] EU data residency available on enterprise plan; confirm for all EU subs</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] EU data residency available — Smartsheet documentation, June 2026</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">EU data residency available — Smartsheet documentation, June 2026</span></td>
       
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] EU data residency available on enterprise plan — Aprimo documentation</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] EU data residency not confirmed on Encodify published documentation</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] EU data residency confirmed — Bynder is headquartered in Amsterdam</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Incorrect evidence—revised] US headquarters does not establish North American data residency. Confirm the contracted hosting region, backups, and disaster-recovery locations.</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] EU data residency not confirmed on Encodify published documentation</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">EU data residency confirmed — Bynder is headquartered in Amsterdam</span></td>
       </tr>
 
       <tr>
@@ -1880,11 +1880,11 @@ input.file-hidden{display:none;}
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">US Data Region on AWS</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">US Data Region available</span></td>
       
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] NOAM data residency confirmed — Airtable documentation, June 2026</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] NOAM data residency confirmed — Smartsheet documentation, June 2026</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">NOAM data residency confirmed — Airtable documentation, June 2026</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">NOAM data residency confirmed — Smartsheet documentation, June 2026</span></td>
       
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] NOAM data residency confirmed — Aprimo is US-headquartered</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] NOAM data residency not confirmed on Encodify published documentation</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">NOAM data residency confirmed — Aprimo is US-headquartered</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] NOAM data residency not confirmed on Encodify published documentation</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] NOAM data residency available — Bynder US infrastructure confirmed</span></td>
       </tr>
 
@@ -1898,24 +1898,24 @@ input.file-hidden{display:none;}
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No dedicated LATAM data center confirmed</span></td>
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No dedicated LATAM data center confirmed</span></td>
       
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] No dedicated LATAM data center confirmed for Aprimo</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] No dedicated LATAM data center confirmed for Encodify</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No dedicated LATAM data center confirmed for Aprimo</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No dedicated LATAM data center confirmed for Encodify</span></td>
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No dedicated LATAM data center confirmed for Bynder</span></td>
       </tr>
 
       <tr>
         <td class="tc-req" style="min-width:180px;max-width:220px;padding:8px 10px;font-size:11.5px;color:var(--navy);"><span style="font-size:10px;font-weight:800;color:var(--tan);margin-right:5px;">40.</span>AME (UAE, South Africa)</td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">No dedicated AME data center; served from EU West (Ireland/Netherlands). Suitable for South Africa; UAE data-localisation laws may require verification.</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed AME-resident hosting</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed AME-resident hosting</span></td>
-        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed AME-resident hosting</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">No dedicated India data center; served from EU West or APAC (AWS Sydney). PDPB compliance may require data-localisation review for Indian entities.</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed India-resident hosting</span></td>
+        <td class="tc-tool"><span class="tc-badge gap">&#10007;</span><span class="tc-note">No confirmed India-resident hosting</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">No confirmed India-resident hosting</span></td>
       
-        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No dedicated AME data center confirmed</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No dedicated AME data center confirmed</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No dedicated India data center confirmed</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No dedicated India data center confirmed</span></td>
       
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] No dedicated AME data center confirmed for Aprimo</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] No dedicated AME data center confirmed for Encodify</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No dedicated AME data center confirmed for Bynder</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No dedicated India data center confirmed for Aprimo</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No dedicated India data center confirmed for Encodify</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No dedicated India data center confirmed for Bynder</span></td>
       </tr>
 
       <tr>
@@ -1943,8 +1943,8 @@ input.file-hidden{display:none;}
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No dedicated China data center confirmed</span></td>
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No dedicated China data center confirmed</span></td>
       
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] No dedicated China data center confirmed for Aprimo</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] No dedicated China data center confirmed for Encodify</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No dedicated China data center confirmed for Aprimo</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No dedicated China data center confirmed for Encodify</span></td>
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] No dedicated China data center confirmed for Bynder</span></td>
       </tr>
 
@@ -1956,11 +1956,11 @@ input.file-hidden{display:none;}
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">APAC and Singapore data residency on Enterprise</span></td>
       
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] APAC available via AWS Sydney; confirm sub-regions</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] APAC data residency available — Smartsheet documentation, June 2026</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">APAC data residency available — Smartsheet documentation, June 2026</span></td>
       
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] APAC data residency not confirmed for Aprimo</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] APAC data residency not confirmed for Encodify</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] APAC data residency not confirmed for Bynder</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] APAC data residency not confirmed for Aprimo</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] APAC data residency not confirmed for Encodify</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] APAC data residency not confirmed for Bynder</span></td>
       </tr>
 
       <tr>
@@ -1973,26 +1973,26 @@ input.file-hidden{display:none;}
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] Open-ended; requires direct vendor response per market</span></td>
         <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] Open-ended; requires direct vendor response per market</span></td>
       
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] Open-ended; requires direct vendor response per market</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] Open-ended; requires direct vendor response per market</span></td>
-        <td class="tc-tool tc-unverified"><span class="tc-badge partial">~</span><span class="tc-note">[Unverified] Open-ended; requires direct vendor response per market</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] Open-ended; requires direct vendor response per market</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] Open-ended; requires direct vendor response per market</span></td>
+        <td class="tc-tool tc-unverified"><span class="tc-badge gap">&#10007;</span><span class="tc-note">[Unverified] Open-ended; requires direct vendor response per market</span></td>
       </tr>
 
       <tr class="tc-section"><td colspan="10">Cost &amp; Training</td></tr>
 
       <tr>
         <td class="tc-req" title="List pricing per user/month Public vendor pricing pages, June 2026" style="min-width:180px;max-width:220px;padding:8px 10px;font-size:11.5px;color:var(--navy);"><span style="font-size:10px;font-weight:800;color:var(--tan);margin-right:5px;">45.</span>List pricing per user/month Public vendor pricing pages, June 2026</td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Verified] Enterprise pricing on request only; no public per-seat list price — typical for Adobe enterprise</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Enterprise pricing on request only; no public per-seat list price — typical for Adobe enterprise</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Published list roughly $10-$25/user/month; Enterprise tier is custom-quoted</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Published list: Basic $9, Standard $12, Pro $19/user/month. Enterprise is custom</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Published list: Unlimited $7, Business $12/user/month. Enterprise is custom; AI is a metered add-on ($9-$28/user/month)</span></td>
       
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Verified] Free tier + paid plans from ~$20/user/mo; enterprise pricing on request</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Verified] From ~$9/user/mo for Pro; Business/Enterprise pricing on request</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Free tier + paid plans from ~$20/user/mo; enterprise pricing on request</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">From ~$9/user/mo for Pro; Business/Enterprise pricing on request</span></td>
       
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Enterprise pricing on request only; no public per-seat list price</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Pricing on request; newer platform with flexible commercial model</span></td>
-        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Verified] Enterprise pricing on request; modular pricing based on users and storage</span></td>
+        <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">Enterprise pricing on request; modular pricing based on users and storage</span></td>
       </tr>
 
       <tr>
@@ -2002,18 +2002,58 @@ input.file-hidden{display:none;}
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">200+ templates and guided onboarding; consistently rated most intuitive for non-technical users</span></td>
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Free training for all customers, tutorial videos, ClickUp University courses, ClickUp Live Training; new users report 2-4 weeks to reach proficiency given platform depth</span></td>
       
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] Airtable University, in-product guides, certified partner program</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] Smartsheet University, live training, certified partner program</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Airtable University, in-product guides, certified partner program</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Smartsheet University, live training, certified partner program</span></td>
       
         <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Probable] Aprimo University, documentation, and customer success programs available</span></td>
         <td class="tc-tool"><span class="tc-badge partial">~</span><span class="tc-note">[Probable] Documentation and onboarding support; limited formal training program</span></td>
-        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">[Verified] Bynder Academy with certifications, live training, and partner program</span></td>
+        <td class="tc-tool"><span class="tc-badge full">&#10003;</span><span class="tc-note">Bynder Academy with certifications, live training, and partner program</span></td>
       </tr>
     </table>
     </div>
 
     <div class="tc-table-wrap" id="tcSummaryWrap" style="display:none;">
       <table class="tc-table" id="tcSummaryTable"></table>
+    </div>
+
+    <!-- Platform breakdown + ranking (shown with summary) -->
+    <div id="tcPlatformDetail" style="display:none; margin-top:36px;">
+
+      <!-- Ranking -->
+      <div style="margin-bottom:28px;">
+        <h3 style="font-size:16px;color:var(--navy);margin:0 0 14px;font-family:'Poppins',sans-serif;font-weight:700;">Overall Ranking</h3>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:14px;padding:14px 22px;background:var(--navy);border-radius:14px;min-width:220px;flex:1;">
+            <div style="width:42px;height:42px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;color:var(--navy);flex-shrink:0;">#1</div>
+            <div><div style="color:white;font-weight:700;font-size:15px;font-family:'Poppins',sans-serif;">Adobe Workfront</div><div style="color:rgba(255,255,255,0.65);font-size:11.5px;margin-top:2px;">Recommended platform</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;padding:14px 22px;background:#1a3558;border-radius:14px;min-width:220px;flex:1;">
+            <div style="width:42px;height:42px;border-radius:50%;background:#6E97C9;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;color:white;flex-shrink:0;">#2</div>
+            <div><div style="color:white;font-weight:700;font-size:15px;font-family:'Poppins',sans-serif;">ClickUp</div><div style="color:rgba(255,255,255,0.65);font-size:11.5px;margin-top:2px;">Strongest alternative</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;padding:14px 22px;background:#253d5b;border-radius:14px;min-width:220px;flex:1;">
+            <div style="width:42px;height:42px;border-radius:50%;background:#AD9F87;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;color:var(--navy);flex-shrink:0;">#3</div>
+            <div><div style="color:white;font-weight:700;font-size:15px;font-family:'Poppins',sans-serif;">Aprimo</div><div style="color:rgba(255,255,255,0.65);font-size:11.5px;margin-top:2px;">Best marketing ops alternative</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Platform comparison table -->
+      <h3 style="font-size:16px;color:var(--navy);margin:0 0 14px;font-family:'Poppins',sans-serif;font-weight:700;">Platform Breakdown</h3>
+      <div style="overflow-x:auto;border-radius:12px;border:1px solid var(--line);">
+        <table style="width:100%;border-collapse:collapse;font-size:12px;font-family:'Poppins',sans-serif;">
+          <thead>
+            <tr>
+              <th style="background:var(--navy);color:var(--cream);padding:11px 14px;text-align:left;font-size:11px;letter-spacing:.05em;text-transform:uppercase;width:130px;">Platform</th>
+              <th style="background:var(--navy);color:var(--cream);padding:11px 14px;text-align:left;font-size:11px;letter-spacing:.05em;text-transform:uppercase;">Strengths</th>
+              <th style="background:var(--navy);color:var(--cream);padding:11px 14px;text-align:left;font-size:11px;letter-spacing:.05em;text-transform:uppercase;">Weaknesses</th>
+              <th style="background:var(--navy);color:var(--cream);padding:11px 14px;text-align:left;font-size:11px;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;">Est. Enterprise Cost</th>
+              <th style="background:var(--navy);color:var(--cream);padding:11px 14px;text-align:left;font-size:11px;letter-spacing:.05em;text-transform:uppercase;">Best Fit</th>
+            </tr>
+          </thead>
+          <tbody id="tcPlatformTableBody"></tbody>
+        </table>
+      </div>
     </div>
 
     <div class="tc-summary" id="tcSummaryNarrative" style="display:none;"></div>
@@ -2543,19 +2583,57 @@ function showTcCategory(slug){
     document.getElementById("tcLegend").style.display = "none";
     document.getElementById("tcSummaryWrap").style.display = "block";
     document.getElementById("tcSummaryNarrative").style.display = "block";
+    document.getElementById("tcPlatformDetail").style.display = "block";
     buildTcSummary();
+    buildPlatformTable();
     return;
   }
+  document.getElementById("tcPlatformDetail").style.display = "none";
 
   document.getElementById("tcTableWrap").style.display = "block";
   document.getElementById("tcLegend").style.display = "flex";
   document.getElementById("tcSummaryWrap").style.display = "none";
   document.getElementById("tcSummaryNarrative").style.display = "none";
 
+  const visibleRows = [];
   document.querySelectorAll("#tcTableWrap .tc-table tr").forEach(row=>{
-    if(row.dataset.cat === "header") return; // always show header
-    row.style.display = (row.dataset.cat === slug) ? "" : "none";
+    if(row.dataset.cat === "header") return;
+    const show = row.dataset.cat === slug;
+    row.style.display = show ? "" : "none";
+    if(show && row.dataset.cat !== "section" && row.querySelectorAll("td.tc-tool").length > 0){
+      visibleRows.push(row);
+    }
   });
+
+  // Remove any existing score footer
+  const existing = document.getElementById("tc-cat-score-row");
+  if(existing) existing.remove();
+
+  // Build score footer from visible rows
+  if(visibleRows.length === 0) return;
+  const nTools = visibleRows[0].querySelectorAll("td.tc-tool").length;
+  const sums   = Array(nTools).fill(0);
+  const maxes  = Array(nTools).fill(0);
+  visibleRows.forEach(row=>{
+    scoreRow(row).forEach((s,i)=>{
+      if(s !== null){ sums[i]+=s; maxes[i]+=2; }
+    });
+  });
+
+  const scoreRowEl = document.createElement("tr");
+  scoreRowEl.id = "tc-cat-score-row";
+  scoreRowEl.style.cssText = "position:sticky;bottom:0;z-index:4;";
+  scoreRowEl.innerHTML =
+    `<td style="background:var(--navy);color:var(--cream);font-size:10.5px;font-weight:700;letter-spacing:.04em;text-align:center;padding:8px 6px;position:sticky;left:0;z-index:5;">SCORE</td>` +
+    sums.map((s,i)=>{
+      const pct = maxes[i] ? Math.round((s/maxes[i])*100) : null;
+      if(pct === null) return `<td style="background:var(--navy);padding:6px 4px;text-align:center;">—</td>`;
+      const bg  = pct>=70?"rgba(46,125,79,0.22)":pct>=40?"rgba(201,122,30,0.22)":"rgba(178,58,58,0.22)";
+      const col = pct>=70?"#1d5c35":pct>=40?"#7a4a0a":"#7a1a1a";
+      return `<td style="background:${bg};padding:6px 4px;text-align:center;"><span style="display:inline-block;padding:4px 10px;border-radius:6px;background:${bg};color:${col};font-size:12px;font-weight:800;min-width:40px;">${pct}%</span></td>`;
+    }).join("") ;
+
+  document.querySelector("#tcTableWrap .tc-table").appendChild(scoreRowEl);
 }
 
 function scoreRow(row){
@@ -2569,8 +2647,66 @@ function scoreRow(row){
   });
 }
 
+const PLATFORM_DATA = [
+  {name:"Adobe Workfront", rank:1,
+   strengths:"Best governance, resource management, enterprise workflows, approvals, Adobe integration, scalable for global studios",
+   weaknesses:"Higher implementation effort, premium licensing, UI learning curve",
+   cost:"$$$$ ($50–$1,000+/user/mo depending on licensing tier)", fit:"Large enterprise marketing organizations"},
+  {name:"Aprimo", rank:3,
+   strengths:"Exceptional marketing operations, enterprise DAM, governance, content lifecycle, compliance",
+   weaknesses:"Less flexible outside marketing, higher services cost, smaller ecosystem",
+   cost:"$$$ ($60–150+/user/mo)", fit:"Regulated enterprises, marketing operations"},
+  {name:"ClickUp", rank:2,
+   strengths:"Modern UI, highly configurable, fast deployment, collaborative, excellent AI assistant, low cost",
+   weaknesses:"Governance not as mature, and might require additional configuration.",
+   cost:"$$ ($10–30/user/mo, Enterprise custom)", fit:"Growing organizations wanting flexibility"},
+  {name:"Wrike",
+   strengths:"Strong project management, proofing, request forms, resource management, marketing templates",
+   weaknesses:"AI and DAM capabilities behind Adobe/Aprimo, less extensible",
+   cost:"$$$ ($25–45/user/mo)", fit:"Creative agencies and mid-large enterprises"},
+  {name:"monday.com",
+   strengths:"Very easy adoption, automations, dashboards, integrations, affordable",
+   weaknesses:"Governance, enterprise workflow complexity, marketing-specific capabilities require customization",
+   cost:"$$ ($19–35/user/mo, Enterprise custom)", fit:"Cross-functional business teams"},
+  {name:"Smartsheet",
+   strengths:"Excellent operational planning, PMO, reporting, forms, portfolio management",
+   weaknesses:"Creative workflows and marketing operations less mature",
+   cost:"$$$ ($25–50/user/mo)", fit:"PMOs and operations teams"},
+  {name:"Airtable",
+   strengths:"Extremely flexible database, lightweight DAM, AI fields, fast prototyping",
+   weaknesses:"Governance, permissions, enterprise workflow management require significant design",
+   cost:"$$ ($24–70/user/mo)", fit:"Small to medium creative teams"},
+  {name:"Bynder",
+   strengths:"Best-in-class DAM, asset governance, brand portal, metadata, distribution",
+   weaknesses:"Not a work management platform, requires pairing with Workfront/Wrike/etc.",
+   cost:"$$$$ (Typically six-figure enterprise subscriptions)", fit:"Enterprise DAM"},
+  {name:"Encodify (DentsuStudio)",
+   strengths:"Adobe-native planning extension, resource scheduling, financial planning",
+   weaknesses:"Narrower platform, depends heavily on Adobe ecosystem, fewer enterprise workflow capabilities",
+   cost:"$$$ — Included complimentary as part of a Dentsu partnership engagement", fit:"Adobe Workfront customers needing planning extensions"},
+];
+
+function buildPlatformTable(){
+  const tbody = document.getElementById("tcPlatformTableBody");
+  if(!tbody) return;
+  const RANK_BADGE = {1:`<span style="display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--gold);color:var(--navy);font-size:9px;font-weight:900;margin-right:6px;">#1</span>`,
+    2:`<span style="display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:#6E97C9;color:white;font-size:9px;font-weight:900;margin-right:6px;">#2</span>`,
+    3:`<span style="display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:#AD9F87;color:var(--navy);font-size:9px;font-weight:900;margin-right:6px;">#3</span>`};
+  tbody.innerHTML = PLATFORM_DATA.map((p,i)=>{
+    const bg  = i%2===0 ? "#ffffff" : "#fafaf7";
+    const td  = (val,extra="")=> `<td style="padding:11px 14px;vertical-align:top;border-top:1px solid var(--line);line-height:1.5;color:#3d4654;${extra}">${val}</td>`;
+    return `<tr style="background:${bg};">
+      ${td(`<span style="font-weight:700;color:var(--navy);">${p.name}</span>`,"width:140px;")}
+      ${td(p.strengths)}
+      ${td(p.weaknesses)}
+      ${td(`<span style="font-weight:700;color:var(--navy);">${p.cost}</span>`,"width:120px;")}
+      ${td(p.fit)}
+    </tr>`;
+  }).join("");
+}
+
 function buildTcSummary(){
-  const tools = ["Adobe Workfront", "Wrike", "monday.com", "ClickUp", "Airtable", "Smartsheet", "Aprimo", "Encodify", "Bynder"];
+  const tools = ["Adobe Workfront", "Wrike", "monday.com", "ClickUp", "Airtable", "Smartsheet", "Aprimo", "Encodify (DentsuStudio)", "Bynder"];
   const totals = [0,0,0,0,0,0,0,0,0];
   const totalsMax = [0,0,0,0,0,0,0,0,0];
 
